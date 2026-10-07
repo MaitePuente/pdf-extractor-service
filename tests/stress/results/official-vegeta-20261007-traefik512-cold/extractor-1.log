@@ -1,0 +1,462 @@
+INFO extractor.cache CACHE MISS
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:49616 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:49634 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:49616 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:49616 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:49634 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:49738 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:49752 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49634 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49714 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49740 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49800 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49772 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49848 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49812 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49884 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49834 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49914 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49818 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49740 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49852 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49752 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49800 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49862 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49772 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49980 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49994 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50004 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50032 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50058 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50100 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50118 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50124 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50144 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49812 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49930 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49884 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50164 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50190 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50218 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49952 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49966 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50024 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50086 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50142 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:50162 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49652 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=set reason=TimeoutError
+PROFILE {"algorithm_ms": 573.34227499814, "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-1", "cache": "ERROR", "cache_get_ms": 108.41507199802436, "cache_set_ms": 1441.505088001577, "checksum_ms": 8.051598000747617, "convert_ms": 212.42964200064307, "extraction_ms": 573.34227499814, "get_text_ms": 204.89772198925493, "markdown_build_ms": 0.29597200045827776, "open_ms": 359.5018669984711, "read_body_ms": 97.47634200175526, "receive_body_ms": 97.47634200175526, "redis_get_ms": 106.80570700060343, "response_build_ms": 10.892283000430325, "response_object_ms": 0.687748000927968, "route_ms": 50391.23233399732, "serialization_ms": 10.892283000430325, "sha256_ms": 8.051598000747617, "status": 200, "total_server_ms": 50391.23233399732, "worker_ms": 48717.461282998556}
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49664 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:49690 - "POST /extract HTTP/1.1" 503 Service Unavailable
+PROFILE {"algorithm_ms": 1120.6183210015297, "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-2", "cache": "ERROR", "cache_get_ms": 1001.561880002555, "checksum_ms": 5.564561000937829, "convert_ms": 1002.3914590019558, "extraction_ms": 1120.6183210015297, "get_text_ms": 746.5240850142436, "markdown_build_ms": 4.155931972491089, "open_ms": 112.03008200027398, "read_body_ms": 49008.31114600078, "receive_body_ms": 49008.31114600078, "redis_get_ms": 1001.4371659999597, "response_build_ms": 6.4440409987582825, "response_object_ms": 2.326072000869317, "route_ms": 55603.38109700024, "serialization_ms": 6.4440409987582825, "sha256_ms": 5.564561000937829, "status": 200, "total_server_ms": 55603.38109700024, "worker_ms": 5580.7993990019895}
+INFO:     172.19.0.5:49674 - "POST /extract HTTP/1.1" 200 OK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect

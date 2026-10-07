@@ -1,0 +1,19 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/spike.js
+        output: json (/results/metrics.jsonl)
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 40s max duration (incl. graceful stop):
+              * official_spike: Up to 100 looping VUs for 40s over 3 stages (gracefulRampDown: 0s)
+
+
+Run              [ 100% ] setup()
+official_spike   [   0% ]
+{"hint":"script exception","level":"error","msg":"TypeError: Cannot read property 'stages' of undefined\n\tat setup (file:///scripts/spike.js:55:46(13))\n","source":"stacktrace","time":"2026-10-07T15:59:12Z"}

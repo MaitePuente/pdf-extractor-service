@@ -1,0 +1,6 @@
+{
+  "query_returned_events": 0,
+  "query_after_client_removal": true,
+  "not_a_proof_of_no_oom": true,
+  "primary_evidence": "client-inspect.json: State.OOMKilled=true, ExitCode=137"
+}

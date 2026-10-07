@@ -1,0 +1,12 @@
+{
+  "vegeta": "Version: v12.13.0\nCommit: 507c4f028fbad80168f3b734dab9530d3aabfefa\nRuntime: go1.22.12 windows/amd64\nDate: 2025-10-31T11:31:51Z+0000",
+  "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+  "pymupdf": "1.28.2",
+  "host": "Windows-11-10.0.26300-SP0",
+  "host_cpu_threads": 12,
+  "docker": "29.7.2",
+  "compose": "Docker Compose version v5.5.1",
+  "docker_resources": "CPUs=12 Memory=3767750656",
+  "normal_db_initial_keys": 0,
+  "benchmark_db": 14
+}

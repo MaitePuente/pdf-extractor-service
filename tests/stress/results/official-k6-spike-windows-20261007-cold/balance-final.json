@@ -1,0 +1,15 @@
+{
+  "records": 279,
+  "unique_ids": 279,
+  "distribution": {
+    "pdf-extractor-extractor-1": 140,
+    "pdf-extractor-extractor-2": 139
+  },
+  "status_codes": {
+    "503": 39,
+    "200": 144,
+    "502": 32,
+    "499": 64
+  },
+  "note": "Includes late completions/cancellations after client end and DB0 restoration; not client responses."
+}

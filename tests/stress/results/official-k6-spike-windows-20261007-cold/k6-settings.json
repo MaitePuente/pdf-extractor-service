@@ -1,0 +1,28 @@
+{
+  "command": [
+    "C:\\Program Files\\k6\\k6.exe",
+    "run",
+    "--no-color",
+    "--log-format",
+    "json",
+    "--out",
+    "json=D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\tests\\stress\\results\\official-k6-spike-windows-20261007-cold\\metrics.jsonl",
+    "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\tests\\performance\\spike.js"
+  ],
+  "environment": {
+    "PDF_PATHS": "D:\\INGENIERIA\\3er\\desarrollo de software\\2020-Scrum-Guide-Spanish-Latin-South-American.pdf|D:\\INGENIERIA\\3er\\desarrollo de software\\scrum_manager_historias_usuario.pdf|D:\\INGENIERIA\\3er\\desarrollo de software\\Essential-Kanban-Condensed-Spanish.pdf|D:\\INGENIERIA\\3er\\desarrollo de software\\Filosofia Lean.pdf",
+    "PDF_PAGES": "16,62,90,42",
+    "PDF_CHARACTERS": "35783,90183,125909,59181",
+    "EXPECTED_CONTENT_SHA256S": "74bab3f4235b5b87f72e3cf09e4bc849026049d855002b2b2dde5a29c6d8b4c1,873a7f73e3877ebd0367b9a23fffc95823d0bffd98f3e219e6f0f9ed2e252e35,1a9b530049012b86d0777fdfd886b4acc4a1381360ee7553808da728d2d577f5,ea727a442fdaccc8d8f00b7a34ba5bed6b1f0017e91a41e22eb4657e55d81c6a",
+    "EXTRACT_URL": "http://127.0.0.1:53701/extract",
+    "TRAEFIK_IP": "",
+    "TRAEFIK_HOST": "localhost",
+    "RUN_ID": "official-k6-spike-windows-20261007-cold",
+    "RESULT_FILE": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\tests\\stress\\results\\official-k6-spike-windows-20261007-cold\\summary.json",
+    "REQUEST_TIMEOUT": "180s"
+  },
+  "image": null,
+  "generator": "native Windows",
+  "generator_limits": null,
+  "script_sha256": "c694f0e39b93668ff2cb3196d3a3036d030a0fe57f0752b07b65b789a1357d83"
+}

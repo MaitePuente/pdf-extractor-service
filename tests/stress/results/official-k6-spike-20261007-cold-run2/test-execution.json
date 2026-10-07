@@ -1,0 +1,38 @@
+[
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "pytest",
+      "-v"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 37.86708629999339,
+    "environment_overrides": {
+      "UV_NO_SYNC": "true",
+      "UV_OFFLINE": "true",
+      "EXTRACTOR_BASE_URL": "http://localhost:53701"
+    }
+  },
+  {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "pytest",
+      "--run-integration",
+      "-m",
+      "integration",
+      "-v",
+      "-s"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 18.023552399994514,
+    "environment_overrides": {
+      "UV_NO_SYNC": "true",
+      "UV_OFFLINE": "true",
+      "EXTRACTOR_BASE_URL": "http://localhost:53701"
+    }
+  }
+]

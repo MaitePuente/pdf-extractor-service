@@ -1,0 +1,64 @@
+{
+  "historical_document_bytes_unchanged": {
+    "README.md": true,
+    "docs/performance.md": true
+  },
+  "external_pdfs_unchanged": {
+    "2020-Scrum-Guide-Spanish-Latin-South-American.pdf": true,
+    "scrum_manager_historias_usuario.pdf": true,
+    "Essential-Kanban-Condensed-Spanish.pdf": true,
+    "Filosofia Lean.pdf": true
+  },
+  "normal_db_after_integration": "0",
+  "records_reconcile_with_native_report": true,
+  "raw_gzip_sha_verified": true,
+  "tracked_changed": [
+    "README.md",
+    "docs/performance.md"
+  ],
+  "staged_changes": [],
+  "branch": "main",
+  "head": "4569ea6983dc771e729f513bce9b84b2b6216340",
+  "created_scripts": [
+    "tests\\performance\\vegeta\\report.py",
+    "tests\\performance\\vegeta\\run.py",
+    "tests\\performance\\vegeta\\test_report.py"
+  ],
+  "evidence_files": [
+    "attack.log",
+    "benchmark-containers.json",
+    "cache-after.json",
+    "encode.log",
+    "environment.json",
+    "error-groups.json",
+    "execution.json",
+    "hardware.json",
+    "health-after-access.jsonl",
+    "health-before.json",
+    "initial-containers.json",
+    "isolated-up.log",
+    "oom-traefik.json",
+    "pdfs.json",
+    "pytest.log",
+    "raw-artifact.json",
+    "records.jsonl",
+    "redis-integration.log",
+    "report.json",
+    "report.txt",
+    "restoration.json",
+    "restore-up.log",
+    "restored-containers.json",
+    "results.bin.gz",
+    "summary.json",
+    "targets.http",
+    "traefik-access.jsonl",
+    "final-verification.json"
+  ],
+  "powershell_blocks": 43,
+  "powershell_syntax_errors": 0,
+  "tooling_final_ast_valid": true,
+  "complete_profile_finished": false,
+  "stopped_for": "Traefik OOMKilled=true, exit 137",
+  "unit_tests": "40 passed, 1 skipped in 37.71s",
+  "redis_integration": "1 passed, 40 deselected in 19.28s"
+}

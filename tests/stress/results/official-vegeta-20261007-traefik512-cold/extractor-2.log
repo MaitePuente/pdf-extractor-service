@@ -1,0 +1,219 @@
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47606 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47576 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47606 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47604 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47576 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47676 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47714 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47670 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47644 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47658 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47698 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47606 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47730 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47850 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47894 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47576 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47670 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47964 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:48004 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:48038 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:48128 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:48172 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47822 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47834 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47800 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47866 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47588 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47658 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47850 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47908 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:48036 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47938 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:48062 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:48078 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:48080 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:48096 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:48130 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47564 - "POST /extract HTTP/1.1" 503 Service Unavailable
+PROFILE {"algorithm_ms": 1002.5738660006027, "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-4", "cache": "ERROR", "cache_get_ms": 231.3069039992115, "checksum_ms": 6.780505002097925, "convert_ms": 729.9776119980379, "extraction_ms": 1002.5738660006027, "get_text_ms": 639.8431779998646, "markdown_build_ms": 2.2884419850015547, "open_ms": 178.3007070007443, "read_body_ms": 515.9307190006075, "receive_body_ms": 515.9307190006075, "redis_get_ms": 230.45711099985056, "response_build_ms": 10.713855001085903, "response_object_ms": 1.48348599759629, "route_ms": 54134.81684200087, "serialization_ms": 10.713855001085903, "sha256_ms": 6.780505002097925, "status": 200, "total_server_ms": 54134.81684200087, "worker_ms": 53369.127085999935}
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+PROFILE {"algorithm_ms": 712.8003959987836, "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-2", "cache": "ERROR", "cache_get_ms": 578.4093779984687, "checksum_ms": 4.621654999937164, "convert_ms": 581.5369149968319, "extraction_ms": 712.8003959987836, "get_text_ms": 376.929182002641, "markdown_build_ms": 4.653494008380221, "open_ms": 125.33772900133044, "read_body_ms": 54003.84810099786, "receive_body_ms": 54003.84810099786, "redis_get_ms": 577.9038469991065, "response_build_ms": 7.414549996610731, "response_object_ms": 0.9076249989448115, "route_ms": 57337.965056998655, "serialization_ms": 7.414549996610731, "sha256_ms": 4.621654999937164, "status": 200, "total_server_ms": 57337.965056998655, "worker_ms": 2742.811979001999}
+INFO:     172.19.0.5:47618 - "POST /extract HTTP/1.1" 200 OK
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+PROFILE {"algorithm_ms": 289.16618100265623, "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-1", "cache": "ERROR", "cache_get_ms": 950.2289699994435, "checksum_ms": 2.9047850002825726, "convert_ms": 266.78220400208374, "extraction_ms": 289.16618100265623, "get_text_ms": 246.07836700670305, "markdown_build_ms": 1.742533000651747, "open_ms": 19.203641000785865, "read_body_ms": 34629.97574600013, "receive_body_ms": 34629.97574600013, "redis_get_ms": 950.0011820018699, "response_build_ms": 3.4074219984177034, "response_object_ms": 0.9445889991184231, "route_ms": 36550.38462899756, "serialization_ms": 3.4074219984177034, "sha256_ms": 2.9047850002825726, "status": 200, "total_server_ms": 36550.38462899756, "worker_ms": 962.6795490003133}
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47690 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:47744 - "POST /extract HTTP/1.1" 503 Service Unavailable
+PROFILE {"algorithm_ms": 399.24735100066755, "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-2", "cache": "ERROR", "cache_get_ms": 676.0407849978947, "checksum_ms": 2.9226639999251347, "convert_ms": 328.064016001008, "extraction_ms": 399.24735100066755, "get_text_ms": 304.6236250047514, "markdown_build_ms": 2.1604629982903134, "open_ms": 61.9193800011999, "read_body_ms": 57122.73222300064, "receive_body_ms": 57122.73222300064, "redis_get_ms": 675.9941279997292, "response_build_ms": 9.544782999000745, "response_object_ms": 1.9203259980713483, "route_ms": 60604.85852000056, "serialization_ms": 9.544782999000745, "sha256_ms": 2.9226639999251347, "status": 200, "total_server_ms": 60604.85852000056, "worker_ms": 2792.9023879987653}
+INFO:     172.19.0.5:47672 - "POST /extract HTTP/1.1" 200 OK
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+INFO:     172.19.0.5:53290 - "POST /extract HTTP/1.1" 503 Service Unavailable
+WARNING extractor.cache CACHE ERROR operation=get reason=TimeoutError
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect

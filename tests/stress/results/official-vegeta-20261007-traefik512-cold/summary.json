@@ -1,0 +1,83 @@
+{
+  "metrics": {
+    "requests": 1500,
+    "offered_rate": 50.04801840443141,
+    "throughput": 0,
+    "success_percent": 0,
+    "error_percent": 100,
+    "latency_ms": {
+      "total": 39240318.5899,
+      "mean": 26160.212393,
+      "50th": 30005.396942,
+      "90th": 30013.531073,
+      "95th": 30015.049096,
+      "99th": 30017.559425,
+      "max": 30060.4434,
+      "min": 0.5264
+    },
+    "attack_seconds": 29.9712166,
+    "wait_seconds": 29.8341105,
+    "total_seconds": 59.8053271,
+    "bytes_in": {
+      "total": 3149,
+      "mean": 2.0993333333333335
+    },
+    "bytes_out": {
+      "total": 33278713,
+      "mean": 22185.808666666668
+    },
+    "bytes_in_per_second": 52.654172340443566,
+    "bytes_out_per_second": 556450.6476882057
+  },
+  "audit": {
+    "generated": 1500,
+    "terminal_results": 1500,
+    "requests_started_at_least": 1500,
+    "unrecorded_sequences": [],
+    "http_completed": 67,
+    "successful_200": 0,
+    "failed": 1500,
+    "timeouts": 1282,
+    "status_codes": {
+      "503": 67,
+      "0": 1433
+    },
+    "cache_headers": {
+      "ABSENT": 1500
+    },
+    "errors": {
+      "503 Service Unavailable": 67,
+      "Post \"http://127.0.0.1:53701/extract\": dial tcp 0.0.0.0:0->127.0.0.1:53701: connectex: No connection could be made because the target machine actively refused it.": 151,
+      "Post \"http://127.0.0.1:53701/extract\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)": 1282
+    },
+    "requests_by_pdf": {
+      "2020-Scrum-Guide-Spanish-Latin-South-American.pdf": 42,
+      "Filosofia Lean.pdf": 24,
+      "UNKNOWN": 1433,
+      "scrum_manager_historias_usuario.pdf": 1
+    },
+    "content_validated": 0,
+    "content_validation_errors": []
+  },
+  "cache_start": "COLD: empty isolated DB, no PDF preload; workers newly started",
+  "cache_db": 14,
+  "balance": {
+    "pdf-extractor-extractor-1": 56,
+    "pdf-extractor-extractor-2": 51
+  },
+  "traefik_access_records": 107,
+  "traefik_requests_by_pdf": {
+    "official-vegeta-20261007-traefik512-cold-pdf-1": 45,
+    "official-vegeta-20261007-traefik512-cold-pdf-4": 43,
+    "official-vegeta-20261007-traefik512-cold-pdf-2": 18,
+    "official-vegeta-20261007-traefik512-cold-pdf-3": 1
+  },
+  "final_health": {
+    "/pdf-extractor-extractor-1": "unhealthy",
+    "/pdf-extractor-extractor-2": "unhealthy",
+    "/pdf-extractor-redis-1": "healthy",
+    "/pdf-extractor-traefik-1": "unhealthy"
+  },
+  "aborted": null,
+  "exit_code": 0
+}

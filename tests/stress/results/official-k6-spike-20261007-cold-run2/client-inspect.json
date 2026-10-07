@@ -1,0 +1,297 @@
+{
+  "Id": "7316ae6447e51766bf86f2fc0ceefdf3ffcfdb384985a2f82cabd91323b936b2",
+  "Created": "2026-10-07T16:01:17.46090928Z",
+  "Path": "k6",
+  "Args": [
+    "run",
+    "--no-color",
+    "--log-format",
+    "json",
+    "--out",
+    "json=/results/metrics.jsonl",
+    "/scripts/spike.js"
+  ],
+  "State": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": true,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 137,
+    "Error": "",
+    "StartedAt": "2026-10-07T16:01:18.864595403Z",
+    "FinishedAt": "2026-10-07T16:01:24.260988235Z"
+  },
+  "Image": "sha256:00cfdae7945825029ce3270b3479992e411f309c2dc968820543d2183d0bbe5e",
+  "ResolvConfPath": "/var/lib/docker/containers/7316ae6447e51766bf86f2fc0ceefdf3ffcfdb384985a2f82cabd91323b936b2/resolv.conf",
+  "HostnamePath": "/var/lib/docker/containers/7316ae6447e51766bf86f2fc0ceefdf3ffcfdb384985a2f82cabd91323b936b2/hostname",
+  "HostsPath": "/var/lib/docker/containers/7316ae6447e51766bf86f2fc0ceefdf3ffcfdb384985a2f82cabd91323b936b2/hosts",
+  "LogPath": "/var/lib/docker/containers/7316ae6447e51766bf86f2fc0ceefdf3ffcfdb384985a2f82cabd91323b936b2/7316ae6447e51766bf86f2fc0ceefdf3ffcfdb384985a2f82cabd91323b936b2-json.log",
+  "Name": "/pdf-extractor-k6-official-k6-spike-20261007-cold-run2",
+  "RestartCount": 0,
+  "Driver": "overlay2",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": null,
+    "ContainerIDFile": "",
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {}
+    },
+    "NetworkMode": "pdf-network",
+    "PortBindings": {},
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": false,
+    "VolumeDriver": "",
+    "VolumesFrom": null,
+    "ConsoleSize": [
+      0,
+      0
+    ],
+    "CapAdd": null,
+    "CapDrop": null,
+    "CgroupnsMode": "private",
+    "Dns": null,
+    "DnsOptions": [],
+    "DnsSearch": [],
+    "ExtraHosts": null,
+    "GroupAdd": null,
+    "IpcMode": "private",
+    "Cgroup": "",
+    "Links": null,
+    "OomScoreAdj": 0,
+    "PidMode": "",
+    "Privileged": false,
+    "PublishAllPorts": false,
+    "ReadonlyRootfs": false,
+    "SecurityOpt": null,
+    "UTSMode": "",
+    "UsernsMode": "",
+    "ShmSize": 67108864,
+    "Runtime": "runc",
+    "Isolation": "",
+    "CpuShares": 0,
+    "Memory": 536870912,
+    "NanoCpus": 1000000000,
+    "CgroupParent": "",
+    "BlkioWeight": 0,
+    "BlkioWeightDevice": [],
+    "BlkioDeviceReadBps": [],
+    "BlkioDeviceWriteBps": [],
+    "BlkioDeviceReadIOps": [],
+    "BlkioDeviceWriteIOps": [],
+    "CpuPeriod": 0,
+    "CpuQuota": 0,
+    "CpuRealtimePeriod": 0,
+    "CpuRealtimeRuntime": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "Devices": [],
+    "DeviceCgroupRules": null,
+    "DeviceRequests": null,
+    "MemoryReservation": 0,
+    "MemorySwap": 1073741824,
+    "MemorySwappiness": null,
+    "OomKillDisable": null,
+    "PidsLimit": null,
+    "Ulimits": [],
+    "CpuCount": 0,
+    "CpuPercent": 0,
+    "IOMaximumIOps": 0,
+    "IOMaximumBandwidth": 0,
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\tests\\performance",
+        "Target": "/scripts",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\tests\\stress\\results\\official-k6-spike-20261007-cold-run2",
+        "Target": "/results"
+      },
+      {
+        "Type": "bind",
+        "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\2020-Scrum-Guide-Spanish-Latin-South-American.pdf",
+        "Target": "/pdfs/1.pdf",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\scrum_manager_historias_usuario.pdf",
+        "Target": "/pdfs/2.pdf",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\Essential-Kanban-Condensed-Spanish.pdf",
+        "Target": "/pdfs/3.pdf",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\Filosofia Lean.pdf",
+        "Target": "/pdfs/4.pdf",
+        "ReadOnly": true
+      }
+    ],
+    "MaskedPaths": [
+      "/proc/acpi",
+      "/proc/asound",
+      "/proc/interrupts",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/sys/devices/virtual/powercap",
+      "/sys/firmware"
+    ],
+    "ReadonlyPaths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ]
+  },
+  "GraphDriver": {
+    "Data": {
+      "ID": "7316ae6447e51766bf86f2fc0ceefdf3ffcfdb384985a2f82cabd91323b936b2",
+      "LowerDir": "/var/lib/docker/overlay2/eea458aede1d92a0a9c8075d0963b2d2ba195288431469d5c7c2c824ade26fb9-init/diff:/var/lib/docker/overlay2/0fe7d6c154711e16996646d087659f5c226e8c30789066b43c1a0ffdbc5a9398/diff:/var/lib/docker/overlay2/1a3b2330eae24c1125ff2d0bc5c9b1749dc6bffd927e25360ff5d6cd47f71194/diff:/var/lib/docker/overlay2/8872db54bad064e7a12e736c33037f1c4f994ac744a614f7dcfa4672e9bbb9c3/diff:/var/lib/docker/overlay2/16d09e02ddf4ac12f60e1abd6ff25179c8af4f863af5e257ea7915dc33fe91b4/diff",
+      "MergedDir": "/var/lib/docker/overlay2/eea458aede1d92a0a9c8075d0963b2d2ba195288431469d5c7c2c824ade26fb9/merged",
+      "UpperDir": "/var/lib/docker/overlay2/eea458aede1d92a0a9c8075d0963b2d2ba195288431469d5c7c2c824ade26fb9/diff",
+      "WorkDir": "/var/lib/docker/overlay2/eea458aede1d92a0a9c8075d0963b2d2ba195288431469d5c7c2c824ade26fb9/work"
+    },
+    "Name": "overlay2"
+  },
+  "Mounts": [
+    {
+      "Type": "bind",
+      "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\scrum_manager_historias_usuario.pdf",
+      "Destination": "/pdfs/2.pdf",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\Essential-Kanban-Condensed-Spanish.pdf",
+      "Destination": "/pdfs/3.pdf",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\Filosofia Lean.pdf",
+      "Destination": "/pdfs/4.pdf",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\tests\\performance",
+      "Destination": "/scripts",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\tests\\stress\\results\\official-k6-spike-20261007-cold-run2",
+      "Destination": "/results",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "D:\\INGENIERIA\\3er\\desarrollo de software\\2020-Scrum-Guide-Spanish-Latin-South-American.pdf",
+      "Destination": "/pdfs/1.pdf",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "Config": {
+    "Hostname": "7316ae6447e5",
+    "Domainname": "",
+    "User": "12345",
+    "AttachStdin": false,
+    "AttachStdout": true,
+    "AttachStderr": true,
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "TRAEFIK_HOST=localhost",
+      "RESULT_FILE=/results/summary.json",
+      "EXPECTED_CONTENT_SHA256S=74bab3f4235b5b87f72e3cf09e4bc849026049d855002b2b2dde5a29c6d8b4c1,873a7f73e3877ebd0367b9a23fffc95823d0bffd98f3e219e6f0f9ed2e252e35,1a9b530049012b86d0777fdfd886b4acc4a1381360ee7553808da728d2d577f5,ea727a442fdaccc8d8f00b7a34ba5bed6b1f0017e91a41e22eb4657e55d81c6a",
+      "EXTRACT_URL=http://localhost/extract",
+      "RUN_ID=official-k6-spike-20261007-cold-run2",
+      "REQUEST_TIMEOUT=180s",
+      "PDF_PATHS=/pdfs/1.pdf|/pdfs/2.pdf|/pdfs/3.pdf|/pdfs/4.pdf",
+      "PDF_PAGES=16,62,90,42",
+      "PDF_CHARACTERS=35783,90183,125909,59181",
+      "TRAEFIK_IP=172.19.0.5",
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    ],
+    "Cmd": [
+      "run",
+      "--no-color",
+      "--log-format",
+      "json",
+      "--out",
+      "json=/results/metrics.jsonl",
+      "/scripts/spike.js"
+    ],
+    "Image": "grafana/k6:2.2.0",
+    "Volumes": null,
+    "WorkingDir": "/home/k6",
+    "Entrypoint": [
+      "k6"
+    ],
+    "Labels": {}
+  },
+  "NetworkSettings": {
+    "SandboxID": "",
+    "SandboxKey": "",
+    "Ports": {},
+    "Networks": {
+      "pdf-network": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "DriverOpts": null,
+        "GwPriority": 0,
+        "NetworkID": "4d633c1d24f114c789accf9fe97d07f16c1044ab7024ca689fd40c20848a87ad",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "MacAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "DNSNames": [
+          "pdf-extractor-k6-official-k6-spike-20261007-cold-run2",
+          "7316ae6447e5"
+        ]
+      }
+    }
+  }
+}

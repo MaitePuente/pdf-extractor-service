@@ -1,0 +1,13 @@
+{
+  "no_http_load_executed": true,
+  "k6_exit_code": 107,
+  "error": "setup logging referenced k6-normalized options.scenarios; fixed logging only",
+  "metrics": [
+    "checks",
+    "extract_errors",
+    "http_req_duration",
+    "http_req_failed",
+    "data_sent",
+    "data_received"
+  ]
+}

@@ -1,0 +1,11 @@
+Requests      [total, rate, throughput]         1500, 50.05, 0.00
+Duration      [total, attack, wait]             59.805s, 29.971s, 29.834s
+Latencies     [min, mean, 50, 90, 95, 99, max]  526.4µs, 26.16s, 30.005s, 30.014s, 30.015s, 30.018s, 30.06s
+Bytes In      [total, mean]                     3149, 2.10
+Bytes Out     [total, mean]                     33278713, 22185.81
+Success       [ratio]                           0.00%
+Status Codes  [code:count]                      0:1433  503:67  
+Error Set:
+503 Service Unavailable
+Post "http://127.0.0.1:53701/extract": dial tcp 0.0.0.0:0->127.0.0.1:53701: connectex: No connection could be made because the target machine actively refused it.
+Post "http://127.0.0.1:53701/extract": context deadline exceeded (Client.Timeout exceeded while awaiting headers)

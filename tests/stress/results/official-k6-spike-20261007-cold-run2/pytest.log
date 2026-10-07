@@ -1,0 +1,52 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.2, pytest-9.1.1, pluggy-1.6.0 -- D:\INGENIERIA\3er\desarrollo de software\Proyecto\pdf-extractor-service\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\INGENIERIA\3er\desarrollo de software\Proyecto\pdf-extractor-service
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collecting ... collected 41 items
+
+tests/integration/test_redis_compose.py::test_real_redis_miss_hit_and_ttl SKIPPED [  2%]
+tests/performance/vegeta/test_report.py::test_http_errors_timeouts_and_cache_are_counted_separately PASSED [  4%]
+tests/performance/vegeta/test_report.py::test_nanoseconds_and_success_rate_are_not_confused_with_throughput PASSED [  7%]
+tests/test_api.py::test_health PASSED                                    [  9%]
+tests/test_api.py::test_extract_returns_markdown_and_page_count PASSED   [ 12%]
+tests/test_api.py::test_empty_body_is_rejected PASSED                    [ 14%]
+tests/test_api.py::test_non_pdf_body_is_rejected PASSED                  [ 17%]
+tests/test_api.py::test_wrong_or_missing_content_type_is_rejected[text/plain] PASSED [ 19%]
+tests/test_api.py::test_wrong_or_missing_content_type_is_rejected[application/json] PASSED [ 21%]
+tests/test_api.py::test_wrong_or_missing_content_type_is_rejected[multipart/form-data] PASSED [ 24%]
+tests/test_api.py::test_wrong_or_missing_content_type_is_rejected[None] PASSED [ 26%]
+tests/test_api.py::test_pdf_signature_alone_is_not_a_valid_pdf PASSED    [ 29%]
+tests/test_api.py::test_password_protected_pdf_is_rejected PASSED        [ 31%]
+tests/test_api.py::test_image_only_pdf_does_not_run_ocr PASSED           [ 34%]
+tests/test_api.py::test_pdf_media_type_is_case_insensitive_and_accepts_parameters PASSED [ 36%]
+tests/test_cache.py::test_same_pdf_is_miss_then_hit_without_reconverting PASSED [ 39%]
+tests/test_cache.py::test_previous_markdown_output_is_not_reused_by_new_engine[v1] PASSED [ 41%]
+tests/test_cache.py::test_previous_markdown_output_is_not_reused_by_new_engine[v2] PASSED [ 43%]
+tests/test_cache.py::test_previous_markdown_output_is_not_reused_by_new_engine[v3] PASSED [ 46%]
+tests/test_cache.py::test_redis_connection_is_warmed_once_at_startup PASSED [ 48%]
+tests/test_cache.py::test_failed_startup_ping_keeps_service_available[connection] PASSED [ 51%]
+tests/test_cache.py::test_failed_startup_ping_keeps_service_available[timeout] PASSED [ 53%]
+tests/test_cache.py::test_disabled_cache_never_constructs_redis PASSED   [ 56%]
+tests/test_cache.py::test_redis_failure_is_fail_open[get] PASSED         [ 58%]
+tests/test_cache.py::test_redis_failure_is_fail_open[set] PASSED         [ 60%]
+tests/test_cache.py::test_slow_cache_has_a_deadline[get] PASSED          [ 63%]
+tests/test_cache.py::test_slow_cache_has_a_deadline[set] PASSED          [ 65%]
+tests/test_cache.py::test_invalid_cached_value_is_ignored[not json] PASSED [ 68%]
+tests/test_cache.py::test_invalid_cached_value_is_ignored[{}] PASSED     [ 70%]
+tests/test_cache.py::test_invalid_cached_value_is_ignored[{"content":42,"page_count":2}] PASSED [ 73%]
+tests/test_cache.py::test_invalid_redis_url_does_not_prevent_startup PASSED [ 75%]
+tests/test_cache.py::test_different_pdfs_have_sha256_keys_and_configured_ttl PASSED [ 78%]
+tests/test_cache.py::test_invalid_requests_are_not_cached[-application/pdf-400] PASSED [ 80%]
+tests/test_cache.py::test_invalid_requests_are_not_cached[not PDF-application/pdf-400] PASSED [ 82%]
+tests/test_cache.py::test_invalid_requests_are_not_cached[%PDF-1.7\ninvalid-application/pdf-400] PASSED [ 85%]
+tests/test_cache.py::test_invalid_requests_are_not_cached[%PDF-text/plain-415] PASSED [ 87%]
+tests/test_cache.py::test_redis_close_failure_does_not_break_shutdown PASSED [ 90%]
+tests/test_markdown_content.py::test_every_page_keeps_its_raw_text_under_a_markdown_page_heading PASSED [ 92%]
+tests/test_responsiveness.py::test_health_remains_available_while_pdf_is_converting PASSED [ 95%]
+tests/test_responsiveness.py::test_concurrent_conversion_is_rejected_instead_of_queued PASSED [ 97%]
+tests/test_responsiveness.py::test_cancellation_does_not_free_capacity_before_cpu_work_finishes PASSED [100%]
+
+======================= 40 passed, 1 skipped in 35.71s ========================

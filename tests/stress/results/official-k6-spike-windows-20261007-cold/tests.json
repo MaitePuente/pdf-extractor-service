@@ -1,0 +1,38 @@
+{
+  "environment": {
+    "UV_NO_SYNC": "true",
+    "UV_OFFLINE": "true",
+    "PYTHONIOENCODING": "utf-8",
+    "EXTRACTOR_BASE_URL": "http://localhost:53701"
+  },
+  "results": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 30.92657949999557,
+      "log": "pytest.log"
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--locked",
+        "pytest",
+        "--run-integration",
+        "-m",
+        "integration",
+        "-v",
+        "-s"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 12.992918000003556,
+      "log": "redis-integration.log"
+    }
+  ]
+}

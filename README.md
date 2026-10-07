@@ -151,9 +151,15 @@ Ejecutar desde la raíz del repositorio:
 uv run --locked pytest -v
 ```
 
-Por defecto se ejecutan los 38 tests unitarios y se omite la integración real.
-No necesitan Docker ni Redis. La integración se habilita explícitamente con
-`--run-integration`; ver los comandos de Compose más abajo.
+Estado final verificado en la última ejecución: **suite completa: 40 passed,
+1 skipped**. Los 40 corresponden a **38 tests funcionales/de aplicación** y
+**2 tests de herramientas/reportes** agregados posteriormente. No necesitan
+Docker ni Redis; el skip corresponde a la integración real, habilitada
+explícitamente con `--run-integration`.
+
+La **integración Redis real se ejecutó aparte: 1 passed**, mediante Traefik,
+comprobando MISS→HIT, contenido y TTL. Estos resultados son los ya registrados;
+los comandos de Compose y de integración se documentan más abajo.
 
 La configuración de pytest corta la búsqueda de `conftest.py` en `tests/` para
 evitar importar los fixtures de MongoDB cuando el servicio estaba en el
@@ -190,26 +196,56 @@ existente instala el lockfile actualizado y no necesita cambios. Dentro del
 contenedor, `localhost` apunta al propio contenedor: pasar `-e REDIS_URL=...`
 con la dirección accesible del Redis elegido, o `-e CACHE_ENABLED=false`.
 
-## Extractor + Redis real con Docker Compose
+## Docker Compose: configuración de entrega y alternativa local
 
 Todos los comandos siguientes se ejecutan desde la raíz de `pdf-extractor-service/`.
 El proyecto Compose se llama `pdf-extractor`, independiente del monolito.
 
-### Red externa y arranque
+### Arranque de la configuración de entrega
+
+`pdf-network` es **externa intencionalmente**: debe ser compartida por los
+microservicios independientes del equipo. `compose.yaml` declara
+`external: true`; Compose no crea ni elimina esa red.
+
+1. **Una sola vez, si la red no existe**, crearla. Se puede comprobar antes
+   con `docker network inspect pdf-network`:
+
+   ```powershell
+   docker network create pdf-network
+   ```
+
+2. **Levantar la configuración de entrega**: dos réplicas extractor,
+   Traefik y Redis compartido, esperando sus healthchecks:
+
+   ```powershell
+   docker compose -f compose.yaml -f compose.traefik.yaml up --build -d --scale extractor=2 --wait --wait-timeout 150
+   ```
+
+En una máquina limpia, `docker compose up --build` por sí solo requiere
+primero crear la red. Además, el Compose base no incluye Traefik: para la
+entrega se usa el comando completo del paso 2. No se debe crear de nuevo una
+red que ya exista y sea utilizada por los otros microservicios.
+
+El extractor, Redis y Traefik se conectan a `pdf-network`. Las peticiones de
+la configuración de entrega entran por el puerto dinámico de Traefik; las
+APIs no publican puertos directos. Los comandos para consultar ese puerto
+están en [Traefik y balanceo de carga](#traefik-y-balanceo-de-carga).
+
+### Alternativa local: extractor y Redis sin Traefik
+
+Usar esta alternativa en lugar del despliegue de entrega, con `pdf-network`
+ya creada. Los ejemplos de puerto directo e integración de esta sección
+corresponden al Compose base. Para cambiar desde el modo balanceado, consultar
+[Detener el modo balanceado o volver a una instancia directa](#detener-el-modo-balanceado-o-volver-a-una-instancia-directa).
 
 ```powershell
-docker network inspect pdf-network
-# Solo si no existe:
-docker network create pdf-network
-
-docker compose up --build -d
+docker compose up --build -d --scale extractor=1
 docker compose ps
 ```
 
-El archivo `compose.yaml` declara `pdf-network` como `external: true`. Ambos
-servicios pertenecen a esa red. Compose no la crea ni la elimina. Redis es
-accesible por el nombre de servicio `redis`, sin publicar su puerto en Windows.
-El extractor recibe `REDIS_URL=redis://redis:6379/0` y `CACHE_ENABLED=true`.
+Redis es accesible por el nombre de servicio `redis`, sin publicar su puerto
+en Windows. El extractor recibe `REDIS_URL=redis://redis:6379/0` y
+`CACHE_ENABLED=true`.
 
 Redis y extractor tienen healthchecks. Esperar a que ambos aparezcan `healthy`
 antes de comprobar MISS/HIT. También se puede usar:
@@ -356,7 +392,7 @@ se ejecuta en el proyecto `pdf-extractor`, publica un puerto libre solo en loopb
 y usa la imagen `traefik:v3.6`. Su provider tiene la restricción
 `Label(com.docker.compose.project,pdf-extractor)` para descubrir únicamente este
 proyecto. No expone dashboard ni ocupa 80/443 del host. Tiene límite de 0.5 CPU y
-128 MiB, y comparte `pdf-network`. El socket Docker se monta en modo de lectura.
+512 MiB, y comparte `pdf-network`. El socket Docker se monta en modo de lectura.
 
 Desde la raíz del repositorio, con `pdf-network` creada:
 
@@ -478,8 +514,10 @@ El procedimiento reproducible, las mediciones y las limitaciones se registran
 en [docs/performance.md](docs/performance.md). El override
 `compose.performance.yaml` desactiva la caché solamente durante la medición;
 omitirlo al ejecutar `up` restaura la configuración habitual sin borrar Redis.
-El perfil oficial de spike está preparado, pero requiere comprobar previamente
-la estabilidad de las pruebas pequeñas. No ejecutarlo automáticamente.
+El Spike oficial actual usa cuatro PDFs y k6 nativo de Windows: ejecutar
+`run_official_spike.py --k6 <ruta-k6.exe>`. La sección **K6 Spike oficial nativo
+en Windows** documenta el comando y el resultado completo. No ejecutarlo
+automáticamente; el intento anterior con cliente Docker de 512 MiB es histórico.
 
 ### Histórico: text-only, diagnóstico de red y Redis caliente
 
@@ -562,3 +600,318 @@ esta fase; los resultados de la suite anterior se mantienen como históricos.
 Comandos completos, métricas y condiciones de escalada/restauración en la
 sección **HOT CACHE desde Docker** de
 [performance.md](docs/performance.md).
+
+
+## Prueba oficial con Vegeta: cuatro PDFs externos
+
+Herramienta: `tests/performance/vegeta/run.py`, Vegeta Windows **v12.13.0** en
+`D:\herramientas\vegeta\vegeta.exe`. Configuración fija: **50 req/s × 30 s**,
+timeout HTTP **30 s**, 1500 solicitudes teóricas. Recorrido:
+**Vegeta Windows → puerto dinámico de Traefik → dos extractores → Redis**.
+El runner consulta el puerto; no utiliza endpoints directos de las APIs.
+
+Los cuatro archivos oficiales, confirmados desde el filesystem, son:
+
+- `2020-Scrum-Guide-Spanish-Latin-South-American.pdf` — 16 páginas.
+- `scrum_manager_historias_usuario.pdf` — 62 páginas.
+- `Essential-Kanban-Condensed-Spanish.pdf` — 90 páginas.
+- `Filosofia Lean.pdf` — 42 páginas.
+
+La carpeta externa se configura mediante `--pdf-dir`; no se copian PDFs al
+repositorio. `pdf279hojas.pdf` queda reservado al benchmark especial de 279
+páginas y **no participa** en Vegeta. Los targets HTTP rotan los cuatro documentos
+con `@ruta` a sus bytes originales, sin Base64 ni compresión de entrada.
+
+```powershell
+# Desde la raíz de pdf-extractor-service, con el entorno de dos APIs ya healthy.
+$pdfDirectory = 'D:\INGENIERIA\3er\desarrollo de software'
+$vegeta = 'D:\herramientas\vegeta\vegeta.exe'
+& $vegeta -version
+
+# Inspeccionar los archivos y su referencia Markdown, sin enviar peticiones.
+uv run --locked --no-sync --offline python tests/performance/vegeta/run.py --pdf-dir $pdfDirectory --vegeta $vegeta --name inspect-official --inspect-only
+
+# Seleccionar una DB lógica vacía. Nunca borrar datos para repetir una corrida.
+$benchmarkDb = $null
+foreach ($candidateDb in 1..15) {
+    $keyCount = docker compose -f compose.yaml -f compose.traefik.yaml exec -T redis redis-cli --raw -n $candidateDb DBSIZE
+    if ($LASTEXITCODE -ne 0) { throw 'No se pudo consultar Redis' }
+    if ([int]$keyCount -eq 0) { $benchmarkDb = $candidateDb; break }
+}
+if ($null -eq $benchmarkDb) { throw 'No hay una DB de benchmark vacía; no ejecutar carga' }
+$runName = 'official-vegeta-' + (Get-Date -Format 'yyyyMMdd-HHmmssfff')
+uv run --locked --no-sync --offline python tests/performance/vegeta/run.py --pdf-dir $pdfDirectory --vegeta $vegeta --name $runName --redis-db $benchmarkDb
+```
+
+El entorno debe tener dos APIs, Redis y Traefik saludables antes de ejecutar.
+El runner usa el overlay **existente** `compose.cache-benchmark.yaml` para apuntar
+temporalmente las APIs a una DB vacía. No modifica Redis, Traefik, sus archivos,
+el algoritmo ni los límites. No precarga PDFs: el inicio es **COLD CACHE**.
+Al terminar restaura DB 0 y dos APIs. La DB de benchmark conserva sus claves
+hasta el TTL; si sigue ocupada, elegir otra. No usar FLUSH/DEL para repetir.
+La separación de DB aísla claves, pero comparte CPU, memoria y política de
+expulsión del mismo Redis.
+
+**Resultado del 7/10/2026: corrida abortada por OOM de Traefik**, no completó
+30 s ni 1500 solicitudes. Se registraron **687 resultados**, **0 % success**,
+33 HTTP 503 y 654 errores de conexión; p95 **6635.383 ms** y throughput exitoso
+**0 req/s**. El proxy terminó con `OOMKilled=true`, exit 137, límite de 128 MiB.
+Estas latencias de errores **no representan extracción ni HIT**, y no sustituyen
+los resultados históricos de k6.
+
+Se recuperó el mismo contenedor Traefik sin cambiar recursos/configuración;
+el puerto dinámico pasó de 59345 a 64097. Estado final: **dos APIs, Redis y
+Traefik healthy**, APIs nuevamente en DB 0. `/health` respondió 6/6 HTTP 200.
+Bajo carga hay 33 access logs completos repartidos **20/13** entre ambas APIs;
+los pedidos interrumpidos por OOM no tienen evidencia de backend completa.
+
+Suite posterior: **40 passed, 1 skipped** (38 existentes + 2 tests del informe);
+integración Redis real por Traefik: **1 passed, 40 deselected**. Evidencia local:
+`tests/stress/results/official-vegeta-20261007-cold/`, sin PDFs. Detalles, hashes,
+comparación con el profesor y limitaciones en la sección **Vegeta oficial** de
+[performance.md](docs/performance.md). El perfil oficial completo sigue pendiente
+por el OOM; no repetir automáticamente la misma carga sobre estos límites.
+
+
+## Vegeta oficial repetida: Traefik con 512 MiB
+
+El **7/10/2026** se repitió el perfil completo con un único cambio de
+infraestructura: `compose.traefik.yaml`, **Traefik 128 MiB → 512 MiB**.
+La primera corrida demostró OOMKilled y 123.3 MiB muestreados sobre 128 MiB;
+se conserva íntegra como baseline en `official-vegeta-20261007-cold/`.
+Se mantiene 0.5 CPU para Traefik, dos APIs de 1 CPU / 768 MiB, Redis,
+el algoritmo, el timeout del cliente y el backpressure existentes.
+
+**Sí se completó Vegeta 50 req/s × 30 s sin OOM: 1500 resultados.**
+La ventana primera–última solicitud fue 29.971 s; hubo 29.834 s adicionales
+esperando peticiones pendientes, para 59.805 s totales según Vegeta.
+Se inició en **COLD CACHE**, DB 14 vacía, sin precargar documentos. Los cuatro
+PDFs, sus páginas y hashes coinciden con el baseline; no se usó el PDF de 279
+páginas. Cliente Windows → Traefik en puerto dinámico 53701 → dos APIs → Redis.
+
+| Métrica | Resultado con Traefik 512 MiB |
+| --- | ---: |
+| Solicitudes iniciadas / resultados terminales | 1500 / 1500 |
+| Respuestas HTTP completas | 67 |
+| Throughput exitoso / success / errores | 0 req/s / 0 % / 100 % |
+| HTTP 200 / HTTP 503 | 0 / 67 |
+| Timeouts / otras conexiones fallidas | 1282 / 151 |
+| Media | 26160.212 ms |
+| p50 / p90 | 30005.397 / 30013.531 ms |
+| p95 / p99 / máximo | 30015.049 / 30017.559 / 30060.443 ms |
+| Bytes de cuerpos enviados / recibidos | 33,278,713 / 3,149 |
+| RAM máxima muestreada de Traefik | 309.2 MiB de 512 MiB |
+| OOMKilled final | false en los cuatro servicios |
+
+Los percentiles incluyen errores y timeouts: **no miden extracción exitosa ni
+CACHE HIT**, y no acreditan 400 ms. X-Cache estuvo ausente en los 1500 resultados;
+no se validó contenido HTTP 200 bajo esta carga. Los 107 access logs completos
+con X-Audit-Id demuestran tráfico en ambas APIs, **56/51**, incluyendo 40 estados
+499 por clientes desconectados; ese reparto no cubre los 1500 intentos.
+
+Al concluir la carga, ambas APIs y Traefik quedaron temporalmente unhealthy;
+Redis siguió healthy. El proxy recuperó salud sin reinicio. El runner restauró
+las dos APIs a DB 0, conservando imagen y entorno habitual. Estado final:
+**dos APIs, Redis y Traefik healthy**, seis `/health` 200, reparto posterior 3/3,
+DB 0 vacía. No se borraron datos de Redis.
+
+Verificación posterior, sin instalar dependencias: `uv run --locked pytest -v`
+con `UV_NO_SYNC=true` y `UV_OFFLINE=true`: **40 passed, 1 skipped in 39.69s**.
+Integración Redis real por Traefik: **1 passed, 40 deselected in 20.23s**,
+MISS→HIT y TTL correcto. No se cambió ningún código Python ni test.
+
+Evidencia nueva: `tests/stress/results/official-vegeta-20261007-traefik512-cold/`.
+Los comandos de la sección anterior siguen siendo reproducibles con un nombre
+nuevo y una DB vacía; para aplicar el nuevo límite al proxy existente:
+
+```powershell
+docker compose config --quiet
+docker compose -f compose.yaml -f compose.traefik.yaml config --quiet
+docker compose -f compose.yaml -f compose.traefik.yaml up -d --no-deps --no-build --wait --wait-timeout 150 traefik
+docker inspect pdf-extractor-traefik-1 --format '{{.HostConfig.Memory}} {{.HostConfig.NanoCpus}}'
+# Resultado verificado: 536870912 bytes; 500000000 NanoCPUs.
+```
+
+La comparación completa 128/512 MiB, recursos, perfiles internos y comandos
+está en **Vegeta oficial repetida: Traefik 512 MiB** de
+[performance.md](docs/performance.md). El OOM observado quedó resuelto para
+esta corrida; el rendimiento oficial sigue sin ser satisfactorio. No se
+aplicaron otras optimizaciones ni se ejecutó k6 Spike.
+
+
+## Histórico: K6 Spike Docker, inicio frío y OOM del generador
+
+El **7/10/2026** se intentó ejecutar el perfil oficial **0→100 VUs en 10 s,
+100 VUs durante 20 s y 100→0 en 10 s**. **NO completó los 40 segundos**:
+Docker confirmó **OOMKilled=true, exit 137 del generador k6**, limitado a
+1 CPU / 512 MiB. El proxy y los servicios no tuvieron OOM. No se aumentaron
+recursos ni se repitió la carga después del OOM.
+
+Configuración conservada: **dos APIs de 1 CPU / 768 MiB, Traefik de 0.5 CPU /
+512 MiB, Redis compartido**, algoritmo y backpressure sin cambios. k6
+`grafana/k6:2.2.0` corrió en `pdf-network`, con URL `localhost` resuelta a la IP
+interna de Traefik y Host `localhost`; no accedió directamente a las APIs.
+
+**COLD CACHE AL INICIO**, DB 13 vacía, sin precargar documentos ni borrar DB 0.
+Se montaron individualmente en modo lectura los cuatro archivos externos:
+
+- `2020-Scrum-Guide-Spanish-Latin-South-American.pdf` — 16 páginas.
+- `scrum_manager_historias_usuario.pdf` — 62 páginas.
+- `Essential-Kanban-Condensed-Spanish.pdf` — 90 páginas.
+- `Filosofia Lean.pdf` — 42 páginas.
+
+Los bytes, páginas y SHA coinciden con Vegeta. `pdf279hojas.pdf` no participa.
+El Spike rota globalmente los cuatro PDFs y envía cuerpos binarios
+`application/pdf`, sin Base64. Sus errores/checks/thresholds no abortan carga.
+
+**Resultados parciales, no resumen final de k6:** 56 respuestas conservadas en
+consola, todas HTTP 503; la salida nativa sólo alcanzó a persistir 14 resultados
+HTTP. Traefik registró 75 solicitudes diferentes con reparto **37/38**:
+63 estados 503, 9 estados 499 y 3 estados 502. Los estados del proxy no se
+confunden con respuestas recibidas por k6. El total de requests, iteraciones,
+req/s y percentiles finales de 40 s **no quedaron verificados**.
+
+Sobre las **56 respuestas de consola, todas fallidas**, se calcularon p50
+**279.918 ms**, p90 **754.030 ms**, p95 **777.199 ms** y máximo **1076.997 ms**.
+Son percentiles parciales por interpolación lineal, no el benchmark completo
+ni una mejora de extracción. X-Cache ausente en las 56 respuestas; no hubo
+HIT/MISS observable en headers ni HTTP 200 para validar contenido bajo carga.
+
+Antes de cargar: cuatro servicios healthy, seis health 200 y reparto 3/3.
+Después: **dos APIs, Redis y Traefik healthy**, APIs restauradas a DB 0,
+DB 0 vacía, seis health 200 y reparto 3/3. El generador temporal se eliminó
+sólo después de guardar su inspección. Memoria máxima muestreada del cliente:
+**348.1 MiB / 512 MiB**; el muestreo no capturó el pico que causó OOM.
+
+Receta del cliente Docker de esa etapa, conservada como referencia histórica
+(**no repetir el cliente de 512 MiB**; usar el comando nativo de la sección siguiente):
+
+```powershell
+$pdfDirectory = 'D:\INGENIERIA\3er\desarrollo de software'
+$benchmarkDb = $null
+foreach ($candidateDb in 1..15) {
+    $keyCount = docker compose -f compose.yaml -f compose.traefik.yaml exec -T redis redis-cli --raw -n $candidateDb DBSIZE
+    if ($LASTEXITCODE -ne 0) { throw 'No se pudo consultar Redis' }
+    if ([int]$keyCount -eq 0) { $benchmarkDb = $candidateDb; break }
+}
+if ($null -eq $benchmarkDb) { throw 'No hay DB vacía; no borrar datos' }
+$runName = 'official-k6-spike-' + (Get-Date -Format 'yyyyMMdd-HHmmssfff') + '-cold'
+uv run --locked --no-sync --offline python tests/performance/run_official_spike.py --pdf-dir $pdfDirectory --name $runName --redis-db $benchmarkDb
+```
+
+**Este entorno demostró OOM del cliente: no relanzar automáticamente el Spike
+con los mismos recursos.** El runner valida dos APIs y los límites actuales,
+espera salud y descubrimiento de ambas por Traefik, monta PDFs read-only,
+inspecciona el perfil sin hacer POST y restaura DB 0 al terminar. No ejecuta
+Vegeta ni modifica Compose. La DB ocupada y la carpeta existente se rechazan.
+
+Tests finales, usando el entorno existente sin instalar dependencias:
+**40 passed, 1 skipped in 35.71s**; integración Redis real por Traefik:
+**1 passed, 40 deselected in 16.83s**, MISS→HIT, contenido y TTL correctos.
+
+Evidencia de carga en `tests/stress/results/official-k6-spike-20261007-cold-run2/`:
+`partial-report.json`, log k6, métricas nativas, respuestas, inspección OOM,
+recursos, access logs, caché, restauración y tests. Se conservaron aparte dos
+fallos de preparación que no enviaron POST ni ejecutaron el Spike.
+Comparación con el profesor y límites de los registros parciales en la sección
+**K6 SPIKE OFICIAL** de [performance.md](docs/performance.md).
+
+
+## K6 Spike oficial nativo en Windows: corrida completa
+
+El **7/10/2026, 13:30 Argentina**, k6 Windows **v2.2.0** completó el perfil
+**0→100 VUs en 10 s, 100 VUs durante 20 s, 100→0 en 10 s**. **SÍ completó los
+40 s nominales**, sin aborto ni OOM. Resumen k6: **40.121 s**; ventana del
+lanzador hasta recuperar el exit: **44.433 s**, incluyendo init y muestreo.
+El exit **99** corresponde a thresholds fallidos, no a interrupción por OOM.
+
+Ruta comprobada: `k6 Windows → 127.0.0.1:53701 (Traefik) → dos extractores → Redis`.
+El runner descubre el puerto publicado; no se llama a una API directa. Se
+conservaron **1 CPU / 768 MiB por API**, **0.5 CPU / 512 MiB para Traefik**,
+Redis compartido, imágenes, algoritmo y backpressure. No hubo cambios en Compose.
+
+Inicio **COLD CACHE**, DB **12** vacía, sin precarga y sin FLUSH. Las APIs
+usaron esa DB sólo durante la corrida y volvieron a **DB 0** al terminar.
+Los cuatro PDFs oficiales anteriores se leyeron desde su ubicación externa;
+`pdf279hojas.pdf` no participó. Rotación de solicitudes iniciadas: **70/70/70/69**.
+`spike.js` carga cada binario en init con `open(path, 'b')` y reutiliza su
+ArrayBuffer, sin lectura por iteración, strings ni Base64. k6 mantiene copias
+por VU: esto no promete memoria compartida entre VUs.
+
+| Métrica | Nuestro resultado Windows | Profesor |
+|---|---:|---:|
+| Requests en el resumen HTTP | **179** (279 iniciadas) | 1037 |
+| Req/s del resumen k6 | **4.462** | 25.35 |
+| HTTP 200 | **139** | No desglosado; 0 % errores informado |
+| HTTP 503 / otros | **39 / 1 HTTP 502** | 0 errores informado |
+| `http_req_failed` | **22.35 %** (40/179) | 0 % |
+| p50 | **5.106 s** | 1.88 s |
+| p90 | **17.901 s** | 7.83 s |
+| p95 | **19.959 s** | 8.80 s |
+| Máximo | **33.602 s** | 13.94 s |
+| Timeouts / errores de conexión observados | **0 / 0** en 179 resultados | 0 errores informado |
+
+**100 iteraciones fueron interrumpidas por el ramp-down/stop sin gracia**,
+conservado en el perfil (`gracefulRampDown=gracefulStop=0s`). No entran en los
+179 resultados HTTP ni en sus percentiles/checks. De 279 solicitudes iniciadas,
+139 finalizaron correctamente: **49.82 %**; 40 fallaron y 100 se interrumpieron.
+No interpretar 0 timeouts como finalización de todas las solicitudes: el
+cliente canceló las pendientes antes del timeout de 180 s.
+
+Checks: **695/895 correctos (77.65 %)**. Los 139 HTTP 200 pasaron los cinco
+checks, incluidos páginas, longitud y SHA de Markdown para los cuatro PDFs.
+Headers recibidos: **134 HIT, 5 MISS, 0 ERROR, 0 BYPASS y 40 ABSENT**. El
+resultado empezó frío y luego mezcló MISS/HIT; HIT no es extracción real.
+
+Traefik registró las **279 solicitudes**, reparto **140/139**. Sus logs finales
+incluyen resultados tardíos y efectos de restaurar DB 0: 144 estados 200,
+39 estados 503, 32 estados 502 y 64 estados 499. No son los mismos estados
+recibidos por k6. El snapshot inmediato a la carga tenía 241 registros;
+ambos snapshots se conservan.
+
+Sin OOM en APIs, Redis ni Traefik. Memoria máxima muestreada: APIs
+**393.4 / 459.8 MiB**, Traefik **257.0 MiB**, Redis **8.07 MiB**. Windows registró
+para k6 un pico residente de **1007.95 MiB** y pico de commit de **2461.00 MiB**;
+no tuvo el límite de 512 MiB. Hubo presión de memoria en el host (mínimo
+muestreado **12.80 MiB** físicos disponibles), por lo que no se atribuye toda
+la latencia a un único componente. Recursos y perfiles completos en
+[docs/performance.md](docs/performance.md).
+
+### Repetir con k6 nativo
+
+Desde la raíz del repositorio, con los cuatro servicios saludables. La receta
+elige una DB ya vacía; no elimina datos ni sobrescribe evidencia:
+
+```powershell
+k6 version
+where.exe k6
+$k6Path = (Get-Command k6 -ErrorAction Stop).Source
+$pdfDirectory = 'D:\INGENIERIA\3er\desarrollo de software'
+$benchmarkDb = $null
+foreach ($candidateDb in 1..15) {
+    $keyCount = docker compose -f compose.yaml -f compose.traefik.yaml exec -T redis redis-cli --raw -n $candidateDb DBSIZE
+    if ($LASTEXITCODE -ne 0) { throw 'No se pudo consultar Redis' }
+    if ([int]$keyCount -eq 0) { $benchmarkDb = $candidateDb; break }
+}
+if ($null -eq $benchmarkDb) { throw 'No hay DB vacía; no borrar datos' }
+$runName = 'official-k6-spike-windows-' + (Get-Date -Format 'yyyyMMdd-HHmmssfff') + '-cold'
+uv run --locked --no-sync --offline python tests/performance/run_official_spike.py --k6 $k6Path --pdf-dir $pdfDirectory --name $runName --redis-db $benchmarkDb
+```
+
+`--k6` es obligatorio para esta receta: sin él, el runner conserva la opción
+Docker histórica. No se instaló k6; se usó `C:\Program Files\k6\k6.exe`.
+El runner espera salud y reparto por Traefik, inspecciona el perfil sin POST,
+muestrea SUT y proceso Windows, conserva fallos de carga y restaura DB 0 en
+`finally`. Su código de salida no reemplaza el de k6: consultar `execution.json`
+(exit 99 en esta corrida), `summary.json` y `k6.log`.
+
+Tests posteriores: **40 passed, 1 skipped in 29.35s**;
+integración Redis real por Traefik: **1 passed, 40 deselected in 12.03s**,
+MISS→HIT y TTL correcto. Estado final: **dos APIs, Redis y Traefik healthy**,
+DB 0 restaurada y vacía, seis health 200 con reparto 3/3.
+
+Evidencia nueva: `tests/stress/results/official-k6-spike-windows-20261007-cold/`
+(`report.json`, resumen, métricas nativas, logs, estados/OOM, recursos,
+validación de PDFs/caché y tests). La evidencia parcial anterior se conserva
+intacta. **Se resolvió la interrupción del generador; no se cumplen los
+umbrales de errores ni p95 < 400 ms del Spike.**

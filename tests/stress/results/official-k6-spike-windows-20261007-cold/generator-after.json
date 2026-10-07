@@ -1,0 +1,31 @@
+{
+  "pid": 28444,
+  "exit_code": 99,
+  "sample": {
+    "host": {
+      "length": 64,
+      "load_percent": 88,
+      "total_physical": 7907151872,
+      "available_physical": 944005120,
+      "total_commit_limit": 28401737728,
+      "available_commit": 3383918592,
+      "total_virtual": 140737488224256,
+      "available_virtual": 140732978442240,
+      "extended_virtual": 0
+    },
+    "process": {
+      "cb": 80,
+      "page_faults": 904489,
+      "peak_working_set": 1056911360,
+      "working_set": 40960,
+      "peak_paged_pool": 300784,
+      "paged_pool": 8256,
+      "peak_nonpaged_pool": 1123852,
+      "nonpaged_pool": 34400,
+      "pagefile": 90112,
+      "peak_pagefile": 2580541440,
+      "private_bytes": 90112
+    },
+    "cpu_seconds": 9.734375
+  }
+}

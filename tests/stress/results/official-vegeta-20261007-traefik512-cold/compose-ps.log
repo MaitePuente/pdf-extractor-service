@@ -1,0 +1,5 @@
+NAME                        IMAGE                     COMMAND                  SERVICE     CREATED         STATUS                   PORTS
+pdf-extractor-extractor-1   pdf-extractor-extractor   "uvicorn app.main:ap…"   extractor   3 minutes ago   Up 3 minutes (healthy)   8000/tcp
+pdf-extractor-extractor-2   pdf-extractor-extractor   "uvicorn app.main:ap…"   extractor   3 minutes ago   Up 3 minutes (healthy)   8000/tcp
+pdf-extractor-redis-1       redis:8.2.10-alpine       "docker-entrypoint.s…"   redis       13 hours ago    Up 13 hours (healthy)    6379/tcp
+pdf-extractor-traefik-1     traefik:v3.6              "/entrypoint.sh --pr…"   traefik     9 minutes ago   Up 9 minutes (healthy)   127.0.0.1:53701->80/tcp

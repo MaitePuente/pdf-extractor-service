@@ -1,0 +1,43 @@
+{
+  "sample_count": 14,
+  "peaks": {
+    "pdf-extractor-extractor-1": {
+      "memory_mib": 409.1,
+      "cpu_percent": 146.28
+    },
+    "pdf-extractor-extractor-2": {
+      "memory_mib": 384.5,
+      "cpu_percent": 136.02
+    },
+    "pdf-extractor-redis-1": {
+      "memory_mib": 11.54,
+      "cpu_percent": 66.29
+    },
+    "pdf-extractor-traefik-1": {
+      "memory_mib": 309.2,
+      "cpu_percent": 73.17
+    }
+  },
+  "last_sample": {
+    "/pdf-extractor-extractor-1": {
+      "status": "running",
+      "oom": false,
+      "health": "unhealthy"
+    },
+    "/pdf-extractor-extractor-2": {
+      "status": "running",
+      "oom": false,
+      "health": "unhealthy"
+    },
+    "/pdf-extractor-redis-1": {
+      "status": "running",
+      "oom": false,
+      "health": "healthy"
+    },
+    "/pdf-extractor-traefik-1": {
+      "status": "running",
+      "oom": false,
+      "health": "unhealthy"
+    }
+  }
+}

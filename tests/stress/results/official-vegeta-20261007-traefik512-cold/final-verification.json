@@ -1,0 +1,165 @@
+{
+  "branch": "main",
+  "head": "4569ea6983dc771e729f513bce9b84b2b6216340",
+  "staged": [],
+  "initial_file_count": 70,
+  "changed_existing_files": [
+    "README.md",
+    "compose.traefik.yaml",
+    "docs/performance.md"
+  ],
+  "missing_existing_files": [],
+  "unchanged_existing_files": 67,
+  "baseline_files_unchanged": 28,
+  "all_existing_python_tests_dependency_and_dockerfile_hashes_unchanged": true,
+  "official_pdfs_unchanged": true,
+  "pdf_manifests_identical": true,
+  "raw_gzip_integrity": true,
+  "historical_performance_bytes_preserved": true,
+  "readme_previous_bytes_preserved_except_operational_128_to_512": true,
+  "compose_configs_valid": true,
+  "final_containers": [
+    {
+      "name": "/pdf-extractor-extractor-1",
+      "id": "1efbf75b508b3a258bbbd27e46cb60ec7645f96022ab895a6cd26a1c0b7d79b6",
+      "image": "sha256:e1f07e8c52fe4b8c0468cdf6333a3ec1b23ee23733d27d866b0ab8f8eddf2406",
+      "memory_bytes": 805306368,
+      "nano_cpus": 1000000000,
+      "health": "healthy",
+      "oom": false,
+      "restart_count": 0
+    },
+    {
+      "name": "/pdf-extractor-extractor-2",
+      "id": "493790e0cc9669b8a013f7755fa4553417a14704b6ddb15d712f7228a6bbac46",
+      "image": "sha256:e1f07e8c52fe4b8c0468cdf6333a3ec1b23ee23733d27d866b0ab8f8eddf2406",
+      "memory_bytes": 805306368,
+      "nano_cpus": 1000000000,
+      "health": "healthy",
+      "oom": false,
+      "restart_count": 0
+    },
+    {
+      "name": "/pdf-extractor-redis-1",
+      "id": "e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135",
+      "image": "sha256:fdd7c467318565990fdbe9959d27f0977e295f799dffc36dd5814b03184adc1a",
+      "memory_bytes": 268435456,
+      "nano_cpus": 500000000,
+      "health": "healthy",
+      "oom": false,
+      "restart_count": 0
+    },
+    {
+      "name": "/pdf-extractor-traefik-1",
+      "id": "95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e",
+      "image": "sha256:ee0b3aaa56c3f593da2c7d67ebbdbc600155bf6be2c3cece8f7870db29714a88",
+      "memory_bytes": 536870912,
+      "nano_cpus": 500000000,
+      "health": "healthy",
+      "oom": false,
+      "restart_count": 0
+    }
+  ],
+  "final_health_http": [
+    {
+      "audit_id": "official-vegeta-20261007-traefik512-cold-final-health-0",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    },
+    {
+      "audit_id": "official-vegeta-20261007-traefik512-cold-final-health-1",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    },
+    {
+      "audit_id": "official-vegeta-20261007-traefik512-cold-final-health-2",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    },
+    {
+      "audit_id": "official-vegeta-20261007-traefik512-cold-final-health-3",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    },
+    {
+      "audit_id": "official-vegeta-20261007-traefik512-cold-final-health-4",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    },
+    {
+      "audit_id": "official-vegeta-20261007-traefik512-cold-final-health-5",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    }
+  ],
+  "health_balance": {
+    "pdf-extractor-extractor-1": 3,
+    "pdf-extractor-extractor-2": 3
+  },
+  "full_vegeta_profile_completed": true,
+  "new_files": [
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/after-load-containers.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/attack.log",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/benchmark-containers.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/cache-and-profile-analysis.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/commands.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/compose-ps.log",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/documentation-integrity.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/encode.log",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/environment.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/execution.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/extractor-1.log",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/extractor-2.log",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/final-verification.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/health-after.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/health-before.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/initial-containers.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/isolated-up.log",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/oom-events.jsonl",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/pdfs.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/post-test-containers.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/preflight.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/profiles.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/pytest.log",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/raw-artifact.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/records.jsonl",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/redis-integration.log",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/report.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/report.txt",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/resource-analysis.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/restoration.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/restore-up.log",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/restored-containers.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/results.bin.gz",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/summary.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/targets.http",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/test-execution.json",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/traefik-access.jsonl",
+    "tests/stress/results/official-vegeta-20261007-traefik512-cold/traefik.log"
+  ],
+  "new_evidence_file_count": 38,
+  "normal_db_keys": 0,
+  "final_file_hashes": {
+    "README.md": "70ff67ee4466bb93268ed51ca940a54036108ec999f4f53c43cb46605696ac0a",
+    "compose.traefik.yaml": "cae6f0efe995a2431418b565797f1a4bfb82c7b2a52c88eb9eece0685bd2581c",
+    "docs/performance.md": "3a1e2ae754d125cbf69e4411580da9de812c7130da4a1939c5c6c605bfe99863"
+  }
+}

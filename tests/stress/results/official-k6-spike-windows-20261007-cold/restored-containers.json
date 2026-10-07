@@ -1,0 +1,1121 @@
+[
+  {
+    "Id": "3c1f8edf4ecada7e97036ee9ba65d185212520f2ca068ca935e468df37203b8a",
+    "Created": "2026-10-07T16:31:03.384791762Z",
+    "Path": "uvicorn",
+    "Args": [
+      "app.main:app",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "8000"
+    ],
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 497591,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-07T16:31:06.99916778Z",
+      "FinishedAt": "0001-01-01T00:00:00Z",
+      "Health": {
+        "Status": "healthy",
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "Start": "2026-10-07T16:31:12.533523524Z",
+            "End": "2026-10-07T16:31:13.459608867Z",
+            "ExitCode": 0,
+            "Output": ""
+          }
+        ]
+      }
+    },
+    "Image": "sha256:e1f07e8c52fe4b8c0468cdf6333a3ec1b23ee23733d27d866b0ab8f8eddf2406",
+    "ResolvConfPath": "/var/lib/docker/containers/3c1f8edf4ecada7e97036ee9ba65d185212520f2ca068ca935e468df37203b8a/resolv.conf",
+    "HostnamePath": "/var/lib/docker/containers/3c1f8edf4ecada7e97036ee9ba65d185212520f2ca068ca935e468df37203b8a/hostname",
+    "HostsPath": "/var/lib/docker/containers/3c1f8edf4ecada7e97036ee9ba65d185212520f2ca068ca935e468df37203b8a/hosts",
+    "LogPath": "/var/lib/docker/containers/3c1f8edf4ecada7e97036ee9ba65d185212520f2ca068ca935e468df37203b8a/3c1f8edf4ecada7e97036ee9ba65d185212520f2ca068ca935e468df37203b8a-json.log",
+    "Name": "/pdf-extractor-extractor-1",
+    "RestartCount": 0,
+    "Driver": "overlay2",
+    "Platform": "linux",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "AppArmorProfile": "",
+    "ExecIDs": null,
+    "HostConfig": {
+      "Binds": null,
+      "ContainerIDFile": "",
+      "LogConfig": {
+        "Type": "json-file",
+        "Config": {}
+      },
+      "NetworkMode": "pdf-network",
+      "PortBindings": {},
+      "RestartPolicy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "AutoRemove": false,
+      "VolumeDriver": "",
+      "VolumesFrom": null,
+      "ConsoleSize": [
+        0,
+        0
+      ],
+      "CapAdd": null,
+      "CapDrop": null,
+      "CgroupnsMode": "private",
+      "Dns": null,
+      "DnsOptions": null,
+      "DnsSearch": null,
+      "ExtraHosts": [],
+      "GroupAdd": null,
+      "IpcMode": "private",
+      "Cgroup": "",
+      "Links": null,
+      "OomScoreAdj": 0,
+      "PidMode": "",
+      "Privileged": false,
+      "PublishAllPorts": false,
+      "ReadonlyRootfs": true,
+      "SecurityOpt": null,
+      "UTSMode": "",
+      "UsernsMode": "",
+      "ShmSize": 67108864,
+      "Runtime": "runc",
+      "Isolation": "",
+      "CpuShares": 0,
+      "Memory": 805306368,
+      "NanoCpus": 1000000000,
+      "CgroupParent": "",
+      "BlkioWeight": 0,
+      "BlkioWeightDevice": null,
+      "BlkioDeviceReadBps": null,
+      "BlkioDeviceWriteBps": null,
+      "BlkioDeviceReadIOps": null,
+      "BlkioDeviceWriteIOps": null,
+      "CpuPeriod": 0,
+      "CpuQuota": 0,
+      "CpuRealtimePeriod": 0,
+      "CpuRealtimeRuntime": 0,
+      "CpusetCpus": "",
+      "CpusetMems": "",
+      "Devices": null,
+      "DeviceCgroupRules": null,
+      "DeviceRequests": null,
+      "MemoryReservation": 0,
+      "MemorySwap": 1610612736,
+      "MemorySwappiness": null,
+      "OomKillDisable": null,
+      "PidsLimit": null,
+      "Ulimits": null,
+      "CpuCount": 0,
+      "CpuPercent": 0,
+      "IOMaximumIOps": 0,
+      "IOMaximumBandwidth": 0,
+      "MaskedPaths": [
+        "/proc/acpi",
+        "/proc/asound",
+        "/proc/interrupts",
+        "/proc/kcore",
+        "/proc/keys",
+        "/proc/latency_stats",
+        "/proc/sched_debug",
+        "/proc/scsi",
+        "/proc/timer_list",
+        "/proc/timer_stats",
+        "/sys/devices/virtual/powercap",
+        "/sys/firmware"
+      ],
+      "ReadonlyPaths": [
+        "/proc/bus",
+        "/proc/fs",
+        "/proc/irq",
+        "/proc/sys",
+        "/proc/sysrq-trigger"
+      ]
+    },
+    "GraphDriver": {
+      "Data": {
+        "ID": "3c1f8edf4ecada7e97036ee9ba65d185212520f2ca068ca935e468df37203b8a",
+        "LowerDir": "/var/lib/docker/overlay2/fd237fc0c8e50a92cfac4696e60aedeeec65be8f8005a13b0acc6bf97547d9c0-init/diff:/var/lib/docker/overlay2/93ievk9mi6t0exd72y4sde9t7/diff:/var/lib/docker/overlay2/xouwi3pzymak5wq9sj85xcnoe/diff:/var/lib/docker/overlay2/9p9swrvtjwzh64gxx0i6v9318/diff:/var/lib/docker/overlay2/zzxzt5bu8lashvjlfoj7iybxp/diff:/var/lib/docker/overlay2/97ocw0nkrirmlhxrez9fuh391/diff:/var/lib/docker/overlay2/kisu4c3he5dfjnff28gsbj76a/diff:/var/lib/docker/overlay2/37ab73021754c5d238085fac1dde692a92325be5f1af971c841343a095e8f761/diff:/var/lib/docker/overlay2/e668d5f9ad9199ea6ae1e053f700f282d9a305f302cc83cfc0adaa55d592d650/diff:/var/lib/docker/overlay2/07314f367f9141ede844725debf40a6d68c120f275aad5550f7890b1c0c00adf/diff:/var/lib/docker/overlay2/65173487d91a997c73a00b55b61094777693032d2ac708243b328d297bf104d7/diff",
+        "MergedDir": "/var/lib/docker/overlay2/fd237fc0c8e50a92cfac4696e60aedeeec65be8f8005a13b0acc6bf97547d9c0/merged",
+        "UpperDir": "/var/lib/docker/overlay2/fd237fc0c8e50a92cfac4696e60aedeeec65be8f8005a13b0acc6bf97547d9c0/diff",
+        "WorkDir": "/var/lib/docker/overlay2/fd237fc0c8e50a92cfac4696e60aedeeec65be8f8005a13b0acc6bf97547d9c0/work"
+      },
+      "Name": "overlay2"
+    },
+    "Mounts": [],
+    "Config": {
+      "Hostname": "3c1f8edf4eca",
+      "Domainname": "",
+      "User": "extractor",
+      "AttachStdin": false,
+      "AttachStdout": true,
+      "AttachStderr": true,
+      "ExposedPorts": {
+        "8000/tcp": {}
+      },
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": [
+        "CACHE_ENABLED=true",
+        "CACHE_TTL_SECONDS=3600",
+        "CACHE_TIMEOUT_SECONDS=0.2",
+        "REDIS_URL=redis://redis:6379/0",
+        "PATH=/service/.venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "LANG=C.UTF-8",
+        "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+        "PYTHON_VERSION=3.12.15",
+        "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONUNBUFFERED=1",
+        "UV_LINK_MODE=copy",
+        "UV_PYTHON_DOWNLOADS=never"
+      ],
+      "Cmd": [
+        "uvicorn",
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000"
+      ],
+      "Healthcheck": {
+        "Test": [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2).close()"
+        ],
+        "Interval": 10000000000,
+        "Timeout": 3000000000,
+        "StartPeriod": 30000000000,
+        "Retries": 3
+      },
+      "Image": "pdf-extractor-extractor",
+      "Volumes": null,
+      "WorkingDir": "/service",
+      "Entrypoint": null,
+      "Labels": {
+        "com.docker.compose.config-hash": "f71df419dd4362bca440e2a014204c212426962601a7af2d7682fed577166685",
+        "com.docker.compose.container-number": "1",
+        "com.docker.compose.depends_on": "",
+        "com.docker.compose.image": "sha256:e1f07e8c52fe4b8c0468cdf6333a3ec1b23ee23733d27d866b0ab8f8eddf2406",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "pdf-extractor",
+        "com.docker.compose.project.config_files": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.yaml,D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.traefik.yaml",
+        "com.docker.compose.project.working_dir": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service",
+        "com.docker.compose.replace": "extractor-1",
+        "com.docker.compose.service": "extractor",
+        "com.docker.compose.version": "5.5.1",
+        "traefik.docker.network": "pdf-network",
+        "traefik.enable": "true",
+        "traefik.http.routers.pdf-markdown-extractor.entrypoints": "web",
+        "traefik.http.routers.pdf-markdown-extractor.rule": "Host(`localhost`)",
+        "traefik.http.routers.pdf-markdown-extractor.service": "pdf-markdown-extractor",
+        "traefik.http.routers.pdf-markdown-extractor.tls": "false",
+        "traefik.http.services.pdf-markdown-extractor.loadbalancer.server.port": "8000"
+      }
+    },
+    "NetworkSettings": {
+      "SandboxID": "232c12832dc2676a885a1e3085d9c5ff6c4edb364f8ac1e0a48971a25531c889",
+      "SandboxKey": "/var/run/docker/netns/232c12832dc2",
+      "Ports": {
+        "8000/tcp": null
+      },
+      "Networks": {
+        "pdf-network": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": [
+            "pdf-extractor-extractor-1",
+            "extractor"
+          ],
+          "DriverOpts": null,
+          "GwPriority": 0,
+          "NetworkID": "4d633c1d24f114c789accf9fe97d07f16c1044ab7024ca689fd40c20848a87ad",
+          "EndpointID": "e773ad57c68655337482820654054b9af0e485035d80ef7895b3513a435e0ffe",
+          "Gateway": "172.19.0.1",
+          "IPAddress": "172.19.0.4",
+          "MacAddress": "82:d8:6a:99:3b:82",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "DNSNames": [
+            "pdf-extractor-extractor-1",
+            "extractor",
+            "3c1f8edf4eca"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Id": "2c99d97989f3a9be66450469ea8c02b8d956b08566d2d693246c126dc56b8d2f",
+    "Created": "2026-10-07T16:31:03.384942334Z",
+    "Path": "uvicorn",
+    "Args": [
+      "app.main:app",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "8000"
+    ],
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 497496,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-07T16:31:06.503222523Z",
+      "FinishedAt": "0001-01-01T00:00:00Z",
+      "Health": {
+        "Status": "healthy",
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "Start": "2026-10-07T16:31:11.895420837Z",
+            "End": "2026-10-07T16:31:12.847296878Z",
+            "ExitCode": 1,
+            "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+          },
+          {
+            "Start": "2026-10-07T16:31:17.848842669Z",
+            "End": "2026-10-07T16:31:18.240876211Z",
+            "ExitCode": 0,
+            "Output": ""
+          }
+        ]
+      }
+    },
+    "Image": "sha256:e1f07e8c52fe4b8c0468cdf6333a3ec1b23ee23733d27d866b0ab8f8eddf2406",
+    "ResolvConfPath": "/var/lib/docker/containers/2c99d97989f3a9be66450469ea8c02b8d956b08566d2d693246c126dc56b8d2f/resolv.conf",
+    "HostnamePath": "/var/lib/docker/containers/2c99d97989f3a9be66450469ea8c02b8d956b08566d2d693246c126dc56b8d2f/hostname",
+    "HostsPath": "/var/lib/docker/containers/2c99d97989f3a9be66450469ea8c02b8d956b08566d2d693246c126dc56b8d2f/hosts",
+    "LogPath": "/var/lib/docker/containers/2c99d97989f3a9be66450469ea8c02b8d956b08566d2d693246c126dc56b8d2f/2c99d97989f3a9be66450469ea8c02b8d956b08566d2d693246c126dc56b8d2f-json.log",
+    "Name": "/pdf-extractor-extractor-2",
+    "RestartCount": 0,
+    "Driver": "overlay2",
+    "Platform": "linux",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "AppArmorProfile": "",
+    "ExecIDs": null,
+    "HostConfig": {
+      "Binds": null,
+      "ContainerIDFile": "",
+      "LogConfig": {
+        "Type": "json-file",
+        "Config": {}
+      },
+      "NetworkMode": "pdf-network",
+      "PortBindings": {},
+      "RestartPolicy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "AutoRemove": false,
+      "VolumeDriver": "",
+      "VolumesFrom": null,
+      "ConsoleSize": [
+        0,
+        0
+      ],
+      "CapAdd": null,
+      "CapDrop": null,
+      "CgroupnsMode": "private",
+      "Dns": null,
+      "DnsOptions": null,
+      "DnsSearch": null,
+      "ExtraHosts": [],
+      "GroupAdd": null,
+      "IpcMode": "private",
+      "Cgroup": "",
+      "Links": null,
+      "OomScoreAdj": 0,
+      "PidMode": "",
+      "Privileged": false,
+      "PublishAllPorts": false,
+      "ReadonlyRootfs": true,
+      "SecurityOpt": null,
+      "UTSMode": "",
+      "UsernsMode": "",
+      "ShmSize": 67108864,
+      "Runtime": "runc",
+      "Isolation": "",
+      "CpuShares": 0,
+      "Memory": 805306368,
+      "NanoCpus": 1000000000,
+      "CgroupParent": "",
+      "BlkioWeight": 0,
+      "BlkioWeightDevice": null,
+      "BlkioDeviceReadBps": null,
+      "BlkioDeviceWriteBps": null,
+      "BlkioDeviceReadIOps": null,
+      "BlkioDeviceWriteIOps": null,
+      "CpuPeriod": 0,
+      "CpuQuota": 0,
+      "CpuRealtimePeriod": 0,
+      "CpuRealtimeRuntime": 0,
+      "CpusetCpus": "",
+      "CpusetMems": "",
+      "Devices": null,
+      "DeviceCgroupRules": null,
+      "DeviceRequests": null,
+      "MemoryReservation": 0,
+      "MemorySwap": 1610612736,
+      "MemorySwappiness": null,
+      "OomKillDisable": null,
+      "PidsLimit": null,
+      "Ulimits": null,
+      "CpuCount": 0,
+      "CpuPercent": 0,
+      "IOMaximumIOps": 0,
+      "IOMaximumBandwidth": 0,
+      "MaskedPaths": [
+        "/proc/acpi",
+        "/proc/asound",
+        "/proc/interrupts",
+        "/proc/kcore",
+        "/proc/keys",
+        "/proc/latency_stats",
+        "/proc/sched_debug",
+        "/proc/scsi",
+        "/proc/timer_list",
+        "/proc/timer_stats",
+        "/sys/devices/virtual/powercap",
+        "/sys/firmware"
+      ],
+      "ReadonlyPaths": [
+        "/proc/bus",
+        "/proc/fs",
+        "/proc/irq",
+        "/proc/sys",
+        "/proc/sysrq-trigger"
+      ]
+    },
+    "GraphDriver": {
+      "Data": {
+        "ID": "2c99d97989f3a9be66450469ea8c02b8d956b08566d2d693246c126dc56b8d2f",
+        "LowerDir": "/var/lib/docker/overlay2/6c545b77c04de9bd68800df07dc6bd794719990151fac3a4ab8061324fe436eb-init/diff:/var/lib/docker/overlay2/93ievk9mi6t0exd72y4sde9t7/diff:/var/lib/docker/overlay2/xouwi3pzymak5wq9sj85xcnoe/diff:/var/lib/docker/overlay2/9p9swrvtjwzh64gxx0i6v9318/diff:/var/lib/docker/overlay2/zzxzt5bu8lashvjlfoj7iybxp/diff:/var/lib/docker/overlay2/97ocw0nkrirmlhxrez9fuh391/diff:/var/lib/docker/overlay2/kisu4c3he5dfjnff28gsbj76a/diff:/var/lib/docker/overlay2/37ab73021754c5d238085fac1dde692a92325be5f1af971c841343a095e8f761/diff:/var/lib/docker/overlay2/e668d5f9ad9199ea6ae1e053f700f282d9a305f302cc83cfc0adaa55d592d650/diff:/var/lib/docker/overlay2/07314f367f9141ede844725debf40a6d68c120f275aad5550f7890b1c0c00adf/diff:/var/lib/docker/overlay2/65173487d91a997c73a00b55b61094777693032d2ac708243b328d297bf104d7/diff",
+        "MergedDir": "/var/lib/docker/overlay2/6c545b77c04de9bd68800df07dc6bd794719990151fac3a4ab8061324fe436eb/merged",
+        "UpperDir": "/var/lib/docker/overlay2/6c545b77c04de9bd68800df07dc6bd794719990151fac3a4ab8061324fe436eb/diff",
+        "WorkDir": "/var/lib/docker/overlay2/6c545b77c04de9bd68800df07dc6bd794719990151fac3a4ab8061324fe436eb/work"
+      },
+      "Name": "overlay2"
+    },
+    "Mounts": [],
+    "Config": {
+      "Hostname": "2c99d97989f3",
+      "Domainname": "",
+      "User": "extractor",
+      "AttachStdin": false,
+      "AttachStdout": true,
+      "AttachStderr": true,
+      "ExposedPorts": {
+        "8000/tcp": {}
+      },
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": [
+        "CACHE_ENABLED=true",
+        "CACHE_TTL_SECONDS=3600",
+        "CACHE_TIMEOUT_SECONDS=0.2",
+        "REDIS_URL=redis://redis:6379/0",
+        "PATH=/service/.venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "LANG=C.UTF-8",
+        "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+        "PYTHON_VERSION=3.12.15",
+        "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONUNBUFFERED=1",
+        "UV_LINK_MODE=copy",
+        "UV_PYTHON_DOWNLOADS=never"
+      ],
+      "Cmd": [
+        "uvicorn",
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000"
+      ],
+      "Healthcheck": {
+        "Test": [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2).close()"
+        ],
+        "Interval": 10000000000,
+        "Timeout": 3000000000,
+        "StartPeriod": 30000000000,
+        "Retries": 3
+      },
+      "Image": "pdf-extractor-extractor",
+      "Volumes": null,
+      "WorkingDir": "/service",
+      "Entrypoint": null,
+      "Labels": {
+        "com.docker.compose.config-hash": "f71df419dd4362bca440e2a014204c212426962601a7af2d7682fed577166685",
+        "com.docker.compose.container-number": "2",
+        "com.docker.compose.depends_on": "",
+        "com.docker.compose.image": "sha256:e1f07e8c52fe4b8c0468cdf6333a3ec1b23ee23733d27d866b0ab8f8eddf2406",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "pdf-extractor",
+        "com.docker.compose.project.config_files": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.yaml,D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.traefik.yaml",
+        "com.docker.compose.project.working_dir": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service",
+        "com.docker.compose.replace": "extractor-2",
+        "com.docker.compose.service": "extractor",
+        "com.docker.compose.version": "5.5.1",
+        "traefik.docker.network": "pdf-network",
+        "traefik.enable": "true",
+        "traefik.http.routers.pdf-markdown-extractor.entrypoints": "web",
+        "traefik.http.routers.pdf-markdown-extractor.rule": "Host(`localhost`)",
+        "traefik.http.routers.pdf-markdown-extractor.service": "pdf-markdown-extractor",
+        "traefik.http.routers.pdf-markdown-extractor.tls": "false",
+        "traefik.http.services.pdf-markdown-extractor.loadbalancer.server.port": "8000"
+      }
+    },
+    "NetworkSettings": {
+      "SandboxID": "0f83bb14c06c679c252d78fd7f21dab3204972d44794604b9cba4807ad920020",
+      "SandboxKey": "/var/run/docker/netns/0f83bb14c06c",
+      "Ports": {
+        "8000/tcp": null
+      },
+      "Networks": {
+        "pdf-network": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": [
+            "pdf-extractor-extractor-2",
+            "extractor"
+          ],
+          "DriverOpts": null,
+          "GwPriority": 0,
+          "NetworkID": "4d633c1d24f114c789accf9fe97d07f16c1044ab7024ca689fd40c20848a87ad",
+          "EndpointID": "94e89776baccc88bcfab4329cae4825cfd0368b73c7e7b305a716f83b1dd4e6f",
+          "Gateway": "172.19.0.1",
+          "IPAddress": "172.19.0.3",
+          "MacAddress": "3a:04:78:96:9f:b2",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "DNSNames": [
+            "pdf-extractor-extractor-2",
+            "extractor",
+            "2c99d97989f3"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Id": "e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135",
+    "Created": "2026-10-07T02:22:07.356741021Z",
+    "Path": "docker-entrypoint.sh",
+    "Args": [
+      "redis-server",
+      "--save",
+      "",
+      "--appendonly",
+      "no",
+      "--maxmemory",
+      "192mb",
+      "--maxmemory-policy",
+      "allkeys-lru"
+    ],
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 4566,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-07T02:24:42.521781842Z",
+      "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+      "Health": {
+        "Status": "healthy",
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "Start": "2026-10-07T16:30:55.084995739Z",
+            "End": "2026-10-07T16:30:55.195288099Z",
+            "ExitCode": 0,
+            "Output": "PONG\n"
+          },
+          {
+            "Start": "2026-10-07T16:31:00.197088608Z",
+            "End": "2026-10-07T16:31:00.263497266Z",
+            "ExitCode": 0,
+            "Output": "PONG\n"
+          },
+          {
+            "Start": "2026-10-07T16:31:05.264492599Z",
+            "End": "2026-10-07T16:31:05.332332565Z",
+            "ExitCode": 0,
+            "Output": "PONG\n"
+          },
+          {
+            "Start": "2026-10-07T16:31:10.333268733Z",
+            "End": "2026-10-07T16:31:10.429283726Z",
+            "ExitCode": 0,
+            "Output": "PONG\n"
+          },
+          {
+            "Start": "2026-10-07T16:31:15.429706181Z",
+            "End": "2026-10-07T16:31:15.48296677Z",
+            "ExitCode": 0,
+            "Output": "PONG\n"
+          }
+        ]
+      }
+    },
+    "Image": "sha256:fdd7c467318565990fdbe9959d27f0977e295f799dffc36dd5814b03184adc1a",
+    "ResolvConfPath": "/var/lib/docker/containers/e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135/resolv.conf",
+    "HostnamePath": "/var/lib/docker/containers/e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135/hostname",
+    "HostsPath": "/var/lib/docker/containers/e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135/hosts",
+    "LogPath": "/var/lib/docker/containers/e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135/e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135-json.log",
+    "Name": "/pdf-extractor-redis-1",
+    "RestartCount": 0,
+    "Driver": "overlay2",
+    "Platform": "linux",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "AppArmorProfile": "",
+    "ExecIDs": null,
+    "HostConfig": {
+      "Binds": null,
+      "ContainerIDFile": "",
+      "LogConfig": {
+        "Type": "json-file",
+        "Config": {}
+      },
+      "NetworkMode": "pdf-network",
+      "PortBindings": {},
+      "RestartPolicy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "AutoRemove": false,
+      "VolumeDriver": "",
+      "VolumesFrom": null,
+      "ConsoleSize": [
+        0,
+        0
+      ],
+      "CapAdd": null,
+      "CapDrop": null,
+      "CgroupnsMode": "private",
+      "Dns": null,
+      "DnsOptions": null,
+      "DnsSearch": null,
+      "ExtraHosts": [],
+      "GroupAdd": null,
+      "IpcMode": "private",
+      "Cgroup": "",
+      "Links": null,
+      "OomScoreAdj": 0,
+      "PidMode": "",
+      "Privileged": false,
+      "PublishAllPorts": false,
+      "ReadonlyRootfs": false,
+      "SecurityOpt": null,
+      "UTSMode": "",
+      "UsernsMode": "",
+      "ShmSize": 67108864,
+      "Runtime": "runc",
+      "Isolation": "",
+      "CpuShares": 0,
+      "Memory": 268435456,
+      "NanoCpus": 500000000,
+      "CgroupParent": "",
+      "BlkioWeight": 0,
+      "BlkioWeightDevice": null,
+      "BlkioDeviceReadBps": null,
+      "BlkioDeviceWriteBps": null,
+      "BlkioDeviceReadIOps": null,
+      "BlkioDeviceWriteIOps": null,
+      "CpuPeriod": 0,
+      "CpuQuota": 0,
+      "CpuRealtimePeriod": 0,
+      "CpuRealtimeRuntime": 0,
+      "CpusetCpus": "",
+      "CpusetMems": "",
+      "Devices": null,
+      "DeviceCgroupRules": null,
+      "DeviceRequests": null,
+      "MemoryReservation": 0,
+      "MemorySwap": 536870912,
+      "MemorySwappiness": null,
+      "OomKillDisable": null,
+      "PidsLimit": null,
+      "Ulimits": null,
+      "CpuCount": 0,
+      "CpuPercent": 0,
+      "IOMaximumIOps": 0,
+      "IOMaximumBandwidth": 0,
+      "MaskedPaths": [
+        "/proc/acpi",
+        "/proc/asound",
+        "/proc/interrupts",
+        "/proc/kcore",
+        "/proc/keys",
+        "/proc/latency_stats",
+        "/proc/sched_debug",
+        "/proc/scsi",
+        "/proc/timer_list",
+        "/proc/timer_stats",
+        "/sys/devices/virtual/powercap",
+        "/sys/firmware"
+      ],
+      "ReadonlyPaths": [
+        "/proc/bus",
+        "/proc/fs",
+        "/proc/irq",
+        "/proc/sys",
+        "/proc/sysrq-trigger"
+      ]
+    },
+    "GraphDriver": {
+      "Data": {
+        "ID": "e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135",
+        "LowerDir": "/var/lib/docker/overlay2/59d5e5915498d56093cd4b677249c4154f9a64d87a4aec7dc1523dca573216a2-init/diff:/var/lib/docker/overlay2/029b37ff23414a7f4b416b6f2066e14df282358b9f1244c526c2f79a07d7f03b/diff:/var/lib/docker/overlay2/707413cf240b5dd2ef6fa7e4d00344f8f3d210912e7075566468caf53a5db947/diff:/var/lib/docker/overlay2/12e07a96db6b61246a7b4cc17eb3a90117a92b349408c580aa2a7fc196a61401/diff:/var/lib/docker/overlay2/b50d79c62bca1029d27a1d4ef3565ad8d0476f15d35803c55a09ea375fa20f50/diff:/var/lib/docker/overlay2/06d23c9bb9b4545465683c7ae926c659489526aa90ba66d8de7b025d97ad5716/diff:/var/lib/docker/overlay2/df5ed4cb9560a75c5f232b3accc94560fabf3d9df40b55426bff68b2987fbc6a/diff:/var/lib/docker/overlay2/f9fff4888d05e4eacfd1bbfd55d400aa1e945bc68c5d3b86e3cbaed403f1946d/diff",
+        "MergedDir": "/var/lib/docker/overlay2/59d5e5915498d56093cd4b677249c4154f9a64d87a4aec7dc1523dca573216a2/merged",
+        "UpperDir": "/var/lib/docker/overlay2/59d5e5915498d56093cd4b677249c4154f9a64d87a4aec7dc1523dca573216a2/diff",
+        "WorkDir": "/var/lib/docker/overlay2/59d5e5915498d56093cd4b677249c4154f9a64d87a4aec7dc1523dca573216a2/work"
+      },
+      "Name": "overlay2"
+    },
+    "Mounts": [
+      {
+        "Type": "volume",
+        "Name": "173b9aefea36581a7447441a6e1eeb388234bcc857177dfcd93dc2e280270c62",
+        "Source": "/var/lib/docker/volumes/173b9aefea36581a7447441a6e1eeb388234bcc857177dfcd93dc2e280270c62/_data",
+        "Destination": "/data",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+      }
+    ],
+    "Config": {
+      "Hostname": "e4d9cdd1ae20",
+      "Domainname": "",
+      "User": "",
+      "AttachStdin": false,
+      "AttachStdout": true,
+      "AttachStderr": true,
+      "ExposedPorts": {
+        "6379/tcp": {}
+      },
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": [
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "REDIS_VERSION=8.2.10"
+      ],
+      "Cmd": [
+        "redis-server",
+        "--save",
+        "",
+        "--appendonly",
+        "no",
+        "--maxmemory",
+        "192mb",
+        "--maxmemory-policy",
+        "allkeys-lru"
+      ],
+      "Healthcheck": {
+        "Test": [
+          "CMD",
+          "redis-cli",
+          "ping"
+        ],
+        "Interval": 5000000000,
+        "Timeout": 3000000000,
+        "StartPeriod": 5000000000,
+        "Retries": 5
+      },
+      "Image": "redis:8.2.10-alpine",
+      "Volumes": {
+        "/data": {}
+      },
+      "WorkingDir": "/data",
+      "Entrypoint": [
+        "docker-entrypoint.sh"
+      ],
+      "Labels": {
+        "com.docker.compose.config-hash": "06d528c9086325ca94955da06479a8cfcb77f34bafb7184bcdd1f6bfe3333659",
+        "com.docker.compose.container-number": "1",
+        "com.docker.compose.depends_on": "",
+        "com.docker.compose.image": "sha256:fdd7c467318565990fdbe9959d27f0977e295f799dffc36dd5814b03184adc1a",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "pdf-extractor",
+        "com.docker.compose.project.config_files": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extactext\\microservices\\extractor\\compose.yaml",
+        "com.docker.compose.project.working_dir": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extactext\\microservices\\extractor",
+        "com.docker.compose.service": "redis",
+        "com.docker.compose.version": "5.5.1"
+      }
+    },
+    "NetworkSettings": {
+      "SandboxID": "ba9d44ff63c69b32be0de259cba398fe95a0266dae14d6c690b48862e9ffaed5",
+      "SandboxKey": "/var/run/docker/netns/ba9d44ff63c6",
+      "Ports": {
+        "6379/tcp": null
+      },
+      "Networks": {
+        "pdf-network": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": [
+            "pdf-extractor-redis-1",
+            "redis"
+          ],
+          "DriverOpts": null,
+          "GwPriority": 0,
+          "NetworkID": "4d633c1d24f114c789accf9fe97d07f16c1044ab7024ca689fd40c20848a87ad",
+          "EndpointID": "8fc5dc1a7736f4260a2efdc1e4c542d75543d9f05be2a65f6521b1625ac510c3",
+          "Gateway": "172.19.0.1",
+          "IPAddress": "172.19.0.2",
+          "MacAddress": "56:3f:81:2e:ed:34",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "DNSNames": [
+            "pdf-extractor-redis-1",
+            "redis",
+            "e4d9cdd1ae20"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "Id": "95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e",
+    "Created": "2026-10-07T15:14:59.410355133Z",
+    "Path": "/entrypoint.sh",
+    "Args": [
+      "--providers.docker=true",
+      "--providers.docker.exposedbydefault=false",
+      "--providers.docker.network=pdf-network",
+      "--providers.docker.constraints=Label(`com.docker.compose.project`,`pdf-extractor`)",
+      "--entrypoints.web.address=:80",
+      "--accesslog=true",
+      "--accesslog.format=json",
+      "--accesslog.fields.headers.names.X-Audit-Id=keep",
+      "--log.level=INFO",
+      "--ping=true"
+    ],
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 436695,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-07T15:15:05.096327659Z",
+      "FinishedAt": "0001-01-01T00:00:00Z",
+      "Health": {
+        "Status": "healthy",
+        "FailingStreak": 0,
+        "Log": [
+          {
+            "Start": "2026-10-07T16:30:19.757214381Z",
+            "End": "2026-10-07T16:30:24.568576201Z",
+            "ExitCode": -1,
+            "Output": "Health check exceeded timeout (3s)"
+          },
+          {
+            "Start": "2026-10-07T16:30:34.572313028Z",
+            "End": "2026-10-07T16:30:38.574668009Z",
+            "ExitCode": -1,
+            "Output": "Health check exceeded timeout (3s)"
+          },
+          {
+            "Start": "2026-10-07T16:30:48.578006532Z",
+            "End": "2026-10-07T16:30:52.296235953Z",
+            "ExitCode": -1,
+            "Output": "Health check exceeded timeout (3s)"
+          },
+          {
+            "Start": "2026-10-07T16:31:02.298951515Z",
+            "End": "2026-10-07T16:31:02.875318768Z",
+            "ExitCode": 0,
+            "Output": "OK: http://:8080/ping\n"
+          },
+          {
+            "Start": "2026-10-07T16:31:12.876960498Z",
+            "End": "2026-10-07T16:31:13.079921573Z",
+            "ExitCode": 0,
+            "Output": "OK: http://:8080/ping\n"
+          }
+        ]
+      }
+    },
+    "Image": "sha256:ee0b3aaa56c3f593da2c7d67ebbdbc600155bf6be2c3cece8f7870db29714a88",
+    "ResolvConfPath": "/var/lib/docker/containers/95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e/resolv.conf",
+    "HostnamePath": "/var/lib/docker/containers/95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e/hostname",
+    "HostsPath": "/var/lib/docker/containers/95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e/hosts",
+    "LogPath": "/var/lib/docker/containers/95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e/95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e-json.log",
+    "Name": "/pdf-extractor-traefik-1",
+    "RestartCount": 0,
+    "Driver": "overlay2",
+    "Platform": "linux",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "AppArmorProfile": "",
+    "ExecIDs": null,
+    "HostConfig": {
+      "Binds": [
+        "/var/run/docker.sock:/var/run/docker.sock:ro"
+      ],
+      "ContainerIDFile": "",
+      "LogConfig": {
+        "Type": "json-file",
+        "Config": {}
+      },
+      "NetworkMode": "pdf-network",
+      "PortBindings": {
+        "80/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": ""
+          }
+        ]
+      },
+      "RestartPolicy": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "AutoRemove": false,
+      "VolumeDriver": "",
+      "VolumesFrom": null,
+      "ConsoleSize": [
+        0,
+        0
+      ],
+      "CapAdd": null,
+      "CapDrop": null,
+      "CgroupnsMode": "private",
+      "Dns": null,
+      "DnsOptions": null,
+      "DnsSearch": null,
+      "ExtraHosts": [],
+      "GroupAdd": null,
+      "IpcMode": "private",
+      "Cgroup": "",
+      "Links": null,
+      "OomScoreAdj": 0,
+      "PidMode": "",
+      "Privileged": false,
+      "PublishAllPorts": false,
+      "ReadonlyRootfs": false,
+      "SecurityOpt": [
+        "no-new-privileges:true"
+      ],
+      "UTSMode": "",
+      "UsernsMode": "",
+      "ShmSize": 67108864,
+      "Runtime": "runc",
+      "Isolation": "",
+      "CpuShares": 0,
+      "Memory": 536870912,
+      "NanoCpus": 500000000,
+      "CgroupParent": "",
+      "BlkioWeight": 0,
+      "BlkioWeightDevice": null,
+      "BlkioDeviceReadBps": null,
+      "BlkioDeviceWriteBps": null,
+      "BlkioDeviceReadIOps": null,
+      "BlkioDeviceWriteIOps": null,
+      "CpuPeriod": 0,
+      "CpuQuota": 0,
+      "CpuRealtimePeriod": 0,
+      "CpuRealtimeRuntime": 0,
+      "CpusetCpus": "",
+      "CpusetMems": "",
+      "Devices": null,
+      "DeviceCgroupRules": null,
+      "DeviceRequests": null,
+      "MemoryReservation": 0,
+      "MemorySwap": 1073741824,
+      "MemorySwappiness": null,
+      "OomKillDisable": null,
+      "PidsLimit": null,
+      "Ulimits": null,
+      "CpuCount": 0,
+      "CpuPercent": 0,
+      "IOMaximumIOps": 0,
+      "IOMaximumBandwidth": 0,
+      "MaskedPaths": [
+        "/proc/acpi",
+        "/proc/asound",
+        "/proc/interrupts",
+        "/proc/kcore",
+        "/proc/keys",
+        "/proc/latency_stats",
+        "/proc/sched_debug",
+        "/proc/scsi",
+        "/proc/timer_list",
+        "/proc/timer_stats",
+        "/sys/devices/virtual/powercap",
+        "/sys/firmware"
+      ],
+      "ReadonlyPaths": [
+        "/proc/bus",
+        "/proc/fs",
+        "/proc/irq",
+        "/proc/sys",
+        "/proc/sysrq-trigger"
+      ]
+    },
+    "GraphDriver": {
+      "Data": {
+        "ID": "95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e",
+        "LowerDir": "/var/lib/docker/overlay2/5e345504e86c0cf8c360f950320fb1c649265c3d21028040dc759b238c2743f5-init/diff:/var/lib/docker/overlay2/b877c67af7779a39cc51c3e75b45cf5c8c144917f16f958f1ab3f274410a45c2/diff:/var/lib/docker/overlay2/fae701a16f0f15987bec6e102a99ec37ab6123453f99951e35639825acb4421a/diff:/var/lib/docker/overlay2/516fe02e31b92043d17822d39e588f2a7f75dea415a3eb3fa160132030558e0f/diff:/var/lib/docker/overlay2/16d09e02ddf4ac12f60e1abd6ff25179c8af4f863af5e257ea7915dc33fe91b4/diff",
+        "MergedDir": "/var/lib/docker/overlay2/5e345504e86c0cf8c360f950320fb1c649265c3d21028040dc759b238c2743f5/merged",
+        "UpperDir": "/var/lib/docker/overlay2/5e345504e86c0cf8c360f950320fb1c649265c3d21028040dc759b238c2743f5/diff",
+        "WorkDir": "/var/lib/docker/overlay2/5e345504e86c0cf8c360f950320fb1c649265c3d21028040dc759b238c2743f5/work"
+      },
+      "Name": "overlay2"
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/var/run/docker.sock",
+        "Destination": "/var/run/docker.sock",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ],
+    "Config": {
+      "Hostname": "95b5df0935cc",
+      "Domainname": "",
+      "User": "",
+      "AttachStdin": false,
+      "AttachStdout": true,
+      "AttachStderr": true,
+      "ExposedPorts": {
+        "80/tcp": {}
+      },
+      "Tty": false,
+      "OpenStdin": false,
+      "StdinOnce": false,
+      "Env": [
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      ],
+      "Cmd": [
+        "--providers.docker=true",
+        "--providers.docker.exposedbydefault=false",
+        "--providers.docker.network=pdf-network",
+        "--providers.docker.constraints=Label(`com.docker.compose.project`,`pdf-extractor`)",
+        "--entrypoints.web.address=:80",
+        "--accesslog=true",
+        "--accesslog.format=json",
+        "--accesslog.fields.headers.names.X-Audit-Id=keep",
+        "--log.level=INFO",
+        "--ping=true"
+      ],
+      "Healthcheck": {
+        "Test": [
+          "CMD",
+          "traefik",
+          "healthcheck",
+          "--ping"
+        ],
+        "Interval": 10000000000,
+        "Timeout": 3000000000,
+        "Retries": 3
+      },
+      "Image": "traefik:v3.6",
+      "Volumes": null,
+      "WorkingDir": "/",
+      "Entrypoint": [
+        "/entrypoint.sh"
+      ],
+      "Labels": {
+        "com.docker.compose.config-hash": "111c4922c7d79cf755f4135355c8ee07485745333c3a1b05d9a62a349ab91d86",
+        "com.docker.compose.container-number": "1",
+        "com.docker.compose.depends_on": "",
+        "com.docker.compose.image": "sha256:ee0b3aaa56c3f593da2c7d67ebbdbc600155bf6be2c3cece8f7870db29714a88",
+        "com.docker.compose.oneoff": "False",
+        "com.docker.compose.project": "pdf-extractor",
+        "com.docker.compose.project.config_files": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.yaml,D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.traefik.yaml",
+        "com.docker.compose.project.working_dir": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service",
+        "com.docker.compose.replace": "traefik-1",
+        "com.docker.compose.service": "traefik",
+        "com.docker.compose.version": "5.5.1",
+        "org.opencontainers.image.description": "A modern reverse-proxy",
+        "org.opencontainers.image.documentation": "https://docs.traefik.io",
+        "org.opencontainers.image.source": "https://github.com/traefik/traefik",
+        "org.opencontainers.image.title": "Traefik",
+        "org.opencontainers.image.url": "https://traefik.io",
+        "org.opencontainers.image.vendor": "Traefik Labs",
+        "org.opencontainers.image.version": "v3.6.25"
+      }
+    },
+    "NetworkSettings": {
+      "SandboxID": "57fa54254cf395000b1755a097bd6c996acd15131e2d1456115e89e6970b2d21",
+      "SandboxKey": "/var/run/docker/netns/57fa54254cf3",
+      "Ports": {
+        "80/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "53701"
+          }
+        ]
+      },
+      "Networks": {
+        "pdf-network": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": [
+            "pdf-extractor-traefik-1",
+            "traefik"
+          ],
+          "DriverOpts": null,
+          "GwPriority": 0,
+          "NetworkID": "4d633c1d24f114c789accf9fe97d07f16c1044ab7024ca689fd40c20848a87ad",
+          "EndpointID": "281f8d7c84f5d10aaf8477dc6e780ec7789fbcb12ad9a880f97459bb7753d806",
+          "Gateway": "172.19.0.1",
+          "IPAddress": "172.19.0.5",
+          "MacAddress": "fa:40:50:7c:fc:e8",
+          "IPPrefixLen": 16,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "DNSNames": [
+            "pdf-extractor-traefik-1",
+            "traefik",
+            "95b5df0935cc"
+          ]
+        }
+      }
+    }
+  }
+]

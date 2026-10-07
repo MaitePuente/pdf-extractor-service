@@ -1,0 +1,38 @@
+[
+  {
+    "pdf": "2020-Scrum-Guide-Spanish-Latin-South-American.pdf",
+    "key": "extract:v4:6bbff3f361e52016cbb75a72671f1b31b5e043fdc1cc3f022f1b15a32795a256",
+    "page_count": 16,
+    "characters": 35783,
+    "content_sha256": "74bab3f4235b5b87f72e3cf09e4bc849026049d855002b2b2dde5a29c6d8b4c1",
+    "ttl_ms": 3366136,
+    "file_unchanged": true
+  },
+  {
+    "pdf": "scrum_manager_historias_usuario.pdf",
+    "key": "extract:v4:30efd6fcd0c022665676edcf164feb28e6b43dcce53ab9738550b99d70f5fd84",
+    "page_count": 62,
+    "characters": 90183,
+    "content_sha256": "873a7f73e3877ebd0367b9a23fffc95823d0bffd98f3e219e6f0f9ed2e252e35",
+    "ttl_ms": 3366054,
+    "file_unchanged": true
+  },
+  {
+    "pdf": "Essential-Kanban-Condensed-Spanish.pdf",
+    "key": "extract:v4:257f73b908420ac5c78852fb8673beb683a8ca0c05d2e6a82b5e9629f6ad7be8",
+    "page_count": 90,
+    "characters": 125909,
+    "content_sha256": "1a9b530049012b86d0777fdfd886b4acc4a1381360ee7553808da728d2d577f5",
+    "ttl_ms": 3382671,
+    "file_unchanged": true
+  },
+  {
+    "pdf": "Filosofia Lean.pdf",
+    "key": "extract:v4:c77b55bd68477ecc0d96074ea4606bffe5802a1c8a241a725f6eb358be17ce40",
+    "page_count": 42,
+    "characters": 59181,
+    "content_sha256": "ea727a442fdaccc8d8f00b7a34ba5bed6b1f0017e91a41e22eb4657e55d81c6a",
+    "ttl_ms": 3364967,
+    "file_unchanged": true
+  }
+]

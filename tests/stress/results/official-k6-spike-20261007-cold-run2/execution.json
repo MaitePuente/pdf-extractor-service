@@ -1,0 +1,394 @@
+{
+  "started_utc": "2026-10-07T16:01:17.240409+00:00",
+  "exit_code": 137,
+  "aborted": "k6 generator OOM",
+  "wall_seconds": 9.446545899998455,
+  "samples": [
+    {
+      "elapsed_s": 2.569351400001324,
+      "telemetry_error": "Command failed (1): ['docker', 'inspect', 'pdf-extractor-k6-official-k6-spike-20261007-cold-run2']: error: no such object: pdf-extractor-k6-official-k6-spike-20261007-cold-run2\n"
+    },
+    {
+      "elapsed_s": 6.007112200000847,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 472334,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:01:03.936551235Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:01:09.228667924Z",
+                  "End": "2026-10-07T16:01:09.695639519Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:01:19.69327155Z",
+                  "End": "2026-10-07T16:01:20.409060663Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 472278,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:01:03.563532068Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:01:08.885297405Z",
+                  "End": "2026-10-07T16:01:09.401110558Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:01:19.3977056Z",
+                  "End": "2026-10-07T16:01:20.306589751Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:00:56.388728466Z",
+                  "End": "2026-10-07T16:00:56.490176486Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:01.493282694Z",
+                  "End": "2026-10-07T16:01:01.582730639Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:06.584811854Z",
+                  "End": "2026-10-07T16:01:06.650405591Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:11.651654307Z",
+                  "End": "2026-10-07T16:01:11.822893841Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:16.820410948Z",
+                  "End": "2026-10-07T16:01:17.280179603Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:00:36.245760011Z",
+                  "End": "2026-10-07T16:00:36.67973405Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:00:46.678158826Z",
+                  "End": "2026-10-07T16:00:47.056095182Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:00:57.058128093Z",
+                  "End": "2026-10-07T16:00:57.340395833Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:07.341721921Z",
+                  "End": "2026-10-07T16:01:07.656234184Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:17.652786168Z",
+                  "End": "2026-10-07T16:01:18.840469478Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 472720,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-07T16:01:18.864595403Z",
+        "FinishedAt": "0001-01-01T00:00:00Z"
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"99.16%\",\"Container\":\"812494b20fce975418d7465b91df1cc6f54b4a39bb974871ae6c0849dafd65e5\",\"ID\":\"812494b20fce\",\"MemPerc\":\"24.42%\",\"MemUsage\":\"187.6MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"65.8MB / 51.7kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"102.53%\",\"Container\":\"52dce135e975798307843738255638102eb558ec8b4a524e3b711324f8a1dd98\",\"ID\":\"52dce135e975\",\"MemPerc\":\"24.36%\",\"MemUsage\":\"187.1MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"82MB / 98.8kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"6.24%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.80%\",\"MemUsage\":\"7.172MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"3.63MB / 178MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"42.5MB / 0B\",\"CPUPerc\":\"51.56%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"14.78%\",\"MemUsage\":\"75.66MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.24GB / 788MB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"20.5kB / 0B\",\"CPUPerc\":\"99.10%\",\"Container\":\"pdf-extractor-k6-official-k6-spike-20261007-cold-run2\",\"ID\":\"7316ae6447e5\",\"MemPerc\":\"67.98%\",\"MemUsage\":\"348.1MiB / 512MiB\",\"Name\":\"pdf-extractor-k6-official-k6-spike-20261007-cold-run2\",\"NetIO\":\"123kB / 95.4MB\",\"PIDs\":\"10\"}"
+    },
+    {
+      "elapsed_s": 9.291366400000697,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 472334,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:01:03.936551235Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:01:09.228667924Z",
+                  "End": "2026-10-07T16:01:09.695639519Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:01:19.69327155Z",
+                  "End": "2026-10-07T16:01:20.409060663Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 472278,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:01:03.563532068Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:01:08.885297405Z",
+                  "End": "2026-10-07T16:01:09.401110558Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:01:19.3977056Z",
+                  "End": "2026-10-07T16:01:20.306589751Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:01:01.493282694Z",
+                  "End": "2026-10-07T16:01:01.582730639Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:06.584811854Z",
+                  "End": "2026-10-07T16:01:06.650405591Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:11.651654307Z",
+                  "End": "2026-10-07T16:01:11.822893841Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:16.820410948Z",
+                  "End": "2026-10-07T16:01:17.280179603Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:22.281970312Z",
+                  "End": "2026-10-07T16:01:22.36433391Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:00:36.245760011Z",
+                  "End": "2026-10-07T16:00:36.67973405Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:00:46.678158826Z",
+                  "End": "2026-10-07T16:00:47.056095182Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:00:57.058128093Z",
+                  "End": "2026-10-07T16:00:57.340395833Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:07.341721921Z",
+                  "End": "2026-10-07T16:01:07.656234184Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:01:17.652786168Z",
+                  "End": "2026-10-07T16:01:18.840469478Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": true,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 137,
+        "Error": "",
+        "StartedAt": "2026-10-07T16:01:18.864595403Z",
+        "FinishedAt": "2026-10-07T16:01:24.260988235Z"
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"3.17%\",\"Container\":\"812494b20fce975418d7465b91df1cc6f54b4a39bb974871ae6c0849dafd65e5\",\"ID\":\"812494b20fce\",\"MemPerc\":\"39.41%\",\"MemUsage\":\"302.7MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"122MB / 202kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"0.34%\",\"Container\":\"52dce135e975798307843738255638102eb558ec8b4a524e3b711324f8a1dd98\",\"ID\":\"52dce135e975\",\"MemPerc\":\"38.75%\",\"MemUsage\":\"297.6MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"91.4MB / 153kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"1.01%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.86%\",\"MemUsage\":\"7.32MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"3.77MB / 178MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"42.5MB / 0B\",\"CPUPerc\":\"0.71%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.77%\",\"MemUsage\":\"70.52MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.25GB / 803MB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"0.00%\",\"Container\":\"pdf-extractor-k6-official-k6-spike-20261007-cold-run2\",\"ID\":\"7316ae6447e5\",\"MemPerc\":\"0.00%\",\"MemUsage\":\"0B / 0B\",\"Name\":\"pdf-extractor-k6-official-k6-spike-20261007-cold-run2\",\"NetIO\":\"0B / 0B\",\"PIDs\":\"0\"}"
+    }
+  ]
+}

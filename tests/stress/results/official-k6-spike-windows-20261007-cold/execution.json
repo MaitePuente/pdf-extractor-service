@@ -1,0 +1,2696 @@
+{
+  "started_utc": "2026-10-07T16:30:07.568261+00:00",
+  "exit_code": 99,
+  "aborted": null,
+  "wall_seconds": 44.433125200004724,
+  "samples": [
+    {
+      "elapsed_s": 4.258222900003602,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:45.692117196Z",
+                  "End": "2026-10-07T16:29:45.746705298Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:50.747936575Z",
+                  "End": "2026-10-07T16:29:50.905236528Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:55.909076279Z",
+                  "End": "2026-10-07T16:29:56.615953965Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:01.617315812Z",
+                  "End": "2026-10-07T16:30:01.832231967Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:06.833724223Z",
+                  "End": "2026-10-07T16:30:06.88443485Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:15.159982223Z",
+                  "End": "2026-10-07T16:29:15.361866772Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:25.362978469Z",
+                  "End": "2026-10-07T16:29:25.558634277Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:35.559934579Z",
+                  "End": "2026-10-07T16:29:35.760183243Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 99,
+          "total_physical": 7907151872,
+          "available_physical": 13418496,
+          "total_commit_limit": 28401737728,
+          "available_commit": 2765070336,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732968284160,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 376867,
+          "peak_working_set": 967499776,
+          "working_set": 227291136,
+          "peak_paged_pool": 237056,
+          "paged_pool": 237056,
+          "peak_nonpaged_pool": 439352,
+          "nonpaged_pool": 377356,
+          "pagefile": 1515388928,
+          "peak_pagefile": 1515388928,
+          "private_bytes": 1515388928
+        },
+        "cpu_seconds": 3.234375
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"59.21%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"21.69%\",\"MemUsage\":\"166.6MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"1.32MB / 6.54kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"8.32%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"21.32%\",\"MemUsage\":\"163.7MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"1.88MB / 7.19kB\",\"PIDs\":\"4\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"1.13%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.84%\",\"MemUsage\":\"7.262MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"3.79MB / 178MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"17.20%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.25%\",\"MemUsage\":\"67.83MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.25GB / 803MB\",\"PIDs\":\"16\"}"
+    },
+    {
+      "elapsed_s": 8.735343500004092,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:50.747936575Z",
+                  "End": "2026-10-07T16:29:50.905236528Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:55.909076279Z",
+                  "End": "2026-10-07T16:29:56.615953965Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:01.617315812Z",
+                  "End": "2026-10-07T16:30:01.832231967Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:06.833724223Z",
+                  "End": "2026-10-07T16:30:06.88443485Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:11.908629029Z",
+                  "End": "2026-10-07T16:30:12.623118715Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:25.362978469Z",
+                  "End": "2026-10-07T16:29:25.558634277Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:35.559934579Z",
+                  "End": "2026-10-07T16:29:35.760183243Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 98,
+          "total_physical": 7907151872,
+          "available_physical": 120070144,
+          "total_commit_limit": 28401737728,
+          "available_commit": 2278465536,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732972347392,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 458898,
+          "peak_working_set": 967499776,
+          "working_set": 500674560,
+          "peak_paged_pool": 245696,
+          "paged_pool": 245696,
+          "peak_nonpaged_pool": 842968,
+          "nonpaged_pool": 216728,
+          "pagefile": 1671876608,
+          "peak_pagefile": 1671876608,
+          "private_bytes": 1671876608
+        },
+        "cpu_seconds": 4.125
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"107.64%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"23.84%\",\"MemUsage\":\"183.1MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"7.41MB / 20.5kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"106.63%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"25.62%\",\"MemUsage\":\"196.7MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"7.41MB / 24.2kB\",\"PIDs\":\"8\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"1.01%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.84%\",\"MemUsage\":\"7.258MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"3.79MB / 178MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"58.46%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"16.56%\",\"MemUsage\":\"84.81MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.28GB / 817MB\",\"PIDs\":\"16\"}"
+    },
+    {
+      "elapsed_s": 12.688726400003361,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:50.747936575Z",
+                  "End": "2026-10-07T16:29:50.905236528Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:55.909076279Z",
+                  "End": "2026-10-07T16:29:56.615953965Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:01.617315812Z",
+                  "End": "2026-10-07T16:30:01.832231967Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:06.833724223Z",
+                  "End": "2026-10-07T16:30:06.88443485Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:11.908629029Z",
+                  "End": "2026-10-07T16:30:12.623118715Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:25.362978469Z",
+                  "End": "2026-10-07T16:29:25.558634277Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:35.559934579Z",
+                  "End": "2026-10-07T16:29:35.760183243Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 97,
+          "total_physical": 7907151872,
+          "available_physical": 235581440,
+          "total_commit_limit": 28401737728,
+          "available_commit": 2174619648,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732972347392,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 552176,
+          "peak_working_set": 967499776,
+          "working_set": 489820160,
+          "peak_paged_pool": 261376,
+          "paged_pool": 261376,
+          "peak_nonpaged_pool": 842968,
+          "nonpaged_pool": 117704,
+          "pagefile": 1851678720,
+          "peak_pagefile": 1851678720,
+          "private_bytes": 1851678720
+        },
+        "cpu_seconds": 5.03125
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"100.67%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"31.22%\",\"MemUsage\":\"239.8MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"22MB / 83.4kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"101.57%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"29.56%\",\"MemUsage\":\"227MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"19.5MB / 75.7kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"1.24%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.84%\",\"MemUsage\":\"7.258MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"3.79MB / 178MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"57.61%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"27.07%\",\"MemUsage\":\"138.6MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.35GB / 836MB\",\"PIDs\":\"16\"}"
+    },
+    {
+      "elapsed_s": 16.318874600001436,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.216257468Z",
+                  "End": "2026-10-07T16:30:18.526281762Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.319610521Z",
+                  "End": "2026-10-07T16:30:18.498841605Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:55.909076279Z",
+                  "End": "2026-10-07T16:29:56.615953965Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:01.617315812Z",
+                  "End": "2026-10-07T16:30:01.832231967Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:06.833724223Z",
+                  "End": "2026-10-07T16:30:06.88443485Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:11.908629029Z",
+                  "End": "2026-10-07T16:30:12.623118715Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:17.637915857Z",
+                  "End": "2026-10-07T16:30:18.522768293Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:25.362978469Z",
+                  "End": "2026-10-07T16:29:25.558634277Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:35.559934579Z",
+                  "End": "2026-10-07T16:29:35.760183243Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 96,
+          "total_physical": 7907151872,
+          "available_physical": 273448960,
+          "total_commit_limit": 28401737728,
+          "available_commit": 1814274048,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732972347392,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 607460,
+          "peak_working_set": 967499776,
+          "working_set": 621342720,
+          "peak_paged_pool": 262720,
+          "paged_pool": 262720,
+          "peak_nonpaged_pool": 842968,
+          "nonpaged_pool": 125072,
+          "pagefile": 1957994496,
+          "peak_pagefile": 1957994496,
+          "private_bytes": 1957994496
+        },
+        "cpu_seconds": 5.78125
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"103.85%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"38.94%\",\"MemUsage\":\"299MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"36.8MB / 145kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"101.14%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"40.14%\",\"MemUsage\":\"308.2MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"49.5MB / 180kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"1.06%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.84%\",\"MemUsage\":\"7.262MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"3.8MB / 178MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"49.03%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"39.21%\",\"MemUsage\":\"200.8MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.45GB / 881MB\",\"PIDs\":\"17\"}"
+    },
+    {
+      "elapsed_s": 19.629234799998812,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.216257468Z",
+                  "End": "2026-10-07T16:30:18.526281762Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.319610521Z",
+                  "End": "2026-10-07T16:30:18.498841605Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:30:01.617315812Z",
+                  "End": "2026-10-07T16:30:01.832231967Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:06.833724223Z",
+                  "End": "2026-10-07T16:30:06.88443485Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:11.908629029Z",
+                  "End": "2026-10-07T16:30:12.623118715Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:17.637915857Z",
+                  "End": "2026-10-07T16:30:18.522768293Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:23.550324794Z",
+                  "End": "2026-10-07T16:30:24.109968141Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 1,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:35.559934579Z",
+                  "End": "2026-10-07T16:29:35.760183243Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:19.757214381Z",
+                  "End": "2026-10-07T16:30:24.568576201Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 93,
+          "total_physical": 7907151872,
+          "available_physical": 505221120,
+          "total_commit_limit": 28401737728,
+          "available_commit": 1695928320,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732972347392,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 678930,
+          "peak_working_set": 967499776,
+          "working_set": 913764352,
+          "peak_paged_pool": 262720,
+          "paged_pool": 262720,
+          "peak_nonpaged_pool": 842968,
+          "nonpaged_pool": 326596,
+          "pagefile": 2115538944,
+          "peak_pagefile": 2115538944,
+          "private_bytes": 2115538944
+        },
+        "cpu_seconds": 6.484375
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"37.92%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"39.10%\",\"MemUsage\":\"300.3MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"86.5MB / 1.66MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"33.57%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"40.48%\",\"MemUsage\":\"310.9MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"102MB / 1.64MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"1.94%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"3.02%\",\"MemUsage\":\"7.734MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"4.08MB / 180MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"48.41%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"40.71%\",\"MemUsage\":\"208.4MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.57GB / 993MB\",\"PIDs\":\"16\"}"
+    },
+    {
+      "elapsed_s": 23.16443209999852,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.216257468Z",
+                  "End": "2026-10-07T16:30:18.526281762Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.319610521Z",
+                  "End": "2026-10-07T16:30:18.498841605Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:30:01.617315812Z",
+                  "End": "2026-10-07T16:30:01.832231967Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:06.833724223Z",
+                  "End": "2026-10-07T16:30:06.88443485Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:11.908629029Z",
+                  "End": "2026-10-07T16:30:12.623118715Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:17.637915857Z",
+                  "End": "2026-10-07T16:30:18.522768293Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:23.550324794Z",
+                  "End": "2026-10-07T16:30:24.109968141Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 1,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:35.559934579Z",
+                  "End": "2026-10-07T16:29:35.760183243Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:19.757214381Z",
+                  "End": "2026-10-07T16:30:24.568576201Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 96,
+          "total_physical": 7907151872,
+          "available_physical": 251392000,
+          "total_commit_limit": 28401737728,
+          "available_commit": 1375666176,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732972347392,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 732133,
+          "peak_working_set": 1056911360,
+          "working_set": 861388800,
+          "peak_paged_pool": 262720,
+          "paged_pool": 262720,
+          "peak_nonpaged_pool": 1123852,
+          "nonpaged_pool": 527440,
+          "pagefile": 2231361536,
+          "peak_pagefile": 2231361536,
+          "private_bytes": 2231361536
+        },
+        "cpu_seconds": 7.296875
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"98.98%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"44.97%\",\"MemUsage\":\"345.4MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"150MB / 2.85MB\",\"PIDs\":\"8\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"99.39%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"44.20%\",\"MemUsage\":\"339.4MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"170MB / 3.04MB\",\"PIDs\":\"8\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"10.24%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"3.03%\",\"MemUsage\":\"7.77MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"4.1MB / 182MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"48.78%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"49.06%\",\"MemUsage\":\"251.2MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.75GB / 1.13GB\",\"PIDs\":\"16\"}"
+    },
+    {
+      "elapsed_s": 26.736218900005042,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.216257468Z",
+                  "End": "2026-10-07T16:30:18.526281762Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.532623529Z",
+                  "End": "2026-10-07T16:30:30.641827089Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.319610521Z",
+                  "End": "2026-10-07T16:30:18.498841605Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.526515546Z",
+                  "End": "2026-10-07T16:30:30.635602654Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:30:06.833724223Z",
+                  "End": "2026-10-07T16:30:06.88443485Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:11.908629029Z",
+                  "End": "2026-10-07T16:30:12.623118715Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:17.637915857Z",
+                  "End": "2026-10-07T16:30:18.522768293Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:23.550324794Z",
+                  "End": "2026-10-07T16:30:24.109968141Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:29.118363728Z",
+                  "End": "2026-10-07T16:30:29.311396719Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 1,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:35.559934579Z",
+                  "End": "2026-10-07T16:29:35.760183243Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:19.757214381Z",
+                  "End": "2026-10-07T16:30:24.568576201Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 93,
+          "total_physical": 7907151872,
+          "available_physical": 488673280,
+          "total_commit_limit": 28401737728,
+          "available_commit": 1068793856,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732972347392,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 759402,
+          "peak_working_set": 1056911360,
+          "working_set": 632188928,
+          "peak_paged_pool": 262720,
+          "paged_pool": 262720,
+          "peak_nonpaged_pool": 1123852,
+          "nonpaged_pool": 130784,
+          "pagefile": 2285801472,
+          "peak_pagefile": 2285801472,
+          "private_bytes": 2285801472
+        },
+        "cpu_seconds": 7.671875
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"20.80%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"45.21%\",\"MemUsage\":\"347.2MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"173MB / 3.39MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"20.61%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"47.57%\",\"MemUsage\":\"365.4MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"203MB / 3.58MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.94%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"3.08%\",\"MemUsage\":\"7.879MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"4.11MB / 183MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"49.52%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"49.92%\",\"MemUsage\":\"255.6MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.79GB / 1.17GB\",\"PIDs\":\"16\"}"
+    },
+    {
+      "elapsed_s": 29.89548569999897,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.216257468Z",
+                  "End": "2026-10-07T16:30:18.526281762Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.532623529Z",
+                  "End": "2026-10-07T16:30:30.641827089Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.319610521Z",
+                  "End": "2026-10-07T16:30:18.498841605Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.526515546Z",
+                  "End": "2026-10-07T16:30:30.635602654Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:30:11.908629029Z",
+                  "End": "2026-10-07T16:30:12.623118715Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:17.637915857Z",
+                  "End": "2026-10-07T16:30:18.522768293Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:23.550324794Z",
+                  "End": "2026-10-07T16:30:24.109968141Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:29.118363728Z",
+                  "End": "2026-10-07T16:30:29.311396719Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:34.31451211Z",
+                  "End": "2026-10-07T16:30:34.692001326Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 1,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:35.559934579Z",
+                  "End": "2026-10-07T16:29:35.760183243Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:19.757214381Z",
+                  "End": "2026-10-07T16:30:24.568576201Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 93,
+          "total_physical": 7907151872,
+          "available_physical": 496537600,
+          "total_commit_limit": 28401737728,
+          "available_commit": 1137950720,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732972347392,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 788178,
+          "peak_working_set": 1056911360,
+          "working_set": 580198400,
+          "peak_paged_pool": 262720,
+          "paged_pool": 262720,
+          "peak_nonpaged_pool": 1123852,
+          "nonpaged_pool": 396944,
+          "pagefile": 2348568576,
+          "peak_pagefile": 2348568576,
+          "private_bytes": 2348568576
+        },
+        "cpu_seconds": 7.9375
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"13.99%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"46.64%\",\"MemUsage\":\"358.2MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"209MB / 4.51MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"10.52%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"49.11%\",\"MemUsage\":\"377.2MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"233MB / 4.24MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.81%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"3.05%\",\"MemUsage\":\"7.805MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"4.12MB / 184MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"49.39%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"41.82%\",\"MemUsage\":\"214.1MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.83GB / 1.25GB\",\"PIDs\":\"17\"}"
+    },
+    {
+      "elapsed_s": 33.50858760000119,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.216257468Z",
+                  "End": "2026-10-07T16:30:18.526281762Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.532623529Z",
+                  "End": "2026-10-07T16:30:30.641827089Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.319610521Z",
+                  "End": "2026-10-07T16:30:18.498841605Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.526515546Z",
+                  "End": "2026-10-07T16:30:30.635602654Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:30:11.908629029Z",
+                  "End": "2026-10-07T16:30:12.623118715Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:17.637915857Z",
+                  "End": "2026-10-07T16:30:18.522768293Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:23.550324794Z",
+                  "End": "2026-10-07T16:30:24.109968141Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:29.118363728Z",
+                  "End": "2026-10-07T16:30:29.311396719Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:34.31451211Z",
+                  "End": "2026-10-07T16:30:34.692001326Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 2,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:19.757214381Z",
+                  "End": "2026-10-07T16:30:24.568576201Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                },
+                {
+                  "Start": "2026-10-07T16:30:34.572313028Z",
+                  "End": "2026-10-07T16:30:38.574668009Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 93,
+          "total_physical": 7907151872,
+          "available_physical": 487874560,
+          "total_commit_limit": 28401737728,
+          "available_commit": 1048223744,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732972347392,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 830696,
+          "peak_working_set": 1056911360,
+          "working_set": 724832256,
+          "peak_paged_pool": 262912,
+          "paged_pool": 262720,
+          "peak_nonpaged_pool": 1123852,
+          "nonpaged_pool": 133368,
+          "pagefile": 2428903424,
+          "peak_pagefile": 2428903424,
+          "private_bytes": 2428903424
+        },
+        "cpu_seconds": 8.546875
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"53.45%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"49.54%\",\"MemUsage\":\"380.4MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"255MB / 5.45MB\",\"PIDs\":\"8\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"26.78%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"53.23%\",\"MemUsage\":\"408.8MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"257MB / 4.68MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"1.22%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"3.05%\",\"MemUsage\":\"7.805MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"4.13MB / 185MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"49.39%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"48.41%\",\"MemUsage\":\"247.9MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"1.95GB / 1.33GB\",\"PIDs\":\"16\"}"
+    },
+    {
+      "elapsed_s": 36.917463400001,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.216257468Z",
+                  "End": "2026-10-07T16:30:18.526281762Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.532623529Z",
+                  "End": "2026-10-07T16:30:30.641827089Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:40.656115986Z",
+                  "End": "2026-10-07T16:30:41.886224994Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.319610521Z",
+                  "End": "2026-10-07T16:30:18.498841605Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.526515546Z",
+                  "End": "2026-10-07T16:30:30.635602654Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:40.656161247Z",
+                  "End": "2026-10-07T16:30:41.92709853Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:30:17.637915857Z",
+                  "End": "2026-10-07T16:30:18.522768293Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:23.550324794Z",
+                  "End": "2026-10-07T16:30:24.109968141Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:29.118363728Z",
+                  "End": "2026-10-07T16:30:29.311396719Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:34.31451211Z",
+                  "End": "2026-10-07T16:30:34.692001326Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:39.725587816Z",
+                  "End": "2026-10-07T16:30:39.817118627Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 2,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:19.757214381Z",
+                  "End": "2026-10-07T16:30:24.568576201Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                },
+                {
+                  "Start": "2026-10-07T16:30:34.572313028Z",
+                  "End": "2026-10-07T16:30:38.574668009Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 95,
+          "total_physical": 7907151872,
+          "available_physical": 379609088,
+          "total_commit_limit": 28401737728,
+          "available_commit": 829632512,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732978442240,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 859901,
+          "peak_working_set": 1056911360,
+          "working_set": 541556736,
+          "peak_paged_pool": 262912,
+          "paged_pool": 261568,
+          "peak_nonpaged_pool": 1123852,
+          "nonpaged_pool": 129520,
+          "pagefile": 2487713792,
+          "peak_pagefile": 2487713792,
+          "private_bytes": 2487713792
+        },
+        "cpu_seconds": 9.0
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"52.14%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"50.08%\",\"MemUsage\":\"384.6MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"285MB / 6.65MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"160kB / 0B\",\"CPUPerc\":\"31.32%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"54.41%\",\"MemUsage\":\"417.9MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"303MB / 6.1MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"1.94%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"3.03%\",\"MemUsage\":\"7.766MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"4.28MB / 187MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"53.54%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"50.20%\",\"MemUsage\":\"257MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.04GB / 1.41GB\",\"PIDs\":\"16\"}"
+    },
+    {
+      "elapsed_s": 40.100595100004284,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.216257468Z",
+                  "End": "2026-10-07T16:30:18.526281762Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.532623529Z",
+                  "End": "2026-10-07T16:30:30.641827089Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:40.656115986Z",
+                  "End": "2026-10-07T16:30:41.886224994Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.319610521Z",
+                  "End": "2026-10-07T16:30:18.498841605Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.526515546Z",
+                  "End": "2026-10-07T16:30:30.635602654Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:40.656161247Z",
+                  "End": "2026-10-07T16:30:41.92709853Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:30:23.550324794Z",
+                  "End": "2026-10-07T16:30:24.109968141Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:29.118363728Z",
+                  "End": "2026-10-07T16:30:29.311396719Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:34.31451211Z",
+                  "End": "2026-10-07T16:30:34.692001326Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:39.725587816Z",
+                  "End": "2026-10-07T16:30:39.817118627Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:44.819333177Z",
+                  "End": "2026-10-07T16:30:45.008118438Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 2,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:19.757214381Z",
+                  "End": "2026-10-07T16:30:24.568576201Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                },
+                {
+                  "Start": "2026-10-07T16:30:34.572313028Z",
+                  "End": "2026-10-07T16:30:38.574668009Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 94,
+          "total_physical": 7907151872,
+          "available_physical": 396951552,
+          "total_commit_limit": 28401737728,
+          "available_commit": 700866560,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732978442240,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 879869,
+          "peak_working_set": 1056911360,
+          "working_set": 519897088,
+          "peak_paged_pool": 262912,
+          "paged_pool": 259648,
+          "peak_nonpaged_pool": 1123852,
+          "nonpaged_pool": 122608,
+          "pagefile": 2532757504,
+          "peak_pagefile": 2532757504,
+          "private_bytes": 2532757504
+        },
+        "cpu_seconds": 9.375
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"18.12%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"50.07%\",\"MemUsage\":\"384.6MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"324MB / 7.34MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"160kB / 0B\",\"CPUPerc\":\"21.52%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"57.68%\",\"MemUsage\":\"442.9MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"357MB / 6.69MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.77%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"3.09%\",\"MemUsage\":\"7.902MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"4.28MB / 188MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"49.51%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"49.87%\",\"MemUsage\":\"255.3MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.11GB / 1.49GB\",\"PIDs\":\"16\"}"
+    },
+    {
+      "elapsed_s": 43.41952129999845,
+      "states": [
+        {
+          "name": "/pdf-extractor-extractor-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496393,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:52.772346909Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.271700409Z",
+                  "End": "2026-10-07T16:29:59.65712472Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.659832156Z",
+                  "End": "2026-10-07T16:30:05.221958002Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.216257468Z",
+                  "End": "2026-10-07T16:30:18.526281762Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.532623529Z",
+                  "End": "2026-10-07T16:30:30.641827089Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:40.656115986Z",
+                  "End": "2026-10-07T16:30:41.886224994Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-extractor-2",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 496448,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T16:29:53.375760562Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:58.788337893Z",
+                  "End": "2026-10-07T16:29:59.782329013Z",
+                  "ExitCode": 1,
+                  "Output": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1357, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1386, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1432, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1381, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1141, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1085, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1051, in connect\n    self.sock = self._create_connection(\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/socket.py\", line 865, in create_connection\n    raise exceptions[0]\n  File \"/usr/local/lib/python3.12/socket.py\", line 850, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [Errno 111] Connection refused\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1386, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno 111] Connection refused>\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:04.785049962Z",
+                  "End": "2026-10-07T16:30:05.321663205Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:15.319610521Z",
+                  "End": "2026-10-07T16:30:18.498841605Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:28.526515546Z",
+                  "End": "2026-10-07T16:30:30.635602654Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                },
+                {
+                  "Start": "2026-10-07T16:30:40.656161247Z",
+                  "End": "2026-10-07T16:30:41.92709853Z",
+                  "ExitCode": 0,
+                  "Output": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-redis-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4566,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T02:24:42.521781842Z",
+            "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 0,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:30:23.550324794Z",
+                  "End": "2026-10-07T16:30:24.109968141Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:29.118363728Z",
+                  "End": "2026-10-07T16:30:29.311396719Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:34.31451211Z",
+                  "End": "2026-10-07T16:30:34.692001326Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:39.725587816Z",
+                  "End": "2026-10-07T16:30:39.817118627Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:44.819333177Z",
+                  "End": "2026-10-07T16:30:45.008118438Z",
+                  "ExitCode": 0,
+                  "Output": "PONG\n"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "/pdf-extractor-traefik-1",
+          "state": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 436695,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-07T15:15:05.096327659Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+              "Status": "healthy",
+              "FailingStreak": 2,
+              "Log": [
+                {
+                  "Start": "2026-10-07T16:29:45.757515993Z",
+                  "End": "2026-10-07T16:29:46.062697042Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:29:56.06369795Z",
+                  "End": "2026-10-07T16:29:57.668815164Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:07.67008107Z",
+                  "End": "2026-10-07T16:30:09.765831527Z",
+                  "ExitCode": 0,
+                  "Output": "OK: http://:8080/ping\n"
+                },
+                {
+                  "Start": "2026-10-07T16:30:19.757214381Z",
+                  "End": "2026-10-07T16:30:24.568576201Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                },
+                {
+                  "Start": "2026-10-07T16:30:34.572313028Z",
+                  "End": "2026-10-07T16:30:38.574668009Z",
+                  "ExitCode": -1,
+                  "Output": "Health check exceeded timeout (3s)"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "client_state": null,
+      "native_generator": {
+        "host": {
+          "length": 64,
+          "load_percent": 94,
+          "total_physical": 7907151872,
+          "available_physical": 438636544,
+          "total_commit_limit": 28401737728,
+          "available_commit": 810283008,
+          "total_virtual": 140737488224256,
+          "available_virtual": 140732978442240,
+          "extended_virtual": 0
+        },
+        "process": {
+          "cb": 80,
+          "page_faults": 903020,
+          "peak_working_set": 1056911360,
+          "working_set": 550834176,
+          "peak_paged_pool": 264808,
+          "paged_pool": 264712,
+          "peak_nonpaged_pool": 1123852,
+          "nonpaged_pool": 99624,
+          "pagefile": 2579353600,
+          "peak_pagefile": 2579353600,
+          "private_bytes": 2579353600
+        },
+        "cpu_seconds": 9.625
+      },
+      "stats": "{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"31.70%\",\"Container\":\"07cd1d899d66af6f01363f6f77f104545deecae1b28db780265699e76e48f536\",\"ID\":\"07cd1d899d66\",\"MemPerc\":\"51.22%\",\"MemUsage\":\"393.4MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"352MB / 8.39MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"160kB / 0B\",\"CPUPerc\":\"27.89%\",\"Container\":\"e7cbf6d78f9c6427f502390934b9953da074d8657e36b23063c87223aa3832c8\",\"ID\":\"e7cbf6d78f9c\",\"MemPerc\":\"59.87%\",\"MemUsage\":\"459.8MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"415MB / 7.4MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"5.74%\",\"Container\":\"e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"3.15%\",\"MemUsage\":\"8.07MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"4.29MB / 190MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"44.2MB / 0B\",\"CPUPerc\":\"53.66%\",\"Container\":\"95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"38.57%\",\"MemUsage\":\"197.5MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.15GB / 1.59GB\",\"PIDs\":\"17\"}"
+    }
+  ]
+}

@@ -1,0 +1,389 @@
+{
+  "completed_nominal_40_seconds": true,
+  "nominal_profile_seconds": 40,
+  "measured_test_seconds": 40.1208811,
+  "launcher_wall_seconds": 44.433125200004724,
+  "exit_code": 99,
+  "aborted": null,
+  "requests_initiated": 279,
+  "initiated_by_pdf": {
+    "1": 70,
+    "2": 70,
+    "3": 70,
+    "4": 69
+  },
+  "completed_http_requests": 179,
+  "completed_http_requests_per_second": 4.461517172413245,
+  "interrupted_iterations": 100,
+  "http_status": {
+    "503": 39,
+    "200": 139,
+    "502": 1
+  },
+  "http_req_failed": {
+    "rate": 0.22346368715083798,
+    "passes": 40,
+    "fails": 139
+  },
+  "checks": {
+    "passes": 695,
+    "fails": 200,
+    "rate": 0.776536312849162
+  },
+  "http_latency_ms": {
+    "max": 33601.7957,
+    "avg": 7495.255934636873,
+    "min": 490.0267,
+    "med": 5105.8324,
+    "p(90)": 17900.786400000005,
+    "p(95)": 19958.907539999997
+  },
+  "valid_successes": 139,
+  "success_throughput_per_second": 3.4645300947790005,
+  "unsuccessful_or_interrupted_fraction": 0.5017921146953405,
+  "timeouts_observed": 0,
+  "connection_errors_observed": 0,
+  "cache_headers": {
+    "ABSENT": 40,
+    "HIT": 134,
+    "MISS": 5
+  },
+  "cache_status_unknown_responses": 40,
+  "client_timing_ms": {
+    "duration_ms": {
+      "count": 179,
+      "min": 490.0267,
+      "p50": 5105.8324,
+      "p90": 17900.786400000005,
+      "p95": 19958.907539999997,
+      "max": 33601.7957
+    },
+    "sending_ms": {
+      "count": 179,
+      "min": 0.5212,
+      "p50": 15.669,
+      "p90": 5264.599280000004,
+      "p95": 8323.0119,
+      "max": 18998.0797
+    },
+    "waiting_ms": {
+      "count": 179,
+      "min": 405.7214,
+      "p50": 4613.334,
+      "p90": 12045.963580000009,
+      "p95": 15075.666469999987,
+      "max": 31954.1488
+    },
+    "receiving_ms": {
+      "count": 179,
+      "min": 0,
+      "p50": 1.0348,
+      "p90": 491.66112000000004,
+      "p95": 608.7684199999994,
+      "max": 1294.6178
+    },
+    "blocked_ms": {
+      "count": 179,
+      "min": 0,
+      "p50": 0.0,
+      "p90": 2.11674,
+      "p95": 2.7433099999999992,
+      "max": 13.5354
+    }
+  },
+  "latency_200_only_ms": {
+    "count": 139,
+    "min": 490.0267,
+    "p50": 4688.0043,
+    "p90": 18374.58678,
+    "p95": 20981.70407999999,
+    "max": 33601.7957
+  },
+  "responses_by_pdf": {
+    "1": {
+      "status": {
+        "503": 21,
+        "200": 47,
+        "502": 1
+      },
+      "cache": {
+        "ABSENT": 22,
+        "HIT": 46,
+        "MISS": 1
+      }
+    },
+    "2": {
+      "status": {
+        "503": 3,
+        "200": 40
+      },
+      "cache": {
+        "ABSENT": 3,
+        "MISS": 1,
+        "HIT": 39
+      }
+    },
+    "3": {
+      "status": {
+        "200": 3
+      },
+      "cache": {
+        "MISS": 1,
+        "HIT": 2
+      }
+    },
+    "4": {
+      "status": {
+        "503": 15,
+        "200": 49
+      },
+      "cache": {
+        "ABSENT": 15,
+        "MISS": 2,
+        "HIT": 47
+      }
+    }
+  },
+  "data_sent_bytes": 879747150,
+  "data_received_bytes": 9277646,
+  "initial_proxy_access_snapshot": {
+    "records": 241,
+    "distribution": {
+      "pdf-extractor-extractor-1": 124,
+      "pdf-extractor-extractor-2": 117
+    },
+    "status_codes": {
+      "503": 39,
+      "200": 144,
+      "502": 17,
+      "499": 41
+    }
+  },
+  "final_proxy_access": {
+    "records": 279,
+    "unique_ids": 279,
+    "distribution": {
+      "pdf-extractor-extractor-1": 140,
+      "pdf-extractor-extractor-2": 139
+    },
+    "status_codes": {
+      "503": 39,
+      "200": 144,
+      "502": 32,
+      "499": 64
+    },
+    "note": "Includes late completions/cancellations after client end and DB0 restoration; not client responses."
+  },
+  "interrupted_proxy_status": {
+    "200": 5,
+    "499": 64,
+    "502": 31
+  },
+  "server_profiles": {
+    "count": 181,
+    "cache_counts": {
+      "MISS": 5,
+      "HIT": 176
+    },
+    "timing_ms": {
+      "receive_body_ms": {
+        "count": 181,
+        "min": 2.68350999976974,
+        "p50": 3712.6304710000113,
+        "p90": 20182.92748600288,
+        "p95": 26454.01117700021,
+        "max": 38797.207906998665
+      },
+      "redis_get_ms": {
+        "count": 181,
+        "min": 0.8806389996607322,
+        "p50": 7.235837001644541,
+        "p90": 32.63673300170922,
+        "p95": 53.59728199982783,
+        "max": 292.81692699805717
+      },
+      "extraction_ms": {
+        "count": 181,
+        "min": 0,
+        "p50": 0.0,
+        "p90": 0.0,
+        "p95": 0.0,
+        "max": 1079.7011680006108
+      },
+      "worker_ms": {
+        "count": 5,
+        "min": 236.0717299998214,
+        "p50": 1661.8058160020155,
+        "p90": 12604.223351199471,
+        "p95": 12766.809460598597,
+        "max": 12929.395569997723
+      },
+      "total_server_ms": {
+        "count": 181,
+        "min": 6.810686998505844,
+        "p50": 3874.655845000234,
+        "p90": 20208.707169000263,
+        "p95": 26470.799989001534,
+        "max": 38807.61506700219
+      }
+    },
+    "warning": "Profiles include work continuing after client cancellation; not the same population as HTTP results."
+  },
+  "docker_resource_maxima_sampled": {
+    "pdf-extractor-extractor-1": {
+      "max_cpu_percent": 107.64,
+      "max_memory_mib": 393.4
+    },
+    "pdf-extractor-extractor-2": {
+      "max_cpu_percent": 106.63,
+      "max_memory_mib": 459.8
+    },
+    "pdf-extractor-redis-1": {
+      "max_cpu_percent": 10.24,
+      "max_memory_mib": 8.07
+    },
+    "pdf-extractor-traefik-1": {
+      "max_cpu_percent": 58.46,
+      "max_memory_mib": 257.0
+    }
+  },
+  "telemetry_samples": 12,
+  "native_generator": {
+    "pid": 28444,
+    "peak_working_set_bytes": 1056911360,
+    "peak_commit_bytes": 2580541440,
+    "total_cpu_seconds": 9.734375,
+    "max_sampled_cpu_one_core_percent": 75.22210732550639,
+    "page_faults": 904489,
+    "total_physical_bytes": 7907151872,
+    "available_physical_before_bytes": 559599616,
+    "min_sampled_available_physical_bytes": 13418496,
+    "min_sampled_available_commit_bytes": 700866560,
+    "note": "Windows peak process counters; page faults include soft faults, not a count of disk paging alone."
+  },
+  "oom_after_load": {
+    "pdf-extractor-extractor-1": false,
+    "pdf-extractor-extractor-2": false,
+    "pdf-extractor-redis-1": false,
+    "pdf-extractor-traefik-1": false
+  },
+  "final_health": {
+    "pdf-extractor-extractor-1": "healthy",
+    "pdf-extractor-extractor-2": "healthy",
+    "pdf-extractor-redis-1": "healthy",
+    "pdf-extractor-traefik-1": "healthy"
+  },
+  "restoration": {
+    "restored": true,
+    "normal_db_keys": 0,
+    "benchmark_db_keys": 4
+  },
+  "tests": {
+    "environment": {
+      "UV_NO_SYNC": "true",
+      "UV_OFFLINE": "true",
+      "PYTHONIOENCODING": "utf-8",
+      "EXTRACTOR_BASE_URL": "http://localhost:53701"
+    },
+    "results": [
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "-v"
+        ],
+        "exit_code": 0,
+        "wall_seconds": 30.92657949999557,
+        "log": "pytest.log"
+      },
+      {
+        "command": [
+          "uv",
+          "run",
+          "--locked",
+          "pytest",
+          "--run-integration",
+          "-m",
+          "integration",
+          "-v",
+          "-s"
+        ],
+        "exit_code": 0,
+        "wall_seconds": 12.992918000003556,
+        "log": "redis-integration.log"
+      }
+    ]
+  },
+  "cache_integrity": [
+    {
+      "pdf": "2020-Scrum-Guide-Spanish-Latin-South-American.pdf",
+      "key": "extract:v4:6bbff3f361e52016cbb75a72671f1b31b5e043fdc1cc3f022f1b15a32795a256",
+      "page_count": 16,
+      "characters": 35783,
+      "content_sha256": "74bab3f4235b5b87f72e3cf09e4bc849026049d855002b2b2dde5a29c6d8b4c1",
+      "ttl_ms": 3366136,
+      "file_unchanged": true
+    },
+    {
+      "pdf": "scrum_manager_historias_usuario.pdf",
+      "key": "extract:v4:30efd6fcd0c022665676edcf164feb28e6b43dcce53ab9738550b99d70f5fd84",
+      "page_count": 62,
+      "characters": 90183,
+      "content_sha256": "873a7f73e3877ebd0367b9a23fffc95823d0bffd98f3e219e6f0f9ed2e252e35",
+      "ttl_ms": 3366054,
+      "file_unchanged": true
+    },
+    {
+      "pdf": "Essential-Kanban-Condensed-Spanish.pdf",
+      "key": "extract:v4:257f73b908420ac5c78852fb8673beb683a8ca0c05d2e6a82b5e9629f6ad7be8",
+      "page_count": 90,
+      "characters": 125909,
+      "content_sha256": "1a9b530049012b86d0777fdfd886b4acc4a1381360ee7553808da728d2d577f5",
+      "ttl_ms": 3382671,
+      "file_unchanged": true
+    },
+    {
+      "pdf": "Filosofia Lean.pdf",
+      "key": "extract:v4:c77b55bd68477ecc0d96074ea4606bffe5802a1c8a241a725f6eb358be17ce40",
+      "page_count": 42,
+      "characters": 59181,
+      "content_sha256": "ea727a442fdaccc8d8f00b7a34ba5bed6b1f0017e91a41e22eb4657e55d81c6a",
+      "ttl_ms": 3364967,
+      "file_unchanged": true
+    }
+  ],
+  "events": [
+    {
+      "event": "spike_start",
+      "cache": "COLD CACHE AL INICIO",
+      "profile": "0->100 in 10s; 100 for 20s; 100->0 in 10s",
+      "pdf_bytes": [
+        319343,
+        3830899,
+        8901466,
+        668142
+      ]
+    },
+    {
+      "event": "spike_finished"
+    }
+  ],
+  "professor": {
+    "requests": 1037,
+    "requests_per_second": 25.35,
+    "error_fraction": 0,
+    "p50_ms": 1880,
+    "p90_ms": 7830,
+    "p95_ms": 8800,
+    "max_ms": 13940
+  },
+  "limitations": [
+    "HTTP metrics/checks exclude the 100 interrupted iterations; zero graceful times are unchanged.",
+    "No timeout/connection error observed in 179 results; canceled requests did not wait for the 180s timeout.",
+    "Final proxy logs include late completion and restoration effects, not only responses received by k6.",
+    "Started cold, then mixed MISS/HIT: HIT latency is not extraction time.",
+    "Host physical memory pressure and paging can influence latency; no isolated component bottleneck proven."
+  ]
+}

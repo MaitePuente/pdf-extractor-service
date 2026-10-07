@@ -1,10 +1,128 @@
-# Baseline del microservicio extractor con k6
+# Rendimiento del microservicio extractor: estado final de entrega
 
-**Registro histórico:** las secciones del baseline se conservan debajo sin
-reemplazar sus resultados. La sección final **CONFIGURACIÓN RECOMENDADA PARA
-ENTREGA** contiene la validación vigente con dos réplicas. Las fases anteriores,
-incluida HOT CACHE desde Docker con cinco réplicas, conservan sus recomendaciones
-y cifras como historia; no representan la configuración elegida para entregar.
+Este resumen presenta primero el **estado final de la entrega**, con las
+mediciones ya realizadas el 7 de octubre de 2026. Las fases de investigación
+y sus resultados históricos se conservan íntegros más abajo. No se mezclan
+extracción fría, CACHE HIT, extracción offline y cargas oficiales.
+
+## Configuración final
+
+- **2 réplicas del extractor**, cada una con **1 CPU / 768 MiB**.
+- **Redis compartido**, DB 0 en funcionamiento normal; las cargas oficiales
+  empezaron con una DB de benchmark vacía y después se restauró DB 0.
+- **Traefik: 0.5 CPU / 512 MiB**. Las peticiones pasan por Traefik, no por una
+  réplica directa.
+- Red externa **`pdf-network`**, compartida intencionalmente por los
+  microservicios independientes. Si no existe, se crea una sola vez antes
+  de Compose; el arranque reproducible está en [README](../README.md#arranque-de-la-configuración-de-entrega).
+- Cuatro PDFs oficiales externos, sin copiarlos al repositorio. Carpeta
+  configurable; en estas corridas: `D:\INGENIERIA\3er\desarrollo de software\`:
+
+  1. `2020-Scrum-Guide-Spanish-Latin-South-American.pdf`
+  2. `scrum_manager_historias_usuario.pdf`
+  3. `Essential-Kanban-Condensed-Spanish.pdf`
+  4. `Filosofia Lean.pdf`
+
+`pdf279hojas.pdf` no participa en las cargas oficiales de cuatro PDFs: se
+reserva para los experimentos especiales de 279 páginas.
+
+## Resultado final k6 oficial
+
+**Spike completo** desde k6 nativo Windows: **0→100 VUs en 10 s**, **100 VUs
+por 20 s**, **100→0 VUs en 10 s**. Inicio **COLD CACHE**, sin precarga.
+
+| Métrica | Resultado final |
+|---|---:|
+| Duración registrada | **40,121 s** (40 s nominales) |
+| Requests iniciadas | **279** |
+| Respuestas HTTP completas | **179** |
+| Req/s del resumen HTTP | **4,46** |
+| HTTP 200 | **139** |
+| HTTP 503 | **39** |
+| HTTP 502 | **1** |
+| `http_req_failed` | **22,35 %** |
+| p50 | **5,106 s** |
+| p90 | **17,901 s** |
+| p95 | **19,959 s** |
+| Máximo | **33,602 s** |
+| Iteraciones interrumpidas por cierre sin gracia | **100** |
+
+Las 100 interrumpidas no entran en las 179 respuestas ni en sus percentiles
+o en el denominador de `http_req_failed`. Se completó el perfil sin OOM del
+generador; el exit 99 corresponde a thresholds fallidos. **NO se superó al
+profesor ni se cumplió p95 < 400 ms**. El inicio frío dio paso a respuestas
+MISS/HIT; el resumen no representa extracción pura sin caché.
+
+Detalle, comparación y comandos: [K6 SPIKE OFICIAL NATIVO WINDOWS](#k6-spike-oficial-nativo-windows-40-s-completos).
+Evidencia: `tests/stress/results/official-k6-spike-windows-20261007-cold/`.
+
+## Resultado final Vegeta oficial
+
+Perfil completo **50 req/s × 30 s**, timeout **30 s**, rotando los cuatro
+PDFs oficiales. **COLD CACHE al inicio**, con **1500 solicitudes**.
+
+| Métrica | Resultado final |
+|---|---:|
+| Success | **0 %** |
+| Respuestas HTTP 503 completas | **67** |
+| Timeouts | **1282** |
+| Otros errores de conexión | **151** |
+| p50 | **30005,397 ms** |
+| p95 | **30015,049 ms** |
+| OOM con Traefik 512 MiB | **No** |
+
+**NO se superó al profesor**. Las categorías suman las 1500 solicitudes;
+los percentiles incluyen errores y timeouts, no extracción exitosa ni HIT.
+El timeout de peticiones pendientes prolongó la ejecución después de la
+ventana nominal de 30 s; no se confunde esa espera con el perfil configurado.
+
+Detalle, comparación y comandos: [Vegeta oficial repetida: Traefik 512 MiB](#vegeta-oficial-repetida-traefik-512-mib).
+Evidencia: `tests/stress/results/official-vegeta-20261007-traefik512-cold/`.
+
+## CACHE caliente: resultado separado
+
+Mediciones previas HOT CACHE del PDF especial de **279 páginas**, con dos
+réplicas y 30 iteraciones por corrida. Se mantienen como resultados de esa
+fase, bajo sus condiciones originales; no son nuevas mediciones posteriores
+al Spike o a Vegeta.
+
+| VUs | p95 HTTP HOT CACHE |
+|---|---:|
+| 1, primera corrida | **126,5 ms** |
+| 1, segunda corrida | **143,4 ms** |
+| 2 | **213,7 ms** |
+| 5 | **1197,5 ms** |
+
+**CACHE HIT != extracción fría.** HIT devuelve Markdown desde Redis, aunque
+cada POST todavía transmite el PDF y calcula su checksum. Estas corridas
+cumplieron p95 < 400 ms con 1 y 2 VUs; no con 5 VUs. No prueban cumplimiento
+en frío ni en las cargas oficiales.
+
+Detalle histórico: [CONFIGURACIÓN RECOMENDADA PARA ENTREGA](#configuración-recomendada-para-entrega),
+la validación HOT de esa fase; las cifras originales completas se conservan.
+
+## Extracción pura: resultado separado
+
+Para el PDF especial `pdf279hojas.pdf`, PyMuPDF **blocks** obtuvo una mediana
+**~414 ms (414,434 ms)** en la comparación offline registrada. Mide el tramo
+de extracción offline, no el HTTP completo ni Redis. No demuestra que la
+extracción fría por Traefik cumpla 400 ms. Las muestras originales y sus
+condiciones permanecen en la fase de comparación text/blocks.
+
+## Tests finales registrados
+
+**Suite completa: 40 passed, 1 skipped** (38 tests funcionales/de aplicación
+más 2 de herramientas/reportes). **Integración Redis real, ejecutada aparte:
+1 passed**, con MISS→HIT, contenido y TTL verificados. Son los resultados ya
+guardados; esta actualización de documentación no ejecuta tests ni cargas.
+
+## Orientación y lectura del historial
+
+Para el estado final, consultar primero las secciones k6 y Vegeta enlazadas
+arriba. La sección histórica **CONFIGURACIÓN RECOMENDADA PARA ENTREGA**
+corresponde a la validación HOT del PDF de 279 páginas; no reemplaza los
+resultados oficiales posteriores. Las fases previas conservan sus cifras,
+recomendaciones y afirmaciones sobre lo ejecutado en cada etapa.
 
 **Uso como repositorio independiente:** `pdf-extractor-service/` ya es la raíz
 del microservicio. Todos los comandos reproducibles de este documento se
@@ -13,10 +131,11 @@ experimentos del repositorio original `pdf-extactext`, anteriores a la migració
 no se presentan como mediciones nuevas del repositorio standalone.
 Las rutas de evidencia describen los artefactos históricos y no presuponen que
 se hayan incluido en esta copia. Sus menciones a archivos ignorados por Git
-corresponden a la configuración original. Las nuevas corridas generan resultados
-en carpetas locales de `tests/stress/results/`. El runner principal conserva el directorio
-por defecto de la estructura anterior: los ejemplos pasan explícitamente
-`--results` para que ninguna ejecución dependa de esa ubicación antigua.
+corresponden a la configuración original. Los runners oficiales actuales guardan resultados
+en carpetas locales de `tests/stress/results/`. El runner histórico
+`run_k6.py` conserva el directorio por defecto de la estructura anterior:
+sus ejemplos pasan explícitamente `--results` para que esa ejecución no
+dependa de la ubicación antigua.
 
 Medición local del 6 al 7 de octubre de 2026 (Argentina). Alcance histórico:
 `microservices/extractor/` en el monorepo original, PDF → Markdown, HTTP a través
@@ -154,7 +273,11 @@ uv run --locked pytest --run-integration -m integration -v -s
 Remove-Item Env:EXTRACTOR_BASE_URL
 ```
 
-## Spike oficial preparado
+## Spike preparado en la fase inicial (referencia histórica)
+
+El comando con un PDF que sigue se conserva como registro de la preparación
+inicial. Para el Spike actual de cuatro PDFs, usar `run_official_spike.py --k6 <ruta-k6.exe>`
+y la sección **K6 SPIKE OFICIAL NATIVO WINDOWS** al final de este documento.
 
 `tests/performance/spike.js`: 0 → 100 VUs en 10 s, 100 durante 20 s,
 100 → 0 en 10 s. La bajada no prolonga artificialmente el perfil: las
@@ -1747,3 +1870,1071 @@ cambió `docs/performance.md`; los otros **481** conservan el mismo SHA. Rama
 main, HEAD e índice sin cambios; PDF externo intacto. La clave original DB 0
 sigue conteniendo 279/427008/SHA esperado, PTTL **2263945 ms** al verificar.
 Clientes k6 temporales eliminados después de guardar su inspección.
+
+
+## Vegeta oficial: cuatro PDFs externos, inicio frío y aborto por OOM
+
+### Alcance y condiciones reales
+
+Corrida local del **7 de octubre de 2026**, nombre
+`official-vegeta-20261007-cold`; inicio **11:47:30 Argentina / 14:47:30 UTC**.
+Se ejecutó una única carga. No se repitió para obtener un resultado favorable.
+
+- Repositorio standalone `pdf-extractor-service`, rama `main`, HEAD
+  `4569ea6983dc771e729f513bce9b84b2b6216340`; comenzó limpio.
+- Vegeta **v12.13.0**, commit `507c4f028fbad80168f3b734dab9530d3aabfefa`,
+  Go 1.22.12 Windows amd64, binario existente fuera de PATH.
+- Windows 11, Ryzen 5 4600H, 6 núcleos / 12 hilos. Docker Engine **29.7.2**,
+  Compose **5.5.1**, 12 CPU visibles, **3,767,750,656 bytes / 3.509 GiB** de RAM.
+  Los otros servicios del equipo continuaron funcionando; host compartido.
+- **Vegeta Windows → Traefik → dos APIs → Redis compartido**, red externa
+  `pdf-network`. Puerto de la corrida: **127.0.0.1:59345**, Host `localhost`.
+  El generador no corrió dentro de Docker; no tiene un límite cgroup de cliente.
+- Recursos sin cambios: API **1 CPU / 768 MiB** cada una, Traefik
+  **0.5 CPU / 128 MiB**, Redis **0.5 CPU / 256 MiB**, maxmemory 192 MiB.
+- Misma imagen API, algoritmo blocks, namespace v4, TTL **3600 s** y timeout
+  de Redis **200 ms**. Sin cambios de código del extractor, Compose ni dependencias.
+
+### Los cuatro PDFs verificados
+
+Ubicación externa de esta corrida: `D:\INGENIERIA\3er\desarrollo de software\`.
+El primer nombre se obtuvo desde el filesystem, sin completar visualmente un
+nombre truncado. Los **cuatro SHA-256 del archivo son distintos**.
+
+| Nombre exacto | Bytes | page_count | SHA-256 del PDF |
+| --- | ---: | ---: | --- |
+| `2020-Scrum-Guide-Spanish-Latin-South-American.pdf` | 319,343 | 16 | `6bbff3f361e52016cbb75a72671f1b31b5e043fdc1cc3f022f1b15a32795a256` |
+| `scrum_manager_historias_usuario.pdf` | 3,830,899 | 62 | `30efd6fcd0c022665676edcf164feb28e6b43dcce53ab9738550b99d70f5fd84` |
+| `Essential-Kanban-Condensed-Spanish.pdf` | 8,901,466 | 90 | `257f73b908420ac5c78852fb8673beb683a8ca0c05d2e6a82b5e9629f6ad7be8` |
+| `Filosofia Lean.pdf` | 668,142 | 42 | `c77b55bd68477ecc0d96074ea4606bffe5802a1c8a241a725f6eb358be17ce40` |
+
+Rutas completas comprobadas:
+
+- `D:\INGENIERIA\3er\desarrollo de software\2020-Scrum-Guide-Spanish-Latin-South-American.pdf`
+- `D:\INGENIERIA\3er\desarrollo de software\scrum_manager_historias_usuario.pdf`
+- `D:\INGENIERIA\3er\desarrollo de software\Essential-Kanban-Condensed-Spanish.pdf`
+- `D:\INGENIERIA\3er\desarrollo de software\Filosofia Lean.pdf`
+
+No se copiaron, generaron, recortaron ni comprimieron PDFs. `pdf279hojas.pdf`
+**no forma parte de esta prueba oficial**. El Kanban oficial de 90 páginas
+es este archivo de 8,901,466 bytes: no se sustituye por el PDF de 90 páginas
+utilizado en los experimentos históricos del monorepo.
+
+Referencia offline del conversor vigente, excluida del tiempo HTTP:
+
+| PDF | Caracteres Markdown | SHA-256 del contenido UTF-8 |
+| --- | ---: | --- |
+| `2020-Scrum-Guide-Spanish-Latin-South-American.pdf` | 35,783 | `74bab3f4235b5b87f72e3cf09e4bc849026049d855002b2b2dde5a29c6d8b4c1` |
+| `scrum_manager_historias_usuario.pdf` | 90,183 | `873a7f73e3877ebd0367b9a23fffc95823d0bffd98f3e219e6f0f9ed2e252e35` |
+| `Essential-Kanban-Condensed-Spanish.pdf` | 125,909 | `1a9b530049012b86d0777fdfd886b4acc4a1381360ee7553808da728d2d577f5` |
+| `Filosofia Lean.pdf` | 59,181 | `ea727a442fdaccc8d8f00b7a34ba5bed6b1f0017e91a41e22eb4657e55d81c6a` |
+
+Los metadatos completos están en `pdfs.json`. El runner verifica firma, ausencia
+de contraseña, páginas, unicidad de archivos y hashes; el informe comprueba
+contrato JSON, páginas, longitud y SHA de cada respuesta HTTP 200 que haya.
+**En esta corrida no hubo respuestas HTTP 200, por lo que no se validó contenido
+HTTP del set oficial bajo carga**. Estos hashes son referencias offline.
+
+### Preparación, caché y balanceo
+
+Redis **DB 15** tenía **DBSIZE=0** antes de iniciar. El overlay existente
+`compose.cache-benchmark.yaml` se aplicó sólo al servicio extractor con
+`--no-deps --no-build --scale extractor=2`, sin recrear Redis ni Traefik.
+Las APIs fueron recreadas para cambiar temporalmente REDIS_URL a DB 15; sus
+trabajadores también comenzaron nuevos. No hubo precarga ni POST previo.
+
+Las dos APIs, Redis y Traefik estaban healthy. Se enviaron **seis GET /health**
+por Traefik, todos 200, excluidos de Vegeta. Los access logs con X-Audit-Id
+confirmaron reparto **3/3** antes de cargar. Health no calienta la conversión.
+
+La condición inicial fue **COLD CACHE**, con trabajadores nuevos. Si hubieran
+aparecido resultados cacheados, las siguientes peticiones habrían medido HIT;
+no se rotula toda una corrida fría como extracción real de cada petición.
+Las respuestas observadas no incluyeron X-Cache: **ABSENT=687**. No hubo
+MISS/HIT/ERROR **observables en headers**, ni resultados exitosos para asignar
+esos estados. No se deducen HIT a partir de la latencia ni de Redis saludable.
+
+Después se encontró una clave en DB 15 correspondiente a Scrum Guide, con
+16 páginas, 35,783 caracteres y SHA Markdown coincidente; eso sólo prueba que
+un trabajo del servidor dejó un resultado, no que el cliente recibió HTTP 200
+ni que hubo HIT. DB 0 estaba vacía al iniciar y siguió vacía al verificar,
+antes y después de la integración (que limpia sólo su propia clave UUID).
+No se ejecutó FLUSHDB, FLUSHALL ni DEL contra documentos existentes.
+La DB lógica comparte límites y política allkeys-lru con las demás DB del mismo
+Redis; no es un servidor de recursos aislados.
+
+### Configuración y comandos reproducibles
+
+El runner usa cuatro targets HTTP y el targeter estático de Vegeta rota en
+round robin. Se leen los bytes originales mediante `@ruta completa`; no se
+codifica el PDF en Base64. `X-Audit-Id` identifica corrida y documento.
+Se mantiene HTTP keep-alive, sin limitar los workers/conexiones de Vegeta.
+
+```powershell
+# Desde la raíz de pdf-extractor-service, con el entorno de dos APIs ya healthy.
+$pdfDirectory = 'D:\INGENIERIA\3er\desarrollo de software'
+$vegeta = 'D:\herramientas\vegeta\vegeta.exe'
+& $vegeta -version
+
+# Inspeccionar los archivos y su referencia Markdown, sin enviar peticiones.
+uv run --locked --no-sync --offline python tests/performance/vegeta/run.py --pdf-dir $pdfDirectory --vegeta $vegeta --name inspect-official --inspect-only
+
+# Seleccionar una DB lógica vacía. Nunca borrar datos para repetir una corrida.
+$benchmarkDb = $null
+foreach ($candidateDb in 1..15) {
+    $keyCount = docker compose -f compose.yaml -f compose.traefik.yaml exec -T redis redis-cli --raw -n $candidateDb DBSIZE
+    if ($LASTEXITCODE -ne 0) { throw 'No se pudo consultar Redis' }
+    if ([int]$keyCount -eq 0) { $benchmarkDb = $candidateDb; break }
+}
+if ($null -eq $benchmarkDb) { throw 'No hay una DB de benchmark vacía; no ejecutar carga' }
+$runName = 'official-vegeta-' + (Get-Date -Format 'yyyyMMdd-HHmmssfff')
+uv run --locked --no-sync --offline python tests/performance/vegeta/run.py --pdf-dir $pdfDirectory --vegeta $vegeta --name $runName --redis-db $benchmarkDb
+```
+
+**El comando anterior reproduce una carga capaz de causar el OOM observado.**
+Se documenta para la entrega; no se ejecutó otra vez tras ese fallo ni se
+incrementaron recursos. Para una nueva corrida elegir nombre y DB vacía nuevos.
+El runner rechaza DB ocupada, PDFs ausentes/duplicados, resultados preexistentes,
+réplicas no saludables o recursos distintos; nunca borra caché para preparar carga.
+
+El comando real del ataque, conservado completo en `execution.json`, incluyó:
+
+```text
+D:\herramientas\vegeta\vegeta.exe attack -rate=50/s -duration=30s -timeout=30s -format=http -max-body=-1 -name=official-vegeta-20261007-cold -targets=<ruta-de-evidencia>\targets.http -output=<ruta-de-evidencia>\results.bin
+```
+
+La captura completa de respuestas permite medir bytes y conservar X-Cache.
+La representación Base64 de los **resultados** que produce `vegeta encode`
+se decodifica al analizar; el **PDF enviado** permanece binario. El binario de
+resultados se comprime **después** del ataque, verificando el SHA de la versión
+descomprimida; sólo se elimina su duplicado nuevo sin comprimir. No se comprime
+la entrada ni se excluyen resultados del informe.
+
+Referencias primarias de Vegeta v12.13.0:
+[target HTTP y round robin](https://github.com/tsenart/vegeta/blob/v12.13.0/lib/targets.go),
+[medición de respuestas](https://github.com/tsenart/vegeta/blob/v12.13.0/lib/attack.go),
+[métricas y throughput](https://github.com/tsenart/vegeta/blob/v12.13.0/lib/metrics.go).
+
+### Resultado parcial real frente a la referencia del profesor
+
+**No completó 30 segundos.** La configuración fue 50 req/s × 30 s, timeout 30 s,
+pero se abortó por **OOM severo de Traefik**, una de las excepciones autorizadas.
+No se abortó por 503, mala latencia ni un umbral de rendimiento.
+
+- Ventana entre primera y última solicitud registrada: **13.710010 s**.
+  Duración total de resultados: **13.710608 s**; wall del monitor **14.017470 s**.
+- Tasa registrada por Vegeta: **50.109374 req/s**. Es la tasa ofrecida sobre la
+  ventana observada; no es throughput exitoso ni garantiza exactamente 50.000.
+- **687 registros terminales**, secuencias 0..686 sin huecos. Son solicitudes
+  iniciadas y registradas; el aborto no permite certificar un contador adicional
+  de operaciones todavía en vuelo. No se alcanzaron aproximadamente 1500.
+- **33 respuestas HTTP completas**, todas 503; **654 fallos de transporte**,
+  código Vegeta 0. **0 éxitos**, **100 % errores**, **0 timeouts registrados**.
+  El ataque fue abortado antes de que transcurrieran los 30 s del timeout;
+  cero timeouts aquí no demuestra que todas las peticiones hubieran terminado
+  dentro de ese plazo si se hubiera mantenido la carga.
+
+Todas las latencias siguientes incluyen errores; **ninguna mide una extracción
+exitosa o CACHE HIT**. La comparación es informativa, con distinta duración.
+
+| Métrica | Nuestro resultado | Profesor |
+| --- | --- | --- |
+| Requests registradas | 687 (corrida parcial) | 1500 |
+| Respuestas HTTP completadas | 33 (todas 503) | No desglosadas |
+| Throughput exitoso | 0.000 req/s | 16.65 req/s |
+| Success | 0.00 % | 66.53 % (998/1500) |
+| Errores | 100.00 %; 33 HTTP 503 + 654 errores de conexión | 501 timeouts; otro resultado no clasificado |
+| Timeouts HTTP registrados | 0 | 501 |
+| Media | 2153.547 ms | No informada |
+| p50 | 976.978 ms | 14890 ms |
+| p90 | 5965.882 ms | No informado |
+| p95 | 6635.383 ms | No informado |
+| p99 | 7683.876 ms | No informado |
+| Máximo | 8084.340 ms | No informado |
+
+Fuente de los valores del profesor: **Plan_Microservicios_PDF_Extractext.pdf**,
+página 7, apartado 8.2, disponible en la misma carpeta externa de la cátedra.
+La fuente resume 998 éxitos y 501 timeouts sobre 1500: suma 1499 y no clasifica
+la solicitud restante. El porcentaje se calcula como 998/1500. No se inventan
+p90/p95/p99/máximo de Vegeta, ni se usan los valores de k6 del profesor para
+completar esas columnas. No se presenta este aborto como benchmark oficial completo.
+
+Vegeta reportó **1,551 bytes in** (media 2.258) y **39,653,598 bytes out**
+(media 57,719.939). Divididos por su duración total: **113.124 B/s recibidos** y
+**2,892,183.838 B/s enviados**. Son contadores de cuerpos informados por Vegeta:
+los fallos de transporte pueden registrar cero aunque se hayan enviado bytes
+parciales; no representan todo el tráfico TCP ni incluyen headers.
+
+### Balanceo, memoria y recuperación
+
+Se conservaron **33 access logs completos** durante el ataque: **20** apuntan a
+extractor-1 y **13** a extractor-2, todos con estado downstream 503. Confirman
+que ambas recibieron tráfico, **no extracción correcta ni reparto verificable
+sobre las 687 solicitudes**. El OOM interrumpió las demás; no se completan logs
+faltantes con una distribución supuesta. Los logs completos identifican PDF 1
+(13), PDF 2 (7) y PDF 4 (13). El target PDF 3 estaba configurado, pero no tuvo
+respuesta HTTP completa; el cuerpo/instancia de los 654 fallos queda sin verificar.
+
+Cuatro muestras del proyecto, aproximadamente en t=0.11, 3.78, 7.04 y 11.89 s:
+
+| Contenedor | CPU máxima muestreada | RAM máxima muestreada | Límite |
+| --- | ---: | ---: | --- |
+| extractor-1 | 102.70 % | 297.6 MiB | 1 CPU / 768 MiB |
+| extractor-2 | 101.00 % | 307.4 MiB | 1 CPU / 768 MiB |
+| Traefik | 57.16 % | **123.3 MiB** | 0.5 CPU / **128 MiB** |
+| Redis | 9.08 % | 7.613 MiB | 0.5 CPU / 256 MiB |
+
+No son picos continuos garantizados. Traefik terminó a **14:47:39.066187 UTC**,
+unos **8.12 s** después del primer request, con **OOMKilled=true / ExitCode=137**.
+La detección del monitor fue posterior por el muestreo. APIs y Redis no tuvieron
+OOM observado. Ambas CPUs de API estuvieron cerca de su cuota; los intervalos
+de extracción/worker de la corrida no quedaron disponibles para aislar esa CPU.
+La primera falla demostrada que impide completar el perfil es la memoria de
+Traefik, no un tiempo medido del algoritmo ni Redis GET.
+
+La caída se recuperó iniciando **el mismo ID de contenedor Traefik**, con
+la misma imagen y límites. Docker reasignó su puerto dinámico de **59345 a
+64097**. Redis conservó ID y StartedAt; no se tocó configuración. Las APIs
+se restauraron a DB 0 y dos réplicas, conservando imagen, entorno normal y
+1 CPU / 768 MiB. Tras recuperar: **cuatro contenedores healthy**, seis health
+200 por Traefik y reparto posterior **3/3**. No se cambió arquitectura ni se
+intentó otra corrida de 50 req/s sobre el mismo límite que falló.
+
+### Tests y evidencia
+
+- `uv run --locked --no-sync --offline pytest -v`:
+  **40 passed, 1 skipped in 37.71s**, exit 0; incluye los 38 tests existentes
+  y 2 nuevos del informe. Se cubren contabilidad de 503/timeouts/headers nulos,
+  validación de contenido, unidades ns→ms y diferencia tasa/throughput.
+- `uv run --locked --no-sync --offline pytest --run-integration -m integration -v -s`:
+  **1 passed, 40 deselected in 19.28s**, exit 0. Redis real por el Traefik
+  recuperado, PDF mínimo único de dos páginas, MISS→HIT, TTL 3600 s;
+  PTTL **3599442→3595972 ms**. Limpieza limitada a su clave UUID de integración.
+
+Durante el primer análisis, un header `null` de conexión fallida causó un error
+sólo en el lector. El ataque ya había sido abortado por OOM. Se corrigió el
+lector y se reconstruyó el informe a partir del **mismo binario**, sin repetir
+Vegeta. La restauración automática ya había reemplazado las APIs: **sus logs
+volátiles de carga no se recuperaron**. Por eso no hay conteo fiable de intentos
+MISS/ERROR ni perfiles internos de esa corrida. Los headers, errores y access
+logs Traefik sí están conservados. El runner final guarda los logs antes de
+analizar y recupera infraestructura caída sin cambiar configuración; esa ruta
+completa revisada **no se volvió a probar con carga** después del OOM.
+
+Evidencia en `tests/stress/results/official-vegeta-20261007-cold/`:
+`pdfs.json`, `targets.http`, `environment.json`, `hardware.json`, contenedores
+antes/durante/después, `execution.json`, `report.json`, `report.txt`,
+`records.jsonl` (metadatos, headers, errores y resultados de validación),
+`results.bin.gz`, `raw-artifact.json`, `summary.json`, `traefik-access.jsonl`,
+`oom-traefik.json`, `cache-after.json`, `restoration.json`, health logs y logs
+pytest/integración. No contiene PDFs ni archivos de preparación sobrantes.
+
+**Conclusión:** los cuatro PDFs y el recorrido por Traefik quedaron preparados,
+pero el perfil **50 req/s durante 30 s está pendiente** por OOM del proxy bajo
+los límites autorizados. No acredita p95<400 ms ni extracción correcta bajo
+esta carga. La recomendación de dos réplicas para HOT k6 permanece como resultado
+histórico; esta prueba revela otra condición de carga. El próximo trabajo debe
+investigar/resolver la memoria de Traefik antes de repetir el perfil completo,
+sin deducir una optimización del algoritmo de estas respuestas fallidas.
+
+
+## Vegeta oficial repetida: Traefik 512 MiB
+
+### Cambio único y conservación del baseline
+
+Corrida del **7 de octubre de 2026**, nombre
+`official-vegeta-20261007-traefik512-cold`; inicio **12:18:58 Argentina /
+15:18:58.953787 UTC**. Se ejecutó una sola repetición, completa.
+La sección anterior y sus 28 archivos de evidencia permanecen como historial
+del fallo con 128 MiB; no se sustituyen sus métricas ni sus resultados.
+
+El único cambio de configuración permanente es `mem_limit: 128m` →
+`mem_limit: 512m` en `compose.traefik.yaml`. Lo justifica la evidencia anterior:
+**Traefik OOMKilled=true, exit 137, 123.3 MiB / 128 MiB muestreados**. El proxy
+murió aproximadamente 8.12 s después del primer pedido; el monitor abortó más
+tarde y quedaron 13.710 s de ventana registrada. Aumentar memoria permite
+comprobar el perfil completo y no elimina ni oculta ese fallo previo.
+
+`docker compose config --quiet` y la configuración combinada con Traefik
+pasaron con exit 0. La comparación de configuraciones resueltas arroja una
+sola diferencia: `services.traefik.mem_limit`, **134,217,728 → 536,870,912 bytes**.
+`docker inspect` confirmó **512 MiB / 500,000,000 NanoCPUs (0.5 CPU)**.
+Se recreó únicamente Traefik para aplicar memoria; puerto dinámico **53701**.
+
+Se conservaron: dos APIs de **1 CPU / 768 MiB** cada una, imagen API
+`sha256:e1f07e8c52fe4b8c0468cdf6333a3ec1b23ee23733d27d866b0ab8f8eddf2406`,
+algoritmo blocks, worker y backpressure, Redis **0.5 CPU / 256 MiB**,
+maxmemory 192 MiB, caché v4, TTL 3600 s, timeout Redis 200 ms y timeout cliente
+30 s. No hubo instalación de dependencias ni cambios de código, tests,
+Dockerfile, Redis o reglas de Traefik. Docker Desktop siguió con **3.509 GiB**;
+las versiones y el host Windows son los del baseline, con otros servicios
+funcionando. No se aumentaron recursos de las APIs ni del generador.
+
+### Preparación COLD y recorrido verificado
+
+Mismos **cuatro PDFs oficiales externos**, con los nombres, tamaños, páginas,
+SHA de archivo y referencia Markdown de la sección anterior. `pdfs.json` de
+ambas corridas coincide; no se copiaron ni modificaron PDFs. No participa
+`pdf279hojas.pdf`.
+
+Se verificó **DB 14 vacía, DBSIZE=0**, sin borrar nada. El overlay existente
+`compose.cache-benchmark.yaml` cambió temporalmente REDIS_URL de las APIs a
+DB 14 y recreó sus trabajadores, igual que en el baseline con DB 15. Redis
+conservó ID, StartedAt, imagen y configuración. DB 0 tenía cero claves.
+No se precargó ninguno de los cuatro documentos.
+
+Antes del ataque: **cuatro contenedores healthy**, seis GET `/health` por
+Traefik con HTTP 200 y cuerpo correcto, balance **3/3** comprobado en logs
+con X-Audit-Id. Health no realiza conversión ni precarga de caché.
+Ruta: **Vegeta Windows → 127.0.0.1:53701, Host localhost → Traefik → dos APIs
+→ Redis compartido**, red externa `pdf-network`; sin puertos directos de API.
+
+Se reutilizaron sin modificaciones los scripts existentes. Los cuatro targets
+HTTP siguen rotando uniformemente mediante el targeter estático de Vegeta,
+con PDF binario, `Content-Type: application/pdf` y `Accept-Encoding: identity`.
+No se cambiaron workers, keep-alive, timeout ni perfil; no se comprimió entrada.
+El objetivo de 1500 intentos se cumplió, aunque los fallos de transporte no
+permiten certificar entrega completa de cada uno de los cuatro cuerpos.
+
+### Resultado: perfil completo, sin OOM, rendimiento fallido
+
+**¿Se completó Vegeta 50 req/s × 30 s? SÍ.** Configuración exacta
+`-rate=50/s -duration=30s -timeout=30s`; exit 0, `aborted=null`.
+**1500 solicitudes iniciadas y 1500 resultados terminales**, secuencias
+0..1499 sin huecos. Se dejó terminar pese a 503, timeouts y pérdida de salud.
+
+La ventana medida entre primera y última solicitud es **29.9712166 s**;
+la tasa ofrecida calculada es **50.0480184 req/s**. El generador mantiene el
+perfil nominal de 30 s; el intervalo entre dos requests no equivale al tiempo
+de proceso. Después esperó **29.8341105 s** a solicitudes pendientes:
+**59.8053271 s totales** en resultados, wall del monitor **61.5578343 s**.
+La tasa ofrecida no es throughput exitoso.
+
+| Métrica | Antes: Traefik 128 MiB | Después: Traefik 512 MiB |
+| --- | ---: | ---: |
+| Perfil configurado | 50 req/s × 30 s, timeout 30 s | Igual |
+| Ventana primera–última solicitud | 13.710010 s; abortada | 29.971217 s; completa |
+| Espera posterior | 0.000598 s | 29.834111 s |
+| Duración total Vegeta | 13.710608 s | 59.805327 s |
+| Solicitudes iniciadas / resultados | 687 / 687 | **1500 / 1500** |
+| Respuestas HTTP completas | 33 | **67** |
+| Throughput exitoso | 0.000 req/s | **0.000 req/s** |
+| Success / errores | 0 % / 100 % | **0 % / 100 %** |
+| HTTP 200 | 0 | **0** |
+| HTTP 503 | 33 | **67** |
+| Timeouts registrados | 0, aborto anterior al plazo | **1282** |
+| Otros fallos de conexión | 654 | **151** |
+| Media | 2153.547 ms | **26160.212 ms** |
+| p50 | 976.978 ms | **30005.397 ms** |
+| p90 | 5965.882 ms | **30013.531 ms** |
+| p95 | 6635.383 ms | **30015.049 ms** |
+| p99 | 7683.876 ms | **30017.559 ms** |
+| Máximo | 8084.340 ms | **30060.443 ms** |
+| Bytes de cuerpos enviados | 39,653,598 | **33,278,713** |
+| Bytes de cuerpos recibidos | 1,551 | **3,149** |
+| RAM máxima muestreada de Traefik | 123.3 MiB / 128 MiB | **309.2 MiB / 512 MiB** |
+| OOMKilled observado | true, exit 137 | **false; sin reinicios** |
+
+Las 1433 respuestas de código Vegeta **0** son fallos de transporte:
+**1282 deadline exceeded** esperando headers y **151 connection refused**.
+Son categorías separadas, no 1433 errores más 1282 timeouts. Las restantes
+67 son HTTP 503 con cuerpo recibido. Todos los 1500 intentos fallaron.
+El throughput HTTP completo, incluyendo errores, es **1.120302 req/s**
+(67 / 59.8053271); el throughput **exitoso es 0**.
+
+Los percentiles nativos incluyen todos los errores; el p95 ~30 s corresponde
+principalmente al timeout. No se interpreta como tiempo del algoritmo,
+extracción exitosa o CACHE HIT. Tampoco se concluye que memoria adicional
+empeore la extracción comparando percentiles de una carga abortada con una
+carga completa que esperó los timeouts. No acredita el objetivo p95<400 ms.
+
+Bytes reportados son cuerpos, no tráfico TCP total: media **22,185.809 bytes
+out / 2.099 bytes in**; **556,450.648 B/s out / 52.654 B/s in** sobre la duración
+total. En errores de transporte Vegeta puede registrar cero bytes enviados
+pese a transmisión parcial; no se infiere que sólo se enviaron 33 MB por red.
+
+La referencia oficial del profesor conservada arriba es 1500 requests,
+16.65 req/s exitosos, 998 éxitos (66.53 %), 501 timeouts y p50 14890 ms.
+Ahora sí se completó el mismo perfil nominal, pero el resultado de éxito es
+inferior: 0 % y 1282 timeouts. Las máquinas y condiciones de caché difieren;
+no se inventan percentiles de Vegeta que la fuente no publica.
+
+### Caché, contenido y balanceo observable
+
+**X-Cache ABSENT=1500** en los registros del cliente; ningún HIT/MISS/ERROR
+observable en headers. Los 503 no incluyen X-Cache y los fallos de conexión
+no tienen headers. No hubo HTTP 200 para validar JSON, páginas, longitud o
+SHA bajo carga: **content_validated=0**. La suite e integración posteriores
+verifican funcionalidad, pero no reemplazan esta validación bajo 50 req/s.
+
+Se conservaron los logs de API antes de restaurar sus contenedores. Hay seis
+perfiles de rutas que construyeron resultados con `status=200, cache=ERROR`,
+pero **eso no significa que el cliente recibiera HTTP 200**: todas sus
+solicitudes habían superado el timeout. Ninguna de esas seis era HIT.
+El conteo interno no se suma a los 67 HTTP completados del cliente.
+
+DB 14 terminó con una clave del Scrum Guide: 16 páginas, 35,783 caracteres y
+SHA Markdown idéntico a la referencia. No quedaron claves de los otros tres
+PDFs. Eso confirma un resultado almacenado en el servidor, no recepción
+exitosa ni HIT. DB 0 estuvo vacía antes, después de restaurar y después de la
+integración. No se ejecutó FLUSHDB/FLUSHALL ni se borraron documentos.
+La DB 14 conserva su clave hasta el TTL; para repetir seleccionar otra vacía.
+
+Los **107 access logs completos** identificados por X-Audit-Id se repartieron
+**56 a extractor-1 / 51 a extractor-2**. Sus estados downstream/origin:
+**67 HTTP 503 y 40 estados 499** por clientes desconectados. No se cuentan los
+499 como respuestas HTTP recibidas por Vegeta. Los cuatro PDFs aparecen en
+los access logs: Guide 45, Historias 18, Kanban 1, Lean 43. Esto demuestra
+tráfico en ambas APIs y targets presentes; **no prueba reparto completo ni
+contenido correcto sobre los 1500 intentos**, porque faltan logs de la mayoría.
+
+### Recursos y recuperación
+
+**14 muestras** de Docker stats / inspect, sin errores de telemetría ni
+OOMKilled en ningún servicio. No hubo eventos Docker OOM desde el arranque
+del nuevo proxy hasta la comprobación final. Valores máximos muestreados:
+
+| Contenedor | CPU máxima reportada | RAM máxima reportada | Límite verificado |
+| --- | ---: | ---: | --- |
+| extractor-1 | 146.28 % | 409.1 MiB | 1 CPU / 768 MiB |
+| extractor-2 | 136.02 % | 384.5 MiB | 1 CPU / 768 MiB |
+| Traefik | 73.17 % | **309.2 MiB** | **0.5 CPU / 512 MiB** |
+| Redis | 66.29 % | 11.54 MiB | 0.5 CPU / 256 MiB |
+
+Son muestras discretas, no máximos continuos garantizados. CPU es el valor
+reportado por Docker stats sobre intervalos de muestreo y puede mostrar
+picos transitorios por encima de la cuota; **los límites no se aumentaron**.
+Traefik llegó a usar más que el límite anterior sin OOM en esta corrida.
+No se certifica que 512 MiB cubra toda futura carga.
+
+Al terminar: APIs y Traefik estaban **running pero unhealthy**; Redis siguió
+healthy. Sus healthchecks registraron demoras/timeouts durante la carga.
+El proxy y Redis recuperaron/retuvieron salud sin reinicios ni recreaciones
+adicionales. El runner esperó la infraestructura y recreó sólo las APIs para
+restaurar REDIS_URL a DB 0. Imagen, entorno habitual y recursos coinciden con
+los previos. `restoration.json`: restaurado=true, infraestructura reiniciada=[],
+DB 0=0 claves, DB 14=1 clave. Estado final: **los cuatro healthy, OOMKilled=false**.
+Se verificaron seis GET `/health` 200 por Traefik y balance posterior **3/3**.
+
+Los seis perfiles conservados muestran `receive_body_ms` entre **97.476 y
+57122.732 ms**, Redis GET entre **106.806 y 1001.437 ms** y algoritmo entre
+**289.166 y 1120.618 ms**. Los primeros trabajos tuvieron `worker_ms` de
+**48717.461 / 53369.127 ms**, mientras su algoritmo fue **573.342 / 1002.574 ms**.
+`worker_ms` incluye la espera del proceso y comunicación, no sólo conversión.
+Estos seis perfiles supervivientes no son una distribución de los 1500
+intentos ni una prueba de extracción fría <400 ms.
+
+La evidencia sugiere presión de CPU/scheduling, recepción de cuerpos y espera
+del worker bajo carga fría; el OOM dejó de ser el fallo observado. El 503
+proviene del backpressure existente cuando el worker está ocupado, después
+de leer el cuerpo. No se aisló cuánto corresponde a Windows/Docker Desktop,
+proxy, arranque del worker o aplicación. Los 151 connection refused no se
+atribuyen a OOM sin evidencia. Redis respondió salud, pero hubo errores de
+caché internos bajo carga. El siguiente diagnóstico debería aislar esos
+tramos antes de proponer otro cambio. **No se aplicaron optimizaciones**.
+
+### Comandos, tests y evidencia nueva
+
+Desde la raíz de `pdf-extractor-service`, con `pdf-network` existente:
+
+```powershell
+docker compose config --quiet
+docker compose -f compose.yaml -f compose.traefik.yaml config --quiet
+# Aplicar solamente el nuevo límite al proxy; APIs y Redis ya estaban healthy.
+docker compose -f compose.yaml -f compose.traefik.yaml up -d --no-deps --no-build --wait --wait-timeout 150 traefik
+docker inspect pdf-extractor-traefik-1 --format '{{.HostConfig.Memory}} {{.HostConfig.NanoCpus}}'
+docker compose -f compose.yaml -f compose.traefik.yaml ps
+
+# Comando efectivamente ejecutado; esa carpeta y DB ya no deben reutilizarse.
+uv run --locked --no-sync --offline python tests/performance/vegeta/run.py --pdf-dir 'D:\INGENIERIA\3er\desarrollo de software' --vegeta 'D:\herramientas\vegeta\vegeta.exe' --name official-vegeta-20261007-traefik512-cold --redis-db 14
+```
+
+Para repetir, usar el bloque anterior de selección de DB vacía, un nombre
+nuevo como `official-vegeta-<fecha>-traefik512-cold`, y el mismo runner.
+Nunca limpiar la DB 0 o una DB ocupada para preparar el benchmark.
+`execution.json` conserva el ataque nativo exacto: **50/s, 30s, timeout 30s**.
+No se impuso un límite a workers/conexiones ni un abort por percentiles/503.
+
+Pruebas ejecutadas después de restaurar y esperar healthy:
+
+```powershell
+# Evitar sincronización/instalación: usar el entorno virtual ya existente.
+$env:UV_NO_SYNC = 'true'
+$env:UV_OFFLINE = 'true'
+uv run --locked pytest -v
+$proxyPort = ((docker compose -f compose.yaml -f compose.traefik.yaml port traefik 80).Trim()).Split(':')[-1]
+$env:EXTRACTOR_BASE_URL = "http://localhost:$proxyPort"
+uv run --locked pytest --run-integration -m integration -v -s
+docker compose -f compose.yaml -f compose.traefik.yaml ps
+```
+
+- Pytest: **40 passed, 1 skipped in 39.69s**, exit 0; mismos tests existentes.
+- Integración Redis real por Traefik: **1 passed, 40 deselected in 20.23s**,
+  exit 0; PDF único de dos páginas, HTTP 200, MISS→HIT, contenido idéntico,
+  TTL 3600 s; PTTL **3599612→3596614 ms**. Limpia sólo su propia clave UUID.
+- Configuración combinada válida y cuatro contenedores finales healthy;
+  `docker inspect` conserva 512 MiB para proxy, 768 MiB para cada API.
+
+Evidencia nueva en
+`tests/stress/results/official-vegeta-20261007-traefik512-cold/`:
+`preflight.json`, metadatos de PDFs/entorno, contenedores iniciales/de benchmark/
+tras carga/restaurados/tras tests, targets y comandos, `execution.json`,
+`report.json`, `report.txt`, `records.jsonl`, `summary.json`, `results.bin.gz`
+(con SHA de su contenido descomprimido), logs completos de Traefik y ambas
+APIs, `traefik-access.jsonl`, `profiles.json`, análisis de recursos/caché,
+health antes/después, eventos OOM, restauración y logs pytest/integración.
+No incluye PDFs. La compresión del binario de resultados ocurrió después de
+medir, sin alterar la entrada ni la carga.
+
+**Conclusión:** el criterio inmediato quedó cumplido: **perfil oficial completo,
+1500 intentos y sin OOM con Traefik 512 MiB**. El benchmark funcional de carga
+sigue fallando (**0 éxitos**), por lo que no acredita mejora de latencia ni
+400 ms. Se conservan íntegros los resultados anteriores y los cambios locales.
+No se ejecutó k6 Spike ni se cambió otra configuración; no hubo commit ni push.
+
+
+## Histórico: K6 SPIKE OFICIAL Docker, cuatro PDFs y OOM del generador
+
+### Condiciones y cambios limitados a la prueba
+
+Intento del **7 de octubre de 2026**, resultado de carga
+`official-k6-spike-20261007-cold-run2`. El comando del runner comenzó a lanzar
+Docker a **13:01:17 Argentina / 16:01:17.240409 UTC**; el evento setup de k6
+se registró a **16:01:20 UTC**. Se ejecutó una sola carga con POST. No se
+volvió a ejecutar Vegeta ni se aplicó otra optimización.
+
+Se mantuvieron **dos APIs, 1 CPU / 768 MiB cada una**, imagen y algoritmo
+vigentes, worker/backpressure, Redis **0.5 CPU / 256 MiB**, caché v4, TTL
+3600 s y timeout Redis 200 ms. Traefik siguió con **0.5 CPU / 512 MiB**,
+mismo ID/StartedAt, imagen, reglas y puerto dinámico **53701**. Red externa
+`pdf-network`. Docker Desktop: 12 CPU visibles y **3.509 GiB**; otros servicios
+seguían presentes. No se modificó ningún Compose, Dockerfile, dependencia ni
+código del extractor.
+
+Generador: imagen oficial existente **grafana/k6:2.2.0**, commit `00a9a1b7f5`,
+Go 1.26.5 Linux amd64, **1 CPU / 512 MiB**, los límites del cliente Docker ya
+utilizado. Recorrido **k6 Docker → Traefik → dos extractores → Redis**. La URL
+configurable fue `http://localhost/extract`, con `hosts.localhost=172.19.0.5`
+(IP interna comprobada de Traefik) y Host localhost. Puerto interno 80 del
+proxy; el puerto dinámico 53701 se utilizó para las verificaciones desde
+Windows. Las APIs no publicaron puertos directos.
+
+`spike.js` ya tenía el perfil requerido. Su import de `common.js` abortaba
+ante un 503 y exigía un estado de caché fijo, por lo que se adaptó **sólo el
+Spike**, preservando `common.js`, baseline, HOT y Vegeta. Ahora rota cuatro
+PDFs por `iterationInTest % 4`, registra estados/cache/errores y valida páginas,
+contenido, longitud y SHA en las respuestas; ninguna validación aborta la carga.
+Se conservaron los thresholds originales, incluyendo **p(95)<400 ms**, sin
+abortOnFail, y `gracefulRampDown=0s`, `gracefulStop=0s`. El timeout HTTP siguió
+siendo el default **180 s** del script Spike anterior; no se sustituyó por el
+30 s de Vegeta. No se añadieron sleeps, límites de RPS ni cambios de concurrencia.
+
+La lectura de los cuatro mounts binarios se hace con el módulo incorporado
+`k6/experimental/fs`, usando handles y un ArrayBuffer del PDF seleccionado;
+no se instaló una extensión ni se cambió la extracción del servicio.
+Referencia: [File/read de k6](https://grafana.com/docs/k6/latest/javascript-api/k6-experimental/fs/file/read/)
+y [POST binario](https://grafana.com/docs/k6/latest/javascript-api/k6-http/post/).
+
+### Cuatro PDFs y COLD CACHE AL INICIO
+
+Carpeta configurable `D:\INGENIERIA\3er\desarrollo de software\`:
+
+| PDF oficial externo | Bytes | Páginas |
+| --- | ---: | ---: |
+| `2020-Scrum-Guide-Spanish-Latin-South-American.pdf` | 319343 | 16 |
+| `scrum_manager_historias_usuario.pdf` | 3830899 | 62 |
+| `Essential-Kanban-Condensed-Spanish.pdf` | 8901466 | 90 |
+| `Filosofia Lean.pdf` | 668142 | 42 |
+
+Nombres reales, SHA de archivo y referencias Markdown idénticos a `pdfs.json`
+de Vegeta; cuatro SHA distintos. El runner releyó, verificó firma/páginas y
+calculó la referencia offline, fuera del HTTP y sin poblar Redis. Se montó cada
+PDF read-only como `/pdfs/1.pdf`…`/pdfs/4.pdf`; no se copiaron archivos al repo,
+no Base64, no multipart y **no pdf279hojas.pdf**. El cuerpo fue application/pdf.
+
+**DB 13 empezó con DBSIZE=0**, sin precarga. El overlay existente cambió
+REDIS_URL temporalmente, recreando dos APIs/trabajadores nuevos. Redis siguió
+compartido y no se recreó. DB 0 estaba vacía y no se borró. Cuatro contenedores
+healthy y seis health 200 por Traefik, reparto **3/3**, antes del POST.
+
+La preparación registró dos fallos, ambos conservados y sin carga de PDF:
+
+1. `official-k6-spike-20261007-cold/`: seis health llegaron a una sola API
+   inmediatamente después de recrear las APIs. El provider todavía no había
+   incorporado ambas. El runner frenó antes de iniciar k6 y restauró DB 0.
+   Se corrigió la espera hasta observar tráfico en las dos, sin tocar Traefik.
+2. `official-k6-spike-20261007-cold-run1/`: k6 exit **107** por un mensaje de
+   setup que consultaba `options.scenarios` normalizado por k6. El error fue
+   previo a las iteraciones: cero POST, testRunDurationMs **3.586041 ms**.
+   Se corrigió sólo ese mensaje; no fue una corrida fallida por rendimiento.
+
+`k6 inspect --include-system-env-vars` confirmó **startVUs=0**, etapas exactas
+**10s/100, 20s/100, 10s/0** y grace 0. Inspect no envía HTTP ni calienta caché.
+El intento con carga fue `cold-run2`, desde DB 13 todavía vacía.
+
+### Resultado real: OOM del generador, Spike incompleto
+
+**¿SE COMPLETÓ EL K6 SPIKE OFICIAL 0→100→0? NO.**
+No fue abortado por 503, checks, latencia ni thresholds. **El proceso k6 murió
+por OOM**, una de las excepciones autorizadas. Docker inspect:
+`OOMKilled=true`, `ExitCode=137`, memoria limitada a **536870912 bytes**.
+El estado del cliente quedó guardado antes de eliminar sólo ese contenedor
+nuevo. Los cuatro servicios no tuvieron OOM y permanecieron healthy.
+
+Vida del contenedor, incluyendo init/setup: **5.396393 s**,
+`StartedAt=16:01:18.864595403Z`, `FinishedAt=16:01:24.260988235Z`.
+Wall del runner/monitor: **9.4465459 s**, que incluye inicio Docker y detección.
+**La duración exacta de la fase de carga no está verificada**: no se generó
+`summary.json` ni evento teardown. El log alcanza a mostrar **2.0 s / 40.0 s,
+19/100 VUs y 31 iteraciones completas**; los últimos instantes no se conservaron
+como agregado. No se alcanzó la meseta de 100 VUs ni la bajada 100→0.
+No se informa 5.396 s como duración del Spike: incluye preparación del proceso.
+
+La salida nativa alcanzó a persistir **14 http_reqs**, **13 iterations**,
+**21 requests_started** y **22 iterations_started**. El log de consola
+conservó **56 respuestas**, mientras Traefik conservó **75 access logs**.
+Son ventanas/capturas diferentes, debido a muerte abrupta y buffers sin vaciar.
+**El total de requests/iteraciones y el throughput final de k6 no se verificaron**.
+No se divide un conteo parcial por 40 s, la vida del contenedor o el wall para
+presentarlo como req/s del benchmark. Los 75 IDs de Traefik son solicitudes
+observadas por el proxy, no 75 respuestas recibidas por k6.
+
+### Comparación con el profesor: muestras parciales, no benchmark completo
+
+Las latencias de nuestra columna se calculan **sólo sobre las 56 respuestas
+HTTP conservadas en consola, todas 503**, mediante interpolación lineal
+`posición=(n−1)×p`. No son percentiles finales emitidos por k6 ni latencias de
+extracción exitosa. La media de esa muestra es **323.002 ms**; la salida
+nativa conserva sólo 14 tiempos y tiene una media diferente (**95.632 ms**).
+Se mantienen ambos conjuntos y se declara cuál se utiliza.
+
+| Métrica | Nuestro resultado | Profesor k6 Spike |
+| --- | --- | --- |
+| Perfil | Interrumpido por OOM antes de 40 s | 0→100→0, 40 s |
+| Requests totales | No verificadas; 56 respuestas de consola, 14 registros HTTP nativos y 75 access logs | 1037 |
+| Iteraciones totales | No verificadas; 13 nativas persistidas, log muestra 31 a t=2 s | No informadas |
+| Throughput req/s | **No verificado: sin resumen final** | 25.35 |
+| http_req_failed | 100 % de las 14 muestras nativas; agregado completo no disponible | 0 % |
+| Error en respuestas de consola | 100 % de 56 | 0 % |
+| Checks | 0/70 puntos nativos conservados; agregado completo no disponible | No informados |
+| HTTP 200 | 0 observados por cliente | No desglosado |
+| HTTP 503 | 56 observados por cliente | No desglosado |
+| Otros status del cliente | Ninguno en los 56 registros; total no verificado | No desglosado |
+| Timeouts / errores de conexión | 0 observados en los 56 registros; total no verificado | Sin desglose adicional al 0 % de errores |
+| p50 parcial | **279.918 ms**, sólo errores | 1880 ms |
+| p90 parcial | **754.030 ms**, sólo errores | 7830 ms |
+| p95 parcial | **777.199 ms**, sólo errores | 8800 ms |
+| Máximo parcial | **1076.997 ms**, sólo errores | 13940 ms |
+
+La referencia del profesor es la provista para esta fase: **1037 requests /
+40 s, 25.35 req/s, 0 % errores, p50 1.88 s, p90 7.83 s, p95 8.80 s,
+max 13.94 s**. Se conservan exactamente esos valores, sin recalcular 25.35
+como 1037/40 ni suponer una duración precisa no publicada.
+**Nuestros errores rápidos no acreditan superar al profesor ni cumplir 400 ms.**
+
+### Caché, contenido y balanceo
+
+En las 56 respuestas de consola: **X-Cache ABSENT=56**;
+**HIT=0, MISS=0, ERROR=0, BYPASS=0 observados en headers**. Las respuestas
+fueron 503 sin X-Cache. Esos ceros no son un agregado de todas las operaciones
+internas del servidor. No hubo HTTP 200 observado, por lo que el contrato y
+SHA bajo carga del set oficial no quedaron verificados por el cliente.
+
+Los logs de API conservaron **dos perfiles internos MISS**. Redis DB 13
+terminó con dos resultados: Scrum Guide **16 páginas/35783 caracteres** y
+Historias **62 páginas/90183 caracteres**, ambos con SHA Markdown idéntico a
+la referencia. Kanban y Lean no quedaron cacheados. Estos resultados internos
+**no se cuentan como dos HTTP 200 ni como dos MISS recibidos por k6**.
+No se verificó un HIT de carga antes del OOM. Se conserva la distinción entre
+inicio frío, conversión interna y respuestas cacheadas.
+
+Rotación observada en las respuestas: Guide **16**, Historias **14**, Kanban
+**12**, Lean **14**. La asignación global rota cuatro archivos; el aborto y las
+latencias diferentes hacen que el subconjunto completado no sea uniforme.
+
+Traefik: **75 access logs**, reparto **37/38** entre ambas APIs; estados
+**63×503, 9×499, 3×502**. Es evidencia de balanceo, no de éxito. Los 499
+corresponden a clientes desconectados; 502/499 del proxy no se suman a los
+56 HTTP 503 de consola como si fueran respuestas recibidas por k6.
+
+### Recursos, restauración y tests
+
+Tres muestras del monitor, incluyendo su estado inicial. Máximos reportados
+por Docker stats; no picos continuos garantizados:
+
+| Contenedor | CPU máxima muestreada | RAM máxima muestreada | Límite conservado |
+| --- | ---: | ---: | --- |
+| extractor-1 | 99.16 % | 302.7 MiB | 1 CPU / 768 MiB |
+| extractor-2 | 102.53 % | 297.6 MiB | 1 CPU / 768 MiB |
+| Traefik | 51.56 % | 75.66 MiB | 0.5 CPU / 512 MiB |
+| Redis | 6.24 % | 7.32 MiB | 0.5 CPU / 256 MiB |
+| k6 | 99.10 % | **348.1 MiB** | **1 CPU / 512 MiB** |
+
+La muerte ocurrió entre muestras: **348.1 MiB no es el pico de OOM**.
+No se inventa un máximo efectivo de 512 MiB. `client-inspect.json` sí confirma
+OOMKilled=true y exit 137; no hubo OOMKilled en APIs, Redis o proxy. La consulta
+posterior de Docker events no recuperó el evento; no reemplaza ni contradice
+la inspección capturada. La CPU es lo reportado por Docker sobre intervalos y
+puede exceder transitoriamente la cuota; los límites no se cambiaron.
+
+El generador fue la limitación física demostrada que impidió terminar el
+perfil. No se aisló el reparto de su memoria entre buffers de PDF, runtimes
+VU, métricas, HTTP y GC. No se atribuye este OOM a Traefik ni se deduce de él
+una optimización del algoritmo. **No se cambió la implementación ni la configuración, ni se ejecutó otra carga después del OOM.**
+
+Se restauraron dos APIs a DB 0 con imagen, entorno y recursos originales;
+Redis y Traefik conservaron ID y StartedAt. DB 0=0 claves antes y después de
+la integración; DB 13 conserva sus dos claves con TTL. No se ejecutó FLUSH ni
+DEL contra documentos existentes. Estado final: **dos APIs, Redis y Traefik
+healthy**, seis health HTTP 200 por Traefik y reparto **3/3**.
+
+- `uv run --locked pytest -v`: **40 passed, 1 skipped in 35.71s**, exit 0.
+- `uv run --locked pytest --run-integration -m integration -v -s`:
+  **1 passed, 40 deselected in 16.83s**, exit 0; Redis real por Traefik,
+  MISS→HIT, contenido idéntico y TTL 3600 s. PTTL **3599557→3595968 ms**.
+- Se usaron `UV_NO_SYNC=true` y `UV_OFFLINE=true`, evitando instalaciones.
+  La integración sólo limpia su propia clave PDF/UUID.
+
+### Comandos reproducibles y evidencia
+
+Comando real, desde la raíz del repositorio, antes del OOM:
+
+```powershell
+uv run --locked --no-sync --offline python tests/performance/run_official_spike.py --pdf-dir 'D:\INGENIERIA\3er\desarrollo de software' --name official-k6-spike-20261007-cold-run2 --redis-db 13
+```
+
+**No volver a lanzar automáticamente con estos recursos:** se ha probado OOM
+del cliente. Para una futura ejecución autorizada usar un nombre nuevo y una
+DB vacía, seleccionados con el bloque de README. No reutilizar DB 13 ocupada
+ni borrar DB 0; el runner rechaza DB o carpeta existentes. El comando antiguo
+`run_k6.py --pdf ... --spike` quedó como referencia histórica de preparación
+con un PDF; **no corresponde al nuevo Spike oficial de cuatro PDFs**.
+
+El runner conserva el comando Docker completo y mounts read-only en
+`k6-settings.json`, el perfil validado en `k6-inspect.json`, ejecución en
+`execution.json`, estado del generador y los servicios, logs volátiles antes
+de restaurar, métricas JSON y balance. Un fallo de thresholds, incluido exit
+99, no activa abort. La salida del runner documenta estado y restauración;
+para juzgar k6 se usa su exit_code en `execution.json`, **137 en esta carga**.
+
+Pruebas finales y consulta de estado:
+
+```powershell
+$env:UV_NO_SYNC = 'true'
+$env:UV_OFFLINE = 'true'
+uv run --locked pytest -v
+$proxyPort = ((docker compose -f compose.yaml -f compose.traefik.yaml port traefik 80).Trim()).Split(':')[-1]
+$env:EXTRACTOR_BASE_URL = "http://localhost:$proxyPort"
+uv run --locked pytest --run-integration -m integration -v -s
+docker compose -f compose.yaml -f compose.traefik.yaml ps
+```
+
+Evidencia de carga en
+`tests/stress/results/official-k6-spike-20261007-cold-run2/`:
+`partial-report.json`, `metrics.jsonl` original, `k6.log`, respuestas de consola,
+`client-inspect.json`, entorno/PDFs/mounts, estados/recursos, logs de ambas APIs
+y Traefik, balance, perfiles internos, caché, restauración, health y tests.
+Dos carpetas aparte conservan la preparación fallida, claramente sin POST.
+No se sobrescribieron Vegeta ni benchmarks anteriores; todos los PDFs siguen
+externos e intactos.
+
+**Conclusión:** el perfil oficial quedó implementado y se intentó ejecutarlo,
+pero **NO se completó 0→100→0 durante 40 s por OOM del generador**. El resultado
+es parcial y no sustituye el benchmark oficial completo. Los servicios quedaron
+restaurados y los tests pasan. No se optimizó, no se modificaron recursos ni
+se repitió carga después del OOM. No hubo ramas, commit ni push.
+
+
+## K6 SPIKE OFICIAL NATIVO WINDOWS: 40 s completos
+
+### Alcance y configuración conservada
+
+Corrida **official-k6-spike-windows-20261007-cold**, **7/10/2026 a las
+13:30 Argentina (16:30 UTC)**. Se continuó el intento Docker anterior con un
+generador **nativo de Windows**, sin ejecutar Vegeta ni modificar el SUT.
+La sección anterior describe el intento histórico; su OOM y sus cifras
+parciales se conservan y no se mezclan con esta nueva corrida completa.
+
+- k6 existente: **v2.2.0, commit 00a9a1b7f5, Go 1.26.5, windows/amd64**;
+  ruta `C:\Program Files\k6\k6.exe`, comprobada con `k6 version` y `where.exe k6`.
+  No se instaló ninguna herramienta o dependencia.
+- Windows 11, AMD Ryzen 5 4600H, 6 núcleos / 12 hilos; RAM física visible
+  **7,907,151,872 bytes (7.364 GiB)**. Docker dispone de 12 CPU lógicas y
+  **3,767,750,656 bytes (3.509 GiB)**. El equipo conservó sus otros procesos
+  y contenedores; no es un host dedicado de carga.
+- **Dos APIs: 1 CPU / 768 MiB cada una**. Traefik **v3.6: 0.5 CPU / 512 MiB**.
+  Redis compartido **8.2.10-alpine: 0.5 CPU / 256 MiB**. Se verificaron estos
+  límites antes, durante la preparación y después. No se reconstruyeron imágenes.
+- Ruta **k6 Windows → puerto publicado de Traefik → dos APIs → Redis**.
+  En esta corrida `http://127.0.0.1:53701/extract`, con `Host: localhost`.
+  El runner consulta el puerto real; las APIs no publican puertos al host.
+- **COLD CACHE AL INICIO**: DB **12**, con **0 claves** tanto antes de la
+  preparación como justo antes de la carga. No hubo precarga de PDFs ni FLUSH.
+  Sólo se cambió transitoriamente el REDIS_URL de las APIs mediante el override
+  de benchmark ya existente. El servidor Redis y sus datos normales no se alteraron.
+  TTL conservado **3600 s**, timeout Redis **200 ms**.
+- Antes de k6, los cuatro servicios estaban healthy y seis health HTTP 200 por
+  Traefik demostraron descubrimiento de ambas APIs, reparto **3/3**.
+
+### Cuatro PDFs e input del generador
+
+Ubicación externa: `D:\INGENIERIA\3er\desarrollo de software\`.
+Ningún PDF se copió al repositorio y `pdf279hojas.pdf` **no participó**.
+
+| PDF exacto | Bytes | Páginas | Caracteres Markdown |
+|---|---:|---:|---:|
+| `2020-Scrum-Guide-Spanish-Latin-South-American.pdf` | 319343 | 16 | 35783 |
+| `scrum_manager_historias_usuario.pdf` | 3830899 | 62 | 90183 |
+| `Essential-Kanban-Condensed-Spanish.pdf` | 8901466 | 90 | 125909 |
+| `Filosofia Lean.pdf` | 668142 | 42 | 59181 |
+
+Se recalcularon firma, páginas, SHA-256 del PDF y referencia de Markdown con
+el algoritmo actual, sin enviar solicitudes al SUT para precargarlo. Los
+cuatro SHA de archivo son distintos y coinciden con los manifiestos previos.
+`pdfs.json` conserva nombres, rutas y ambos hashes completos; `cache-after.json`
+y los checks validan contenido/páginas. Los archivos externos mantienen su SHA
+antes y después de la corrida.
+
+La única modificación de `spike.js` respecto del estado local anterior fue
+la carga de los binarios: **`open(path, 'b')` en init**, ArrayBuffer reutilizado
+en `http.post`, sin `seek/read` ni `new Uint8Array` por iteración, sin Base64
+ni conversión del PDF a string. No se cambiaron stages, checks, thresholds,
+timeout de 180 s ni tiempos de cierre. k6 mantiene copias por VU: cargar en
+init elimina lecturas repetidas, pero **no establece un buffer compartido
+entre VUs**. Esta limitación está descrita en la
+[documentación oficial de open](https://grafana.com/docs/k6/latest/javascript-api/init-context/open/).
+
+La rotación usa el índice global `iterationInTest % 4`. Hubo **279 solicitudes
+iniciadas**, repartidas **70/70/70/69**; la distribución de respuestas completas
+varía porque los tamaños y tiempos difieren y se cancelan iteraciones en la bajada.
+
+### Perfil y finalización real
+
+`k6 inspect --include-system-env-vars` verificó, sin HTTP ni cambios de caché:
+
+```text
+startVUs: 0
+10s -> 100 VUs
+20s -> 100 VUs
+10s -> 0 VUs
+gracefulRampDown: 0s
+gracefulStop: 0s
+```
+
+**¿SE COMPLETÓ EL SPIKE 0→100→0 DURANTE 40 s? SÍ.** Se observaron 100 VUs
+activos, la meseta y la bajada final a 0 en `k6.log`. El perfil tiene **40 s
+nominales**; `summary.json` informa **40,120.8811 ms** de test. La ventana del
+lanzador hasta recuperar el exit fue **44.433 s**, incluyendo init, cierre y
+muestreo; no se la presenta como duración de los stages. No hubo aborto.
+
+Exit nativo k6 **99**: fallaron los thresholds de checks, errores y p95, con
+`abortOnFail` ausente. Se dejaron terminar todos los stages a pesar de los
+503 y los malos tiempos. La salida exit 0 del wrapper indica que guardó la
+corrida/restauración; el resultado de carga es el **99** de `execution.json`.
+
+### Resultado completo vs profesor
+
+Las latencias son `http_req_duration` de k6, **en milisegundos**, sobre todos
+los **179 resultados HTTP completos** (incluidos 40 errores HTTP). No incluyen
+init ni las 100 iteraciones interrumpidas. Profesor: referencia suministrada,
+1037 requests / 25.35 req/s / 0 % errores; sus tiempos se convirtieron de s a ms.
+
+| Métrica | Nuestro resultado Windows | Profesor |
+|---|---:|---:|
+| Requests del resumen HTTP | **179** | 1037 |
+| Solicitudes iniciadas | **279** | No desglosado |
+| Req/s del resumen | **4.4615** | 25.35 |
+| HTTP 200 correctos | **139 (77.65 % de los resultados HTTP)** | 0 % errores informado |
+| HTTP 503 | **39** | 0 errores informado |
+| Otros HTTP | **1 HTTP 502** | 0 errores informado |
+| `http_req_failed` | **22.3464 % (40/179)** | 0 % |
+| Timeouts observados | **0** | 0 errores informado |
+| Errores de conexión observados | **0** | 0 errores informado |
+| Iteraciones interrumpidas | **100** | No desglosado |
+| Latencia mínima | **490.027 ms** | No informado |
+| Latencia media | **7495.256 ms** | No informado |
+| p50 | **5105.832 ms** | 1880 ms |
+| p90 | **17900.786 ms** | 7830 ms |
+| p95 | **19958.908 ms** | 8800 ms |
+| Máximo | **33601.796 ms** | 13940 ms |
+| Checks | **695/895 (77.6536 %)** | No informado |
+| Bytes enviados / recibidos (k6) | **879747150 / 9277646** | No informado |
+
+Sólo los 139 HTTP 200: p50 **4688.004 ms**, p90 **18374.587 ms**,
+p95 **20981.704 ms**, máximo **33601.796 ms**. El throughput de respuestas
+válidas fue **3.4645/s**. Estos son resultados secundarios; no sustituyen el
+resumen global ni excluyen errores para presentar una aprobación artificial.
+
+**No se cumple p95 < 400 ms ni la tasa de errores de 0 %.** El Spike es un
+modelo de VUs, no un perfil de llegada de 50 req/s. La cantidad de requests
+no fue fijada a 1037 ni a 1500; emerge de los tiempos del sistema y del cliente.
+
+### Cierre sin gracia: 100 iteraciones interrumpidas
+
+Se conservó el cierre inmediato del script anterior, sin modificar el perfil.
+k6 inició **279** solicitudes y terminó **179** iteraciones: **100 quedaron
+interrumpidas durante el ramp-down o el stop**. No se registran como resultados
+HTTP ni ejecutan los cinco checks de respuesta. Se verificó la diferencia de
+IDs entre `spike_requests_started` y las respuestas, y el total coincide con
+la consola final: **179 complete / 100 interrupted**.
+
+Sobre las 279 iniciadas: **139 correctas (49.82 %)**, **40 fallos HTTP** y
+**100 interrumpidas**; fallidas o interrumpidas juntas: **50.18 %**. Es una
+contabilidad distinta de `http_req_failed`, que usa 179 como denominador.
+No se ocultan las cancelaciones bajo el 0 de timeouts/conexiones.
+
+No se observaron códigos de timeout/DNS/TCP/TLS en los resultados terminados.
+El timeout sigue en **180 s**, mayor que el perfil; las pendientes se
+interrumpieron antes de agotar ese tiempo. Un **HTTP 502 recibido** es un
+error del proxy y se cuenta por separado de un error de conexión del cliente.
+
+### Caché, texto correcto y balanceo
+
+Headers recibidos: **134 HIT, 5 MISS, 0 ERROR, 0 BYPASS, 40 ABSENT**. ABSENT
+corresponde a los errores HTTP y no demuestra el estado de la caché de esas
+solicitudes. Las 100 interrumpidas tampoco tienen header registrado. Los
+HIT **no representan extracción real**; éste es un Spike que empieza frío y
+luego incluye respuestas calientes, no un benchmark íntegramente sin caché.
+
+Las **139 respuestas HTTP 200** pasaron los cinco checks: 47 de Scrum Guide,
+40 de Historias, 3 de Kanban y 49 de Lean. Página, longitud y SHA de Markdown
+correctos en todas. Los cinco MISS recibidos fueron uno por cada documento
+y un segundo MISS de Lean; no se presume que un archivo se convierta una sola
+vez cuando llegan solicitudes frías concurrentes. La DB 12 terminó con las
+cuatro claves; su contenido y TTL fueron comprobados sin borrarlas.
+
+Balanceo observado por X-Audit-Id y ServiceAddr:
+
+| Captura de logs de Traefik | Registros únicos | API 1 / API 2 | Estados del proxy |
+|---|---:|---:|---|
+| Inmediata al terminar la carga | 241 | 124 / 117 | 144×200, 39×503, 17×502, 41×499 |
+| Después de completar registros tardíos y restaurar DB 0 | **279** | **140 / 139** | 144×200, 39×503, 32×502, 64×499 |
+
+Los 279 IDs del generador aparecen en la captura final del proxy. Entre los
+100 sin respuesta registrada por k6 hay **5 estados proxy 200, 31 estados
+502 y 64 estados 499**. Un estado del proxy no significa que el cliente haya
+recibido/checkeado esa respuesta. La captura final incluye completaciones y
+cancelaciones tardías, así como el efecto de recrear las APIs para volver a
+DB 0; no se atribuyen esos 32 estados 502 íntegramente a la ventana de carga.
+Se conservaron ambas capturas para distinguirlas.
+
+### CPU, memoria y perfiles internos
+
+**12 muestras** de Docker y proceso Windows, aproximadamente cada 3–4.5 s.
+Las 48 observaciones de health del SUT fueron healthy. Máximos **muestreados**:
+
+| Servicio | CPU Docker máxima | RAM máxima muestreada | Límite conservado |
+|---|---:|---:|---|
+| API 1 | 107.64 % | 393.4 MiB | 1 CPU / 768 MiB |
+| API 2 | 106.63 % | 459.8 MiB | 1 CPU / 768 MiB |
+| Traefik | 58.46 % | 257.0 MiB | 0.5 CPU / 512 MiB |
+| Redis | 10.24 % | 8.07 MiB | 0.5 CPU / 256 MiB |
+
+Docker expresa 100 % como una CPU lógica; su intervalo de medición puede
+mostrar picos mayores que el límite nominal. Los límites efectivos de
+`docker inspect` se mantuvieron. No se inventan máximos entre muestras.
+
+k6 nativo no tuvo límite Docker ni afinidad/CPU impuesta por el runner:
+
+- Pico residente según el contador Windows: **1,056,911,360 bytes /
+  1007.95 MiB**; pico de commit del proceso: **2,580,541,440 bytes /
+  2461.00 MiB**. Son contadores de pico del proceso, no sólo el máximo de muestras.
+- CPU acumulada **9.734 s**; máximo calculado por intervalo **75.22 % de una
+  CPU lógica** (incluye init; no es porcentaje de las 12 CPU juntas).
+- Host físico disponible antes de iniciar: **533.68 MiB**; mínimo muestreado
+  **12.80 MiB**. Commit disponible mínimo **668.40 MiB**. El archivo de paginación
+  ya existente era de **19545 MiB**. No se cambió su configuración.
+- **904489 page faults** del proceso; el contador incluye fallos blandos,
+  por lo que no se interpreta como 904489 lecturas de disco. Hay presión de
+  memoria demostrada, pero no una cuantificación aislada del costo de paging.
+
+Ninguna API, Redis o Traefik tuvo OOM (`OOMKilled=false` después de carga), y
+los IDs/StartedAt de Redis/Traefik se conservaron. k6 completó el escenario,
+guardó resumen, ejecutó teardown y salió 99 sin error fatal de memoria.
+
+Los **181 perfiles de servidor** guardados antes de recrear APIs tienen
+176 HIT y 5 MISS; incluyen trabajo cuyo cliente ya canceló. No son la misma
+población de 179 resultados k6, ni sumandos independientes del tiempo HTTP:
+
+| Tramo (perfiles de servidor) | n | p50 | p95 | Máximo |
+|---|---:|---:|---:|---:|
+| `receive_body_ms` | 181 | 3712.630 ms | 26454.011 ms | 38797.208 ms |
+| `redis_get_ms` | 181 | 7.236 ms | 53.597 ms | 292.817 ms |
+| Algoritmo sólo en MISS | 5 | 272.850 ms | 953.345 ms | 1079.701 ms |
+| `worker_ms` sólo en MISS | 5 | 1661.806 ms | 12766.809 ms | 12929.396 ms |
+
+Los 176 HIT tienen `extraction_ms=0`. El tiempo observado por el cliente
+muestra envío p50 **15.669 ms** / p95 **8323.012 ms**, espera p50
+**4613.334 ms** / p95 **15075.666 ms** y recepción p50 **1.035 ms** /
+p95 **608.768 ms**. Los p95 de distintos tramos no se suman ni corresponden
+necesariamente a la misma petición.
+
+El OOM que impedía finalizar el intento anterior quedó resuelto al sacar
+el generador del contenedor de 512 MiB. La nueva prueba demuestra **presión
+de memoria del host**, CPU cercana a los cupos en APIs/proxy y un costo alto
+de recepción/espera. Los 503 son coherentes con la protección existente ante
+conversión ocupada. Estas mediciones no aíslan una única causa de los malos
+tiempos ni justifican cambiar algoritmo, Redis, límites o backpressure en
+esta fase. No se aplicó ninguna optimización al SUT.
+
+### Reproducir y comprobar el estado final
+
+Comando real de la corrida, desde la raíz del repositorio:
+
+```powershell
+uv run --locked --no-sync --offline python tests/performance/run_official_spike.py --k6 'C:\Program Files\k6\k6.exe' --pdf-dir 'D:\INGENIERIA\3er\desarrollo de software' --name official-k6-spike-windows-20261007-cold --redis-db 12
+```
+
+Para una nueva corrida, elegir **otra carpeta** y **una DB actualmente vacía**
+con la receta nativa de README. No reutilizar esta DB 12 ocupada, ni borrar
+DB 0 u otros resultados. El runner rechaza DB/carpeta ocupada, inspecciona
+el perfil, espera salud/reparto por Traefik y restaura el REDIS_URL original
+en `finally`. El parámetro **`--k6`** selecciona Windows; omitirlo conserva
+el cliente Docker histórico y **no corresponde a esta receta**.
+
+Comandos finales ejecutados (dependencias ya disponibles):
+
+```powershell
+$env:UV_NO_SYNC = 'true'
+$env:UV_OFFLINE = 'true'
+uv run --locked pytest -v
+$proxyPort = ((docker compose -f compose.yaml -f compose.traefik.yaml port traefik 80).Trim()).Split(':')[-1]
+$env:EXTRACTOR_BASE_URL = "http://localhost:$proxyPort"
+uv run --locked pytest --run-integration -m integration -v -s
+docker compose -f compose.yaml -f compose.traefik.yaml ps
+```
+
+- Pytest: **40 passed, 1 skipped in 29.35s**, exit 0. La integración opt-in se
+  omite en la suite común; incluye también los dos tests existentes de reporte.
+- Integración Redis real por Traefik: **1 passed, 40 deselected in 12.03s**,
+  exit 0, MISS→HIT, contenido correcto, TTL 3600 s y PTTL
+  **3599742→3597108 ms**. Sólo limpia su propia clave UUID.
+- Final: **dos APIs, Redis y Traefik healthy**, seis health 200 y reparto **3/3**,
+  APIs en **DB 0**, DB 0 con **0 claves**, igual que al inicio. Sin FLUSH.
+  Mismas imágenes, recursos y variables de entorno originales tras restaurar.
+- No hubo ramas, commit, push, instalación ni cambios de Compose/API/Redis.
+  El cambio local previo de Traefik 512 MiB y toda la evidencia anterior se
+  conservaron; esta fase modifica sólo el input/ejecución del generador y documentación.
+
+Evidencia nueva, completa y separada:
+`tests/stress/results/official-k6-spike-windows-20261007-cold/`:
+
+- `summary.json`, `metrics.jsonl`, `k6.log`: resultados nativos originales.
+- `k6-inspect.json`, `k6-settings.json`, `environment.json`, `host-tools.json`,
+  `pdfs.json`, `commands.json`: perfil, ejecutable, puerto, versiones y fuentes.
+- `execution.json`, `generator-before.json`, `generator-after.json`, estados
+  iniciales/de carga/restaurados/finales: CPU/RAM, exit y OOM.
+- Logs de ambas APIs y Traefik antes de recrear, snapshots finales de access
+  logs, `balance.json` y `balance-final.json`: reparto y completaciones tardías.
+- `responses.jsonl`, `server-profiles.jsonl`, `vus.json`, `cache-after.json`,
+  health y logs pytest/integración: integridad y validación final.
+- `report.json` y `analyze.py`: análisis recomputable desde archivos, sin carga
+  ni red: `python tests/stress/results/official-k6-spike-windows-20261007-cold/analyze.py`.
+- `preflight-files.json` y `final-verification.json`: preservación de archivos
+  previos, main/HEAD, configs y PDFs. La evidencia parcial Docker quedó intacta.
+
+**Conclusión:** **SÍ se completó 0→100→0 durante los 40 s nominales sin OOM del
+generador**. El benchmark tuvo 22.35 % de errores HTTP, 100 interrupciones y
+p95 **19.959 s**; **no cumple 400 ms ni el resultado del profesor**. La fase
+resuelve la terminación del generador y deja el SUT original restaurado y
+los tests aprobados; no certifica buen rendimiento del servicio.

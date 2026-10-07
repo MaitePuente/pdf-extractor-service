@@ -1,0 +1,18 @@
+{
+  "README.md": {
+    "original_bytes": 36162,
+    "original_sha256": "70ff67ee4466bb93268ed51ca940a54036108ec999f4f53c43cb46605696ac0a",
+    "updated_prefix_bytes": 36195,
+    "updated_prefix_sha256": "0381699b6ec2202689d13f0a7d51aff534298814fa9087004f17fee139b108d2",
+    "historical_content_preserved_except_operational_annotation": true,
+    "appended_bytes": 4419
+  },
+  "docs/performance.md": {
+    "original_bytes": 139378,
+    "original_sha256": "3a1e2ae754d125cbf69e4411580da9de812c7130da4a1939c5c6c605bfe99863",
+    "updated_prefix_bytes": 139629,
+    "updated_prefix_sha256": "cd82003b84c02fb9d00dc432a2b489a46bcd582481211387aeda564e8ae163e0",
+    "historical_content_preserved_except_operational_annotation": true,
+    "appended_bytes": 14590
+  }
+}

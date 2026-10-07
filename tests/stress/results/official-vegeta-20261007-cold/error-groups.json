@@ -1,0 +1,9 @@
+{
+  "HTTP 503": 33,
+  "EOF": 206,
+  "closed network connection": 208,
+  "connection reset": 18,
+  "Post \"http://127.0.0.1:59345/extract\": readfrom tcp 127.0.0.1:57707->127.0.0.1:59345: write tcp 127.0.0.1:57707->127.0.0.1:59345: wsasend: An established connection was aborted by the software in your host machine.": 1,
+  "Post \"http://127.0.0.1:59345/extract\": readfrom tcp 127.0.0.1:57718->127.0.0.1:59345: write tcp 127.0.0.1:57718->127.0.0.1:59345: wsasend: An established connection was aborted by the software in your host machine.": 1,
+  "connection refused": 220
+}

@@ -1,0 +1,27 @@
+POST http://127.0.0.1:59345/extract
+Host: localhost
+Content-Type: application/pdf
+Accept-Encoding: identity
+X-Audit-Id: official-vegeta-20261007-cold-pdf-1
+@D:\INGENIERIA\3er\desarrollo de software\2020-Scrum-Guide-Spanish-Latin-South-American.pdf
+
+POST http://127.0.0.1:59345/extract
+Host: localhost
+Content-Type: application/pdf
+Accept-Encoding: identity
+X-Audit-Id: official-vegeta-20261007-cold-pdf-2
+@D:\INGENIERIA\3er\desarrollo de software\scrum_manager_historias_usuario.pdf
+
+POST http://127.0.0.1:59345/extract
+Host: localhost
+Content-Type: application/pdf
+Accept-Encoding: identity
+X-Audit-Id: official-vegeta-20261007-cold-pdf-3
+@D:\INGENIERIA\3er\desarrollo de software\Essential-Kanban-Condensed-Spanish.pdf
+
+POST http://127.0.0.1:59345/extract
+Host: localhost
+Content-Type: application/pdf
+Accept-Encoding: identity
+X-Audit-Id: official-vegeta-20261007-cold-pdf-4
+@D:\INGENIERIA\3er\desarrollo de software\Filosofia Lean.pdf

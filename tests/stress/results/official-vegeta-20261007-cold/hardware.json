@@ -1,0 +1,13 @@
+﻿{
+    "processor":  {
+                      "Name":  "AMD Ryzen 5 4600H with Radeon Graphics         ",
+                      "NumberOfCores":  6,
+                      "NumberOfLogicalProcessors":  12
+                  },
+    "operating_system":  {
+                             "Caption":  "Microsoft Windows 11 Home Single Language",
+                             "Version":  "10.0.26300",
+                             "TotalVisibleMemorySize":  7721828
+                         },
+    "powershell":  "5.1.26100.9444"
+}

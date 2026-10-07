@@ -1,0 +1,4 @@
+{"type":"Metric","data":{"name":"data_sent","type":"counter","contains":"data","thresholds":[],"submetrics":null},"metric":"data_sent"}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-10-07T15:59:12.130917322Z","value":0,"tags":{"group":"::setup"}}}
+{"type":"Metric","data":{"name":"data_received","type":"counter","contains":"data","thresholds":[],"submetrics":null},"metric":"data_received"}
+{"metric":"data_received","type":"Point","data":{"time":"2026-10-07T15:59:12.130917322Z","value":0,"tags":{"group":"::setup"}}}

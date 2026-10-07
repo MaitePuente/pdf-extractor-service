@@ -1,0 +1,45 @@
+{
+  "platform": "Windows-11-10.0.26300-SP0",
+  "logical_cpus": 12,
+  "commands": [
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "Get-CimInstance Win32_Processor | Select-Object Name,NumberOfCores,NumberOfLogicalProcessors | ConvertTo-Json"
+      ],
+      "output": "{\n    \"Name\":  \"AMD Ryzen 5 4600H with Radeon Graphics         \",\n    \"NumberOfCores\":  6,\n    \"NumberOfLogicalProcessors\":  12\n}\n"
+    },
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "Get-CimInstance Win32_PageFileUsage | Select-Object Name,AllocatedBaseSize,CurrentUsage,PeakUsage | ConvertTo-Json"
+      ],
+      "output": "{\n    \"Name\":  \"C:\\\\pagefile.sys\",\n    \"AllocatedBaseSize\":  19545,\n    \"CurrentUsage\":  3694,\n    \"PeakUsage\":  5379\n}\n"
+    },
+    {
+      "command": [
+        "k6",
+        "version"
+      ],
+      "output": "k6.exe v2.2.0 (commit/00a9a1b7f5, go1.26.5, windows/amd64)\n"
+    },
+    {
+      "command": [
+        "where.exe",
+        "k6"
+      ],
+      "output": "C:\\Program Files\\k6\\k6.exe\n"
+    },
+    {
+      "command": [
+        "uv",
+        "--version"
+      ],
+      "output": "uv 0.11.6 (65950801c 2026-04-09 x86_64-pc-windows-msvc)\n"
+    }
+  ]
+}

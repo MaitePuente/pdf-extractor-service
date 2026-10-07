@@ -1,0 +1,58 @@
+{
+  "healthy": {
+    "/pdf-extractor-extractor-1": "healthy",
+    "/pdf-extractor-extractor-2": "healthy",
+    "/pdf-extractor-redis-1": "healthy",
+    "/pdf-extractor-traefik-1": "healthy"
+  },
+  "normal_db_keys": 0,
+  "benchmark_db_keys": 1,
+  "health_url": "http://localhost:64097/health",
+  "health_checks": [
+    {
+      "status": 200,
+      "json": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    },
+    {
+      "status": 200,
+      "json": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    },
+    {
+      "status": 200,
+      "json": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    },
+    {
+      "status": 200,
+      "json": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    },
+    {
+      "status": 200,
+      "json": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    },
+    {
+      "status": 200,
+      "json": {
+        "status": "ok",
+        "service": "extractor"
+      }
+    }
+  ],
+  "traefik_same_id": true,
+  "redis_unchanged": true,
+  "api_normal_db_restored": true
+}

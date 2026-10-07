@@ -1,0 +1,1132 @@
+INFO extractor.cache CACHE MISS
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40368 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40368 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40418 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:49368 - "GET /health HTTP/1.1" 200 OK
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40416 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40342 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:56084 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40502 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40368 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40418 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40518 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40448 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40342 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40352 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:56158 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40418 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:56154 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:56184 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:56112 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:56206 - "POST /extract HTTP/1.1" 503 Service Unavailable
+INFO extractor.cache CACHE MISS
+INFO:     172.19.0.5:40352 - "POST /extract HTTP/1.1" 503 Service Unavailable
+PROFILE {"algorithm_ms": 272.8500399971381, "audit_id": "official-k6-spike-windows-20261007-cold-10-0", "cache": "MISS", "cache_get_ms": 59.42833500012057, "cache_set_ms": 16.330082002241397, "checksum_ms": 3.194259999872884, "convert_ms": 259.86920799914515, "extraction_ms": 272.8500399971381, "get_text_ms": 232.72345399891492, "markdown_build_ms": 1.1131619867228437, "open_ms": 6.985746000282234, "read_body_ms": 646.4343219995499, "receive_body_ms": 646.4343219995499, "redis_get_ms": 53.59728199982783, "response_build_ms": 1.6407779985456727, "response_object_ms": 0.09604200022295117, "route_ms": 12844.400722999126, "serialization_ms": 1.6407779985456727, "sha256_ms": 3.194259999872884, "status": 200, "total_server_ms": 12844.400722999126, "worker_ms": 12116.465023002092}
+INFO:     172.19.0.5:40346 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE MISS
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-78-0", "cache": "HIT", "cache_decode_ms": 1.6458179998153355, "cache_get_ms": 4.506180997850606, "checksum_ms": 0.22859700038679875, "extraction_ms": 0, "read_body_ms": 2284.926631000417, "receive_body_ms": 2284.926631000417, "redis_get_ms": 2.3705149978923146, "response_build_ms": 0.39833600021665916, "route_ms": 2290.2589430013904, "serialization_ms": 0.39833600021665916, "sha256_ms": 0.22859700038679875, "status": 200, "total_server_ms": 2290.2589430013904}
+INFO:     172.19.0.5:56200 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-66-0", "cache": "HIT", "cache_decode_ms": 1.1977030007983558, "cache_get_ms": 22.57670200197026, "checksum_ms": 0.21747400023741648, "extraction_ms": 0, "read_body_ms": 3860.6685749982717, "receive_body_ms": 3860.6685749982717, "redis_get_ms": 21.03568299935432, "response_build_ms": 0.44668299960903823, "route_ms": 3888.554033001128, "serialization_ms": 0.44668299960903823, "sha256_ms": 0.21747400023741648, "status": 200, "total_server_ms": 3888.554033001128}
+INFO:     172.19.0.5:56144 - "POST /extract HTTP/1.1" 200 OK
+PROFILE {"algorithm_ms": 171.59635799907846, "audit_id": "official-k6-spike-windows-20261007-cold-73-0", "cache": "MISS", "cache_get_ms": 11.199623000720749, "cache_set_ms": 2.1849449985893443, "checksum_ms": 2.5143729981209617, "convert_ms": 167.13949400218553, "extraction_ms": 171.59635799907846, "get_text_ms": 139.98564400026225, "markdown_build_ms": 1.2352720004855655, "open_ms": 3.8922859966987744, "read_body_ms": 2327.711902002193, "receive_body_ms": 2327.711902002193, "redis_get_ms": 11.030073997972067, "response_build_ms": 0.18437899780110456, "response_object_ms": 0.02358799974899739, "route_ms": 2580.0090359989554, "serialization_ms": 0.18437899780110456, "sha256_ms": 2.5143729981209617, "status": 200, "total_server_ms": 2580.0090359989554, "worker_ms": 236.0717299998214}
+INFO:     172.19.0.5:40448 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-36-1", "cache": "HIT", "cache_decode_ms": 1.1249780000071041, "cache_get_ms": 3.03978300144081, "checksum_ms": 0.41967899960582145, "extraction_ms": 0, "read_body_ms": 1288.828006003314, "receive_body_ms": 1288.828006003314, "redis_get_ms": 1.6997359998640604, "response_build_ms": 0.3287270010332577, "route_ms": 1292.9178970007342, "serialization_ms": 0.3287270010332577, "sha256_ms": 0.41967899960582145, "status": 200, "total_server_ms": 1292.9178970007342}
+INFO:     172.19.0.5:56242 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-18-1", "cache": "HIT", "cache_decode_ms": 0.9917009992932435, "cache_get_ms": 3.4058140008710325, "checksum_ms": 0.23547100136056542, "extraction_ms": 0, "read_body_ms": 1803.17319200185, "receive_body_ms": 1803.17319200185, "redis_get_ms": 2.135886999894865, "response_build_ms": 0.680539000313729, "route_ms": 1807.721950000996, "serialization_ms": 0.680539000313729, "sha256_ms": 0.23547100136056542, "status": 200, "total_server_ms": 1807.721950000996}
+INFO:     172.19.0.5:56154 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-8-0", "cache": "HIT", "cache_decode_ms": 1.2183549988549203, "cache_get_ms": 7.387217003270052, "checksum_ms": 0.5777940023108386, "extraction_ms": 0, "read_body_ms": 8774.244219999673, "receive_body_ms": 8774.244219999673, "redis_get_ms": 3.493267999147065, "response_build_ms": 5.34226200034027, "route_ms": 8789.0495549982, "serialization_ms": 5.34226200034027, "sha256_ms": 0.5777940023108386, "status": 200, "total_server_ms": 8789.0495549982}
+INFO:     172.19.0.5:40430 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-38-1", "cache": "HIT", "cache_decode_ms": 0.7705090029048733, "cache_get_ms": 4.337315000157105, "checksum_ms": 0.4712709996965714, "extraction_ms": 0, "read_body_ms": 1253.9282200013986, "receive_body_ms": 1253.9282200013986, "redis_get_ms": 3.144943002553191, "response_build_ms": 0.4549490004137624, "route_ms": 1259.333648999018, "serialization_ms": 0.4549490004137624, "sha256_ms": 0.4712709996965714, "status": 200, "total_server_ms": 1259.333648999018}
+INFO:     172.19.0.5:56112 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-60-0", "cache": "HIT", "cache_decode_ms": 0.4435859991644975, "cache_get_ms": 11.395846999221249, "checksum_ms": 0.46088000090094283, "extraction_ms": 0, "read_body_ms": 3712.6304710000113, "receive_body_ms": 3712.6304710000113, "redis_get_ms": 10.803602999658324, "response_build_ms": 0.2779460010060575, "route_ms": 3725.2213550018496, "serialization_ms": 0.2779460010060575, "sha256_ms": 0.46088000090094283, "status": 200, "total_server_ms": 3725.2213550018496}
+INFO:     172.19.0.5:56168 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-97-0", "cache": "HIT", "cache_decode_ms": 0.602683998295106, "cache_get_ms": 19.013558001461206, "checksum_ms": 0.3764419998333324, "extraction_ms": 0, "read_body_ms": 1809.226559002127, "receive_body_ms": 1809.226559002127, "redis_get_ms": 18.231586000183597, "response_build_ms": 0.27591099933488294, "route_ms": 1829.1023899982974, "serialization_ms": 0.27591099933488294, "sha256_ms": 0.3764419998333324, "status": 200, "total_server_ms": 1829.1023899982974}
+INFO:     172.19.0.5:56284 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-58-0", "cache": "HIT", "cache_decode_ms": 0.7246170025609899, "cache_get_ms": 3.6340100014058407, "checksum_ms": 0.5535359996429179, "extraction_ms": 0, "read_body_ms": 6595.898753002984, "receive_body_ms": 6595.898753002984, "redis_get_ms": 2.559463999205036, "response_build_ms": 0.42091099749086425, "route_ms": 6613.222001000395, "serialization_ms": 0.42091099749086425, "sha256_ms": 0.5535359996429179, "status": 200, "total_server_ms": 6613.222001000395}
+INFO:     172.19.0.5:40416 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-57-1", "cache": "HIT", "cache_decode_ms": 0.6863609996798914, "cache_get_ms": 3.278280000813538, "checksum_ms": 0.2132459994754754, "extraction_ms": 0, "read_body_ms": 1516.9437449985708, "receive_body_ms": 1516.9437449985708, "redis_get_ms": 2.394474002358038, "response_build_ms": 0.28271499832044356, "route_ms": 1520.9859110000252, "serialization_ms": 0.28271499832044356, "sha256_ms": 0.2132459994754754, "status": 200, "total_server_ms": 1520.9859110000252}
+INFO:     172.19.0.5:56348 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-73-1", "cache": "HIT", "cache_decode_ms": 0.4682459984906018, "cache_get_ms": 1.521418998891022, "checksum_ms": 0.3576740018615965, "extraction_ms": 0, "read_body_ms": 4.563227001199266, "receive_body_ms": 4.563227001199266, "redis_get_ms": 0.8806389996607322, "response_build_ms": 0.2340079990972299, "route_ms": 6.810686998505844, "serialization_ms": 0.2340079990972299, "sha256_ms": 0.3576740018615965, "status": 200, "total_server_ms": 6.810686998505844}
+INFO:     172.19.0.5:40430 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-87-0", "cache": "HIT", "cache_decode_ms": 0.3570539993233979, "cache_get_ms": 2.4972489991341718, "checksum_ms": 0.3714519989443943, "extraction_ms": 0, "read_body_ms": 3924.9615439985064, "receive_body_ms": 3924.9615439985064, "redis_get_ms": 1.9902559979527723, "response_build_ms": 0.6628039991483092, "route_ms": 3928.576926999085, "serialization_ms": 0.6628039991483092, "sha256_ms": 0.3714519989443943, "status": 200, "total_server_ms": 3928.576926999085}
+INFO:     172.19.0.5:56158 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-24-1", "cache": "HIT", "cache_decode_ms": 0.5516319979506079, "cache_get_ms": 8.28437200107146, "checksum_ms": 2.358943998842733, "extraction_ms": 0, "read_body_ms": 4749.38923100126, "receive_body_ms": 4749.38923100126, "redis_get_ms": 7.538301000749925, "response_build_ms": 0.26847700064536184, "route_ms": 4760.500140000659, "serialization_ms": 0.26847700064536184, "sha256_ms": 2.358943998842733, "status": 200, "total_server_ms": 4760.500140000659}
+INFO:     172.19.0.5:40518 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-51-2", "cache": "HIT", "cache_decode_ms": 0.6648489979852457, "cache_get_ms": 4.284039001504425, "checksum_ms": 0.19630200040410273, "extraction_ms": 0, "read_body_ms": 401.4030129983439, "receive_body_ms": 401.4030129983439, "redis_get_ms": 3.3986899979936425, "response_build_ms": 0.2855599996109959, "route_ms": 406.3930320007785, "serialization_ms": 0.2855599996109959, "sha256_ms": 0.19630200040410273, "status": 200, "total_server_ms": 406.3930320007785}
+INFO:     172.19.0.5:56112 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-11-2", "cache": "HIT", "cache_decode_ms": 0.24286500047310255, "cache_get_ms": 4.9883969986694865, "checksum_ms": 0.3776140001718886, "extraction_ms": 0, "read_body_ms": 2167.327788996772, "receive_body_ms": 2167.327788996772, "redis_get_ms": 4.523086998233339, "response_build_ms": 0.33041999995475635, "route_ms": 2173.3232970000245, "serialization_ms": 0.33041999995475635, "sha256_ms": 0.3776140001718886, "status": 200, "total_server_ms": 2173.3232970000245}
+INFO:     172.19.0.5:40352 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-8-1", "cache": "HIT", "cache_decode_ms": 0.7922329969005659, "cache_get_ms": 3.722016997926403, "checksum_ms": 0.4632050004147459, "extraction_ms": 0, "read_body_ms": 623.2073449973541, "receive_body_ms": 623.2073449973541, "redis_get_ms": 2.611366999190068, "response_build_ms": 0.3475240009720437, "route_ms": 627.9441990009218, "serialization_ms": 0.3475240009720437, "sha256_ms": 0.4632050004147459, "status": 200, "total_server_ms": 627.9441990009218}
+INFO:     172.19.0.5:40448 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-38-2", "cache": "HIT", "cache_decode_ms": 1.1719110007106792, "cache_get_ms": 14.139830000203801, "checksum_ms": 0.5533559997275006, "extraction_ms": 0, "read_body_ms": 696.5223750012228, "receive_body_ms": 696.5223750012228, "redis_get_ms": 12.60969400027534, "response_build_ms": 0.50037999972119, "route_ms": 711.9169129982765, "serialization_ms": 0.50037999972119, "sha256_ms": 0.5533559997275006, "status": 200, "total_server_ms": 711.9169129982765}
+INFO:     172.19.0.5:56144 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-73-2", "cache": "HIT", "cache_decode_ms": 0.39944799937075004, "cache_get_ms": 18.354110998188844, "checksum_ms": 0.25041999833774753, "extraction_ms": 0, "read_body_ms": 3.963980001572054, "receive_body_ms": 3.963980001572054, "redis_get_ms": 17.75935300247511, "response_build_ms": 0.4317919992899988, "route_ms": 23.19484200052102, "serialization_ms": 0.4317919992899988, "sha256_ms": 0.25041999833774753, "status": 200, "total_server_ms": 23.19484200052102}
+INFO:     172.19.0.5:56112 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-89-0", "cache": "HIT", "cache_decode_ms": 0.5680049980583135, "cache_get_ms": 7.110857000952819, "checksum_ms": 0.18582100165076554, "extraction_ms": 0, "read_body_ms": 2898.0103909998434, "receive_body_ms": 2898.0103909998434, "redis_get_ms": 6.385838998539839, "response_build_ms": 0.1916130022436846, "route_ms": 2905.868620000547, "serialization_ms": 0.1916130022436846, "sha256_ms": 0.18582100165076554, "status": 200, "total_server_ms": 2905.868620000547}
+INFO:     172.19.0.5:56340 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-78-1", "cache": "HIT", "cache_decode_ms": 0.5159100001037586, "cache_get_ms": 19.581110998842632, "checksum_ms": 0.5939170005149208, "extraction_ms": 0, "read_body_ms": 2000.7033020010567, "receive_body_ms": 2000.7033020010567, "redis_get_ms": 18.676223000511527, "response_build_ms": 0.5398690009315033, "route_ms": 2021.6618349986675, "serialization_ms": 0.5398690009315033, "sha256_ms": 0.5939170005149208, "status": 200, "total_server_ms": 2021.6618349986675}
+INFO:     172.19.0.5:56368 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-57-2", "cache": "HIT", "cache_decode_ms": 0.9219519997714087, "cache_get_ms": 9.878035998553969, "checksum_ms": 0.6248179997783154, "extraction_ms": 0, "read_body_ms": 442.35257800028194, "receive_body_ms": 442.35257800028194, "redis_get_ms": 8.607166997535387, "response_build_ms": 2.216718999989098, "route_ms": 455.38584800306126, "serialization_ms": 2.216718999989098, "sha256_ms": 0.6248179997783154, "status": 200, "total_server_ms": 455.38584800306126}
+INFO:     172.19.0.5:40416 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-24-2", "cache": "HIT", "cache_decode_ms": 0.7395379980152939, "cache_get_ms": 16.801008001493756, "checksum_ms": 0.21264500173856504, "extraction_ms": 0, "read_body_ms": 11.49185999747715, "receive_body_ms": 11.49185999747715, "redis_get_ms": 15.786150997882942, "response_build_ms": 0.26419799905852415, "route_ms": 28.914310001709964, "serialization_ms": 0.26419799905852415, "sha256_ms": 0.21264500173856504, "status": 200, "total_server_ms": 28.914310001709964}
+INFO:     172.19.0.5:56158 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-97-2", "cache": "HIT", "cache_decode_ms": 1.198194000608055, "cache_get_ms": 6.019566997565562, "checksum_ms": 0.2074449985229876, "extraction_ms": 0, "read_body_ms": 478.9564709972183, "receive_body_ms": 478.9564709972183, "redis_get_ms": 3.8892110023880377, "response_build_ms": 0.9060509983100928, "route_ms": 486.44863899971824, "serialization_ms": 0.9060509983100928, "sha256_ms": 0.2074449985229876, "status": 200, "total_server_ms": 486.44863899971824}
+INFO:     172.19.0.5:56112 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-10-1", "cache": "HIT", "cache_decode_ms": 0.6974429998081177, "cache_get_ms": 10.41169200107106, "checksum_ms": 0.42519999988144264, "extraction_ms": 0, "read_body_ms": 1501.2508330000855, "receive_body_ms": 1501.2508330000855, "redis_get_ms": 9.230333002051339, "response_build_ms": 0.47084099787753075, "route_ms": 1512.77808499799, "serialization_ms": 0.47084099787753075, "sha256_ms": 0.42519999988144264, "status": 200, "total_server_ms": 1512.77808499799}
+INFO:     172.19.0.5:56348 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-67-2", "cache": "HIT", "cache_decode_ms": 0.5597980016318616, "cache_get_ms": 2.985183997225249, "checksum_ms": 0.22807599816587754, "extraction_ms": 0, "read_body_ms": 16.256750001048204, "receive_body_ms": 16.256750001048204, "redis_get_ms": 2.0651259983424097, "response_build_ms": 0.46881700109224766, "route_ms": 20.39067900113878, "serialization_ms": 0.46881700109224766, "sha256_ms": 0.22807599816587754, "status": 200, "total_server_ms": 20.39067900113878}
+INFO:     172.19.0.5:56112 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-32-1", "cache": "HIT", "cache_decode_ms": 1.3819910018355586, "cache_get_ms": 23.173068999312818, "checksum_ms": 2.4622199998702854, "extraction_ms": 0, "read_body_ms": 5209.524067999155, "receive_body_ms": 5209.524067999155, "redis_get_ms": 21.45743099754327, "response_build_ms": 0.35055999978794716, "route_ms": 5235.782290001225, "serialization_ms": 0.35055999978794716, "sha256_ms": 2.4622199998702854, "status": 200, "total_server_ms": 5235.782290001225}
+INFO:     172.19.0.5:56184 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-40-0", "cache": "HIT", "cache_decode_ms": 0.5382959971029777, "cache_get_ms": 10.458304997882806, "checksum_ms": 3.1191119996947236, "extraction_ms": 0, "read_body_ms": 10512.494616999902, "receive_body_ms": 10512.494616999902, "redis_get_ms": 9.769157997652655, "response_build_ms": 0.3006410006491933, "route_ms": 10526.59890599898, "serialization_ms": 0.3006410006491933, "sha256_ms": 3.1191119996947236, "status": 200, "total_server_ms": 10526.59890599898}
+INFO:     172.19.0.5:40490 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-51-3", "cache": "HIT", "cache_decode_ms": 1.600236999365734, "cache_get_ms": 13.637266001751414, "checksum_ms": 0.4345380002632737, "extraction_ms": 0, "read_body_ms": 593.9281879982445, "receive_body_ms": 593.9281879982445, "redis_get_ms": 11.06630900176242, "response_build_ms": 4.566974999761442, "route_ms": 612.9506639990723, "serialization_ms": 4.566974999761442, "sha256_ms": 0.4345380002632737, "status": 200, "total_server_ms": 612.9506639990723}
+INFO:     172.19.0.5:40416 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-25-0", "cache": "HIT", "cache_decode_ms": 0.6049289986549411, "cache_get_ms": 2.639884001837345, "checksum_ms": 2.177140002459055, "extraction_ms": 0, "read_body_ms": 13183.679075002146, "receive_body_ms": 13183.679075002146, "redis_get_ms": 1.6551970002183225, "response_build_ms": 1.080909998563584, "route_ms": 13190.804011999717, "serialization_ms": 1.080909998563584, "sha256_ms": 2.177140002459055, "status": 200, "total_server_ms": 13190.804011999717}
+INFO:     172.19.0.5:40400 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-10-2", "cache": "HIT", "cache_decode_ms": 2.8499239997472614, "cache_get_ms": 6.761820000974694, "checksum_ms": 0.24988899895106442, "extraction_ms": 0, "read_body_ms": 608.8008229999105, "receive_body_ms": 608.8008229999105, "redis_get_ms": 3.5630579986900557, "response_build_ms": 0.3993479986093007, "route_ms": 616.4902659984364, "serialization_ms": 0.3993479986093007, "sha256_ms": 0.24988899895106442, "status": 200, "total_server_ms": 616.4902659984364}
+INFO:     172.19.0.5:56184 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-27-0", "cache": "HIT", "cache_decode_ms": 57.055523997405544, "cache_get_ms": 83.31094100140035, "checksum_ms": 3.067999001359567, "extraction_ms": 0, "read_body_ms": 12907.145015000424, "receive_body_ms": 12907.145015000424, "redis_get_ms": 24.385420998441987, "response_build_ms": 3.515304000757169, "route_ms": 12998.246292998374, "serialization_ms": 3.515304000757169, "sha256_ms": 3.067999001359567, "status": 200, "total_server_ms": 12998.246292998374}
+INFO:     172.19.0.5:40458 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-38-3", "cache": "HIT", "cache_decode_ms": 1.0225830010313075, "cache_get_ms": 12.669822997850133, "checksum_ms": 0.6364119981299154, "extraction_ms": 0, "read_body_ms": 2031.1414069983584, "receive_body_ms": 2031.1414069983584, "redis_get_ms": 11.269204998825444, "response_build_ms": 0.6027449999237433, "route_ms": 2045.270086000528, "serialization_ms": 0.6027449999237433, "sha256_ms": 0.6364119981299154, "status": 200, "total_server_ms": 2045.270086000528}
+INFO:     172.19.0.5:56158 - "POST /extract HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60056 - "GET /health HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-73-3", "cache": "HIT", "cache_decode_ms": 4.445603000931442, "cache_get_ms": 23.45336899816175, "checksum_ms": 0.3545580002537463, "extraction_ms": 0, "read_body_ms": 2624.5728619978763, "receive_body_ms": 2624.5728619978763, "redis_get_ms": 18.60494100037613, "response_build_ms": 1.0147469984076452, "route_ms": 2649.698641998839, "serialization_ms": 1.0147469984076452, "sha256_ms": 0.3545580002537463, "status": 200, "total_server_ms": 2649.698641998839}
+INFO:     172.19.0.5:56368 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-24-3", "cache": "HIT", "cache_decode_ms": 3.109682998911012, "cache_get_ms": 16.31309300137218, "checksum_ms": 4.824429001018871, "extraction_ms": 0, "read_body_ms": 2930.2759929996682, "receive_body_ms": 2930.2759929996682, "redis_get_ms": 12.79755900031887, "response_build_ms": 0.7626539991179015, "route_ms": 2952.557178999996, "serialization_ms": 0.7626539991179015, "sha256_ms": 4.824429001018871, "status": 200, "total_server_ms": 2952.557178999996}
+INFO:     172.19.0.5:40518 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-97-4", "cache": "HIT", "cache_decode_ms": 3.699771001265617, "cache_get_ms": 20.49804399939603, "checksum_ms": 2.0959069988748524, "extraction_ms": 0, "read_body_ms": 1219.8219819983933, "receive_body_ms": 1219.8219819983933, "redis_get_ms": 11.667050002870383, "response_build_ms": 2.3032119970594067, "route_ms": 1245.2321099990513, "serialization_ms": 2.3032119970594067, "sha256_ms": 2.0959069988748524, "status": 200, "total_server_ms": 1245.2321099990513}
+INFO:     172.19.0.5:56184 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-32-2", "cache": "HIT", "cache_decode_ms": 1.1081740012741648, "cache_get_ms": 8.267197001259774, "checksum_ms": 0.46438799836323597, "extraction_ms": 0, "read_body_ms": 3824.8416280002857, "receive_body_ms": 3824.8416280002857, "redis_get_ms": 6.733243000780931, "response_build_ms": 0.3826850006589666, "route_ms": 3834.3126100007794, "serialization_ms": 0.3826850006589666, "sha256_ms": 0.46438799836323597, "status": 200, "total_server_ms": 3834.3126100007794}
+INFO:     172.19.0.5:40490 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-95-3", "cache": "HIT", "cache_decode_ms": 0.6081249994167592, "cache_get_ms": 7.036741000774782, "checksum_ms": 0.6696579985145945, "extraction_ms": 0, "read_body_ms": 3176.9647220025945, "receive_body_ms": 3176.9647220025945, "redis_get_ms": 6.148386000859318, "response_build_ms": 0.44634099685936235, "route_ms": 3187.1703939978033, "serialization_ms": 0.44634099685936235, "sha256_ms": 0.6696579985145945, "status": 200, "total_server_ms": 3187.1703939978033}
+INFO:     172.19.0.5:56112 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-3-1", "cache": "HIT", "cache_decode_ms": 2.0576229981088545, "cache_get_ms": 5.937549001828302, "checksum_ms": 2.37030800053617, "extraction_ms": 0, "read_body_ms": 17860.91571400175, "receive_body_ms": 17860.91571400175, "redis_get_ms": 3.6447359998419415, "response_build_ms": 1.360509999358328, "route_ms": 17870.906741998624, "serialization_ms": 1.360509999358328, "sha256_ms": 2.37030800053617, "status": 200, "total_server_ms": 17870.906741998624}
+INFO:     172.19.0.5:40412 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-11-5", "cache": "HIT", "cache_decode_ms": 1.0583250004856382, "cache_get_ms": 2.419377000478562, "checksum_ms": 0.27216500166105106, "extraction_ms": 0, "read_body_ms": 5.919281997194048, "receive_body_ms": 5.919281997194048, "redis_get_ms": 1.1501389999466483, "response_build_ms": 0.7129049990908243, "route_ms": 9.57804599966039, "serialization_ms": 0.7129049990908243, "sha256_ms": 0.27216500166105106, "status": 200, "total_server_ms": 9.57804599966039}
+INFO:     172.19.0.5:56112 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-24-4", "cache": "HIT", "cache_decode_ms": 1.2374329999147449, "cache_get_ms": 8.004431001609191, "checksum_ms": 0.3836169998976402, "extraction_ms": 0, "read_body_ms": 2000.210258000152, "receive_body_ms": 2000.210258000152, "redis_get_ms": 6.309994001640007, "response_build_ms": 0.27170299654244445, "route_ms": 2009.61849399755, "serialization_ms": 0.27170299654244445, "sha256_ms": 0.3836169998976402, "status": 200, "total_server_ms": 2009.61849399755}
+INFO:     172.19.0.5:40518 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-48-1", "cache": "HIT", "cache_decode_ms": 0.5229659982433077, "cache_get_ms": 9.003176997794071, "checksum_ms": 0.508727000124054, "extraction_ms": 0, "read_body_ms": 3900.3274729984696, "receive_body_ms": 3900.3274729984696, "redis_get_ms": 8.264601001428673, "response_build_ms": 0.24201400083256885, "route_ms": 3911.937740002031, "serialization_ms": 0.24201400083256885, "sha256_ms": 0.508727000124054, "status": 200, "total_server_ms": 3911.937740002031}
+INFO:     172.19.0.5:56158 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-84-0", "cache": "HIT", "cache_decode_ms": 1.9909199982066639, "cache_get_ms": 7.990613001311431, "checksum_ms": 2.3399079982482363, "extraction_ms": 0, "read_body_ms": 13816.229066000233, "receive_body_ms": 13816.229066000233, "redis_get_ms": 5.780825998954242, "response_build_ms": 0.601342002482852, "route_ms": 13827.31650900314, "serialization_ms": 0.601342002482852, "sha256_ms": 2.3399079982482363, "status": 200, "total_server_ms": 13827.31650900314}
+INFO:     172.19.0.5:56194 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-2-2", "cache": "HIT", "cache_decode_ms": 1.2075540034857113, "cache_get_ms": 6.666976998531027, "checksum_ms": 2.4100269984046463, "extraction_ms": 0, "read_body_ms": 9904.906300998846, "receive_body_ms": 9904.906300998846, "redis_get_ms": 5.243622003035853, "response_build_ms": 0.7274240015249234, "route_ms": 9914.97404600159, "serialization_ms": 0.7274240015249234, "sha256_ms": 2.4100269984046463, "status": 200, "total_server_ms": 9914.97404600159}
+INFO:     172.19.0.5:40346 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-70-1", "cache": "HIT", "cache_decode_ms": 0.6483460019808263, "cache_get_ms": 3.8654670024698135, "checksum_ms": 0.2343179985473398, "extraction_ms": 0, "read_body_ms": 1148.9521729999979, "receive_body_ms": 1148.9521729999979, "redis_get_ms": 2.8964400007680524, "response_build_ms": 0.5132559999765363, "route_ms": 1153.800414998841, "serialization_ms": 0.5132559999765363, "sha256_ms": 0.2343179985473398, "status": 200, "total_server_ms": 1153.800414998841}
+INFO:     172.19.0.5:56112 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-65-3", "cache": "HIT", "cache_decode_ms": 1.2416719982866198, "cache_get_ms": 11.682213000312913, "checksum_ms": 2.14598999809823, "extraction_ms": 0, "read_body_ms": 9800.024798001687, "receive_body_ms": 9800.024798001687, "redis_get_ms": 10.228166000160854, "response_build_ms": 0.769918999139918, "route_ms": 9814.936204998958, "serialization_ms": 0.769918999139918, "sha256_ms": 2.14598999809823, "status": 200, "total_server_ms": 9814.936204998958}
+INFO:     172.19.0.5:56340 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-69-1", "cache": "HIT", "cache_decode_ms": 1.1529449984664097, "cache_get_ms": 4.114374998607673, "checksum_ms": 0.5967629986116663, "extraction_ms": 0, "read_body_ms": 1602.1706239989726, "receive_body_ms": 1602.1706239989726, "redis_get_ms": 2.6063500008604024, "response_build_ms": 0.48441799663123675, "route_ms": 1607.6152379973792, "serialization_ms": 0.48441799663123675, "sha256_ms": 0.5967629986116663, "status": 200, "total_server_ms": 1607.6152379973792}
+INFO:     172.19.0.5:56332 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-97-5", "cache": "HIT", "cache_decode_ms": 0.7266319989867043, "cache_get_ms": 6.011516001308337, "checksum_ms": 0.43233399992459454, "extraction_ms": 0, "read_body_ms": 2703.7242070000502, "receive_body_ms": 2703.7242070000502, "redis_get_ms": 4.952218998369062, "response_build_ms": 0.4339480001362972, "route_ms": 2711.049109999294, "serialization_ms": 0.4339480001362972, "sha256_ms": 0.43233399992459454, "status": 200, "total_server_ms": 2711.049109999294}
+INFO:     172.19.0.5:56296 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-48-2", "cache": "HIT", "cache_decode_ms": 1.2580350012285635, "cache_get_ms": 3.7698369997087866, "checksum_ms": 0.2242580012534745, "extraction_ms": 0, "read_body_ms": 1614.2464719996497, "receive_body_ms": 1614.2464719996497, "redis_get_ms": 2.121651003108127, "response_build_ms": 0.4550099984044209, "route_ms": 1618.9789939999173, "serialization_ms": 0.4550099984044209, "sha256_ms": 0.2242580012534745, "status": 200, "total_server_ms": 1618.9789939999173}
+INFO:     172.19.0.5:56158 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-43-2", "cache": "HIT", "cache_decode_ms": 0.7755410006211605, "cache_get_ms": 11.717434001184301, "checksum_ms": 0.23864700051490217, "extraction_ms": 0, "read_body_ms": 1970.329239997227, "receive_body_ms": 1970.329239997227, "redis_get_ms": 10.717354001826607, "response_build_ms": 0.204258001758717, "route_ms": 1982.6317820006807, "serialization_ms": 0.204258001758717, "sha256_ms": 0.23864700051490217, "status": 200, "total_server_ms": 1982.6317820006807}
+INFO:     172.19.0.5:40346 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE MISS
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-16-0", "cache": "HIT", "cache_decode_ms": 0.9452689992031083, "cache_get_ms": 294.01483200126677, "checksum_ms": 2.22820399721968, "extraction_ms": 0, "read_body_ms": 24219.265316998644, "receive_body_ms": 24219.265316998644, "redis_get_ms": 292.81692699805717, "response_build_ms": 0.6905010013724677, "route_ms": 24516.544939000596, "serialization_ms": 0.6905010013724677, "sha256_ms": 2.22820399721968, "status": 200, "total_server_ms": 24516.544939000596}
+INFO:     172.19.0.5:40384 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-96-0", "cache": "HIT", "cache_decode_ms": 0.8910809992812574, "cache_get_ms": 186.1842850012181, "checksum_ms": 2.0628740021493286, "extraction_ms": 0, "read_body_ms": 16631.346230999043, "receive_body_ms": 16631.346230999043, "redis_get_ms": 185.03791300099692, "response_build_ms": 0.3632160005508922, "route_ms": 16820.13572300275, "serialization_ms": 0.3632160005508922, "sha256_ms": 2.0628740021493286, "status": 200, "total_server_ms": 16820.13572300275}
+INFO:     172.19.0.5:56206 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-97-6", "cache": "HIT", "cache_decode_ms": 0.6336469996313099, "cache_get_ms": 3.3271520005655475, "checksum_ms": 0.3818639997916762, "extraction_ms": 0, "read_body_ms": 1215.2943719993345, "receive_body_ms": 1215.2943719993345, "redis_get_ms": 2.4560000019846484, "response_build_ms": 0.41455899918219075, "route_ms": 1219.6237669995753, "serialization_ms": 0.41455899918219075, "sha256_ms": 0.3818639997916762, "status": 200, "total_server_ms": 1219.6237669995753}
+INFO:     172.19.0.5:56332 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-13-1", "cache": "HIT", "cache_decode_ms": 64.30294299934758, "cache_get_ms": 70.59042200125987, "checksum_ms": 2.118485001119552, "extraction_ms": 0, "read_body_ms": 13603.28252600084, "receive_body_ms": 13603.28252600084, "redis_get_ms": 5.986197000311222, "response_build_ms": 1.554547001433093, "route_ms": 13677.735730001586, "serialization_ms": 1.554547001433093, "sha256_ms": 2.118485001119552, "status": 200, "total_server_ms": 13677.735730001586}
+INFO:     172.19.0.5:56144 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-77-1", "cache": "HIT", "cache_decode_ms": 0.4836769985558931, "cache_get_ms": 24.424344999715686, "checksum_ms": 2.3023630019451957, "extraction_ms": 0, "read_body_ms": 17103.970899999695, "receive_body_ms": 17103.970899999695, "redis_get_ms": 23.716119001619518, "response_build_ms": 0.4067640002176631, "route_ms": 17132.1783759995, "serialization_ms": 0.4067640002176631, "sha256_ms": 2.3023630019451957, "status": 200, "total_server_ms": 17132.1783759995}
+INFO:     172.19.0.5:56262 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-50-1", "cache": "HIT", "cache_decode_ms": 1.247113999852445, "cache_get_ms": 25.055717000213917, "checksum_ms": 0.22065099983592518, "extraction_ms": 0, "read_body_ms": 691.8461409986776, "receive_body_ms": 691.8461409986776, "redis_get_ms": 23.560477002320113, "response_build_ms": 0.7369439990725368, "route_ms": 718.1727489987679, "serialization_ms": 0.7369439990725368, "sha256_ms": 0.22065099983592518, "status": 200, "total_server_ms": 718.1727489987679}
+INFO:     172.19.0.5:56308 - "POST /extract HTTP/1.1" 200 OK
+PROFILE {"algorithm_ms": 1079.7011680006108, "audit_id": "official-k6-spike-windows-20261007-cold-34-1", "cache": "MISS", "cache_get_ms": 6.6994720000366215, "cache_set_ms": 7.4618360013118945, "checksum_ms": 4.667930999858072, "convert_ms": 962.6221860016813, "extraction_ms": 1079.7011680006108, "get_text_ms": 743.4007470219512, "markdown_build_ms": 61.072651002177736, "open_ms": 108.89275799854659, "read_body_ms": 15552.225379997253, "receive_body_ms": 15552.225379997253, "redis_get_ms": 6.490345000202069, "response_build_ms": 0.4688970002462156, "response_object_ms": 1.9911700001102872, "route_ms": 17233.53780999969, "serialization_ms": 0.4688970002462156, "sha256_ms": 4.667930999858072, "status": 200, "total_server_ms": 17233.53780999969, "worker_ms": 1661.8058160020155}
+INFO:     172.19.0.5:56276 - "POST /extract HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58642 - "GET /health HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-14-0", "cache": "HIT", "cache_decode_ms": 0.8281769987661391, "cache_get_ms": 30.029115001525497, "checksum_ms": 4.9355459996149875, "extraction_ms": 0, "read_body_ms": 27151.045300997794, "receive_body_ms": 27151.045300997794, "redis_get_ms": 29.034395000053337, "response_build_ms": 0.8879269989847671, "route_ms": 27190.840107999975, "serialization_ms": 0.8879269989847671, "sha256_ms": 4.9355459996149875, "status": 200, "total_server_ms": 27190.840107999975}
+INFO:     172.19.0.5:40374 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-94-2", "cache": "HIT", "cache_decode_ms": 0.7702609982516151, "cache_get_ms": 4.678371002228232, "checksum_ms": 0.4470040003070608, "extraction_ms": 0, "read_body_ms": 2375.0987480016192, "receive_body_ms": 2375.0987480016192, "redis_get_ms": 3.70038300025044, "response_build_ms": 0.2518030014471151, "route_ms": 2380.883511999855, "serialization_ms": 0.2518030014471151, "sha256_ms": 0.4470040003070608, "status": 200, "total_server_ms": 2380.883511999855}
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-74-1", "cache": "HIT", "cache_decode_ms": 2.1335089986678213, "cache_get_ms": 5.300847002217779, "checksum_ms": 2.4457439976686146, "extraction_ms": 0, "read_body_ms": 18541.185753998434, "receive_body_ms": 18541.185753998434, "redis_get_ms": 2.9150030022719875, "response_build_ms": 0.5305910017341375, "route_ms": 18549.649067001155, "serialization_ms": 0.5305910017341375, "sha256_ms": 2.4457439976686146, "status": 200, "total_server_ms": 18549.649067001155}
+INFO:     172.19.0.5:56326 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-13-2", "cache": "HIT", "cache_decode_ms": 1.5257529994414654, "cache_get_ms": 2.8084689984098077, "checksum_ms": 0.19244499708293006, "extraction_ms": 0, "read_body_ms": 495.2131520003604, "receive_body_ms": 495.2131520003604, "redis_get_ms": 1.0876760024984833, "response_build_ms": 0.5078659996797796, "route_ms": 498.93620099828695, "serialization_ms": 0.5078659996797796, "sha256_ms": 0.19244499708293006, "status": 200, "total_server_ms": 498.93620099828695}
+INFO:     172.19.0.5:56144 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-16-1", "cache": "HIT", "cache_decode_ms": 0.6068439979571849, "cache_get_ms": 6.48872300007497, "checksum_ms": 0.4318840001360513, "extraction_ms": 0, "read_body_ms": 2149.755921000178, "receive_body_ms": 2149.755921000178, "redis_get_ms": 5.558451000979403, "response_build_ms": 0.4154109992668964, "route_ms": 2157.3052749990893, "serialization_ms": 0.4154109992668964, "sha256_ms": 0.4318840001360513, "status": 200, "total_server_ms": 2157.3052749990893}
+INFO:     172.19.0.5:40384 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-66-2", "cache": "HIT", "cache_decode_ms": 1.9034889992326498, "cache_get_ms": 4.187008002190851, "checksum_ms": 0.39943999945535325, "extraction_ms": 0, "read_body_ms": 1286.2984450002841, "receive_body_ms": 1286.2984450002841, "redis_get_ms": 1.7550310003571212, "response_build_ms": 5.243661998974858, "route_ms": 1296.786880997388, "serialization_ms": 5.243661998974858, "sha256_ms": 0.39943999945535325, "status": 200, "total_server_ms": 1296.786880997388}
+INFO:     172.19.0.5:56262 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-13-3", "cache": "HIT", "cache_decode_ms": 0.749250000808388, "cache_get_ms": 2.573007997852983, "checksum_ms": 9.058313997229561, "extraction_ms": 0, "read_body_ms": 2.68350999976974, "receive_body_ms": 2.68350999976974, "redis_get_ms": 1.5225660026771948, "response_build_ms": 0.35076200219918974, "route_ms": 15.155954999499954, "serialization_ms": 0.35076200219918974, "sha256_ms": 9.058313997229561, "status": 200, "total_server_ms": 15.155954999499954}
+INFO:     172.19.0.5:40374 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-25-1", "cache": "HIT", "cache_decode_ms": 0.6346600021061022, "cache_get_ms": 7.594365000841208, "checksum_ms": 2.219341000454733, "extraction_ms": 0, "read_body_ms": 16528.373008000926, "receive_body_ms": 16528.373008000926, "redis_get_ms": 6.656738998572109, "response_build_ms": 1.278719002584694, "route_ms": 16540.08842800249, "serialization_ms": 1.278719002584694, "sha256_ms": 2.219341000454733, "status": 200, "total_server_ms": 16540.08842800249}
+INFO:     172.19.0.5:56284 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-2-4", "cache": "HIT", "cache_decode_ms": 0.5949300029897131, "cache_get_ms": 2.4336499991477467, "checksum_ms": 0.3943490009987727, "extraction_ms": 0, "read_body_ms": 2000.5294229995343, "receive_body_ms": 2000.5294229995343, "redis_get_ms": 1.6328169986081775, "response_build_ms": 0.4220139999233652, "route_ms": 2004.0016009988904, "serialization_ms": 0.4220139999233652, "sha256_ms": 0.3943490009987727, "status": 200, "total_server_ms": 2004.0016009988904}
+INFO:     172.19.0.5:40384 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-21-4", "cache": "HIT", "cache_decode_ms": 1.1154329986311495, "cache_get_ms": 4.137760999583406, "checksum_ms": 0.4117739990761038, "extraction_ms": 0, "read_body_ms": 399.45014999830164, "receive_body_ms": 399.45014999830164, "redis_get_ms": 2.805594001983991, "response_build_ms": 0.2843889997166116, "route_ms": 404.43105599842966, "serialization_ms": 0.2843889997166116, "sha256_ms": 0.4117739990761038, "status": 200, "total_server_ms": 404.43105599842966}
+INFO:     172.19.0.5:56326 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-67-3", "cache": "HIT", "cache_decode_ms": 1.4872960018692538, "cache_get_ms": 8.196121001674328, "checksum_ms": 2.0337490022939164, "extraction_ms": 0, "read_body_ms": 18803.785221, "receive_body_ms": 18803.785221, "redis_get_ms": 6.555929001478944, "response_build_ms": 1.1199210021004546, "route_ms": 18815.41255600314, "serialization_ms": 1.1199210021004546, "sha256_ms": 2.0337490022939164, "status": 200, "total_server_ms": 18815.41255600314}
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-63-1", "cache": "HIT", "cache_decode_ms": 0.8543190015188884, "cache_get_ms": 28.947571001481265, "checksum_ms": 2.0643610005208757, "extraction_ms": 0, "read_body_ms": 14521.788769998238, "receive_body_ms": 14521.788769998238, "redis_get_ms": 27.895696999621578, "response_build_ms": 0.9662929987825919, "route_ms": 14553.96932000076, "serialization_ms": 0.9662929987825919, "sha256_ms": 2.0643610005208757, "status": 200, "total_server_ms": 14553.96932000076}
+INFO:     172.19.0.5:56184 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-22-2", "cache": "HIT", "cache_decode_ms": 0.7186879993241746, "cache_get_ms": 9.730530000524595, "checksum_ms": 2.8179279979667626, "extraction_ms": 0, "read_body_ms": 8693.492967999191, "receive_body_ms": 8693.492967999191, "redis_get_ms": 8.745559000089997, "response_build_ms": 0.4576659994199872, "route_ms": 8706.705796001188, "serialization_ms": 0.4576659994199872, "sha256_ms": 2.8179279979667626, "status": 200, "total_server_ms": 8706.705796001188}
+INFO:     172.19.0.5:40346 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-49-1", "cache": "HIT", "cache_decode_ms": 3.082045997871319, "cache_get_ms": 22.023497000191128, "checksum_ms": 4.936326000461122, "extraction_ms": 0, "read_body_ms": 26661.823471997195, "receive_body_ms": 26661.823471997195, "redis_get_ms": 18.61540899699321, "response_build_ms": 3.4424679979565553, "route_ms": 26692.426975998387, "serialization_ms": 3.4424679979565553, "sha256_ms": 4.936326000461122, "status": 200, "total_server_ms": 26692.426975998387}
+INFO:     172.19.0.5:40342 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-47-4", "cache": "HIT", "cache_decode_ms": 1.1058329982915893, "cache_get_ms": 6.571828998858109, "checksum_ms": 2.162726999813458, "extraction_ms": 0, "read_body_ms": 18608.981617002428, "receive_body_ms": 18608.981617002428, "redis_get_ms": 5.208721999224508, "response_build_ms": 0.6907120005053002, "route_ms": 18621.72684899997, "serialization_ms": 0.6907120005053002, "sha256_ms": 2.162726999813458, "status": 200, "total_server_ms": 18621.72684899997}
+INFO:     172.19.0.5:40416 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-71-1", "cache": "HIT", "cache_decode_ms": 0.7926460020826198, "cache_get_ms": 5.49810200027423, "checksum_ms": 4.918529997667065, "extraction_ms": 0, "read_body_ms": 22023.397798999213, "receive_body_ms": 22023.397798999213, "redis_get_ms": 4.482249001739547, "response_build_ms": 1.1163039998791646, "route_ms": 22035.179752998374, "serialization_ms": 1.1163039998791646, "sha256_ms": 4.918529997667065, "status": 200, "total_server_ms": 22035.179752998374}
+INFO:     172.19.0.5:40430 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-84-1", "cache": "HIT", "cache_decode_ms": 0.8656919999339152, "cache_get_ms": 8.889155997167109, "checksum_ms": 2.1115849995112512, "extraction_ms": 0, "read_body_ms": 11207.573001000128, "receive_body_ms": 11207.573001000128, "redis_get_ms": 7.82667100065737, "response_build_ms": 0.8315840022987686, "route_ms": 11219.69997600172, "serialization_ms": 0.8315840022987686, "sha256_ms": 2.1115849995112512, "status": 200, "total_server_ms": 11219.69997600172}
+INFO:     172.19.0.5:56112 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-26-0", "cache": "HIT", "cache_decode_ms": 0.5865839993930422, "cache_get_ms": 11.241200001677498, "checksum_ms": 4.724641999928281, "extraction_ms": 0, "read_body_ms": 34306.16971299969, "receive_body_ms": 34306.16971299969, "redis_get_ms": 10.371970001870068, "response_build_ms": 0.6310629978543147, "route_ms": 34325.63911399848, "serialization_ms": 0.6310629978543147, "sha256_ms": 4.724641999928281, "status": 200, "total_server_ms": 34325.63911399848}
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-34-3", "cache": "HIT", "cache_decode_ms": 0.46238600043579936, "cache_get_ms": 5.071476000011899, "checksum_ms": 2.18197999856784, "extraction_ms": 0, "read_body_ms": 4009.036208000907, "receive_body_ms": 4009.036208000907, "redis_get_ms": 4.467665999982273, "response_build_ms": 0.2568540003267117, "route_ms": 4017.0681409981626, "serialization_ms": 0.2568540003267117, "sha256_ms": 2.18197999856784, "status": 200, "total_server_ms": 4017.0681409981626}
+INFO:     172.19.0.5:40374 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-9-2", "cache": "HIT", "cache_decode_ms": 0.9922770004777703, "cache_get_ms": 6.486919999588281, "checksum_ms": 2.0123900030739605, "extraction_ms": 0, "read_body_ms": 23679.650165002386, "receive_body_ms": 23679.650165002386, "redis_get_ms": 5.106687000079546, "response_build_ms": 0.7938700000522658, "route_ms": 23689.21469700217, "serialization_ms": 0.7938700000522658, "sha256_ms": 2.0123900030739605, "status": 200, "total_server_ms": 23689.21469700217}
+INFO:     172.19.0.5:40352 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-16-4", "cache": "HIT", "cache_decode_ms": 0.3498209989629686, "cache_get_ms": 1.5788609998708125, "checksum_ms": 2.2138240019557998, "extraction_ms": 0, "read_body_ms": 2033.2500469994557, "receive_body_ms": 2033.2500469994557, "redis_get_ms": 1.091345002350863, "response_build_ms": 0.25280699992435984, "route_ms": 2037.4292960004823, "serialization_ms": 0.25280699992435984, "sha256_ms": 2.2138240019557998, "status": 200, "total_server_ms": 2037.4292960004823}
+INFO:     172.19.0.5:56284 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-13-4", "cache": "HIT", "cache_decode_ms": 0.5653019979945384, "cache_get_ms": 4.905142999632517, "checksum_ms": 2.3210280014609452, "extraction_ms": 0, "read_body_ms": 6600.037287000305, "receive_body_ms": 6600.037287000305, "redis_get_ms": 4.160101001616567, "response_build_ms": 0.31945899900165386, "route_ms": 6607.896534998872, "serialization_ms": 0.31945899900165386, "sha256_ms": 2.3210280014609452, "status": 200, "total_server_ms": 6607.896534998872}
+INFO:     172.19.0.5:56262 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-51-6", "cache": "HIT", "cache_decode_ms": 0.433307999628596, "cache_get_ms": 3.268114000093192, "checksum_ms": 2.185225999710383, "extraction_ms": 0, "read_body_ms": 15821.840847002022, "receive_body_ms": 15821.840847002022, "redis_get_ms": 2.676218999113189, "response_build_ms": 0.2882469998439774, "route_ms": 15827.77613199869, "serialization_ms": 0.2882469998439774, "sha256_ms": 2.185225999710383, "status": 200, "total_server_ms": 15827.77613199869}
+INFO:     172.19.0.5:40490 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-65-4", "cache": "HIT", "cache_decode_ms": 0.6390700000338256, "cache_get_ms": 4.887457002041629, "checksum_ms": 2.4865390005288646, "extraction_ms": 0, "read_body_ms": 12504.858057000092, "receive_body_ms": 12504.858057000092, "redis_get_ms": 4.046984002343379, "response_build_ms": 0.42218499947921373, "route_ms": 12512.795872000424, "serialization_ms": 0.42218499947921373, "sha256_ms": 2.4865390005288646, "status": 200, "total_server_ms": 12512.795872000424}
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-39-1", "cache": "HIT", "cache_decode_ms": 1.8988230003742501, "cache_get_ms": 234.45152999920538, "checksum_ms": 5.54310000006808, "extraction_ms": 0, "read_body_ms": 32224.301886999456, "receive_body_ms": 32224.301886999456, "redis_get_ms": 232.290803000069, "response_build_ms": 49.96936300085508, "route_ms": 32514.509314998577, "serialization_ms": 49.96936300085508, "sha256_ms": 5.54310000006808, "status": 200, "total_server_ms": 32514.509314998577}
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-62-0", "cache": "HIT", "cache_decode_ms": 1.0054729973489884, "cache_get_ms": 96.2978360003035, "checksum_ms": 6.021007000526879, "extraction_ms": 0, "read_body_ms": 31918.015867999202, "receive_body_ms": 31918.015867999202, "redis_get_ms": 94.94295299737132, "response_build_ms": 0.6488289982371498, "route_ms": 32021.23774899883, "serialization_ms": 0.6488289982371498, "sha256_ms": 6.021007000526879, "status": 200, "total_server_ms": 32021.23774899883}
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "official-k6-spike-windows-20261007-cold-6-2", "cache": "HIT", "cache_decode_ms": 0.5000119999749586, "cache_get_ms": 64.31750500269118, "checksum_ms": 2.479355000104988, "extraction_ms": 0, "read_body_ms": 4946.0652170018875, "receive_body_ms": 4946.0652170018875, "redis_get_ms": 63.584788997104624, "response_build_ms": 0.3699910012073815, "route_ms": 5013.548192000599, "serialization_ms": 0.3699910012073815, "sha256_ms": 2.479355000104988, "status": 200, "total_server_ms": 5013.548192000599}
+INFO:     172.19.0.5:40384 - "POST /extract HTTP/1.1" 200 OK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1215, in __call__
+    await super().__call__(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 1310, in handle
+    await super().handle(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 165, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/service/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 151, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/service/app/profiling.py", line 21, in handler
+    response = await original(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 727, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 360, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/service/app/main.py", line 41, in extract
+    body = await request.body()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 257, in body
+    async for chunk in self.stream():
+  File "/service/.venv/lib/python3.12/site-packages/starlette/requests.py", line 251, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect

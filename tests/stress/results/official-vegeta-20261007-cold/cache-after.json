@@ -1,0 +1,22 @@
+[
+  {
+    "pdf": "2020-Scrum-Guide-Spanish-Latin-South-American.pdf",
+    "exists": true,
+    "page_count": 16,
+    "content_characters": 35783,
+    "content_sha256": "74bab3f4235b5b87f72e3cf09e4bc849026049d855002b2b2dde5a29c6d8b4c1",
+    "ttl": 3208
+  },
+  {
+    "pdf": "scrum_manager_historias_usuario.pdf",
+    "exists": false
+  },
+  {
+    "pdf": "Essential-Kanban-Condensed-Spanish.pdf",
+    "exists": false
+  },
+  {
+    "pdf": "Filosofia Lean.pdf",
+    "exists": false
+  }
+]

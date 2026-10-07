@@ -1,0 +1,138 @@
+{
+  "official_spike_completed": false,
+  "partial_only": true,
+  "reason": "k6 generator OOM, exit 137; no final summary",
+  "k6_summary_present": false,
+  "container_lifetime_seconds": 5.396393,
+  "monitor_wall_seconds": 9.446545899998455,
+  "spike_actual_duration_seconds": null,
+  "throughput_req_s": null,
+  "total_requests": null,
+  "client_responses_observed": 56,
+  "native_http_results_persisted": 14,
+  "native_metric_counts": {
+    "data_sent": 14,
+    "data_received": 14,
+    "spike_iterations_started": 22,
+    "spike_requests_started": 21,
+    "http_reqs": 14,
+    "http_req_duration": 14,
+    "http_req_blocked": 14,
+    "http_req_connecting": 14,
+    "http_req_tls_handshaking": 14,
+    "http_req_sending": 14,
+    "http_req_waiting": 14,
+    "http_req_receiving": 14,
+    "http_req_failed": 14,
+    "checks": 70,
+    "extract_errors": 14,
+    "spike_responses": 13,
+    "iteration_duration": 13,
+    "iterations": 13,
+    "vus": 1,
+    "vus_max": 1
+  },
+  "status_codes_observed": {
+    "503": 56
+  },
+  "cache_headers_observed": {
+    "ABSENT": 56
+  },
+  "timeouts_observed": 0,
+  "connection_errors_observed": 0,
+  "http_req_failed_native": {
+    "failed": 14,
+    "samples": 14
+  },
+  "checks_native": {
+    "passed": 0,
+    "samples": 70
+  },
+  "error_percent_observed": 100.0,
+  "latency_ms_partial_console": {
+    "samples": 56,
+    "method": "linear interpolation over preserved console response timings; not final k6 summary",
+    "mean": 323.0022180357143,
+    "p50": 279.9183205,
+    "p90": 754.0304900000001,
+    "p95": 777.1988165,
+    "max": 1076.996631
+  },
+  "latency_ms_partial_native": {
+    "samples": 14,
+    "mean": 95.63189342857143
+  },
+  "balance": {
+    "records": 75,
+    "distribution": {
+      "pdf-extractor-extractor-1": 37,
+      "pdf-extractor-extractor-2": 38
+    },
+    "status_codes": {
+      "503": 63,
+      "499": 9,
+      "502": 3
+    }
+  },
+  "pdf_rotation_observed": {
+    "4": 14,
+    "3": 12,
+    "1": 16,
+    "2": 14
+  },
+  "content_validated_observed": 0,
+  "progress_lines": [
+    "     scenarios: (100.00%) 1 scenario, 100 max VUs, 40s max duration (incl. graceful stop):",
+    "              * official_spike: Up to 100 looping VUs for 40s over 3 stages (gracefulRampDown: 0s)",
+    "running (01.0s), 009/100 VUs, 11 complete and 0 interrupted iterations",
+    "official_spike   [   2% ] 009/100 VUs  01.0s/40.0s",
+    "running (02.0s), 019/100 VUs, 31 complete and 0 interrupted iterations",
+    "official_spike   [   5% ] 019/100 VUs  02.0s/40.0s"
+  ],
+  "events": [
+    {
+      "event": "spike_start",
+      "cache": "COLD CACHE AL INICIO",
+      "profile": "0->100 in 10s; 100 for 20s; 100->0 in 10s",
+      "pdf_bytes": [
+        319343,
+        3830899,
+        8901466,
+        668142
+      ],
+      "logged_utc": "2026-10-07T16:01:20Z"
+    }
+  ],
+  "resource_peaks_sampled": {
+    "pdf-extractor-extractor-1": {
+      "memory_mib": 302.7,
+      "cpu_percent": 99.16
+    },
+    "pdf-extractor-extractor-2": {
+      "memory_mib": 297.6,
+      "cpu_percent": 102.53
+    },
+    "pdf-extractor-redis-1": {
+      "memory_mib": 7.32,
+      "cpu_percent": 6.24
+    },
+    "pdf-extractor-traefik-1": {
+      "memory_mib": 75.66,
+      "cpu_percent": 51.56
+    },
+    "pdf-extractor-k6-official-k6-spike-20261007-cold-run2": {
+      "memory_mib": 348.1,
+      "cpu_percent": 99.1
+    }
+  },
+  "client_oom_killed": true,
+  "client_exit": 137,
+  "native_vus_max_observed": 9,
+  "client_vu_ids_in_responses": 18,
+  "profiles_internal_cache": {
+    "MISS": 2
+  },
+  "minimum_distinct_requests_received_by_proxy": 75,
+  "total_native_iterations": null,
+  "native_iterations_persisted": 13
+}

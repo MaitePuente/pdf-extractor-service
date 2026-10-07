@@ -1,0 +1,13 @@
+{
+  "records": 241,
+  "distribution": {
+    "pdf-extractor-extractor-1": 124,
+    "pdf-extractor-extractor-2": 117
+  },
+  "status_codes": {
+    "503": 39,
+    "200": 144,
+    "502": 17,
+    "499": 41
+  }
+}

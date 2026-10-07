@@ -1,0 +1,8 @@
+{
+  "docker": "29.7.2",
+  "compose": "Docker Compose version v5.5.1",
+  "resources": "CPUs=12 Memory=3767750656",
+  "cache_start": "COLD CACHE AL INICIO; no PDF preload",
+  "benchmark_db": 13,
+  "normal_db_initial_keys": 0
+}

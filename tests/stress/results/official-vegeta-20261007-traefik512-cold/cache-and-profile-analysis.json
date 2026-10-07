@@ -1,0 +1,115 @@
+{
+  "profile_counts": {
+    "ERROR": 6
+  },
+  "profiles": [
+    {
+      "replica": "pdf-extractor-extractor-1",
+      "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-1",
+      "status": 200,
+      "cache": "ERROR",
+      "receive_body_ms": 97.47634200175526,
+      "redis_get_ms": 106.80570700060343,
+      "cache_set_ms": 1441.505088001577,
+      "algorithm_ms": 573.34227499814,
+      "worker_ms": 48717.461282998556,
+      "route_ms": 50391.23233399732
+    },
+    {
+      "replica": "pdf-extractor-extractor-1",
+      "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-2",
+      "status": 200,
+      "cache": "ERROR",
+      "receive_body_ms": 49008.31114600078,
+      "redis_get_ms": 1001.4371659999597,
+      "cache_set_ms": null,
+      "algorithm_ms": 1120.6183210015297,
+      "worker_ms": 5580.7993990019895,
+      "route_ms": 55603.38109700024
+    },
+    {
+      "replica": "pdf-extractor-extractor-2",
+      "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-4",
+      "status": 200,
+      "cache": "ERROR",
+      "receive_body_ms": 515.9307190006075,
+      "redis_get_ms": 230.45711099985056,
+      "cache_set_ms": null,
+      "algorithm_ms": 1002.5738660006027,
+      "worker_ms": 53369.127085999935,
+      "route_ms": 54134.81684200087
+    },
+    {
+      "replica": "pdf-extractor-extractor-2",
+      "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-2",
+      "status": 200,
+      "cache": "ERROR",
+      "receive_body_ms": 54003.84810099786,
+      "redis_get_ms": 577.9038469991065,
+      "cache_set_ms": null,
+      "algorithm_ms": 712.8003959987836,
+      "worker_ms": 2742.811979001999,
+      "route_ms": 57337.965056998655
+    },
+    {
+      "replica": "pdf-extractor-extractor-2",
+      "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-1",
+      "status": 200,
+      "cache": "ERROR",
+      "receive_body_ms": 34629.97574600013,
+      "redis_get_ms": 950.0011820018699,
+      "cache_set_ms": null,
+      "algorithm_ms": 289.16618100265623,
+      "worker_ms": 962.6795490003133,
+      "route_ms": 36550.38462899756
+    },
+    {
+      "replica": "pdf-extractor-extractor-2",
+      "audit_id": "official-vegeta-20261007-traefik512-cold-pdf-2",
+      "status": 200,
+      "cache": "ERROR",
+      "receive_body_ms": 57122.73222300064,
+      "redis_get_ms": 675.9941279997292,
+      "cache_set_ms": null,
+      "algorithm_ms": 399.24735100066755,
+      "worker_ms": 2792.9023879987653,
+      "route_ms": 60604.85852000056
+    }
+  ],
+  "access_downstream_status": {
+    "503": 67,
+    "499": 40
+  },
+  "access_origin_status": {
+    "503": 67,
+    "499": 40
+  },
+  "cache_after": [
+    {
+      "pdf": "2020-Scrum-Guide-Spanish-Latin-South-American.pdf",
+      "key": "extract:v4:6bbff3f361e52016cbb75a72671f1b31b5e043fdc1cc3f022f1b15a32795a256",
+      "exists": true,
+      "page_count": 16,
+      "characters": 35783,
+      "sha256": "74bab3f4235b5b87f72e3cf09e4bc849026049d855002b2b2dde5a29c6d8b4c1",
+      "reference_match": true,
+      "pttl_ms": 3397902
+    },
+    {
+      "pdf": "scrum_manager_historias_usuario.pdf",
+      "key": "extract:v4:30efd6fcd0c022665676edcf164feb28e6b43dcce53ab9738550b99d70f5fd84",
+      "exists": false
+    },
+    {
+      "pdf": "Essential-Kanban-Condensed-Spanish.pdf",
+      "key": "extract:v4:257f73b908420ac5c78852fb8673beb683a8ca0c05d2e6a82b5e9629f6ad7be8",
+      "exists": false
+    },
+    {
+      "pdf": "Filosofia Lean.pdf",
+      "key": "extract:v4:c77b55bd68477ecc0d96074ea4606bffe5802a1c8a241a725f6eb358be17ce40",
+      "exists": false
+    }
+  ],
+  "benchmark_db_keys": 1
+}
