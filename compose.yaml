@@ -1,0 +1,54 @@
+name: pdf-extractor
+
+services:
+  extractor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      CACHE_ENABLED: "true"
+      CACHE_TTL_SECONDS: ${CACHE_TTL_SECONDS:-3600}
+      CACHE_TIMEOUT_SECONDS: ${CACHE_TIMEOUT_SECONDS:-0.2}
+    cpus: 1.0
+    mem_limit: 768m
+    read_only: true
+    ports:
+      # Docker assigns a free local port per instance; no fixed-port conflict.
+      - "127.0.0.1::8000"
+    networks:
+      - pdf-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2).close()"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+
+  redis:
+    image: redis:8.2.10-alpine
+    command:
+      - redis-server
+      - --save
+      - ""
+      - --appendonly
+      - "no"
+      - --maxmemory
+      - 192mb
+      - --maxmemory-policy
+      - allkeys-lru
+    cpus: 0.5
+    mem_limit: 256m
+    networks:
+      - pdf-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+networks:
+  pdf-network:
+    external: true
+    name: pdf-network

@@ -1,0 +1,6 @@
+# Optional development-only direct route. Put AFTER compose.traefik.yaml.
+# Omit this file to restore access exclusively through Traefik.
+services:
+  extractor:
+    ports:
+      - "127.0.0.1::8000"

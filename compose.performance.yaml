@@ -1,0 +1,5 @@
+# Temporary benchmark only. Omit this file to restore normal cache configuration.
+services:
+  extractor:
+    environment:
+      CACHE_ENABLED: "false"

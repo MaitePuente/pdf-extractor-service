@@ -1,0 +1,1 @@
+"""Independent PDF extractor service."""

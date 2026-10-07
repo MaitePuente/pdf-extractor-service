@@ -1,0 +1,6 @@
+# Development-only cache isolation. Check the selected Redis DB is empty first.
+# Omit this override from up to restore the normal DB 0 without deleting data.
+services:
+  extractor:
+    environment:
+      REDIS_URL: redis://redis:6379/${EXTRACTOR_BENCHMARK_REDIS_DB:-15}

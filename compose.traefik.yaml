@@ -1,0 +1,42 @@
+# Development proxy isolated from the monolith. Combine with compose.yaml.
+services:
+  extractor:
+    ports: !reset []
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: pdf-network
+      traefik.http.routers.pdf-markdown-extractor.rule: Host(`${EXTRACTOR_HOST:-localhost}`)
+      traefik.http.routers.pdf-markdown-extractor.entrypoints: ${EXTRACTOR_ENTRYPOINT:-web}
+      traefik.http.routers.pdf-markdown-extractor.tls: ${EXTRACTOR_TLS:-false}
+      traefik.http.routers.pdf-markdown-extractor.service: pdf-markdown-extractor
+      traefik.http.services.pdf-markdown-extractor.loadbalancer.server.port: "8000"
+
+  traefik:
+    image: traefik:v3.6
+    command:
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --providers.docker.network=pdf-network
+      - --providers.docker.constraints=Label(`com.docker.compose.project`,`pdf-extractor`)
+      - --entrypoints.web.address=:80
+      - --accesslog=true
+      - --accesslog.format=json
+      - --accesslog.fields.headers.names.X-Audit-Id=keep
+      - --log.level=INFO
+      - --ping=true
+    ports:
+      - "127.0.0.1::80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - pdf-network
+    cpus: 0.5
+    mem_limit: 128m
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
