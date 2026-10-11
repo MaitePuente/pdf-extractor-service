@@ -4,12 +4,14 @@ import json
 
 import pymupdf
 import pytest
+import httpx2
 from fastapi.testclient import TestClient
 from redis.asyncio import Redis
 from redis.exceptions import ConnectionError as RedisConnectionError
 
 from app.main import app
 from app.worker import ExtractionWorker
+from app.extractor import ExtractionResponse
 
 
 class FakeRedis:
@@ -79,6 +81,40 @@ def test_same_pdf_is_miss_then_hit_without_reconverting(redis_cache, monkeypatch
     assert set(second.json()) == {"content", "page_count"}
     assert second.json()["page_count"] == 2
     assert "Cache example page 1" in second.json()["content"]
+
+
+def test_hit_responds_while_cpu_slot_is_busy(redis_cache, monkeypatch):
+    monkeypatch.setenv("QUEUE_SIZE", "0")
+
+    async def exercise():
+        started, release = asyncio.Event(), asyncio.Event()
+        calls = []
+
+        async def convert(self, body, *, profile=None):
+            calls.append(body)
+            if body == b"%PDF-busy":
+                started.set()
+                await release.wait()
+            return ExtractionResponse(content="cached", page_count=1)
+
+        monkeypatch.setattr(ExtractionWorker, "extract", convert)
+        async with app.router.lifespan_context(app):
+            async with httpx2.AsyncClient(transport=httpx2.ASGITransport(app=app), base_url="http://test") as client:
+                headers = {"Content-Type": "application/pdf"}
+                assert (await client.post("/extract", content=b"%PDF-hot", headers=headers)).headers["X-Cache"] == "MISS"
+                busy = asyncio.create_task(client.post("/extract", content=b"%PDF-busy", headers=headers))
+                await started.wait()
+                try:
+                    hit = await asyncio.wait_for(client.post("/extract", content=b"%PDF-hot", headers=headers), 1)
+                    assert hit.status_code == 200
+                    assert hit.headers["X-Cache"] == "HIT"
+                    assert not busy.done()
+                    assert len(calls) == 2
+                finally:
+                    release.set()
+                    await busy
+
+    asyncio.run(exercise())
 
 
 @pytest.mark.parametrize("namespace", ["v1", "v2", "v3"])

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "pytest",
+    "-v"
+  ],
+  "exit_code": 0,
+  "env": {
+    "UV_NO_SYNC": "true",
+    "UV_OFFLINE": "true",
+    "PYTHONIOENCODING": "utf-8"
+  }
+}

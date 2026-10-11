@@ -1,9 +1,200 @@
-# Rendimiento del microservicio extractor: estado final de entrega
+# Rendimiento del microservicio extractor
+
+## Estado local de observabilidad y cierre (2026-10-10)
+
+Se añadieron health separado, errores RFC 9457, correlación, métricas opcionales,
+trazas OTLP opcionales, contrato Postman, shutdown con plazo y CI. No se cambió
+el algoritmo PyMuPDF blocks ni la lógica Redis, Traefik o los límites CPU/RAM.
+La suite actual pasó **79 tests, 1 skipped**; `ruff check .` aprobó. La
+integración Redis real y el build/arranque del contenedor siguen pendientes
+en esta versión porque Docker Desktop no expuso su daemon.
+
+**EL HOST NO ESTÁ ESTABLE PARA BENCHMARK.** El guard actualizado registró
+866/858/863 MiB de RAM disponible, inferior a los 1024 MiB exigidos, aunque
+el paging de esas tres muestras fue bajo (3/3/0 lecturas/s). Evidencia cruda:
+`tests/stress/results/observability-20261010/host-preflight.json`. Al comienzo
+de la fase se observaron 608 MiB libres, 42.249 páginas/s y CPU total 90 %.
+No se iniciaron comparaciones 20 muestras, variantes de streaming SHA, uvloop,
+httptools, ORJSON, concurrencia, réplicas, HOT, COLD, k6 ni Vegeta. El overhead
+de métricas/tracing tampoco se midió. No se atribuye mejora de latencia a
+estos cambios. Para retomarlo, primero repetir `./scripts/check-host.ps1`
+en un host sin presión de memoria y con Docker operativo; registrar baseline
+antes de adoptar una optimización. Los resultados que siguen son **históricos**
+y pertenecen a otras revisiones/condiciones.
+
+La configuración recomendada provisional conserva dos réplicas, una CPU y
+768 MiB cada una, `EXTRACTION_CONCURRENCY=1`, `MAX_IN_FLIGHT=4`,
+`QUEUE_SIZE=16`, Redis compartido y Traefik. Para medir p95 competitivo,
+dejar `METRICS_ENABLED=false` y `OTEL_ENABLED=false`. El ensayo de
+singleflight con 10 solicitudes iguales → 1 llamada al worker es funcional
+con mock, no es la prueba real de PDF. Detalles en [observability.md](observability.md).
+
+Una comprobación **funcional offline, sin registrar latencia**, leyó el PDF
+externo `pdf279hojas.pdf` sin modificarlo: 17.749.468 bytes, SHA PDF
+`728c8a522ce24bf0ba3851cd109cdc0e55b200e3cd9b55b8343b39c005713162`,
+279 páginas de origen y de resultado, 427.008 caracteres Markdown y SHA UTF-8
+`c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc`.
+Esto comprueba la salida del algoritmo local, **no** el contrato HTTP en Docker
+ni la meta de p95 <400 ms.
 
 Este resumen presenta primero el **estado final de la entrega**, con las
 mediciones ya realizadas el 7 de octubre de 2026. Las fases de investigación
 y sus resultados históricos se conservan íntegros más abajo. No se mezclan
 extracción fría, CACHE HIT, extracción offline y cargas oficiales.
+
+La sección siguiente registra una fase de arquitectura posterior a ese cierre.
+Sus pendientes de validación corresponden al código local actual; los resultados
+de la entrega anterior no se trasladan automáticamente a esta versión.
+
+## Arquitectura y seguridad (2026-10-07)
+
+**Actualización posterior a las cargas oficiales:** se implementaron singleflight
+por réplica, admisión y cuerpos acotados, concurrencia configurable, límites de
+subida, OpenAPI configurable y hardening multi-stage. No cambió PyMuPDF blocks,
+Redis, Traefik ni los límites de recursos. Los resultados oficiales de abajo
+son históricos: **no son mediciones de esta nueva versión**.
+
+### Host y decisión sobre comparaciones
+
+**entorno no suficientemente estable para comparar**. No se ejecutaron las
+20 muestras por modalidad, el benchmark concurrente singleflight ni las
+comparaciones de concurrencia CPU 1/2 o de 2/5 réplicas. Se mantuvieron dos
+réplicas, un proceso CPU por réplica y DB 0. No se ejecutaron Spike ni Vegeta.
+
+| Control del host | RAM física disponible | Commit | Lecturas de páginas/s | CPU total |
+|---|---:|---:|---:|---:|
+| Preflight durante las verificaciones | 424–547 MiB | 88 % | 714–1913 | 15–20 % |
+| Guard del benchmark, sin carga de benchmark | 373–732 MiB | 88–89 % | 270–2032 | 24–49 % |
+| Control posterior, terminadas las verificaciones | 466–533 MiB | 89 % | 58–2355 | 15–32 % |
+
+Host: Windows 11 Home Single Language, AMD Ryzen 5 4600H, 6 núcleos / 12 hilos,
+7.907.151.872 bytes de RAM física utilizable. Límites del SUT conservados:
+dos extractores de 1 CPU / 768 MiB, Redis 0,5 CPU / 256 MiB y Traefik 0,5 CPU / 512 MiB.
+
+Snapshot posterior, sin carga de benchmark: extractor-1 **305 MiB / 0,20 % CPU**,
+extractor-2 **156,5 MiB / 0,22 %**, Redis **6,645 MiB / 0,77 %** y Traefik
+**83,45 MiB / 0,09 %**. Es una observación puntual, no picos ni consumo bajo carga.
+Los cuatro estaban healthy y `OOMKilled=false`.
+
+El primer preflight coincidió con trabajo de build; no representa CPU en reposo.
+El segundo se tomó sin una carga de benchmark activa: tampoco mostró reposo
+estable del host. El guard exige >=1024 MiB en tres muestras y rechaza dos o
+más muestras con >100 lecturas de páginas/s. Es un criterio conservador explícito,
+no una definición universal de paginación severa. Se guardan los contadores crudos.
+
+No se cerraron procesos. El usuario puede liberar ventanas de VS Code que no
+necesite, cerrar aplicaciones pesadas o reiniciar Docker Desktop cuando pueda
+interrumpir sus servicios. Había además contenedores del monolito y MongoDB
+activos; no se detuvieron porque pertenecen a otro proyecto.
+
+### Antes / después: no atribuir variabilidad a una mejora
+
+| Tramo | p95 del profiling previo | Después de esta fase |
+|---|---:|---|
+| Extracción pura, PDF 279 páginas | 478,3 ms | No medido: guard del host |
+| HTTP directo Windows BYPASS | 1836,3 ms | No medido |
+| Traefik Windows BYPASS | 2747,0 ms | No medido |
+| Traefik Docker BYPASS | 1329,2 ms | No medido |
+| Traefik Windows HIT | 439,0 ms | No medido |
+| Traefik Docker HIT | 719,0 ms | No medido |
+
+Esos valores previos también se obtuvieron con presión de memoria; **no permiten
+afirmar mejora ni regresión de latencia**. Se conservan los HOT históricos
+p95 126,5/143,4 ms con 1 VU y 213,7 ms con 2 VUs, y la mediana offline ~414 ms.
+No se confirmó nuevamente el objetivo <400 ms en esta fase. HIT != extracción fría.
+
+### Validación funcional efectivamente realizada
+
+- Baseline: **40 passed, 1 skipped**, integración real **1 passed**.
+- Suite nueva: **60 passed, 1 skipped**. Los 20 casos adicionales cubren límites,
+  colas, cancelaciones, singleflight, HIT con CPU ocupada y Swagger.
+- TDD: 10 solicitudes idénticas dieron 10 llamadas al mock de conversión antes
+  del cambio y **1** después; 10 documentos distintos dieron **10**. Es evidencia
+  funcional controlada, no un benchmark ni una medición de CPU real. El servicio
+  anterior con worker real también podía rechazar solicitudes con 503: no se
+  afirma que siempre realizara diez conversiones simultáneas.
+- Se comparte trabajo y excepción; cancelar al líder no cancela al seguidor.
+  Un HIT respondió con CPU ocupada y cola CPU deshabilitada, sin llamar al worker.
+- 429 con `Retry-After`: cola llena y plazo vencido, sin leer el cuerpo, comprobados
+  en tests. 413: `Content-Length` y streaming, incluidos requests sin ese header.
+  También 413 real vía Traefik con `Expect: 100-continue`; sin enviar cuerpo ni
+  `Expect`, el diagnóstico previo agotó el timeout. Detalle en [security.md](security.md).
+- Build `--no-cache` correcto; arranque Windows real correcto; dos extractores,
+  Redis y Traefik saludables al control final. Linux: sintaxis y cuatro escenarios
+  de bootstrap comprobados en Linux con Docker simulado; no despliegue en otro host.
+- UID/GID 10001, capabilities cero, `NoNewPrivs=1`, filesystem read-only,
+  shell presente, pip y uv ausentes. No hizo falta `/tmp` escribible.
+- `/health`, `/docs`, `/redoc`, `/openapi.json` devuelven 200; las tres últimas
+  devuelven 404 con `DOCS_ENABLED=false` en Docker, y luego se restauró true.
+- PDF externo: **17.749.468 bytes, 279 páginas**, SHA-256
+  `728c8a522ce24bf0ba3851cd109cdc0e55b200e3cd9b55b8343b39c005713162`.
+  HTTP 200, **427.008 caracteres**, SHA-256 del Markdown
+  `c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc`.
+  Fueron verificaciones funcionales individuales; no una distribución de latencia.
+
+**Integración Redis: resultados completos, sin ocultar fallos.** Los dos primeros
+intentos posteriores fallaron. El primero obtuvo `X-Cache: ERROR` en vez de MISS; el segundo verificó MISS,
+contenido y TTL, pero recibió ERROR en vez de HIT. Los logs registran timeouts
+del plazo Redis de 200 ms. Dos PING de diagnóstico desde las réplicas sí pasaron
+(85,49 y 72,77 ms), lo que demuestra conectividad, no estabilidad del caché.
+Las respuestas funcionales del PDF grande también fueron ERROR con fail-open.
+Después del último build sin caché y el arranque de la imagen final, la integración
+pasó: **1 passed, 60 deselected en 14,83 s**, MISS→HIT, contenido y TTL correctos.
+Esto confirma funcionalidad en esa ejecución, no estabilidad de latencia. Los
+fallos son compatibles con la presión observada, pero **no se atribuyen exclusivamente
+al host sin repetir en condiciones estables**. No se aumentó el timeout para forzar
+un resultado verde. Sigue pendiente validar rendimiento en un host estable.
+
+Evidencia nueva: [`architecture-security-20261007`](../tests/stress/results/architecture-security-20261007/).
+Incluye baseline, suite, ambos fallos Redis y el éxito final, build, prueba distroless, runtime,
+guard y verificación de docs. No se sobrescribieron las evidencias previas.
+
+### Reproducir la fase pequeña, cuando el host esté estable
+
+Desde la raíz, iniciar con `.\scripts\start.ps1` y comprobar primero:
+
+```powershell
+.\scripts\check-host.ps1 -OutputPath host-check.json
+```
+
+Si sale con código 2, detener las comparaciones. No ejecutar de nuevo las
+variantes offline descartadas de `profile_cold.py` ni SharedMemory. Los cuatro
+scripts de profiling previos se conservan sin modificaciones como evidencia.
+
+El benchmark nuevo `tests/performance/singleflight.py` usa Traefik y su puerto
+dinámico; 10 requests del mismo PDF externo. Requiere una DB 1–15 vacía y
+configurada en ambas réplicas; no vacía Redis ni cambia el despliegue por sí solo.
+El guard de este benchmark funciona en Windows; en Linux requiere implementar
+un control equivalente antes de usarlo, no omitir la verificación del host.
+
+```powershell
+$env:EXTRACTOR_BENCHMARK_REDIS_DB = '15'
+# Debe devolver 0; si tiene datos, elegir otra DB sin borrar nada.
+docker compose exec -T redis redis-cli -n 15 DBSIZE
+try {
+    docker compose -f compose.yaml -f compose.traefik.yaml -f compose.cache-benchmark.yaml up -d --scale extractor=2 --wait --wait-timeout 150
+    uv run --locked python tests/performance/singleflight.py --pdf 'D:\INGENIERIA\3er\desarrollo de software\Essential-Kanban-Condensed-Spanish.pdf' --redis-db 15 --output tests/stress/results/singleflight-new-run
+} finally {
+    Remove-Item Env:EXTRACTOR_BENCHMARK_REDIS_DB -ErrorAction SilentlyContinue
+    docker compose -f compose.yaml -f compose.traefik.yaml up -d --scale extractor=2 --wait --wait-timeout 150
+}
+```
+
+La carpeta de salida debe ser nueva. Registra requests, HTTP 200, min/p50/p90/p95/max,
+contenido consistente, conversiones reales por logs `EXTRACTION`, reparto y
+muestras Docker de CPU/RAM. En dos réplicas puede haber **dos** conversiones:
+singleflight es local, no global. El resultado **10→1** está probado dentro de
+una réplica por tests; aún no se midió en un benchmark real en esta fase.
+Los resultados de caché del benchmark quedan con TTL en la DB aislada; no se
+ejecuta FLUSHDB/FLUSHALL. Restaurar DB 0 no borra esos datos.
+
+Después, sólo con estabilidad mantenida, quedan pendientes las 20 muestras
+calentadas pura/directo BYPASS/Traefik BYPASS/Traefik HIT del PDF de 279 páginas,
+la concurrencia CPU 1 vs 2 (3 sólo si 2 mejora) y las réplicas 2 vs 5. No hay
+evidencia nueva para recomendar más procesos o réplicas.
+
+Investigación COLD posterior: [perfilado y ensayos descartados](#perfilado-cold-posterior-a-la-entrega-2026-10-07).
+Sus resultados adicionales no sustituyen los históricos de esta entrega.
 
 ## Configuración final
 
@@ -2938,3 +3129,296 @@ generador**. El benchmark tuvo 22.35 % de errores HTTP, 100 interrupciones y
 p95 **19.959 s**; **no cumple 400 ms ni el resultado del profesor**. La fase
 resuelve la terminación del generador y deja el SUT original restaurado y
 los tests aprobados; no certifica buen rendimiento del servicio.
+
+## Perfilado COLD posterior a la entrega (2026-10-07)
+
+Investigación adicional sobre `main`, HEAD `0e100e7`, sin sustituir las cargas
+oficiales ni sus resultados históricos. **No se confirmó p95 < 400 ms en las
+condiciones actuales.** La API final conserva el código original: el ensayo
+SharedMemory se revirtió al no confirmar mejora HTTP reproducible.
+
+### Entorno y corrección
+
+- AMD Ryzen 5 4600H, 6 cores / 12 hilos; Windows 11, 7.364 GiB físicos.
+- Docker Desktop/WSL2: 12 CPUs lógicas, 3.509 GiB.
+- Dos extractores, cada uno 1 CPU / 768 MiB; Traefik 0.5 CPU / 512 MiB;
+  Redis compartido 0.5 CPU / 256 MiB; red externa `pdf-network`.
+- Python Docker 3.12.15, PyMuPDF 1.28.2, FastAPI 0.142.2, Uvicorn 0.54.0,
+  redis-py 8.1.0. Python local 3.12.2; uv 0.11.6; Compose 5.5.1.
+- Uvicorn: h11 + asyncio (`auto`, uvloop y httptools no instalados).
+  No se instalaron dependencias ni se reejecutaron k6/Vegeta.
+- PDF externo sin copiar/modificar:
+  `D:\INGENIERIA\3er\desarrollo de software\pdf279hojas.pdf`,
+  **17749468 bytes, 279 páginas**.
+- SHA-256 PDF: `728c8a522ce24bf0ba3851cd109cdc0e55b200e3cd9b55b8343b39c005713162`.
+- Markdown: **427008 caracteres**, SHA-256
+  `c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc`.
+  JSON completo: 454366 bytes. Cada respuesta HTTP comprobó 200, X-Cache,
+  page_count, longitud, SHA y los 279 encabezados únicos y ordenados.
+  La referencia es la conversión secuencial original, sin páginas descartadas.
+- Cliente Windows: Python http.client, secuencial, keep-alive; Docker diagnóstico:
+  mismo tipo de cliente con 1 CPU / 256 MiB, por Traefik y pdf-network.
+  Los recursos del generador difieren: no atribuir toda diferencia a Windows.
+- Reloj perf_counter_ns, percentiles por interpolación lineal. Warm-up excluido:
+  2 peticiones en directo y 4 por Traefik. Todas las muestras útiles se conservan,
+  incluidos los picos. El PDF se lee una vez fuera del reloj del cliente.
+
+### A-G: perfil aislado antes de editar la implementación
+
+Diez repeticiones por operación, imagen original en un contenedor diagnóstico
+1 CPU / 768 MiB. GET MISS/SET usan claves UUID propias en DB 11, TTL y DEL de
+la clave propia; nunca FLUSHDB/FLUSHALL ni borrado de datos normales. SET usa
+JSON ya serializado. Estos microbenchmarks independientes **no se suman** para
+inventar un tiempo HTTP. pickle.dumps/loads no miden el canal IPC completo.
+
+| Escenario | min ms | p50 ms | p90 ms | p95 ms | max ms |
+|---|---:|---:|---:|---:|---:|
+| A Abrir + recorrer + blocks | 421.470 | 453.013 | 482.097 | 485.944 | 489.791 |
+| B Markdown sobre bloques previos | 0.809 | 1.381 | 2.157 | 2.327 | 2.497 |
+| C SHA-256 PDF | 8.834 | 8.997 | 9.539 | 10.776 | 12.012 |
+| D Pydantic JSON | 0.707 | 0.784 | 1.092 | 2.356 | 3.621 |
+| D JSONResponse genérica | 2.738 | 2.938 | 3.949 | 5.653 | 7.356 |
+| E Redis GET MISS | 0.159 | 0.189 | 0.961 | 1.774 | 2.587 |
+| F Redis SET, JSON previo | 0.711 | 0.880 | 12.227 | 29.069 | 45.911 |
+| pickle.dumps aislado | 18.133 | 22.127 | 65.067 | 66.585 | 68.104 |
+| pickle.loads aislado | 3.896 | 5.113 | 19.684 | 29.977 | 40.271 |
+| G Extracción completa sin HTTP | 418.526 | 477.961 | 503.526 | 511.689 | 519.853 |
+
+### Camino real y proporción de tiempo
+
+Promedios de los diez PROFILE iniciales por Traefik, BYPASS. Denominador:
+**750.232 ms**, tiempo medio dentro de FastAPI, sin viaje completo del cliente.
+Filas exclusivas: el overhead worker excluye el algoritmo. El resto pequeño
+son otras operaciones de la ruta; no se suman p95 independientes.
+
+| Operación | Media ms | % ruta | ¿Optimizable? |
+|---|---:|---:|---|
+| Recibir body | 239.787 | 31.96 % | Investigar transporte/scheduling/parser |
+| SHA-256 | 8.729 | 1.16 % | Ya se calcula una vez |
+| PyMuPDF get_text | 396.585 | 52.86 % | CPU principal; variantes sin mejora consistente |
+| Markdown | 3.276 | 0.44 % | Ya usa join; no += |
+| Abrir/cerrar y resto del algoritmo | 38.599 | 5.14 % | Una apertura; no se añadió caché Document |
+| Overhead worker, sin algoritmo | 61.857 | 8.25 % | Ensayo SharedMemory descartado tras HTTP |
+| Serialización FastAPI | 1.050 | 0.14 % | No justifica otro serializador |
+| Redis en BYPASS | 0 | 0 % | GET/SET aislados arriba son otro escenario |
+
+Se inspeccionaron extractor.py, markdown.py, main.py, cache.py y worker.py:
+una lectura request.body(), una apertura, una extracción por página, sin sort
+geométrico ni OCR; joins por bloques/páginas, SHA único, Redis asíncrono y pool
+persistente de un proceso por API. No hay bytes→string→bytes para el PDF,
+segunda extracción ni worker nuevo por solicitud. Sí hay materialización del
+body por join de Starlette y copia/pickle de 17.7 MB al worker; la respuesta
+viaja como dict y se valida/serializa. El overhead worker incluye scheduling,
+transferencia, entrega del resultado y validación; no equivale a pickle aislado.
+
+### Alternativas y TDD
+
+TEXTFLAGS_BLOCKS=195 ya excluye TEXT_PRESERVE_IMAGES en la versión instalada.
+No se implementó como novedad un flag que ya está apagado. Las variantes
+mantuvieron el contenido, sin una mejora consistente que justificase adopción.
+La segunda comparación rotó el orden y comprobó cada resultado completo;
+la primera comparación verificó el resultado final por variante.
+
+| Escenario | min ms | p50 ms | p90 ms | p95 ms | max ms |
+|---|---:|---:|---:|---:|---:|
+| Flags sin imágenes = default | 401.289 | 432.990 | 464.942 | 482.487 | 500.032 |
+| TextPage + extractBLOCKS | 400.693 | 419.846 | 452.050 | 461.144 | 470.238 |
+| get_text(text) | 406.696 | 429.790 | 460.101 | 481.454 | 502.807 |
+| Control intercalado original | 388.296 | 404.027 | 429.794 | 444.680 | 459.566 |
+| DisplayList con anotaciones | 397.174 | 414.829 | 428.302 | 441.277 | 454.251 |
+| TOOLS.set_low_memory | 393.775 | 403.611 | 457.508 | 462.218 | 466.928 |
+
+No se usaron threads para PyMuPDF: su documentación no admite uso concurrente
+desde threads. [PyMuPDF multiprocessing](https://pymupdf.readthedocs.io/en/latest/recipes-multiprocessing.html).
+[Flags de texto](https://pymupdf.readthedocs.io/en/latest/app1.html).
+
+Experimento aislado: mismo worker spawn persistente y límites, diez pares
+pickle→SharedMemory, orden fijo y primera creación excluida. La API no se
+modificó para esta microprueba. SharedMemory no es zero-copy: conserva copia
+padre y copia hijo porque PyMuPDF requiere bytes, no memoryview.
+
+| Transporte | p50 overhead ms | p95 overhead ms | p95 total worker ms |
+|---|---:|---:|---:|
+| pickle | 70.759 | 95.889 | 570.446 |
+| shared | 46.237 | 60.085 | 501.773 |
+
+Ese ahorro aislado motivó un ensayo real en la API. TDD: recurso inexistente
+→ pruebas GREEN de bytes exactos/liberación; después agotamiento del recurso
+esperaba 503 y falló con 200 → implementación GREEN. Suite experimental:
+**43 passed, 1 skipped**. Se conservaron 400/415, contenido, caché, backpressure,
+cancelación y responsiveness. Tras las corridas no quedaron segmentos PDF en
+/dev/shm (sí los semáforos normales del pool).
+
+No se confirmó mejora HTTP reproducible: se revirtieron sólo el worker y los
+archivos nuevos de implementación/tests del ensayo. Fuentes y patch quedan en
+evidencia, inactivos. Las fases no prueban causalidad: también subieron los
+tiempos después de volver al original. No se atribuye ese aumento a SharedMemory.
+
+| Fase | n | p95 directo Windows ms | p95 Traefik Windows ms |
+|---|---:|---:|---:|
+| Referencia inicial | 10 | 1059.876 | 1089.804 |
+| SharedMemory, revertido | 20 | 1420.079 | 2315.054 |
+| Final original | 20 | 1836.292 | 2747.039 |
+
+### Veinte ejecuciones útiles finales por escenario
+
+El algoritmo original no cambió: la diferencia entre sus corridas no es una
+optimización. Las veinte extracciones puras compararon page_count, longitud,
+contenido completo y SHA en cada ejecución. CPU puro: p50 **420.493 ms**, p95
+**476.269 ms**; pared abajo. El costo nativo domina incluso sin HTTP.
+
+| Escenario | min ms | p50 ms | p90 ms | p95 ms | max ms |
+|---|---:|---:|---:|---:|---:|
+| Puro, 1 CPU / 768 MiB | 395.314 | 422.149 | 469.265 | 478.280 | 489.767 |
+| Windows → API directa BYPASS | 773.449 | 878.291 | 1821.593 | 1836.292 | 1961.687 |
+| Windows → Traefik BYPASS | 880.643 | 1433.474 | 2401.144 | 2747.039 | 4450.748 |
+| Docker → Traefik BYPASS diagnóstico | 604.864 | 848.770 | 1316.646 | 1329.188 | 1565.157 |
+| Windows → Traefik HIT | 209.667 | 325.623 | 406.390 | 439.017 | 805.587 |
+| Docker → Traefik HIT diagnóstico | 92.078 | 256.246 | 638.557 | 718.971 | 762.864 |
+
+Todas estas muestras HTTP: 200, **0 errores**, comprobaciones completas.
+BYPASS es extracción real en cada petición; **HIT no es extracción fría**.
+Directo midió una API. Traefik repartió **10/10** por corrida final de veinte
+solicitudes, incluso HIT; PROFILE/access logs se correlacionan por X-Audit-Id.
+/health en la misma API durante conversión respondió **4.888–47.137 ms** en
+el control final, sin esperar a completar el PDF.
+
+Primera petición tras arrancar (fuera de distribuciones): referencia inicial
+5039.088 ms directo / 5251.282 ms por Traefik a la otra API; final original
+16393.445 / 18094.165 ms. Incluyen spawn/cold backend/entorno, no sólo extracción.
+Se conservaron todas las peticiones de warm-up separadas en los JSON.
+
+Caché: DB 11 verificada vacía; se precargó con **un MISS** y después se observó
+HIT en ambas APIs. MISS con worker frío: **8654.156 ms**, recepción 1142.135,
+worker 6443.934 (algoritmo 996.561), GET 77.649 y SET 112.459 ms. Es una sola
+petición de precarga, **no un p95 de población**. Se restauró DB 0 y se eliminó
+exclusivamente la clave propia de ese PDF en DB 11, nunca datos normales.
+
+HOT Redis GET: Windows p50 **1.999 ms**, p95 **4.533 ms**; Docker p50 **3.718 ms**,
+p95 **18.652 ms**. HOT receive_body: Windows p50 **254.920 ms**, p95 **344.958 ms**;
+Docker p50 **206.815 ms**, p95 **505.376 ms**. Windows send termina al entregar
+bytes al socket local; no al recibirlos Uvicorn. Docker sendall puede esperar
+al consumo remoto. Esos relojes se solapan: no sumarlos como pasos independientes.
+
+Ejemplo del pico real, `http-traefik-final-190546-004`: cliente **4450.748 ms**,
+recepción **1489.287**, SHA **11.912**, worker **2421.206**, incluyendo algoritmo
+**1109.484** (get_text 793.789, Markdown 13.900); overhead worker **1311.722**,
+que incluye scheduling/IPC. JSON **7.481**, ruta servidor **3944.864 ms**.
+El resto hasta el cliente no está aislado como una sola operación del proxy.
+Redis no intervino en esta respuesta BYPASS. No sumar algoritmo dos veces.
+
+### CPU/RAM y decisión
+
+docker stats: extractores cerca de 100 % de un core (picos de muestreo ~107 %),
+memoria bajo 768 MiB: referencia inicial hasta 361.3 MiB y ensayo hasta 345.1 MiB.
+No son mediciones pareadas ni picos absolutos. Puro final: RSS máximo 197.762 MiB
+sólo del proceso diagnóstico, no del conjunto API+worker.
+
+Snapshot final de Windows: **129860 KiB físicos libres**, **92 %** del límite
+de memoria comprometida, **4008 páginas/s y 523 lecturas/s de paginación**.
+Hay evidencia de presión de memoria, sin cuantificar cuánto explica cada pico.
+Hubo throttling cgroup: API 1, 345 de 1483 periodos en snapshot tras restaurar/tests.
+No se observó OOM en APIs/Redis/Traefik; los servicios terminaron healthy.
+La prueba no demuestra un overhead fijo de Windows ni un defecto de Redis.
+
+Se conserva la implementación original verificada. Antes de adoptar una nueva
+optimización hace falta controlar la paginación para distinguir cambios del
+ruido. Luego perfilar el trabajo nativo y comparar un parser HTTP alternativo
+en aislamiento. No se demostró que httptools, más réplicas, JSON distinto o
+Redis distinto resuelvan el objetivo frío. No se afirma imposibilidad absoluta,
+sino ausencia de una mejora segura y reproducible en las alternativas probadas.
+
+Tests finales de la versión conservada: **40 passed, 1 skipped en 38.35 s**;
+integración Redis real por Traefik/DB 0: **1 passed en 22.90 s**. El skip es esa
+integración opt-in, ejecutada aparte. Código, Docker/Compose, dependencias,
+Redis, Traefik, réplicas, límites y tests de entrega quedaron como al inicio.
+No hubo commit, push ni ramas nuevas.
+
+### Repetir desde la raíz standalone
+
+Usar carpetas/nombres nuevos: profile_http.py rechaza sobrescribir su JSON.
+Conservar logs antes de recrear APIs. El PDF se monta read-only, sin copia.
+
+```powershell
+$pdf = 'D:\INGENIERIA\3er\desarrollo de software\pdf279hojas.pdf'
+$repoRoot = (Get-Location).Path
+$result = 'tests/stress/results/cold-local-' + (Get-Date -Format 'yyyyMMdd-HHmmss')
+New-Item -ItemType Directory -Path $result | Out-Null
+Get-Item -LiteralPath $pdf | Select-Object FullName,Length
+Get-FileHash -LiteralPath $pdf -Algorithm SHA256
+
+docker compose -f compose.yaml -f compose.traefik.yaml build extractor
+docker run --rm --network pdf-network --cpus 1 --memory 768m --read-only `
+  --mount "type=bind,source=$repoRoot\tests\performance\profile_cold.py,target=/profile_cold.py,readonly" `
+  --mount "type=bind,source=$pdf,target=/input.pdf,readonly" `
+  --entrypoint python pdf-extractor-extractor /profile_cold.py `
+  --pdf /input.pdf --repeat 20 --only-extraction |
+  Out-File -Encoding utf8 "$result/pure.json"
+# A-G: omitir --only-extraction; Redis aislado: --redis-url redis://redis:6379/11.
+# Alternativas: --only-candidates. IPC: montar/ejecutar profile_transport.py,
+# con --pdf /input.pdf --repeat 10 y los mismos límites.
+
+docker compose -f compose.yaml -f compose.traefik.yaml -f compose.performance.yaml `
+  -f compose.direct-diagnostic.yaml up -d --no-deps --no-build `
+  --scale extractor=2 --wait --wait-timeout 150 extractor
+$proxy = 'http://' + (docker port pdf-extractor-traefik-1 80)
+$direct = 'http://' + (docker port pdf-extractor-extractor-1 8000)
+uv run --locked python tests/performance/profile_http.py --pdf $pdf --url $direct `
+  --cache BYPASS --repeat 20 --warmup 2 --health-probe --name direct --output $result
+uv run --locked python tests/performance/profile_http.py --pdf $pdf --url $proxy `
+  --cache BYPASS --repeat 20 --warmup 4 --name traefik --output $result
+
+$empty = docker exec pdf-extractor-redis-1 redis-cli -n 11 DBSIZE
+if ($empty -ne '0') { throw 'DB 11 no está vacía: elegir otra DB, no borrar datos' }
+$env:EXTRACTOR_BENCHMARK_REDIS_DB = '11'
+docker compose -f compose.yaml -f compose.traefik.yaml -f compose.cache-benchmark.yaml `
+  up -d --no-deps --no-build --scale extractor=2 --wait --wait-timeout 150 extractor
+uv run --locked python tests/performance/profile_http.py --pdf $pdf --url $proxy `
+  --cache MISS --repeat 1 --warmup 0 --name prime --output $result
+uv run --locked python tests/performance/profile_http.py --pdf $pdf --url $proxy `
+  --cache HIT --repeat 20 --warmup 4 --name hot --output $result
+
+# Diagnóstico Docker también por Traefik; usar HIT/BYPASS según el estado activo.
+docker run --rm --network pdf-network --cpus 1 --memory 256m --read-only `
+  --mount "type=bind,source=$repoRoot\tests\performance\profile_network.py,target=/profile_network.py,readonly" `
+  --mount "type=bind,source=$pdf,target=/input.pdf,readonly" `
+  --entrypoint python pdf-extractor-extractor /profile_network.py --pdf /input.pdf `
+  --url http://pdf-extractor-traefik-1 --name docker-hot --cache HIT --repeat 20 --warmup 4 |
+  Out-File -Encoding utf8 "$result/docker-hot.json"
+
+# Restaurar también si alguna prueba falla (try/finally si se automatiza todo).
+docker compose -f compose.yaml -f compose.traefik.yaml up -d --no-deps --no-build `
+  --scale extractor=2 --wait --wait-timeout 150 extractor
+$pdfSha = (Get-FileHash -LiteralPath $pdf -Algorithm SHA256).Hash.ToLowerInvariant()
+# Sólo la clave creada por este ensayo en la DB de benchmark antes vacía:
+docker exec pdf-extractor-redis-1 redis-cli -n 11 DEL "extract:v4:$pdfSha"
+Remove-Item Env:EXTRACTOR_BENCHMARK_REDIS_DB -ErrorAction SilentlyContinue
+uv run --locked pytest -v
+$env:EXTRACTOR_BASE_URL = $proxy
+uv run --locked pytest --run-integration -m integration -v -s
+Remove-Item Env:EXTRACTOR_BASE_URL -ErrorAction SilentlyContinue
+docker compose -f compose.yaml -f compose.traefik.yaml ps
+git diff --check
+git status --short
+```
+
+El proxy usa puerto dinámico; los clientes envían Host localhost. Los logs del
+cliente Docker se correlacionan después con PROFILE/access logs por X-Audit-Id;
+no se ejecuta docker stats dentro del generador. Los comandos archivados usaron
+subprocess para guardar UTF-8 y stdout/stderr aparte. PowerShell 5 Out-File UTF8
+puede añadir BOM: al analizar esa salida con Python usar utf-8-sig.
+
+### Evidencia y objetivos
+
+[Carpeta nueva de evidencia](../tests/stress/results/optimization-cold-20261007/README.md):
+cada muestra, comandos, warm-up separado, logs, inspect/recursos, fuentes y
+RED/GREEN del ensayo descartado, tests finales y confirmación de que la imagen
+original coincide con el código local. No se midió por error otro algoritmo.
+PDF y evidencia histórica intactos.
+
+- **EXTRACCIÓN PURA: NO**, p95 **478.280 ms**.
+- **HTTP DIRECTO: NO**, Windows p95 **1836.292 ms**.
+- **TRAEFIK END-TO-END: NO**, Windows p95 **2747.039 ms**;
+  diagnóstico Docker **1329.188 ms**.
+- **CACHE HOT: NO**, Windows p95 **439.017 ms**;
+  diagnóstico Docker **718.971 ms**.

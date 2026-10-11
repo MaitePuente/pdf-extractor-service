@@ -1,0 +1,33 @@
+{
+    "stable_for_comparison":  false,
+    "policy":  "All samples \u003e=1024 MiB available; fewer than 2 samples \u003e100 page reads/s",
+    "samples":  [
+                    {
+                        "timestamp":  "2026-10-07T20:31:29.3523884Z",
+                        "available_mib":  373,
+                        "committed_percent":  88,
+                        "pages_per_second":  20150,
+                        "page_reads_per_second":  1222,
+                        "cpu_percent":  31
+                    },
+                    {
+                        "timestamp":  "2026-10-07T20:31:31.0591297Z",
+                        "available_mib":  732,
+                        "committed_percent":  88,
+                        "pages_per_second":  2875,
+                        "page_reads_per_second":  270,
+                        "cpu_percent":  24
+                    },
+                    {
+                        "timestamp":  "2026-10-07T20:31:32.7000829Z",
+                        "available_mib":  641,
+                        "committed_percent":  89,
+                        "pages_per_second":  25380,
+                        "page_reads_per_second":  2032,
+                        "cpu_percent":  49
+                    }
+                ]
+}
+ADVERTENCIA: entorno no suficientemente estable para comparar
+
+entorno no suficientemente estable para comparar

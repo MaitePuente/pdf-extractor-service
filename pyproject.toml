@@ -5,6 +5,10 @@ description = "Independent, in-memory PDF to Markdown API"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "fastapi>=0.115,<1",
+    "opentelemetry-exporter-otlp-proto-http>=1.30,<2",
+    "opentelemetry-instrumentation-fastapi>=0.51b0,<1",
+    "opentelemetry-sdk>=1.30,<2",
+    "prometheus-client>=0.21,<1",
     "pydantic>=2,<3",
     "pymupdf>=1.27.2.2,<2",
     "pymupdf4llm>=1.0,<2",
@@ -16,6 +20,7 @@ dependencies = [
 dev = [
     "httpx2>=2.13.1,<3",
     "pytest>=9,<10",
+    "ruff>=0.13,<1",
 ]
 
 [tool.pytest.ini_options]
@@ -23,3 +28,14 @@ testpaths = ["tests"]
 pythonpath = ["."]
 addopts = "--confcutdir=tests --import-mode=importlib"
 markers = ["integration: requires the extractor Docker Compose stack and real Redis"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/performance/check_content.py" = ["E731"]
+"tests/performance/offline.py" = ["E731"]
+"tests/performance/profile_cold.py" = ["F401"]
+"tests/performance/run_official_spike.py" = ["E402"]
+"tests/performance/vegeta/run.py" = ["E402"]
+"tests/test_admission.py" = ["F401"]

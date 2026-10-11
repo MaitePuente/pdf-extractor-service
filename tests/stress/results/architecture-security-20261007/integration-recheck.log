@@ -1,0 +1,63 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.2, pytest-9.1.1, pluggy-1.6.0 -- D:\INGENIERIA\3er\desarrollo de software\Proyecto\pdf-extractor-service\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\INGENIERIA\3er\desarrollo de software\Proyecto\pdf-extractor-service
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collecting ... collected 61 items / 60 deselected / 1 selected
+
+tests/integration/test_redis_compose.py::test_real_redis_miss_hit_and_ttl FAILED
+
+================================== FAILURES ===================================
+______________________ test_real_redis_miss_hit_and_ttl _______________________
+
+    def test_real_redis_miss_hit_and_ttl():
+        base_url = os.environ.get("EXTRACTOR_BASE_URL")
+        if not base_url:
+            address = compose("port", "extractor", "8000")
+            base_url = f"http://{address}"
+        with urllib.request.urlopen(f"{base_url}/health", timeout=10) as response:
+            assert response.status == 200
+            assert json.load(response) == {"status": "ok", "service": "extractor"}
+    
+        token = uuid.uuid4().hex
+        with pymupdf.open() as document:
+            for page_number in (1, 2):
+                document.new_page().insert_text(
+                    (72, 100), f"Redis integration {token} page {page_number}"
+                )
+            body = document.tobytes()
+        key = "extract:v4:" + hashlib.sha256(body).hexdigest()
+        configured_ttl = int(compose("exec", "-T", "extractor", "printenv", "CACHE_TTL_SECONDS"))
+    
+        # Only this test's unique key is deleted; never FLUSHDB/FLUSHALL.
+        redis_command("DEL", key)
+        try:
+            assert redis_command("EXISTS", key) == "0"
+            request = urllib.request.Request(
+                f"{base_url}/extract", data=body, headers={"Content-Type": "application/pdf"}
+            )
+            with urllib.request.urlopen(request, timeout=30) as response:
+                assert response.status == 200
+                first_status = response.headers["X-Cache"]
+                first = json.load(response)
+            assert first_status == "MISS"
+            ttl_before = int(redis_command("PTTL", key))
+            assert 0 < ttl_before <= configured_ttl * 1000
+            assert json.loads(redis_command("GET", key)) == first
+    
+            with urllib.request.urlopen(request, timeout=30) as response:
+                assert response.status == 200
+                second_status = response.headers["X-Cache"]
+                second = json.load(response)
+>           assert second_status == "HIT"
+E           AssertionError: assert 'ERROR' == 'HIT'
+E             
+E             - HIT
+E             + ERROR
+
+tests\integration\test_redis_compose.py:71: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_redis_compose.py::test_real_redis_miss_hit_and_ttl
+====================== 1 failed, 60 deselected in 34.55s ======================

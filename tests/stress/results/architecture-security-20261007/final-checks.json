@@ -1,0 +1,83 @@
+[
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'Dockerfile', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'app/config.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'app/main.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'app/worker.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'compose.yaml', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/performance.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'tests/test_cache.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'tests/test_responsiveness.py', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "compose",
+      "config",
+      "--quiet"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.traefik.yaml",
+      "config",
+      "--quiet"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "exit": 0,
+    "stdout": " M Dockerfile\n M README.md\n M app/config.py\n M app/main.py\n M app/worker.py\n M compose.yaml\n M docs/performance.md\nA  scripts/start.sh\n M tests/test_cache.py\n M tests/test_responsiveness.py\n?? .gitattributes\n?? app/admission.py\n?? app/service.py\n?? app/singleflight.py\n?? docs/security.md\n?? scripts/check-host.ps1\n?? scripts/start.ps1\n?? tests/performance/profile_cold.py\n?? tests/performance/profile_http.py\n?? tests/performance/profile_network.py\n?? tests/performance/profile_transport.py\n?? tests/performance/singleflight.py\n?? tests/stress/results/architecture-security-20261007/\n?? tests/stress/results/optimization-cold-20261007/\n?? tests/test_admission.py\n?? tests/test_admission_lifecycle.py\n?? tests/test_openapi.py\n?? tests/test_singleflight.py\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "branch",
+      "--show-current"
+    ],
+    "exit": 0,
+    "stdout": "main\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.traefik.yaml",
+      "ps"
+    ],
+    "exit": 0,
+    "stdout": "NAME                        IMAGE                     COMMAND                  SERVICE     CREATED         STATUS                   PORTS\npdf-extractor-extractor-1   pdf-extractor-extractor   \"uvicorn app.main:ap\u2026\"   extractor   5 minutes ago   Up 5 minutes (healthy)   8000/tcp\npdf-extractor-extractor-2   pdf-extractor-extractor   \"uvicorn app.main:ap\u2026\"   extractor   5 minutes ago   Up 5 minutes (healthy)   8000/tcp\npdf-extractor-redis-1       redis:8.2.10-alpine       \"docker-entrypoint.s\u2026\"   redis       18 hours ago    Up 18 hours (healthy)    6379/tcp\npdf-extractor-traefik-1     traefik:v3.6              \"/entrypoint.sh --pr\u2026\"   traefik     6 hours ago     Up 6 hours (healthy)     127.0.0.1:53701->80/tcp\n",
+    "stderr": ""
+  }
+]

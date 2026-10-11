@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/profile_cold.py", line 147, in <module>
+    asyncio.run(main(args))
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/profile_cold.py", line 74, in main
+    result = candidate(body, name)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/profile_cold.py", line 50, in candidate
+    return build([page.get_displaylist(annots=1).get_textpage(flags=flags).extractBLOCKS() for page in document])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FzStextPage' object has no attribute 'extractBLOCKS'

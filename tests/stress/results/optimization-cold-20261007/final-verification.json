@@ -1,0 +1,53 @@
+{
+  "head": "0e100e7d4f58934e6ccced413e7a622d1e7a73db",
+  "branch": "main",
+  "original_changed_files": [
+    "README.md",
+    "docs/performance.md"
+  ],
+  "prior_evidence_unchanged": true,
+  "pdf_bytes": 17749468,
+  "pdf_sha256": "728c8a522ce24bf0ba3851cd109cdc0e55b200e3cd9b55b8343b39c005713162",
+  "checks": {
+    "diff_check": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/performance.md', LF will be replaced by CRLF the next time Git touches it\n"
+    },
+    "compose_config": {
+      "command": [
+        "docker",
+        "compose",
+        "config",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "traefik_config": {
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.traefik.yaml",
+        "config",
+        "--quiet"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "status": " M README.md\n M docs/performance.md\n?? tests/performance/profile_cold.py\n?? tests/performance/profile_http.py\n?? tests/performance/profile_network.py\n?? tests/performance/profile_transport.py\n?? tests/stress/results/optimization-cold-20261007/\n",
+  "all_healthy": true,
+  "normal_cache_db0_restored": true,
+  "only_traefik_published": true
+}

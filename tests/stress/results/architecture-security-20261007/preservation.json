@@ -1,0 +1,40 @@
+{
+  "head": "0e100e7d4f58934e6ccced413e7a622d1e7a73db",
+  "branch": "main",
+  "files_checked": 314,
+  "preexisting_files_changed": [
+    "Dockerfile",
+    "README.md",
+    "app/config.py",
+    "app/main.py",
+    "app/worker.py",
+    "compose.yaml",
+    "docs/performance.md",
+    "tests/test_cache.py",
+    "tests/test_responsiveness.py"
+  ],
+  "previous_profilers_and_evidence_unchanged": true,
+  "algorithm_cache_lock_proxy_unchanged": true,
+  "official_pdf_sizes": [
+    {
+      "name": "2020-Scrum-Guide-Spanish-Latin-South-American.pdf",
+      "bytes": 319343,
+      "within_default_upload_limit": true
+    },
+    {
+      "name": "scrum_manager_historias_usuario.pdf",
+      "bytes": 3830899,
+      "within_default_upload_limit": true
+    },
+    {
+      "name": "Essential-Kanban-Condensed-Spanish.pdf",
+      "bytes": 8901466,
+      "within_default_upload_limit": true
+    },
+    {
+      "name": "Filosofia Lean.pdf",
+      "bytes": 668142,
+      "within_default_upload_limit": true
+    }
+  ]
+}

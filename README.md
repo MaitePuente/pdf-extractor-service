@@ -13,12 +13,16 @@ ejecutar este repositorio independiente.
 ## Contrato
 
 - `GET /health`: HTTP 200, `{"status": "ok", "service": "extractor"}`.
+- `GET /health/live`: vida del proceso, independiente de Redis.
+- `GET /health/ready`: prueba breve de Redis; devuelve `ready` o `degraded`.
+  Con `READINESS_REDIS_REQUIRED=true`, Redis caído produce HTTP 503.
 - `POST /extract`: recibe los bytes del PDF como cuerpo `application/pdf`,
   sin formulario multipart. Devuelve HTTP 200 y `application/json`:
   `{"content": "<Markdown>", "page_count": 2}`.
 - HTTP 415 si falta `Content-Type` o no es `application/pdf`.
 - HTTP 400 si el cuerpo está vacío, no comienza con `%PDF`, no puede abrirse
-  como PDF o requiere contraseña. Los errores tienen el campo JSON `detail`.
+  como PDF o requiere contraseña. Los errores públicos usan RFC 9457
+  (`application/problem+json`) e incluyen `detail` y `request_id`.
 
 El cuerpo se lee en memoria y se abre con
 `pymupdf.open(stream=body, filetype="pdf")`. Se obtiene `page_count` y se pasa el
@@ -39,12 +43,17 @@ PyMuPDF4LLM y Layout siguen fijados en las dependencias para reproducir los
 experimentos, pero la API actual no los importa ni ejecuta. La comparación
 medida y las limitaciones figuran en [performance.md](docs/performance.md).
 
-La conversión se ejecuta en un proceso separado (`spawn`) con un solo trabajador
-por réplica. `/health` continúa disponible. Si otra conversión ya ocupa ese
-trabajador, una nueva extracción que necesita CPU recibe HTTP 503 con `detail`;
-un HIT puede responder sin ocuparlo. No hay una cola ilimitada de conversiones.
+La conversión se ejecuta en procesos separados (`spawn`), configurables mediante
+`EXTRACTION_CONCURRENCY` (por defecto 1 por réplica). `/health` continúa disponible.
+Un HIT responde antes del gate de CPU. Los MISS/BYPASS/ERROR concurrentes con
+el mismo SHA comparten un trabajo mediante **singleflight por réplica**; dos
+réplicas pueden realizar dos conversiones. No es un bloqueo distribuido.
+La admisión tiene capacidad y espera limitadas: devuelve **429 + Retry-After**
+cuando se llena la cola o vence la espera; 503 indica un trabajador no disponible.
+Un cuerpo declarado o efectivamente mayor que `MAX_UPLOAD_MB` recibe **413**.
 Cancelar una petición no mata el proceso: la capacidad se libera al terminar
-el trabajo pendiente. El apagado espera su finalización. La muerte inesperada
+el trabajo pendiente. El apagado espera hasta el plazo configurado y luego
+detiene sus trabajadores. La muerte inesperada
 del trabajador requiere reiniciar la réplica; no se agregó recuperación automática.
 
 `to_spans_markdown` y `to_text_markdown` conservan los conversores anteriores
@@ -102,14 +111,34 @@ Se leen al iniciar la aplicación; cambiar sus valores requiere reiniciarla.
 | `CACHE_ENABLED` | `true` | Activa la caché; `false` permite trabajar sin Redis. |
 | `CACHE_TTL_SECONDS` | `3600` | TTL entero positivo, en segundos. |
 | `CACHE_TIMEOUT_SECONDS` | `0.2` | Plazo positivo por lectura o escritura Redis, en segundos. |
+| `QUEUE_SIZE` | `16` | Esperas acotadas; junto con `MAX_IN_FLIGHT` limita a 20 solicitudes admitidas por réplica. |
+| `MAX_IN_FLIGHT` | `4` | Máximo de cuerpos residentes por réplica, incluidos los retenidos por conversiones. |
+| `EXTRACTION_CONCURRENCY` | `1` | Procesos CPU simultáneos; entero positivo, no mayor que `MAX_IN_FLIGHT`. |
+| `ADMISSION_TIMEOUT_SECONDS` | `2` | Plazo de espera en cada gate de cuerpos/CPU; no es un timeout total HTTP. |
+| `MAX_UPLOAD_MB` | `20` | Límite del PDF en MiB, tanto declarado como recibido por streaming. |
+| `DOCS_ENABLED` | `true` | Habilita `/docs`, `/redoc`, `/openapi.json`; `false` deja las tres rutas en 404. |
+| `READINESS_REDIS_REQUIRED` | `false` | Si Redis falla, readiness indica degradación con HTTP 200; `true` devuelve 503. |
+| `READINESS_TIMEOUT_SECONDS` | `0.1` | Plazo del PING de readiness; no realiza trabajo pesado. |
+| `METRICS_ENABLED` | `false` | Publica `/metrics` cuando está activo. Dejarlo desactivado durante benchmarks de competición. |
+| `OTEL_ENABLED` | `false` | Activa instrumentación FastAPI y spans de fases. |
+| `OTEL_EXPORTER_OTLP_ENDPOINT` | vacío | URL base OTLP HTTP; obligatoria si se activa tracing. |
+| `OTEL_SAMPLE_RATIO` | `0.05` | Muestreo de trazas entre 0 y 1. |
+| `GRACEFUL_SHUTDOWN_TIMEOUT_SECONDS` | `30` | Plazo total desde la señal de salida antes de forzar el cierre. Debe ser menor que los 35 s de Compose. |
+
+Los defaults, el presupuesto de memoria y las limitaciones están explicados en
+[seguridad y admisión](docs/security.md). Se acepta `X-Request-ID` o el legado
+`X-Audit-Id` (hasta 128 caracteres ASCII imprimibles); ambos se devuelven con
+el mismo identificador, generado si falta. OpenAPI documenta el body binario y
+las respuestas 200/400/413/415/422/429/500/503.
 
 Se validan booleanos, TTL y timeout al iniciar. Valores inválidos de estas
 opciones producen un error de configuración. Una URL Redis inválida se registra
 como error de caché y permite iniciar en modo fail open.
 
 El plazo limita cada operación de caché, **no** el tiempo total de `/extract`.
-Un MISS puede efectuar una lectura y una escritura. No se afirma ningún objetivo
-de rendimiento ni se evita que dos MISS simultáneos conviertan el mismo PDF.
+Un MISS puede efectuar una lectura y una escritura. Singleflight comparte
+extracción entre solicitudes idénticas dentro de una réplica; entre réplicas
+puede haber conversiones simultáneas del mismo PDF.
 
 ## Ejecución local
 
@@ -151,15 +180,18 @@ Ejecutar desde la raíz del repositorio:
 uv run --locked pytest -v
 ```
 
-Estado final verificado en la última ejecución: **suite completa: 40 passed,
-1 skipped**. Los 40 corresponden a **38 tests funcionales/de aplicación** y
-**2 tests de herramientas/reportes** agregados posteriormente. No necesitan
+Estado local actual: **suite completa: 79 passed, 1 skipped**. Los 60 casos
+de la fase de arquitectura siguen pasando; se agregaron pruebas de readiness,
+RFC 9457, correlación, métricas, trazas y apagado. No necesitan
 Docker ni Redis; el skip corresponde a la integración real, habilitada
 explícitamente con `--run-integration`.
 
-La **integración Redis real se ejecutó aparte: 1 passed**, mediante Traefik,
-comprobando MISS→HIT, contenido y TTL. Estos resultados son los ya registrados;
-los comandos de Compose y de integración se documentan más abajo.
+La integración Redis se ejecuta aparte mediante Traefik, comprobando MISS→HIT,
+contenido y TTL. La última fase anterior registró **1 passed**; aún no se repitió
+contra este estado local porque Docker Desktop no está disponible.
+Hubo dos intentos intermedios fallidos por timeout; no se ocultan ni se presenta
+el último éxito como estabilidad de latencia. Todos los resultados están en la sección
+[arquitectura y seguridad](docs/performance.md#arquitectura-y-seguridad-2026-10-07).
 
 La configuración de pytest corta la búsqueda de `conftest.py` en `tests/` para
 evitar importar los fixtures de MongoDB cuando el servicio estaba en el
@@ -192,7 +224,10 @@ docker run --rm --name pdf-extractor-service -p 127.0.0.1:8001:8000 pdf-extracto
 
 El contenedor usa un usuario sin privilegios y las dependencias de ejecución
 fijadas en `uv.lock`, incluido el cliente `redis` con API asyncio. El Dockerfile
-existente instala el lockfile actualizado y no necesita cambios. Dentro del
+tiene etapas de tooling (`uv`), builder y runtime; sólo el builder instala
+dependencias. El runtime recibe el entorno construido y no incluye `pip` ni `uv`.
+Conserva shell por compatibilidad de Python 3.12; la prueba distroless y sus
+limitaciones están en [security.md](docs/security.md). Dentro del
 contenedor, `localhost` apunta al propio contenedor: pasar `-e REDIS_URL=...`
 con la dirección accesible del Redis elegido, o `-e CACHE_ENABLED=false`.
 
@@ -202,6 +237,33 @@ Todos los comandos siguientes se ejecutan desde la raíz de `pdf-extractor-servi
 El proyecto Compose se llama `pdf-extractor`, independiente del monolito.
 
 ### Arranque de la configuración de entrega
+
+Arranque automático desde la raíz del repositorio:
+
+```powershell
+.\scripts\start.ps1
+```
+
+En Linux, con Docker Engine y Docker Compose disponibles:
+
+```sh
+./scripts/start.sh
+```
+
+Ambos comprueban Docker, crean `pdf-network` sólo si falta, levantan dos réplicas,
+esperan sus healthchecks y muestran las URLs con el puerto dinámico de Traefik.
+Swagger: `http://localhost:<puerto>/docs`; ReDoc: `/redoc`; esquema: `/openapi.json`.
+En Windows puede ser necesario habilitar la ejecución del script sólo para esa
+invocación: `powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1`.
+No se cambia la política global del equipo.
+
+Para detener únicamente este proyecto, conservando la red externa:
+
+```sh
+docker compose -f compose.yaml -f compose.traefik.yaml down
+```
+
+Los pasos manuales equivalentes son:
 
 `pdf-network` es **externa intencionalmente**: debe ser compartida por los
 microservicios independientes del equipo. `compose.yaml` declara
@@ -915,3 +977,62 @@ Evidencia nueva: `tests/stress/results/official-k6-spike-windows-20261007-cold/`
 validación de PDFs/caché y tests). La evidencia parcial anterior se conserva
 intacta. **Se resolvió la interrupción del generador; no se cumplen los
 umbrales de errores ni p95 < 400 ms del Spike.**
+
+## Perfilado COLD posterior a la entrega
+
+Los scripts `tests/performance/profile_*.py` investigan CPU, Markdown, SHA,
+JSON, Redis, IPC y HTTP con el PDF externo de 279 páginas, sin reejecutar cargas
+k6/Vegeta. [Resultados, limitaciones y comandos](docs/performance.md#perfilado-cold-posterior-a-la-entrega-2026-10-07).
+No se confirmó p95 < 400 ms en las condiciones actuales. El ensayo SharedMemory
+se revirtió: la API conserva el código de `0e100e7`, sus límites y configuración.
+Los resultados HOT y oficiales históricos se mantienen como corridas distintas.
+
+## Estado local posterior: salud, observabilidad y cierre
+
+La red `pdf-network` sigue siendo externa para compartirla con otros servicios.
+Desde la raíz, crearla una sola vez si falta y levantar la configuración usual
+de entrega con dos réplicas:
+
+```powershell
+docker network inspect pdf-network 2>$null
+if ($LASTEXITCODE -ne 0) { docker network create pdf-network }
+docker compose -f compose.yaml -f compose.traefik.yaml up --build -d --scale extractor=2 --wait --wait-timeout 150
+docker compose -f compose.yaml -f compose.traefik.yaml port traefik 80
+```
+
+Se puede usar `./scripts/start.ps1` en Windows o `./scripts/start.sh` en Linux
+para crear la red si falta, iniciar el stack y mostrar el puerto real. No se
+publica un puerto fijo de extractor con Traefik. El Compose base mantiene la
+alternativa de una instancia sin proxy. Para detener sólo el stack de entrega:
+
+```powershell
+docker compose -f compose.yaml -f compose.traefik.yaml down
+```
+
+`/health/live` comprueba únicamente la vida del proceso; `/health/ready` hace un
+PING breve a Redis. La caché sigue fallando en modo abierto: por defecto Redis
+caído produce `degraded` con HTTP 200. Si la política operativa exige Redis,
+`READINESS_REDIS_REQUIRED=true` produce 503. Durante SIGTERM/SIGINT, readiness
+devuelve 503 y nuevas extracciones reciben Problem Details 503; Compose concede
+35 s al contenedor para drenar dentro de los 30 s configurados.
+
+`METRICS_ENABLED=true` habilita `/metrics` en formato Prometheus. El overlay
+opcional añade Prometheus y Grafana; consume recursos y debe permanecer apagado
+durante los benchmarks de competición:
+
+```powershell
+docker compose -f compose.yaml -f compose.traefik.yaml -f compose.observability.yaml up --build -d --scale extractor=2 --wait --wait-timeout 150
+docker compose -f compose.yaml -f compose.traefik.yaml -f compose.observability.yaml port grafana 3000
+docker compose -f compose.yaml -f compose.traefik.yaml -f compose.observability.yaml port prometheus 9090
+docker compose -f compose.yaml -f compose.traefik.yaml -f compose.observability.yaml down
+```
+
+Las trazas OTLP están desactivadas por defecto. Para activarlas se deben fijar
+`OTEL_ENABLED=true` y `OTEL_EXPORTER_OTLP_ENDPOINT` al recolector elegido;
+no se incluye Tempo. Ver [observability.md](docs/observability.md) para las
+métricas, trazas, Postman y las verificaciones pendientes. La colección
+`tests/postman/pdf-extractor.postman_collection.json` requiere elegir el PDF
+externo en el cuerpo binary y ajustar `base_url` al puerto dinámico de Traefik.
+Los 413 y 429 están automatizados en pytest; la colección permite comprobar
+413 con un archivo externo de más de 20 MiB. La auditoría de los 12 factores
+está en [twelve-factor.md](docs/twelve-factor.md).

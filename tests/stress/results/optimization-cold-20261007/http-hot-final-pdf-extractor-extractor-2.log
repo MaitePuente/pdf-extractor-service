@@ -1,0 +1,37 @@
+INFO:     127.0.0.1:46228 - "GET /health HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-001", "cache": "HIT", "cache_decode_ms": 6.085280998377129, "cache_get_ms": 11.301925995212514, "checksum_ms": 15.366879997600336, "extraction_ms": 0, "read_body_ms": 284.30512199702207, "receive_body_ms": 284.30512199702207, "redis_get_ms": 4.760089999763295, "response_build_ms": 1.8680700013646856, "route_ms": 313.70223800331587, "serialization_ms": 1.8680700013646856, "sha256_ms": 15.366879997600336, "status": 200, "total_server_ms": 313.70223800331587}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-003", "cache": "HIT", "cache_decode_ms": 3.255909003200941, "cache_get_ms": 6.373057003656868, "checksum_ms": 14.597367000533268, "extraction_ms": 0, "read_body_ms": 902.0619879956939, "receive_body_ms": 902.0619879956939, "redis_get_ms": 2.897567996114958, "response_build_ms": 1.5583799977321178, "route_ms": 924.7638589949929, "serialization_ms": 1.5583799977321178, "sha256_ms": 14.597367000533268, "status": 200, "total_server_ms": 924.7638589949929}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-005", "cache": "HIT", "cache_decode_ms": 3.0823090055491775, "cache_get_ms": 5.285998995532282, "checksum_ms": 14.28357900294941, "extraction_ms": 0, "read_body_ms": 296.30845700012287, "receive_body_ms": 296.30845700012287, "redis_get_ms": 2.0069439997314475, "response_build_ms": 1.223010003741365, "route_ms": 317.2754450060893, "serialization_ms": 1.223010003741365, "sha256_ms": 14.28357900294941, "status": 200, "total_server_ms": 317.2754450060893}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-007", "cache": "HIT", "cache_decode_ms": 2.3814239975763485, "cache_get_ms": 4.464940997422673, "checksum_ms": 14.459539997915272, "extraction_ms": 0, "read_body_ms": 224.11358499812195, "receive_body_ms": 224.11358499812195, "redis_get_ms": 1.7494869971415028, "response_build_ms": 1.632491999771446, "route_ms": 244.88202700013062, "serialization_ms": 1.632491999771446, "sha256_ms": 14.459539997915272, "status": 200, "total_server_ms": 244.88202700013062}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-009", "cache": "HIT", "cache_decode_ms": 2.9213569941930473, "cache_get_ms": 5.932897001912352, "checksum_ms": 14.134143995761406, "extraction_ms": 0, "read_body_ms": 225.85854500357527, "receive_body_ms": 225.85854500357527, "redis_get_ms": 2.8173659957246855, "response_build_ms": 1.2561110052047297, "route_ms": 247.33404400467407, "serialization_ms": 1.2561110052047297, "sha256_ms": 14.134143995761406, "status": 200, "total_server_ms": 247.33404400467407}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-011", "cache": "HIT", "cache_decode_ms": 3.3444599976064637, "cache_get_ms": 5.218795005930588, "checksum_ms": 14.27407399751246, "extraction_ms": 0, "read_body_ms": 258.3824429966626, "receive_body_ms": 258.3824429966626, "redis_get_ms": 1.6797569987829775, "response_build_ms": 1.2921609959448688, "route_ms": 279.3016169962357, "serialization_ms": 1.2921609959448688, "sha256_ms": 14.27407399751246, "status": 200, "total_server_ms": 279.3016169962357}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-013", "cache": "HIT", "cache_decode_ms": 3.7621079973177984, "cache_get_ms": 6.069584997021593, "checksum_ms": 15.442664000147488, "extraction_ms": 0, "read_body_ms": 292.9877840069821, "receive_body_ms": 292.9877840069821, "redis_get_ms": 2.028857998084277, "response_build_ms": 1.9021090047317557, "route_ms": 316.6209679984604, "serialization_ms": 1.9021090047317557, "sha256_ms": 15.442664000147488, "status": 200, "total_server_ms": 316.6209679984604}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-015", "cache": "HIT", "cache_decode_ms": 2.7277879999019206, "cache_get_ms": 5.281846999423578, "checksum_ms": 11.629883993009571, "extraction_ms": 0, "read_body_ms": 257.2511910038884, "receive_body_ms": 257.2511910038884, "redis_get_ms": 2.3320089967455715, "response_build_ms": 1.1199759974260814, "route_ms": 275.4689799985499, "serialization_ms": 1.1199759974260814, "sha256_ms": 11.629883993009571, "status": 200, "total_server_ms": 275.4689799985499}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-017", "cache": "HIT", "cache_decode_ms": 1.9581820015446283, "cache_get_ms": 4.628474001947325, "checksum_ms": 9.097217000089586, "extraction_ms": 0, "read_body_ms": 410.67864199430915, "receive_body_ms": 410.67864199430915, "redis_get_ms": 2.518156004953198, "response_build_ms": 0.8143079976434819, "route_ms": 425.3223909981898, "serialization_ms": 0.8143079976434819, "sha256_ms": 9.097217000089586, "status": 200, "total_server_ms": 425.3223909981898}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-019", "cache": "HIT", "cache_decode_ms": 2.653345996805001, "cache_get_ms": 4.807007004274055, "checksum_ms": 9.572084993124008, "extraction_ms": 0, "read_body_ms": 204.10760199592914, "receive_body_ms": 204.10760199592914, "redis_get_ms": 1.9905309964087792, "response_build_ms": 0.8654390039737336, "route_ms": 219.75554399978137, "serialization_ms": 0.8654390039737336, "sha256_ms": 9.572084993124008, "status": 200, "total_server_ms": 219.75554399978137}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-021", "cache": "HIT", "cache_decode_ms": 1.4152269941405393, "cache_get_ms": 3.4920580001198687, "checksum_ms": 9.469574004469905, "extraction_ms": 0, "read_body_ms": 182.28581300354563, "receive_body_ms": 182.28581300354563, "redis_get_ms": 1.9272760036983527, "response_build_ms": 1.1609490029513836, "route_ms": 196.56348699936643, "serialization_ms": 1.1609490029513836, "sha256_ms": 9.469574004469905, "status": 200, "total_server_ms": 196.56348699936643}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK
+INFO extractor.cache CACHE HIT
+PROFILE {"audit_id": "http-hot-final-191142-023", "cache": "HIT", "cache_decode_ms": 1.738005994411651, "cache_get_ms": 3.4464369964553043, "checksum_ms": 8.704284999112133, "extraction_ms": 0, "read_body_ms": 170.70990600041114, "receive_body_ms": 170.70990600041114, "redis_get_ms": 1.4244400008465163, "response_build_ms": 1.2773919952451251, "route_ms": 184.31379799585557, "serialization_ms": 1.2773919952451251, "sha256_ms": 8.704284999112133, "status": 200, "total_server_ms": 184.31379799585557}
+INFO:     172.19.0.5:41614 - "POST /extract HTTP/1.1" 200 OK

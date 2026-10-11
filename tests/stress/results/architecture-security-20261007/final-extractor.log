@@ -1,0 +1,99 @@
+extractor-2  | INFO:     Started server process [1]
+extractor-1  | INFO:     Started server process [1]
+extractor-2  | INFO:     Waiting for application startup.
+extractor-2  | INFO extractor.cache CACHE WARMUP READY elapsed_ms=106.385
+extractor-2  | INFO:     Application startup complete.
+extractor-1  | INFO:     Waiting for application startup.
+extractor-2  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+extractor-2  | INFO:     127.0.0.1:54682 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:44992 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:57462 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:35964 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:38940 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | WARNING extractor.cache CACHE ERROR operation=warmup reason=TimeoutError elapsed_ms=200.781
+extractor-1  | INFO:     Application startup complete.
+extractor-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+extractor-1  | INFO:     127.0.0.1:54668 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:44812 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:59246 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:37702 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:44798 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:51142 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:48824 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:44984 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:57458 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:35948 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:38926 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:44798 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:59230 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:42690 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:37698 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:44794 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:51132 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:48816 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:42688 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:49818 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:34516 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:46940 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO extractor.cache CACHE MISS
+extractor-1  | INFO extractor.cache CACHE MISS
+extractor-1  | EXTRACTION {"key": "extract:v4:baa90a45431055995de3ccb10319c9c47b5aa4888330362708626f4e4443e150"}
+extractor-2  | INFO:     127.0.0.1:37142 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:34528 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | PROFILE {"algorithm_ms": 425.72654000105103, "audit_id": "", "cache": "MISS", "cache_get_ms": 117.36487800226314, "cache_set_ms": 118.96671300200978, "checksum_ms": 10.233674001938198, "coalesced": false, "convert_ms": 383.9981479977723, "extraction_ms": 425.72654000105103, "get_text_ms": 361.4959770056885, "markdown_build_ms": 0.033217002055607736, "open_ms": 40.65512600209331, "read_body_ms": 7.09185800224077, "receive_body_ms": 7.09185800224077, "redis_get_ms": 115.21229900245089, "response_build_ms": 0.8349690033355728, "response_object_ms": 0.023147003958001733, "route_ms": 3680.5110210043495, "serialization_ms": 0.8349690033355728, "sha256_ms": 10.233674001938198, "shared_recheck_redis_get_ms": 1.308774997596629, "status": 200, "total_server_ms": 3680.5110210043495, "worker_ms": 3380.6464890003554}
+extractor-1  | INFO:     172.19.0.5:59308 - "POST /extract HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:43556 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:39156 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:33138 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:39390 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:51142 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:55644 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:59246 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     172.19.0.5:36364 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:49880 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:41502 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:59644 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:41712 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:58310 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:42964 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:45456 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:45222 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     172.19.0.5:58710 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:37128 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:46952 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO extractor.cache CACHE HIT
+extractor-2  | PROFILE {"audit_id": "", "cache": "HIT", "cache_decode_ms": 6.209081002452876, "cache_get_ms": 49.737976005417295, "checksum_ms": 4.893095996521879, "extraction_ms": 0, "read_body_ms": 5.726192001020536, "receive_body_ms": 5.726192001020536, "redis_get_ms": 40.93570500117494, "response_build_ms": 2.2436509971157648, "route_ms": 79.76610799960326, "serialization_ms": 2.2436509971157648, "sha256_ms": 4.893095996521879, "status": 200, "total_server_ms": 79.76610799960326}
+extractor-1  | INFO:     172.19.0.5:58710 - "GET /redoc HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:46658 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:51010 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:40178 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:55610 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:48106 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:55878 - "GET /health HTTP/1.1" 200 OK
+extractor-1  | INFO:     127.0.0.1:34358 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     172.19.0.5:50264 - "POST /extract HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:43566 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:39172 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:33152 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:39398 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:51130 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:55648 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:59236 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:49868 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:41514 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:59658 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:41718 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:58312 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:42974 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:45468 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:45216 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     172.19.0.5:51416 - "GET /docs HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:37142 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     172.19.0.5:51416 - "GET /openapi.json HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:46668 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:51018 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:40190 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:55626 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:48108 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:55868 - "GET /health HTTP/1.1" 200 OK
+extractor-2  | INFO:     127.0.0.1:34356 - "GET /health HTTP/1.1" 200 OK

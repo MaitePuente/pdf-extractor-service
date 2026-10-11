@@ -1,0 +1,31 @@
+name: Calidad del extractor
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+        with:
+          version: "0.11.6"
+          python-version: "3.12"
+      - name: Dependencias fijadas
+        run: uv sync --locked
+      - name: Pruebas
+        run: uv run --locked pytest -v
+      - name: Lint acotado
+        run: uv run --locked ruff check .
+      - name: Configuración Compose
+        run: |
+          docker compose config --quiet
+          docker compose -f compose.yaml -f compose.traefik.yaml config --quiet
+          docker compose -f compose.yaml -f compose.traefik.yaml -f compose.observability.yaml config --quiet
+      - name: Construcción de imagen
+        run: docker build --tag pdf-extractor-service:ci .

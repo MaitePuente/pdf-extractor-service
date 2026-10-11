@@ -1,0 +1,76 @@
+diff --git a/app/worker.py b/app/worker.py
+index 235713d..6dae1db 100644
+--- a/app/worker.py
++++ b/app/worker.py
+@@ -2,10 +2,16 @@
+ import asyncio
+ from concurrent.futures import ProcessPoolExecutor
+ import multiprocessing
++from multiprocessing.shared_memory import SharedMemory
+ 
+ from fastapi import HTTPException
+ 
+ from app.extractor import ExtractionResponse, extract_pdf
++from app.payload import SharedPDF
++
++# Leave headroom in Docker's default 64 MiB /dev/shm. Larger inputs retain
++# the original bytes transport instead of risking a SIGBUS on buffer write.
++SHARED_MEMORY_LIMIT = 32 * 1024 * 1024
+ 
+ 
+ def convert_in_process(body: bytes) -> tuple[dict | None, int | None, str | None, dict]:
+@@ -17,6 +23,17 @@ def convert_in_process(body: bytes) -> tuple[dict | None, int | None, str | None
+         return None, exc.status_code, exc.detail, {}
+ 
+ 
++def convert_shared(name: str, size: int):
++    memory = SharedMemory(name=name)
++    try:
++        # PyMuPDF's bytes API does not accept memoryview. This copy remains;
++        # only the name and size, rather than the full PDF, travel over IPC.
++        body = bytes(memory.buf[:size])
++    finally:
++        memory.close()
++    return convert_in_process(body)
++
++
+ class ExtractionWorker:
+     def __init__(self):
+         # PyMuPDF explicitly does not support concurrent use from threads.
+@@ -29,16 +46,32 @@ class ExtractionWorker:
+         if self.busy:
+             raise HTTPException(status_code=503, detail="Extractor is busy; try again later")
+         self.busy = True
++        payload = None
+         try:
+-            future = asyncio.get_running_loop().run_in_executor(
+-                self.pool, convert_in_process, body
+-            )
++            if len(body) <= SHARED_MEMORY_LIMIT:
++                try:
++                    payload = SharedPDF.from_bytes(body)
++                except (OSError, MemoryError) as exc:
++                    raise HTTPException(status_code=503, detail="PDF transfer memory unavailable") from exc
++                future = asyncio.get_running_loop().run_in_executor(
++                    self.pool, convert_shared, payload.name, payload.size
++                )
++            else:
++                future = asyncio.get_running_loop().run_in_executor(
++                    self.pool, convert_in_process, body
++                )
+         except BaseException:
++            if payload is not None:
++                payload.close()
+             self.busy = False
+             raise
+ 
+         def finished(_):
+-            self.busy = False
++            try:
++                if payload is not None:
++                    payload.close()
++            finally:
++                self.busy = False
+ 
+         # A disconnected client must not admit a second job while its first
+         # conversion still runs. Cancellation does not cancel CPU work.

@@ -1,0 +1,33 @@
+"""Parent-owned shared memory for one PDF; no named files or persistence."""
+from multiprocessing.shared_memory import SharedMemory
+
+
+class SharedPDF:
+    def __init__(self, memory, size):
+        self.memory = memory
+        self.name = memory.name
+        self.size = size
+        self.closed = False
+
+    @classmethod
+    def from_bytes(cls, body):
+        memory = SharedMemory(create=True, size=len(body))
+        payload = cls(memory, len(body))
+        try:
+            memory.buf[:] = body
+        except BaseException:
+            payload.close()
+            raise
+        return payload
+
+    def close(self):
+        if not self.closed:
+            self.memory.close()
+            self.memory.unlink()
+            self.closed = True
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        self.close()

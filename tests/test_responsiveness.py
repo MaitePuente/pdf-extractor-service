@@ -44,7 +44,8 @@ def test_health_remains_available_while_pdf_is_converting():
     asyncio.run(exercise())
 
 
-def test_concurrent_conversion_is_rejected_instead_of_queued():
+def test_distinct_conversion_is_rejected_when_cpu_queue_disabled(monkeypatch):
+    monkeypatch.setenv("QUEUE_SIZE", "0")
     with pymupdf.open() as document:
         document.new_page().insert_text((72, 72), "Bounded conversion")
         body = document.tobytes()
@@ -61,9 +62,10 @@ def test_concurrent_conversion_is_rejected_instead_of_queued():
                 try:
                     assert not extracting.done()
                     another = await client.post(
-                        "/extract", content=body, headers={"Content-Type": "application/pdf"}
+                        "/extract", content=body + b"\n", headers={"Content-Type": "application/pdf"}
                     )
-                    assert another.status_code == 503
+                    assert another.status_code == 429
+                    assert another.headers["Retry-After"]
                     assert (await client.get("/health")).status_code == 200
                 finally:
                     result = await extracting
@@ -78,7 +80,8 @@ def test_concurrent_conversion_is_rejected_instead_of_queued():
     asyncio.run(exercise())
 
 
-def test_cancellation_does_not_free_capacity_before_cpu_work_finishes():
+def test_cancellation_does_not_free_capacity_before_cpu_work_finishes(monkeypatch):
+    monkeypatch.setenv("QUEUE_SIZE", "0")
     with pymupdf.open() as document:
         document.new_page().insert_text((72, 72), "Cancelled request")
         body = document.tobytes()
@@ -89,7 +92,7 @@ def test_cancellation_does_not_free_capacity_before_cpu_work_finishes():
                 transport=httpx2.ASGITransport(app=app), base_url="http://test"
             ) as client:
                 extracting = asyncio.create_task(client.post(
-                    "/extract", content=body, headers={"Content-Type": "application/pdf"}
+                    "/extract", content=body + b"\n", headers={"Content-Type": "application/pdf"}
                 ))
                 await asyncio.sleep(0.01)
                 assert not extracting.done()
@@ -101,7 +104,7 @@ def test_cancellation_does_not_free_capacity_before_cpu_work_finishes():
                 another = await client.post(
                     "/extract", content=body, headers={"Content-Type": "application/pdf"}
                 )
-                assert another.status_code == 503
+                assert another.status_code == 429
                 assert (await client.get("/health")).status_code == 200
         # Lifespan waits for the outstanding worker before disposing its pool.
 

@@ -1,0 +1,48 @@
+[
+  {
+    "command": [
+      "docker",
+      "compose",
+      "config",
+      "--quiet"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "compose.yaml",
+      "-f",
+      "compose.traefik.yaml",
+      "config",
+      "--quiet"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "compose",
+      "ps"
+    ],
+    "exit": 0,
+    "stdout": "NAME                        IMAGE                     COMMAND                  SERVICE     CREATED         STATUS                   PORTS\npdf-extractor-extractor-1   pdf-extractor-extractor   \"uvicorn app.main:ap\u00e2\u20ac\u00a6\"   extractor   3 minutes ago   Up 3 minutes (healthy)   8000/tcp\npdf-extractor-extractor-2   pdf-extractor-extractor   \"uvicorn app.main:ap\u00e2\u20ac\u00a6\"   extractor   3 minutes ago   Up 3 minutes (healthy)   8000/tcp\npdf-extractor-redis-1       redis:8.2.10-alpine       \"docker-entrypoint.s\u00e2\u20ac\u00a6\"   redis       18 hours ago    Up 18 hours (healthy)    6379/tcp\npdf-extractor-traefik-1     traefik:v3.6              \"/entrypoint.sh --pr\u00e2\u20ac\u00a6\"   traefik     5 hours ago     Up 5 hours (healthy)     127.0.0.1:53701->80/tcp\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'Dockerfile', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'app/config.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'app/main.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'app/worker.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'compose.yaml', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/performance.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'tests/test_cache.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'tests/test_responsiveness.py', LF will be replaced by CRLF the next time Git touches it\n"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "BlockIO": "7.25MB / 0B",
+    "CPUPerc": "0.20%",
+    "Container": "4ecc4fbddcf977922f312d1ebf58088de9751af1906e9606e6dd2cb1f8aa6610",
+    "ID": "4ecc4fbddcf9",
+    "MemPerc": "39.71%",
+    "MemUsage": "305MiB / 768MiB",
+    "Name": "pdf-extractor-extractor-1",
+    "NetIO": "8.14kB / 6.07kB",
+    "PIDs": "7"
+  },
+  {
+    "BlockIO": "893kB / 0B",
+    "CPUPerc": "0.22%",
+    "Container": "c54404c99530c3190343430b3dad36c8651fa207312e492d7a52194ea2f7df0d",
+    "ID": "c54404c99530",
+    "MemPerc": "20.38%",
+    "MemUsage": "156.5MiB / 768MiB",
+    "Name": "pdf-extractor-extractor-2",
+    "NetIO": "8.55kB / 8.68kB",
+    "PIDs": "4"
+  },
+  {
+    "BlockIO": "18.9MB / 2.23MB",
+    "CPUPerc": "0.77%",
+    "Container": "e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135",
+    "ID": "e4d9cdd1ae20",
+    "MemPerc": "2.60%",
+    "MemUsage": "6.645MiB / 256MiB",
+    "Name": "pdf-extractor-redis-1",
+    "NetIO": "18.6MB / 216MB",
+    "PIDs": "6"
+  },
+  {
+    "BlockIO": "114MB / 0B",
+    "CPUPerc": "0.09%",
+    "Container": "95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e",
+    "ID": "95b5df0935cc",
+    "MemPerc": "16.30%",
+    "MemUsage": "83.45MiB / 512MiB",
+    "Name": "pdf-extractor-traefik-1",
+    "NetIO": "4.7GB / 4.25GB",
+    "PIDs": "16"
+  }
+]

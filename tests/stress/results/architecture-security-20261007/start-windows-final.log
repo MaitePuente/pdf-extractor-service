@@ -1,0 +1,138 @@
+29.7.2
+Docker Compose version v5.5.1
+ Image pdf-extractor-extractor Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 629B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 948B 0.1s done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for ghcr.io/astral-sh/uv:0.11.6
+#3 ...
+
+#4 [internal] load metadata for docker.io/library/python:3.12-slim
+#4 DONE 0.0s
+
+#3 [internal] load metadata for ghcr.io/astral-sh/uv:0.11.6
+#3 DONE 3.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 95B 0.0s done
+#5 DONE 0.1s
+
+#6 [uv 1/1] FROM ghcr.io/astral-sh/uv:0.11.6@sha256:b1e699368d24c57cda93c338a57a8c5a119009ba809305cc8e86986d4a006754
+#6 CACHED
+
+#7 [builder 1/5] FROM docker.io/library/python:3.12-slim
+#7 CACHED
+
+#8 [internal] load build context
+#8 transferring context: 1.22kB 0.0s done
+#8 DONE 0.0s
+
+#9 [runtime 2/5] WORKDIR /service
+#9 DONE 0.2s
+
+#10 [builder 2/5] COPY --from=uv /uv /tooling/uv
+#10 DONE 4.4s
+
+#11 [builder 3/5] WORKDIR /service
+#11 DONE 0.1s
+
+#12 [builder 4/5] COPY pyproject.toml uv.lock ./
+#12 DONE 0.2s
+
+#13 [builder 5/5] RUN /tooling/uv sync --locked --no-dev --no-install-project
+#13 3.795 Using CPython 3.12.15 interpreter at: /usr/local/bin/python3
+#13 3.795 Creating virtual environment at: .venv
+#13 3.842 Resolved 37 packages in 2ms
+#13 4.988 Downloading onnxruntime (22.5MiB)
+#13 5.009 Downloading pydantic-core (2.0MiB)
+#13 5.012 Downloading networkx (2.0MiB)
+#13 5.036 Downloading pymupdf-layout (41.0MiB)
+#13 5.040 Downloading pymupdf (24.6MiB)
+#13 5.046 Downloading numpy (15.9MiB)
+#13 12.66  Downloaded pydantic-core
+#13 12.67  Downloaded networkx
+#13 36.47  Downloaded numpy
+#13 44.35  Downloaded onnxruntime
+#13 47.39  Downloaded pymupdf
+#13 56.30  Downloaded pymupdf-layout
+#13 56.31 Prepared 27 packages in 52.87s
+#13 70.37 Installed 27 packages in 13.38s
+#13 70.40  + annotated-doc==0.0.5
+#13 70.40  + annotated-types==0.8.0
+#13 70.40  + anyio==4.15.1
+#13 70.40  + click==8.5.0
+#13 70.40  + fastapi==0.142.2
+#13 70.40  + flatbuffers==25.12.19
+#13 70.40  + h11==0.16.0
+#13 70.40  + idna==3.20
+#13 70.40  + networkx==3.7
+#13 70.40  + numpy==2.5.3
+#13 70.40  + onnxruntime==1.30.0
+#13 70.40  + opentelemetry-api==1.45.0
+#13 70.40  + packaging==26.3
+#13 70.40  + protobuf==7.36.2
+#13 70.40  + psutil==7.2.2
+#13 70.40  + pydantic==2.13.5
+#13 70.40  + pydantic-core==2.46.5
+#13 70.40  + pymupdf==1.28.2
+#13 70.40  + pymupdf-layout==1.28.2
+#13 70.40  + pymupdf4llm==1.28.2
+#13 70.40  + pyyaml==6.0.3
+#13 70.40  + redis==8.1.0
+#13 70.40  + starlette==1.7.0
+#13 70.40  + tabulate==0.10.0
+#13 70.40  + typing-extensions==4.16.0
+#13 70.40  + typing-inspection==0.4.4
+#13 70.40  + uvicorn==0.54.0
+#13 DONE 74.2s
+
+#14 [runtime 3/5] COPY --from=builder /service/.venv /service/.venv
+#14 DONE 26.3s
+
+#15 [runtime 4/5] COPY app ./app
+#15 DONE 0.4s
+
+#16 [runtime 5/5] RUN useradd --no-create-home --uid 10001 extractor     && /usr/local/bin/python -m pip uninstall --yes pip     && rm -rf /usr/local/lib/python3.12/ensurepip
+#16 6.845 Found existing installation: pip 25.0.1
+#16 7.072 Uninstalling pip-25.0.1:
+#16 8.468   Successfully uninstalled pip-25.0.1
+#16 8.539 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#16 DONE 8.8s
+
+#17 exporting to image
+#17 exporting layers
+#17 exporting layers 6.8s done
+#17 writing image sha256:270996545c6b7466332354f8f47ff86320572a41f6c6dbc3f3d91fe54b5f416f 0.0s done
+#17 naming to docker.io/library/pdf-extractor-extractor 0.0s done
+#17 DONE 6.9s
+
+#18 resolving provenance for metadata file
+#18 DONE 0.2s
+ Image pdf-extractor-extractor Built 
+ Container pdf-extractor-redis-1 Running 
+ Container pdf-extractor-traefik-1 Running 
+ Container pdf-extractor-extractor-1 Recreate 
+ Container pdf-extractor-extractor-2 Recreate 
+ Container pdf-extractor-extractor-2 Recreated 
+ Container pdf-extractor-extractor-1 Recreated 
+ Container pdf-extractor-extractor-1 Starting 
+ Container pdf-extractor-extractor-1 Started 
+ Container pdf-extractor-extractor-2 Starting 
+ Container pdf-extractor-extractor-2 Started 
+ Container pdf-extractor-redis-1 Waiting 
+ Container pdf-extractor-traefik-1 Waiting 
+ Container pdf-extractor-extractor-1 Waiting 
+ Container pdf-extractor-extractor-2 Waiting 
+ Container pdf-extractor-redis-1 Healthy 
+ Container pdf-extractor-traefik-1 Healthy 
+ Container pdf-extractor-extractor-1 Healthy 
+ Container pdf-extractor-extractor-2 Healthy 
+Health: http://localhost:53701/health
+Extract: http://localhost:53701/extract
+Swagger (DOCS_ENABLED=true): http://localhost:53701/docs
+ReDoc: http://localhost:53701/redoc | OpenAPI: http://localhost:53701/openapi.json

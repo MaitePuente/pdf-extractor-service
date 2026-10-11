@@ -1,0 +1,28 @@
+ M Dockerfile
+ M README.md
+ M app/config.py
+ M app/main.py
+ M app/worker.py
+ M compose.yaml
+ M docs/performance.md
+A  scripts/start.sh
+ M tests/test_cache.py
+ M tests/test_responsiveness.py
+?? .gitattributes
+?? app/admission.py
+?? app/service.py
+?? app/singleflight.py
+?? docs/security.md
+?? scripts/check-host.ps1
+?? scripts/start.ps1
+?? tests/performance/profile_cold.py
+?? tests/performance/profile_http.py
+?? tests/performance/profile_network.py
+?? tests/performance/profile_transport.py
+?? tests/performance/singleflight.py
+?? tests/stress/results/architecture-security-20261007/
+?? tests/stress/results/optimization-cold-20261007/
+?? tests/test_admission.py
+?? tests/test_admission_lifecycle.py
+?? tests/test_openapi.py
+?? tests/test_singleflight.py

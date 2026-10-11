@@ -49,7 +49,7 @@ def test_empty_body_is_rejected():
         )
 
     assert response.status_code == 400
-    assert response.json() == {"detail": "PDF body must not be empty"}
+    assert response.json()["detail"] == "PDF body must not be empty"
 
 
 def test_non_pdf_body_is_rejected():
@@ -59,7 +59,7 @@ def test_non_pdf_body_is_rejected():
         )
 
     assert response.status_code == 400
-    assert response.json() == {"detail": "Body must start with %PDF"}
+    assert response.json()["detail"] == "Body must start with %PDF"
 
 
 @pytest.mark.parametrize(
@@ -71,7 +71,7 @@ def test_wrong_or_missing_content_type_is_rejected(content_type):
         response = client.post("/extract", content=make_pdf(), headers=headers)
 
     assert response.status_code == 415
-    assert response.json() == {"detail": "Content-Type must be application/pdf"}
+    assert response.json()["detail"] == "Content-Type must be application/pdf"
 
 
 def test_pdf_signature_alone_is_not_a_valid_pdf():
@@ -83,7 +83,7 @@ def test_pdf_signature_alone_is_not_a_valid_pdf():
         )
 
     assert response.status_code == 400
-    assert response.json() == {"detail": "Invalid PDF document"}
+    assert response.json()["detail"] == "Invalid PDF document"
 
 
 def test_password_protected_pdf_is_rejected():
@@ -99,7 +99,7 @@ def test_password_protected_pdf_is_rejected():
         )
 
     assert response.status_code == 400
-    assert response.json() == {"detail": "Password-protected PDFs are not supported"}
+    assert response.json()["detail"] == "Password-protected PDFs are not supported"
 
 
 def test_image_only_pdf_does_not_run_ocr():

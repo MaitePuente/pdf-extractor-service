@@ -1,0 +1,30 @@
+{
+    "stable_for_comparison":  false,
+    "policy":  "All samples \u003e=1024 MiB available; fewer than 2 samples \u003e100 page reads/s",
+    "samples":  [
+                    {
+                        "timestamp":  "2026-10-07T20:45:23.5108473Z",
+                        "available_mib":  533,
+                        "committed_percent":  89,
+                        "pages_per_second":  31927,
+                        "page_reads_per_second":  2355,
+                        "cpu_percent":  25
+                    },
+                    {
+                        "timestamp":  "2026-10-07T20:45:25.1656538Z",
+                        "available_mib":  494,
+                        "committed_percent":  89,
+                        "pages_per_second":  17215,
+                        "page_reads_per_second":  1466,
+                        "cpu_percent":  15
+                    },
+                    {
+                        "timestamp":  "2026-10-07T20:45:26.7559927Z",
+                        "available_mib":  466,
+                        "committed_percent":  89,
+                        "pages_per_second":  11915,
+                        "page_reads_per_second":  58,
+                        "cpu_percent":  32
+                    }
+                ]
+}

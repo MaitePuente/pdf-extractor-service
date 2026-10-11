@@ -1,7 +1,7 @@
 FROM ghcr.io/astral-sh/uv:0.11.6 AS uv
-FROM python:3.12-slim
+FROM python:3.12-slim AS builder
 
-COPY --from=uv /uv /usr/local/bin/uv
+COPY --from=uv /uv /tooling/uv
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -11,11 +11,21 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /service
 COPY pyproject.toml uv.lock ./
-RUN uv sync --locked --no-dev --no-install-project
+RUN /tooling/uv sync --locked --no-dev --no-install-project
+
+FROM python:3.12-slim AS runtime
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PATH="/service/.venv/bin:$PATH"
+WORKDIR /service
+# Native extensions and their interpreter remain on the same Python/OS ABI.
+COPY --from=builder /service/.venv /service/.venv
 
 COPY app ./app
-RUN useradd --create-home --uid 10001 extractor
+RUN useradd --no-create-home --uid 10001 extractor \
+    && /usr/local/bin/python -m pip uninstall --yes pip \
+    && rm -rf /usr/local/lib/python3.12/ensurepip
 USER extractor
 
 EXPOSE 8000
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "app.server"]

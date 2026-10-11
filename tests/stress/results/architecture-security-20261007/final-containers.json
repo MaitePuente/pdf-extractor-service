@@ -1,0 +1,54 @@
+[
+  {
+    "name": "/pdf-extractor-extractor-1",
+    "health": "healthy",
+    "oom": false,
+    "image": "sha256:4a887d0b831016001cf29b275896273829e39e4c384ab53efafdf5ebae46a779",
+    "redis_url": "redis://redis:6379/0",
+    "docs_enabled": "true",
+    "cpu": 1000000000,
+    "memory": 805306368,
+    "readonly": true,
+    "cap_drop": [
+      "ALL"
+    ]
+  },
+  {
+    "name": "/pdf-extractor-extractor-2",
+    "health": "healthy",
+    "oom": false,
+    "image": "sha256:4a887d0b831016001cf29b275896273829e39e4c384ab53efafdf5ebae46a779",
+    "redis_url": "redis://redis:6379/0",
+    "docs_enabled": "true",
+    "cpu": 1000000000,
+    "memory": 805306368,
+    "readonly": true,
+    "cap_drop": [
+      "ALL"
+    ]
+  },
+  {
+    "name": "/pdf-extractor-redis-1",
+    "health": "healthy",
+    "oom": false,
+    "image": "sha256:fdd7c467318565990fdbe9959d27f0977e295f799dffc36dd5814b03184adc1a",
+    "redis_url": null,
+    "docs_enabled": null,
+    "cpu": 500000000,
+    "memory": 268435456,
+    "readonly": false,
+    "cap_drop": null
+  },
+  {
+    "name": "/pdf-extractor-traefik-1",
+    "health": "healthy",
+    "oom": false,
+    "image": "sha256:ee0b3aaa56c3f593da2c7d67ebbdbc600155bf6be2c3cece8f7870db29714a88",
+    "redis_url": null,
+    "docs_enabled": null,
+    "cpu": 500000000,
+    "memory": 536870912,
+    "readonly": false,
+    "cap_drop": null
+  }
+]

@@ -1,0 +1,92 @@
+{
+  "url": "http://localhost:53701",
+  "purpose": "functional, no comparative timings",
+  "health": 200,
+  "docs": 200,
+  "redoc": 200,
+  "openapi.json": 200,
+  "replicas": [
+    {
+      "name": "/pdf-extractor-extractor-1",
+      "health": "healthy",
+      "oom": false,
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "cap_drop": [
+        "ALL"
+      ],
+      "read_only": true,
+      "memory": 805306368,
+      "nano_cpus": 1000000000,
+      "whoami": "extractor",
+      "id": "uid=10001(extractor) gid=10001(extractor) groups=10001(extractor)",
+      "runtime": {
+        "uid": 10001,
+        "python": "3.12.15 (main, Oct  6 2026, 02:02:22) [GCC 14.2.0]",
+        "shell": "/usr/bin/sh",
+        "pip": null,
+        "pip_module": false,
+        "uv": null,
+        "readonly": true,
+        "proc_status": "Name:\tuvicorn\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t1\nNgid:\t0\nPid:\t1\nPPid:\t0\nTracerPid:\t0\nUid:\t10001\t10001\t10001\t10001\nGid:\t10001\t10001\t10001\t10001\nFDSize:\t64\nGroups:\t10001 \nNStgid:\t1\nNSpid:\t1\nNSpgid:\t1\nNSsid:\t1\nKthread:\t0\nVmPeak:\t  608044 kB\nVmSize:\t  525188 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  220564 kB\nVmRSS:\t  184912 kB\nRssAnon:\t  156880 kB\nRssFile:\t   28032 kB\nRssShmem:\t       0 kB\nVmData:\t  209728 kB\nVmStk:\t     132 kB\nVmExe:\t       4 kB\nVmLib:\t   31412 kB\nVmPTE:\t     512 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t5\nSigQ:\t0/14333\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000100004002\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t0000000000000000\nCapAmb:\t0000000000000000\nNoNewPrivs:\t1\nSeccomp:\t2\nSeccomp_filters:\t2\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tfff\nCpus_allowed_list:\t0-11\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t2278\nnonvoluntary_ctxt_switches:\t417\n"
+      },
+      "global_pip": "None"
+    },
+    {
+      "name": "/pdf-extractor-extractor-2",
+      "health": "healthy",
+      "oom": false,
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "cap_drop": [
+        "ALL"
+      ],
+      "read_only": true,
+      "memory": 805306368,
+      "nano_cpus": 1000000000,
+      "whoami": "extractor",
+      "id": "uid=10001(extractor) gid=10001(extractor) groups=10001(extractor)",
+      "runtime": {
+        "uid": 10001,
+        "python": "3.12.15 (main, Oct  6 2026, 02:02:22) [GCC 14.2.0]",
+        "shell": "/usr/bin/sh",
+        "pip": null,
+        "pip_module": false,
+        "uv": null,
+        "readonly": true,
+        "proc_status": "Name:\tuvicorn\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t1\nNgid:\t0\nPid:\t1\nPPid:\t0\nTracerPid:\t0\nUid:\t10001\t10001\t10001\t10001\nGid:\t10001\t10001\t10001\t10001\nFDSize:\t64\nGroups:\t10001 \nNStgid:\t1\nNSpid:\t1\nNSpgid:\t1\nNSsid:\t1\nKthread:\t0\nVmPeak:\t  553740 kB\nVmSize:\t  536404 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  210628 kB\nVmRSS:\t  192964 kB\nRssAnon:\t  165444 kB\nRssFile:\t   27520 kB\nRssShmem:\t       0 kB\nVmData:\t  220944 kB\nVmStk:\t     132 kB\nVmExe:\t       4 kB\nVmLib:\t   31412 kB\nVmPTE:\t     540 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nuntag_mask:\t0xffffffffffffffff\nThreads:\t5\nSigQ:\t0/14333\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000100004002\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t0000000000000000\nCapAmb:\t0000000000000000\nNoNewPrivs:\t1\nSeccomp:\t2\nSeccomp_filters:\t2\nSpeculation_Store_Bypass:\tthread vulnerable\nSpeculationIndirectBranch:\tconditional enabled\nCpus_allowed:\tfff\nCpus_allowed_list:\t0-11\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t2468\nnonvoluntary_ctxt_switches:\t303\n"
+      },
+      "global_pip": "None"
+    }
+  ],
+  "pdf": {
+    "path": "D:\\INGENIERIA\\3er\\desarrollo de software\\pdf279hojas.pdf",
+    "bytes": 17749468,
+    "page_count": 279,
+    "sha256": "728c8a522ce24bf0ba3851cd109cdc0e55b200e3cd9b55b8343b39c005713162"
+  },
+  "responses": [
+    {
+      "status": 200,
+      "cache": "ERROR",
+      "audit": "architecture-functional-0",
+      "pages": 279,
+      "characters": 427008,
+      "text_sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc"
+    },
+    {
+      "status": 200,
+      "cache": "ERROR",
+      "audit": "architecture-functional-1",
+      "pages": 279,
+      "characters": 427008,
+      "text_sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc"
+    }
+  ],
+  "oversized_declared": {
+    "status": 413,
+    "body": "{\"detail\":\"PDF exceeds MAX_UPLOAD_MB\"}"
+  }
+}

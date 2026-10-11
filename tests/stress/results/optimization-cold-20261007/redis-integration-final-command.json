@@ -1,0 +1,15 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "pytest",
+    "--run-integration",
+    "-m",
+    "integration",
+    "-v",
+    "-s"
+  ],
+  "exit_code": 0,
+  "url": "http://localhost:53701"
+}

@@ -1,0 +1,6 @@
+FROM pdf-extractor-extractor AS installed
+FROM gcr.io/distroless/python3-debian13:nonroot
+COPY --from=installed /service/.venv/lib/python3.12/site-packages /deps
+ENV PYTHONPATH=/deps
+ENTRYPOINT ["/usr/bin/python3"]
+CMD ["-c", "import pymupdf; print('PyMuPDF import OK', flush=True); import fastapi; print('FastAPI import OK')"]

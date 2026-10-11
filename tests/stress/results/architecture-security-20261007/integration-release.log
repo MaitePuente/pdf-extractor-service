@@ -1,0 +1,13 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.2, pytest-9.1.1, pluggy-1.6.0 -- D:\INGENIERIA\3er\desarrollo de software\Proyecto\pdf-extractor-service\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\INGENIERIA\3er\desarrollo de software\Proyecto\pdf-extractor-service
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collecting ... collected 61 items / 60 deselected / 1 selected
+
+tests/integration/test_redis_compose.py::test_real_redis_miss_hit_and_ttl {"first": "MISS", "second": "HIT", "result": {"content": "## Página 1\n\nRedis integration 645166bd152d496380e07b6c5cdc3d04 page 1\n\n\n## Página 2\n\nRedis integration 645166bd152d496380e07b6c5cdc3d04 page 2\n", "page_count": 2}, "configured_ttl_seconds": 3600, "pttl_before_ms": 3599656, "pttl_after_ms": 3596831}
+PASSED
+
+====================== 1 passed, 60 deselected in 14.83s ======================

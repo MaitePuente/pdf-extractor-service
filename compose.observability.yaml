@@ -1,0 +1,34 @@
+# Optional diagnostics. Combine with compose.yaml and compose.traefik.yaml.
+services:
+  extractor:
+    environment:
+      METRICS_ENABLED: "true"
+
+  prometheus:
+    image: prom/prometheus:v3.13.1
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.retention.time=24h"]
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "127.0.0.1::9090"
+    networks: [pdf-network]
+    cpus: 0.5
+    mem_limit: 256m
+    security_opt: ["no-new-privileges:true"]
+
+  grafana:
+    image: grafana/grafana-oss:12.3.2
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./observability/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    ports:
+      - "127.0.0.1::3000"
+    networks: [pdf-network]
+    cpus: 0.5
+    mem_limit: 256m
+    security_opt: ["no-new-privileges:true"]
+

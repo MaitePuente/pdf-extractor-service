@@ -1,0 +1,4 @@
+INFO:     127.0.0.1:48504 - "GET /health HTTP/1.1" 200 OK
+INFO extractor.cache CACHE MISS
+PROFILE {"algorithm_ms": 996.5611989973695, "audit_id": "prime-miss-191100-000", "cache": "MISS", "cache_get_ms": 78.73770600417629, "cache_set_ms": 112.4594499997329, "checksum_ms": 65.16369200107874, "convert_ms": 928.3813099973486, "extraction_ms": 996.5611989973695, "get_text_ms": 884.0156530277454, "markdown_build_ms": 3.808369961916469, "open_ms": 61.71240499679698, "read_body_ms": 1142.134575995442, "receive_body_ms": 1142.134575995442, "redis_get_ms": 77.64895899890689, "response_build_ms": 1.0573179970378987, "response_object_ms": 0.03321199619676918, "route_ms": 7852.05903199676, "serialization_ms": 1.0573179970378987, "sha256_ms": 65.16369200107874, "status": 200, "total_server_ms": 7852.05903199676, "worker_ms": 6443.934486000217}
+INFO:     172.19.0.5:59912 - "POST /extract HTTP/1.1" 200 OK

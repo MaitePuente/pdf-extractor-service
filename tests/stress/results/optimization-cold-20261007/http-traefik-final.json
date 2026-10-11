@@ -1,0 +1,2318 @@
+{
+  "url": "http://127.0.0.1:53701",
+  "client": "Windows Python http.client; sequential keep-alive",
+  "args": {
+    "pdf": "D:\\INGENIERIA\\3er\\desarrollo de software\\pdf279hojas.pdf",
+    "url": "http://127.0.0.1:53701",
+    "cache": "BYPASS",
+    "repeat": 20,
+    "warmup": 4,
+    "output": "tests\\stress\\results\\optimization-cold-20261007",
+    "name": "http-traefik-final",
+    "health_probe": false
+  },
+  "pdf_bytes": 17749468,
+  "pdf_sha256": "728c8a522ce24bf0ba3851cd109cdc0e55b200e3cd9b55b8343b39c005713162",
+  "warmup": [
+    {
+      "audit_id": "http-traefik-final-190546-000",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 18094.1647,
+      "client_send_ms": 42.6101,
+      "wait_headers_ms": 18029.3296,
+      "response_read_ms": 22.225,
+      "server": {
+        "algorithm_ms": 931.8557970036636,
+        "audit_id": "http-traefik-final-190546-000",
+        "cache": "BYPASS",
+        "cache_get_ms": 11.04871199640911,
+        "checksum_ms": 43.53018900292227,
+        "convert_ms": 910.3231729968684,
+        "extraction_ms": 931.8557970036636,
+        "get_text_ms": 861.3604520287481,
+        "markdown_build_ms": 4.717617004644126,
+        "open_ms": 15.964299003826454,
+        "read_body_ms": 7607.472210002015,
+        "receive_body_ms": 7607.472210002015,
+        "redis_get_ms": 0,
+        "response_build_ms": 39.1602919989964,
+        "response_object_ms": 0.05974799569230527,
+        "route_ms": 16692.61924699822,
+        "serialization_ms": 39.1602919989964,
+        "sha256_ms": 43.53018900292227,
+        "status": 200,
+        "total_server_ms": 16692.61924699822,
+        "worker_ms": 8877.586866001366,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-001",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 7939.9785,
+      "client_send_ms": 12.2442,
+      "wait_headers_ms": 7866.7253,
+      "response_read_ms": 61.009,
+      "server": {
+        "algorithm_ms": 2562.371567997616,
+        "audit_id": "http-traefik-final-190546-001",
+        "cache": "BYPASS",
+        "cache_get_ms": 2.7335560007486492,
+        "checksum_ms": 17.263765003008302,
+        "convert_ms": 2457.4717659997987,
+        "extraction_ms": 2562.371567997616,
+        "get_text_ms": 2098.1751069775783,
+        "markdown_build_ms": 28.963144082808867,
+        "open_ms": 46.579762994952034,
+        "read_body_ms": 835.3592100029346,
+        "receive_body_ms": 835.3592100029346,
+        "redis_get_ms": 0,
+        "response_build_ms": 52.85610500141047,
+        "response_object_ms": 42.71574300219072,
+        "route_ms": 7179.372220001824,
+        "serialization_ms": 52.85610500141047,
+        "sha256_ms": 17.263765003008302,
+        "status": 200,
+        "total_server_ms": 7179.372220001824,
+        "worker_ms": 6269.7805569987395,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-002",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 5715.8533,
+      "client_send_ms": 7.2995,
+      "wait_headers_ms": 5693.9766,
+      "response_read_ms": 14.5772,
+      "server": {
+        "algorithm_ms": 2672.5585400054115,
+        "audit_id": "http-traefik-final-190546-002",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.4789000013261102,
+        "checksum_ms": 15.777090004121419,
+        "convert_ms": 2585.0710090016946,
+        "extraction_ms": 2672.5585400054115,
+        "get_text_ms": 2253.3058199624065,
+        "markdown_build_ms": 22.38287105865311,
+        "open_ms": 69.53130300098564,
+        "read_body_ms": 857.4008549985592,
+        "receive_body_ms": 857.4008549985592,
+        "redis_get_ms": 0,
+        "response_build_ms": 12.1911359965452,
+        "response_object_ms": 2.20173299749149,
+        "route_ms": 4995.490900997538,
+        "serialization_ms": 12.1911359965452,
+        "sha256_ms": 15.777090004121419,
+        "status": 200,
+        "total_server_ms": 4995.490900997538,
+        "worker_ms": 4108.833186000993,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-003",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 4037.5947,
+      "client_send_ms": 12.2676,
+      "wait_headers_ms": 4000.1104,
+      "response_read_ms": 25.2167,
+      "server": {
+        "algorithm_ms": 1872.9613049945328,
+        "audit_id": "http-traefik-final-190546-003",
+        "cache": "BYPASS",
+        "cache_get_ms": 4.466831996978726,
+        "checksum_ms": 12.848908998421393,
+        "convert_ms": 1742.0389159960905,
+        "extraction_ms": 1872.9613049945328,
+        "get_text_ms": 1439.807127979293,
+        "markdown_build_ms": 28.34199996868847,
+        "open_ms": 19.067567998718005,
+        "read_body_ms": 667.1149989997502,
+        "receive_body_ms": 667.1149989997502,
+        "redis_get_ms": 0,
+        "response_build_ms": 35.91937199962558,
+        "response_object_ms": 3.6180809984216467,
+        "route_ms": 3557.0328859976144,
+        "serialization_ms": 35.91937199962558,
+        "sha256_ms": 12.848908998421393,
+        "status": 200,
+        "total_server_ms": 3557.0328859976144,
+        "worker_ms": 2778.4345420004684,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    }
+  ],
+  "measured": [
+    {
+      "audit_id": "http-traefik-final-190546-004",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 4450.7483,
+      "client_send_ms": 16.1679,
+      "wait_headers_ms": 4424.9099,
+      "response_read_ms": 9.6705,
+      "server": {
+        "algorithm_ms": 1109.4840899968403,
+        "audit_id": "http-traefik-final-190546-004",
+        "cache": "BYPASS",
+        "cache_get_ms": 7.682209994527511,
+        "checksum_ms": 11.911909998161718,
+        "convert_ms": 1028.2707980004488,
+        "extraction_ms": 1109.4840899968403,
+        "get_text_ms": 793.788575923827,
+        "markdown_build_ms": 13.899742007197347,
+        "open_ms": 72.61858999845572,
+        "read_body_ms": 1489.286917996651,
+        "receive_body_ms": 1489.286917996651,
+        "redis_get_ms": 0,
+        "response_build_ms": 7.480954001948703,
+        "response_object_ms": 0.8600109940744005,
+        "route_ms": 3944.863536002231,
+        "serialization_ms": 7.480954001948703,
+        "sha256_ms": 11.911909998161718,
+        "status": 200,
+        "total_server_ms": 3944.863536002231,
+        "worker_ms": 2421.2060290010413,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-005",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 2657.3698,
+      "client_send_ms": 10.9672,
+      "wait_headers_ms": 2640.7786,
+      "response_read_ms": 5.624,
+      "server": {
+        "algorithm_ms": 1043.934666995483,
+        "audit_id": "http-traefik-final-190546-005",
+        "cache": "BYPASS",
+        "cache_get_ms": 2.6667839993024245,
+        "checksum_ms": 9.984497002733406,
+        "convert_ms": 1016.7612619989086,
+        "extraction_ms": 1043.934666995483,
+        "get_text_ms": 822.0544979267288,
+        "markdown_build_ms": 15.183427021838725,
+        "open_ms": 15.811787998245563,
+        "read_body_ms": 530.772446996707,
+        "receive_body_ms": 530.772446996707,
+        "redis_get_ms": 0,
+        "response_build_ms": 5.891307999263518,
+        "response_object_ms": 1.656784996157512,
+        "route_ms": 2399.9474860029295,
+        "serialization_ms": 5.891307999263518,
+        "sha256_ms": 9.984497002733406,
+        "status": 200,
+        "total_server_ms": 2399.9474860029295,
+        "worker_ms": 1845.9756029988057,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-006",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1421.1724,
+      "client_send_ms": 8.3529,
+      "wait_headers_ms": 1407.3008,
+      "response_read_ms": 5.5187,
+      "server": {
+        "algorithm_ms": 900.4671279981267,
+        "audit_id": "http-traefik-final-190546-006",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.25889799871947616,
+        "checksum_ms": 9.150707999651786,
+        "convert_ms": 893.5281459998805,
+        "extraction_ms": 900.4671279981267,
+        "get_text_ms": 795.3370270261075,
+        "markdown_build_ms": 14.511274959659204,
+        "open_ms": 1.140079999458976,
+        "read_body_ms": 261.57822999812197,
+        "receive_body_ms": 261.57822999812197,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.4825979960733093,
+        "response_object_ms": 0.10096700134454295,
+        "route_ms": 1263.8836929982062,
+        "serialization_ms": 1.4825979960733093,
+        "sha256_ms": 9.150707999651786,
+        "status": 200,
+        "total_server_ms": 1263.8836929982062,
+        "worker_ms": 988.0620919939247,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-007",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1938.1668,
+      "client_send_ms": 12.4278,
+      "wait_headers_ms": 1819.4589,
+      "response_read_ms": 106.2801,
+      "server": {
+        "algorithm_ms": 730.7196210022084,
+        "audit_id": "http-traefik-final-190546-007",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.1657390021136962,
+        "checksum_ms": 9.481698005401995,
+        "convert_ms": 714.5868080042419,
+        "extraction_ms": 730.7196210022084,
+        "get_text_ms": 642.5020570750348,
+        "markdown_build_ms": 15.905436979664955,
+        "open_ms": 0.739030001568608,
+        "read_body_ms": 788.6467659991467,
+        "receive_body_ms": 788.6467659991467,
+        "redis_get_ms": 0,
+        "response_build_ms": 2.627041998493951,
+        "response_object_ms": 0.12322200200287625,
+        "route_ms": 1635.7379689943627,
+        "serialization_ms": 2.627041998493951,
+        "sha256_ms": 9.481698005401995,
+        "status": 200,
+        "total_server_ms": 1635.7379689943627,
+        "worker_ms": 834.5500200011884,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-008",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1577.0317,
+      "client_send_ms": 4.5902,
+      "wait_headers_ms": 1562.5245,
+      "response_read_ms": 9.917,
+      "server": {
+        "algorithm_ms": 705.5492479994427,
+        "audit_id": "http-traefik-final-190546-008",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.4290730066713877,
+        "checksum_ms": 8.96318400191376,
+        "convert_ms": 693.8593499944545,
+        "extraction_ms": 705.5492479994427,
+        "get_text_ms": 648.3395359682618,
+        "markdown_build_ms": 5.363355972804129,
+        "open_ms": 5.64207200659439,
+        "read_body_ms": 604.892014998768,
+        "receive_body_ms": 604.892014998768,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.1425419943407178,
+        "response_object_ms": 0.17760499758878723,
+        "route_ms": 1411.8603219976649,
+        "serialization_ms": 1.1425419943407178,
+        "sha256_ms": 8.96318400191376,
+        "status": 200,
+        "total_server_ms": 1411.8603219976649,
+        "worker_ms": 795.1359279977623,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-009",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1778.3993,
+      "client_send_ms": 5.7367,
+      "wait_headers_ms": 1763.8263,
+      "response_read_ms": 8.8363,
+      "server": {
+        "algorithm_ms": 1121.8797649999033,
+        "audit_id": "http-traefik-final-190546-009",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.2757440015557222,
+        "checksum_ms": 9.008105997054372,
+        "convert_ms": 1114.8021580011118,
+        "extraction_ms": 1121.8797649999033,
+        "get_text_ms": 1010.4895330732688,
+        "markdown_build_ms": 5.6571979584987275,
+        "open_ms": 1.4475670031970367,
+        "read_body_ms": 248.68388600589242,
+        "receive_body_ms": 248.68388600589242,
+        "redis_get_ms": 0,
+        "response_build_ms": 0.9911879969877191,
+        "response_object_ms": 0.07695899694226682,
+        "route_ms": 1608.679321994714,
+        "serialization_ms": 0.9911879969877191,
+        "sha256_ms": 9.008105997054372,
+        "status": 200,
+        "total_server_ms": 1608.679321994714,
+        "worker_ms": 1349.1920300002676,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-010",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1508.8147,
+      "client_send_ms": 4.2673,
+      "wait_headers_ms": 1499.5389,
+      "response_read_ms": 5.0085,
+      "server": {
+        "algorithm_ms": 687.8418479973334,
+        "audit_id": "http-traefik-final-190546-010",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.16615999629721045,
+        "checksum_ms": 9.005248997709714,
+        "convert_ms": 677.6693149950006,
+        "extraction_ms": 687.8418479973334,
+        "get_text_ms": 608.5535659440211,
+        "markdown_build_ms": 6.159354001283646,
+        "open_ms": 0.4800120004802011,
+        "read_body_ms": 533.3931170025608,
+        "receive_body_ms": 533.3931170025608,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.2926609997521155,
+        "response_object_ms": 0.03303500125184655,
+        "route_ms": 1295.6131509999977,
+        "serialization_ms": 1.2926609997521155,
+        "sha256_ms": 9.005248997709714,
+        "status": 200,
+        "total_server_ms": 1295.6131509999977,
+        "worker_ms": 751.5829820040381,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-011",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1220.6704,
+      "client_send_ms": 10.1947,
+      "wait_headers_ms": 1183.1792,
+      "response_read_ms": 27.2965,
+      "server": {
+        "algorithm_ms": 613.8502510002581,
+        "audit_id": "http-traefik-final-190546-011",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.2233889972558245,
+        "checksum_ms": 10.176773001148831,
+        "convert_ms": 595.751927998208,
+        "extraction_ms": 613.8502510002581,
+        "get_text_ms": 540.5257379534305,
+        "markdown_build_ms": 6.407382010365836,
+        "open_ms": 0.7067090045893565,
+        "read_body_ms": 323.960312998679,
+        "receive_body_ms": 323.960312998679,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.6621260001556948,
+        "response_object_ms": 0.0651480004307814,
+        "route_ms": 1058.7955419978243,
+        "serialization_ms": 1.6621260001556948,
+        "sha256_ms": 10.176773001148831,
+        "status": 200,
+        "total_server_ms": 1058.7955419978243,
+        "worker_ms": 722.625741000229,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-012",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1417.4426,
+      "client_send_ms": 13.1077,
+      "wait_headers_ms": 1373.0242,
+      "response_read_ms": 31.3107,
+      "server": {
+        "algorithm_ms": 739.9266300053569,
+        "audit_id": "http-traefik-final-190546-012",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.8729460023459978,
+        "checksum_ms": 11.963324999669567,
+        "convert_ms": 725.1147380011389,
+        "extraction_ms": 739.9266300053569,
+        "get_text_ms": 649.920320000092,
+        "markdown_build_ms": 6.499898023321293,
+        "open_ms": 1.3304050007718615,
+        "read_body_ms": 427.1243949988275,
+        "receive_body_ms": 427.1243949988275,
+        "redis_get_ms": 0,
+        "response_build_ms": 11.571506998734549,
+        "response_object_ms": 0.0675530027365312,
+        "route_ms": 1305.9528119993047,
+        "serialization_ms": 11.571506998734549,
+        "sha256_ms": 11.963324999669567,
+        "status": 200,
+        "total_server_ms": 1305.9528119993047,
+        "worker_ms": 854.1277439944679,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-013",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1526.0551,
+      "client_send_ms": 5.6144,
+      "wait_headers_ms": 1441.0008,
+      "response_read_ms": 79.4399,
+      "server": {
+        "algorithm_ms": 610.437056995579,
+        "audit_id": "http-traefik-final-190546-013",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.26691699895309284,
+        "checksum_ms": 10.849569000129122,
+        "convert_ms": 599.7876869951142,
+        "extraction_ms": 610.437056995579,
+        "get_text_ms": 553.7734950266895,
+        "markdown_build_ms": 6.668932939646766,
+        "open_ms": 0.7908780025900342,
+        "read_body_ms": 453.81850699777715,
+        "receive_body_ms": 453.81850699777715,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.1507529998198152,
+        "response_object_ms": 0.03748300514416769,
+        "route_ms": 1259.4161840024753,
+        "serialization_ms": 1.1507529998198152,
+        "sha256_ms": 10.849569000129122,
+        "status": 200,
+        "total_server_ms": 1259.4161840024753,
+        "worker_ms": 793.1420870008878,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-014",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 2372.6747,
+      "client_send_ms": 5.5592,
+      "wait_headers_ms": 2359.8053,
+      "response_read_ms": 7.3102,
+      "server": {
+        "algorithm_ms": 1235.4977220020373,
+        "audit_id": "http-traefik-final-190546-014",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.25064100191229954,
+        "checksum_ms": 28.32893600134412,
+        "convert_ms": 1224.0788030030672,
+        "extraction_ms": 1235.4977220020373,
+        "get_text_ms": 1175.5079660360934,
+        "markdown_build_ms": 5.820199956360739,
+        "open_ms": 1.3323160019353963,
+        "read_body_ms": 541.2010639993241,
+        "receive_body_ms": 541.2010639993241,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.6299930066452362,
+        "response_object_ms": 0.032854004530236125,
+        "route_ms": 2151.3180190013372,
+        "serialization_ms": 1.6299930066452362,
+        "sha256_ms": 28.32893600134412,
+        "status": 200,
+        "total_server_ms": 2151.3180190013372,
+        "worker_ms": 1579.4382009989931,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-015",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1445.7752,
+      "client_send_ms": 8.5058,
+      "wait_headers_ms": 1430.0297,
+      "response_read_ms": 7.2397,
+      "server": {
+        "algorithm_ms": 764.2369870009134,
+        "audit_id": "http-traefik-final-190546-015",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.18875499517889693,
+        "checksum_ms": 14.8152920010034,
+        "convert_ms": 753.4431699968991,
+        "extraction_ms": 764.2369870009134,
+        "get_text_ms": 709.2686159739969,
+        "markdown_build_ms": 5.650840932503343,
+        "open_ms": 0.586205002036877,
+        "read_body_ms": 360.4500729998108,
+        "receive_body_ms": 360.4500729998108,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.2495449991547503,
+        "response_object_ms": 0.035068005672656,
+        "route_ms": 1312.5593500008108,
+        "serialization_ms": 1.2495449991547503,
+        "sha256_ms": 14.8152920010034,
+        "status": 200,
+        "total_server_ms": 1312.5593500008108,
+        "worker_ms": 935.3903219962376,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-016",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1326.0172,
+      "client_send_ms": 9.753,
+      "wait_headers_ms": 1311.1293,
+      "response_read_ms": 5.1349,
+      "server": {
+        "algorithm_ms": 810.296574003587,
+        "audit_id": "http-traefik-final-190546-016",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.3009370047948323,
+        "checksum_ms": 16.829776999657042,
+        "convert_ms": 791.7704159990535,
+        "extraction_ms": 810.296574003587,
+        "get_text_ms": 717.8708310166257,
+        "markdown_build_ms": 15.726296980574261,
+        "open_ms": 0.8943160064518452,
+        "read_body_ms": 290.6061870016856,
+        "receive_body_ms": 290.6061870016856,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.807047003239859,
+        "response_object_ms": 0.03235800249967724,
+        "route_ms": 1202.9659260006156,
+        "serialization_ms": 1.807047003239859,
+        "sha256_ms": 16.829776999657042,
+        "status": 200,
+        "total_server_ms": 1202.9659260006156,
+        "worker_ms": 893.1042969998089,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-017",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1453.5261,
+      "client_send_ms": 5.5654,
+      "wait_headers_ms": 1441.7343,
+      "response_read_ms": 6.2264,
+      "server": {
+        "algorithm_ms": 779.9853139949846,
+        "audit_id": "http-traefik-final-190546-017",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.17025800480041653,
+        "checksum_ms": 14.2473739979323,
+        "convert_ms": 763.3244059979916,
+        "extraction_ms": 779.9853139949846,
+        "get_text_ms": 712.0640389039181,
+        "markdown_build_ms": 12.442973966244608,
+        "open_ms": 1.0016579981311224,
+        "read_body_ms": 237.88646700268146,
+        "receive_body_ms": 237.88646700268146,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.586173995747231,
+        "response_object_ms": 0.033873002394102514,
+        "route_ms": 1318.1235209995066,
+        "serialization_ms": 1.586173995747231,
+        "sha256_ms": 14.2473739979323,
+        "status": 200,
+        "total_server_ms": 1318.1235209995066,
+        "worker_ms": 1064.0587210000376,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-018",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1282.4867,
+      "client_send_ms": 5.4545,
+      "wait_headers_ms": 1270.4147,
+      "response_read_ms": 6.6175,
+      "server": {
+        "algorithm_ms": 779.0576350016636,
+        "audit_id": "http-traefik-final-190546-018",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.18115100101567805,
+        "checksum_ms": 14.496344003418926,
+        "convert_ms": 771.9900760057499,
+        "extraction_ms": 779.0576350016636,
+        "get_text_ms": 718.8322999281809,
+        "markdown_build_ms": 8.517961105098948,
+        "open_ms": 0.5884369966224767,
+        "read_body_ms": 281.28319999814266,
+        "receive_body_ms": 281.28319999814266,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.071370003046468,
+        "response_object_ms": 0.03111799742328003,
+        "route_ms": 1158.4877019995474,
+        "serialization_ms": 1.071370003046468,
+        "sha256_ms": 14.496344003418926,
+        "status": 200,
+        "total_server_ms": 1158.4877019995474,
+        "worker_ms": 861.1811419978039,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-019",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1242.3774,
+      "client_send_ms": 8.4105,
+      "wait_headers_ms": 1228.6787,
+      "response_read_ms": 5.2882,
+      "server": {
+        "algorithm_ms": 713.2178360043326,
+        "audit_id": "http-traefik-final-190546-019",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.2859480009647086,
+        "checksum_ms": 11.381356001948006,
+        "convert_ms": 700.4672969997046,
+        "extraction_ms": 713.2178360043326,
+        "get_text_ms": 638.3694729884155,
+        "markdown_build_ms": 7.4290379852754995,
+        "open_ms": 0.9409830017830245,
+        "read_body_ms": 283.32091299671447,
+        "receive_body_ms": 283.32091299671447,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.2942190005560406,
+        "response_object_ms": 0.040440005250275135,
+        "route_ms": 1127.5660570026957,
+        "serialization_ms": 1.2942190005560406,
+        "sha256_ms": 11.381356001948006,
+        "status": 200,
+        "total_server_ms": 1127.5660570026957,
+        "worker_ms": 831.1354809993645,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-020",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 956.0102,
+      "client_send_ms": 7.4352,
+      "wait_headers_ms": 940.4045,
+      "response_read_ms": 8.1705,
+      "server": {
+        "algorithm_ms": 536.0211849983898,
+        "audit_id": "http-traefik-final-190546-020",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.24724299873923883,
+        "checksum_ms": 9.180614004435483,
+        "convert_ms": 527.660730003845,
+        "extraction_ms": 536.0211849983898,
+        "get_text_ms": 485.43128503661137,
+        "markdown_build_ms": 5.833590948896017,
+        "open_ms": 0.46077899605734274,
+        "read_body_ms": 247.4020110021229,
+        "receive_body_ms": 247.4020110021229,
+        "redis_get_ms": 0,
+        "response_build_ms": 0.8850489975884557,
+        "response_object_ms": 0.04333399556344375,
+        "route_ms": 863.1276589949266,
+        "serialization_ms": 0.8850489975884557,
+        "sha256_ms": 9.180614004435483,
+        "status": 200,
+        "total_server_ms": 863.1276589949266,
+        "worker_ms": 605.2116060018307,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-021",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1111.5902,
+      "client_send_ms": 11.6413,
+      "wait_headers_ms": 1096.0259,
+      "response_read_ms": 3.923,
+      "server": {
+        "algorithm_ms": 589.1845369988005,
+        "audit_id": "http-traefik-final-190546-021",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.25029300013557076,
+        "checksum_ms": 10.393869000836276,
+        "convert_ms": 580.5800999951316,
+        "extraction_ms": 589.1845369988005,
+        "get_text_ms": 531.3855679924018,
+        "markdown_build_ms": 7.552677001513075,
+        "open_ms": 0.8740170014789328,
+        "read_body_ms": 303.7780480008223,
+        "receive_body_ms": 303.7780480008223,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.5197489992715418,
+        "response_object_ms": 0.03860300057567656,
+        "route_ms": 1006.4629769985913,
+        "serialization_ms": 1.5197489992715418,
+        "sha256_ms": 10.393869000836276,
+        "status": 200,
+        "total_server_ms": 1006.4629769985913,
+        "worker_ms": 690.33699099964,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-022",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 880.6431,
+      "client_send_ms": 5.9056,
+      "wait_headers_ms": 859.3886,
+      "response_read_ms": 15.3489,
+      "server": {
+        "algorithm_ms": 484.8900280048838,
+        "audit_id": "http-traefik-final-190546-022",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.21633700089296326,
+        "checksum_ms": 9.524856999632902,
+        "convert_ms": 478.9879359959741,
+        "extraction_ms": 484.8900280048838,
+        "get_text_ms": 439.0366209845524,
+        "markdown_build_ms": 4.170658052316867,
+        "open_ms": 0.591809002798982,
+        "read_body_ms": 212.78324999730103,
+        "receive_body_ms": 212.78324999730103,
+        "redis_get_ms": 0,
+        "response_build_ms": 1.5213110018521547,
+        "response_object_ms": 0.030703995435032994,
+        "route_ms": 786.2105399981374,
+        "serialization_ms": 1.5213110018521547,
+        "sha256_ms": 9.524856999632902,
+        "status": 200,
+        "total_server_ms": 786.2105399981374,
+        "worker_ms": 561.9805199967232,
+        "instance": "pdf-extractor-extractor-2"
+      }
+    },
+    {
+      "audit_id": "http-traefik-final-190546-023",
+      "status": 200,
+      "cache": "BYPASS",
+      "characters": 427008,
+      "page_count": 279,
+      "sha256": "c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc",
+      "response_bytes": 454366,
+      "total_ms": 1372.7534,
+      "client_send_ms": 7.1217,
+      "wait_headers_ms": 1335.002,
+      "response_read_ms": 30.6297,
+      "server": {
+        "algorithm_ms": 581.3794089990552,
+        "audit_id": "http-traefik-final-190546-023",
+        "cache": "BYPASS",
+        "cache_get_ms": 0.16830999811645597,
+        "checksum_ms": 8.925884001655504,
+        "convert_ms": 573.219006000727,
+        "extraction_ms": 581.3794089990552,
+        "get_text_ms": 471.4807779819239,
+        "markdown_build_ms": 59.585410956060514,
+        "open_ms": 0.721992997569032,
+        "read_body_ms": 257.6157939984114,
+        "receive_body_ms": 257.6157939984114,
+        "redis_get_ms": 0,
+        "response_build_ms": 2.1379640020313673,
+        "response_object_ms": 0.02736100577749312,
+        "route_ms": 1103.4398570045596,
+        "serialization_ms": 2.1379640020313673,
+        "sha256_ms": 8.925884001655504,
+        "status": 200,
+        "total_server_ms": 1103.4398570045596,
+        "worker_ms": 834.4017799972789,
+        "instance": "pdf-extractor-extractor-1"
+      }
+    }
+  ],
+  "summary": {
+    "total_ms": {
+      "n": 20,
+      "min": 880.6431,
+      "p50": 1433.4738,
+      "p90": 2401.1442100000004,
+      "p95": 2747.0387250000013,
+      "max": 4450.7483
+    },
+    "client_send_ms": {
+      "n": 20,
+      "min": 4.2673,
+      "p50": 7.89405,
+      "p90": 12.495790000000001,
+      "p95": 13.260710000000001,
+      "max": 16.1679
+    },
+    "wait_headers_ms": {
+      "n": 20,
+      "min": 859.3886,
+      "p50": 1418.66525,
+      "p90": 2387.9026300000005,
+      "p95": 2729.9851650000014,
+      "max": 4424.9099
+    },
+    "response_read_ms": {
+      "n": 20,
+      "min": 3.923,
+      "p50": 7.74035,
+      "p90": 36.12362000000007,
+      "p95": 80.78191000000001,
+      "max": 106.2801
+    },
+    "receive_body_ms": {
+      "n": 20,
+      "min": 212.78324999730103,
+      "p50": 313.86918049975066,
+      "p90": 623.2674900988061,
+      "p95": 823.6787735990224,
+      "max": 1489.286917996651
+    },
+    "sha256_ms": {
+      "n": 20,
+      "min": 8.925884001655504,
+      "p50": 10.285321000992553,
+      "p90": 15.016740500868767,
+      "p95": 17.404734949741403,
+      "max": 28.32893600134412
+    },
+    "worker_ms": {
+      "n": 20,
+      "min": 561.9805199967232,
+      "p50": 844.3388819978281,
+      "p90": 1606.0919411989748,
+      "p95": 1874.737124298918,
+      "max": 2421.2060290010413
+    },
+    "algorithm_ms": {
+      "n": 20,
+      "min": 484.8900280048838,
+      "p50": 735.3231255037826,
+      "p90": 1110.7236574971466,
+      "p95": 1127.56066285001,
+      "max": 1235.4977220020373
+    },
+    "get_text_ms": {
+      "n": 20,
+      "min": 439.0366209845524,
+      "p50": 649.1299279841769,
+      "p90": 840.898001441383,
+      "p95": 1018.7404547214102,
+      "max": 1175.5079660360934
+    },
+    "markdown_build_ms": {
+      "n": 20,
+      "min": 4.170658052316867,
+      "p50": 7.048985462461133,
+      "p90": 15.74421098048333,
+      "p95": 18.089435678484765,
+      "max": 59.585410956060514
+    },
+    "serialization_ms": {
+      "n": 20,
+      "min": 0.8850489975884557,
+      "p50": 1.5205300005618483,
+      "p90": 6.050272599532039,
+      "p95": 7.685481651787998,
+      "max": 11.571506998734549
+    },
+    "total_server_ms": {
+      "n": 20,
+      "min": 786.2105399981374,
+      "p50": 1279.748421999102,
+      "p90": 2176.180965701497,
+      "p95": 2477.1932885028955,
+      "max": 3944.863536002231
+    },
+    "redis_get_ms": {
+      "n": 20,
+      "min": 0,
+      "p50": 0.0,
+      "p90": 0.0,
+      "p95": 0.0,
+      "max": 0
+    },
+    "worker_overhead_ms": {
+      "n": 20,
+      "min": 63.74113400670467,
+      "p50": 111.48830199454096,
+      "p90": 389.75052469759316,
+      "p95": 827.524986153367,
+      "max": 1311.721939004201
+    }
+  },
+  "distribution": {
+    "pdf-extractor-extractor-2": 10,
+    "pdf-extractor-extractor-1": 10
+  },
+  "health": [],
+  "resources": [
+    {
+      "at": "2026-10-07T19:05:48.749078+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"58.25%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"46.33%\",\"MemUsage\":\"355.8MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"409MB / 10.9MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"102.19%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"21.23%\",\"MemUsage\":\"163.1MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"17.8MB / 7.6kB\",\"PIDs\":\"3\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"41.91%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.49%\",\"MemUsage\":\"69.09MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.87GB / 2.41GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.77%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.88%\",\"MemUsage\":\"7.371MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:05:52.831457+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"0.26%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"46.33%\",\"MemUsage\":\"355.8MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"409MB / 10.9MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"106.83%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"20.89%\",\"MemUsage\":\"160.4MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"17.8MB / 7.6kB\",\"PIDs\":\"3\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"0.22%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"12.97%\",\"MemUsage\":\"66.39MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.87GB / 2.42GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.97%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.88%\",\"MemUsage\":\"7.363MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:05:57.208774+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"0.23%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"46.33%\",\"MemUsage\":\"355.8MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"409MB / 10.9MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"99.85%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"26.25%\",\"MemUsage\":\"201.6MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"17.8MB / 7.6kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"0.13%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"12.97%\",\"MemUsage\":\"66.38MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.87GB / 2.42GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.74%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.88%\",\"MemUsage\":\"7.363MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:01.618368+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"0.34%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"46.33%\",\"MemUsage\":\"355.8MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"409MB / 10.9MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"108.01%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"36.05%\",\"MemUsage\":\"276.9MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"17.8MB / 7.6kB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"0.00%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"12.97%\",\"MemUsage\":\"66.39MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.87GB / 2.42GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.86%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.89%\",\"MemUsage\":\"7.398MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:06.039213+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"101.89%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"46.33%\",\"MemUsage\":\"355.8MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"427MB / 10.9MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"43.10%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"41.92%\",\"MemUsage\":\"322MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"17.8MB / 463kB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"1.39%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"12.98%\",\"MemUsage\":\"66.46MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.89GB / 2.43GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"8.25%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.89%\",\"MemUsage\":\"7.398MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:10.440809+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"101.90%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"48.15%\",\"MemUsage\":\"369.8MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"427MB / 10.9MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"3.22%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"41.92%\",\"MemUsage\":\"322MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"17.8MB / 463kB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"33.95%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"12.99%\",\"MemUsage\":\"66.49MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.89GB / 2.43GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.64%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.78%\",\"MemUsage\":\"7.113MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:14.160306+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"2.71%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"46.45%\",\"MemUsage\":\"356.7MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"427MB / 11.4MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"101.53%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"41.99%\",\"MemUsage\":\"322.5MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"35.6MB / 470kB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"0.00%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"12.99%\",\"MemUsage\":\"66.51MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.91GB / 2.45GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.67%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.78%\",\"MemUsage\":\"7.113MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:18.777575+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"0.57%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"46.45%\",\"MemUsage\":\"356.7MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"427MB / 11.4MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"37.60%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"43.71%\",\"MemUsage\":\"335.7MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"35.6MB / 926kB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"0.15%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"12.99%\",\"MemUsage\":\"66.5MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.91GB / 2.45GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.64%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.88%\",\"MemUsage\":\"7.363MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:23.245400+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"107.54%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"48.38%\",\"MemUsage\":\"371.5MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"445MB / 11.8MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"67.71%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"43.23%\",\"MemUsage\":\"332MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"46.4MB / 931kB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"51.73%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.87%\",\"MemUsage\":\"71.01MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.93GB / 2.48GB\",\"PIDs\":\"20\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"1.38%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.78%\",\"MemUsage\":\"7.117MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:27.907808+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"32.51%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"47.10%\",\"MemUsage\":\"361.8MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"462MB / 11.8MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"0.25%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"43.15%\",\"MemUsage\":\"331.4MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"53.3MB / 1.39MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"16.03%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.46%\",\"MemUsage\":\"68.9MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"2.96GB / 2.51GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"10.21%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.92%\",\"MemUsage\":\"7.484MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:32.607650+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"91.08%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"46.81%\",\"MemUsage\":\"359.5MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"480MB / 12.7MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"110.99%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"43.89%\",\"MemUsage\":\"337.1MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"71.1MB / 1.85MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"1.43%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.34%\",\"MemUsage\":\"68.32MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"3GB / 2.54GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.62%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.78%\",\"MemUsage\":\"7.113MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:36.151218+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"85.26%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"46.93%\",\"MemUsage\":\"360.4MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"498MB / 13.2MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"0.39%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"43.16%\",\"MemUsage\":\"331.5MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"88.9MB / 2.31MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"19.56%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.26%\",\"MemUsage\":\"67.88MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"3.04GB / 2.58GB\",\"PIDs\":\"17\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.58%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.78%\",\"MemUsage\":\"7.113MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:40.524509+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"34.49%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"47.07%\",\"MemUsage\":\"361.5MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"534MB / 13.7MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"57.67%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"43.23%\",\"MemUsage\":\"332MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"124MB / 3.23MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"18.34%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.12%\",\"MemUsage\":\"67.19MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"3.11GB / 2.65GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"12.98%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.78%\",\"MemUsage\":\"7.113MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:44.117098+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"10.61%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"47.31%\",\"MemUsage\":\"363.4MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"539MB / 14.1MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"97.68%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"47.27%\",\"MemUsage\":\"363MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"142MB / 3.7MB\",\"PIDs\":\"7\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"6.37%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.22%\",\"MemUsage\":\"67.68MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"3.13GB / 2.68GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"1.42%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.78%\",\"MemUsage\":\"7.113MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:48.486960+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"93.91%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"47.39%\",\"MemUsage\":\"363.9MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"569MB / 14.6MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"16.18%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"45.76%\",\"MemUsage\":\"351.4MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"177MB / 4.18MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"15.03%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.08%\",\"MemUsage\":\"66.96MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"3.2GB / 2.74GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.76%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.88%\",\"MemUsage\":\"7.363MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:52.454511+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"56.09%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"47.61%\",\"MemUsage\":\"365.6MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"605MB / 15.6MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"36.85%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"45.91%\",\"MemUsage\":\"352.6MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"196MB / 5.12MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"12.48%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.01%\",\"MemUsage\":\"66.61MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"3.25GB / 2.8GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"0.64%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.78%\",\"MemUsage\":\"7.113MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    },
+    {
+      "at": "2026-10-07T19:06:56.862678+00:00",
+      "output": "{\"BlockIO\":\"49.2kB / 0B\",\"CPUPerc\":\"0.36%\",\"Container\":\"pdf-extractor-extractor-1\",\"ID\":\"ef8642e0c11c\",\"MemPerc\":\"47.78%\",\"MemUsage\":\"367MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-1\",\"NetIO\":\"622MB / 16.5MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"0B / 0B\",\"CPUPerc\":\"0.24%\",\"Container\":\"pdf-extractor-extractor-2\",\"ID\":\"f1d4361333ec\",\"MemPerc\":\"46.04%\",\"MemUsage\":\"353.6MiB / 768MiB\",\"Name\":\"pdf-extractor-extractor-2\",\"NetIO\":\"213MB / 5.59MB\",\"PIDs\":\"6\"}\n{\"BlockIO\":\"46.3MB / 0B\",\"CPUPerc\":\"0.00%\",\"Container\":\"pdf-extractor-traefik-1\",\"ID\":\"95b5df0935cc\",\"MemPerc\":\"13.01%\",\"MemUsage\":\"66.61MiB / 512MiB\",\"Name\":\"pdf-extractor-traefik-1\",\"NetIO\":\"3.29GB / 2.84GB\",\"PIDs\":\"16\"}\n{\"BlockIO\":\"17.4MB / 2.23MB\",\"CPUPerc\":\"4.99%\",\"Container\":\"pdf-extractor-redis-1\",\"ID\":\"e4d9cdd1ae20\",\"MemPerc\":\"2.85%\",\"MemUsage\":\"7.301MiB / 256MiB\",\"Name\":\"pdf-extractor-redis-1\",\"NetIO\":\"18MB / 194MB\",\"PIDs\":\"6\"}\n",
+      "error": "",
+      "code": 0
+    }
+  ],
+  "final_inspect": [
+    {
+      "Id": "ef8642e0c11c05c44879410f39e115f974b5f910a233ec565ecbe596d08264d7",
+      "Created": "2026-10-07T19:02:20.646269814Z",
+      "Path": "uvicorn",
+      "Args": [
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000"
+      ],
+      "State": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 609563,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-07T19:02:29.165523228Z",
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-07T19:05:57.730377389Z",
+              "End": "2026-10-07T19:05:58.354081721Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-07T19:06:11.084761272Z",
+              "End": "2026-10-07T19:06:12.163958125Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-07T19:06:22.179953669Z",
+              "End": "2026-10-07T19:06:24.064684285Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-07T19:06:36.52665999Z",
+              "End": "2026-10-07T19:06:37.727001518Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-07T19:06:47.729184979Z",
+              "End": "2026-10-07T19:06:48.603993828Z",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      },
+      "Image": "sha256:a20462a130c32c3cddfc0efb53897816e6e4ea41479a17fb2c9e9b60c7b38a70",
+      "ResolvConfPath": "/var/lib/docker/containers/ef8642e0c11c05c44879410f39e115f974b5f910a233ec565ecbe596d08264d7/resolv.conf",
+      "HostnamePath": "/var/lib/docker/containers/ef8642e0c11c05c44879410f39e115f974b5f910a233ec565ecbe596d08264d7/hostname",
+      "HostsPath": "/var/lib/docker/containers/ef8642e0c11c05c44879410f39e115f974b5f910a233ec565ecbe596d08264d7/hosts",
+      "LogPath": "/var/lib/docker/containers/ef8642e0c11c05c44879410f39e115f974b5f910a233ec565ecbe596d08264d7/ef8642e0c11c05c44879410f39e115f974b5f910a233ec565ecbe596d08264d7-json.log",
+      "Name": "/pdf-extractor-extractor-1",
+      "RestartCount": 0,
+      "Driver": "overlay2",
+      "Platform": "linux",
+      "MountLabel": "",
+      "ProcessLabel": "",
+      "AppArmorProfile": "",
+      "ExecIDs": null,
+      "HostConfig": {
+        "Binds": null,
+        "ContainerIDFile": "",
+        "LogConfig": {
+          "Type": "json-file",
+          "Config": {}
+        },
+        "NetworkMode": "pdf-network",
+        "PortBindings": {
+          "8000/tcp": [
+            {
+              "HostIp": "127.0.0.1",
+              "HostPort": ""
+            }
+          ]
+        },
+        "RestartPolicy": {
+          "Name": "no",
+          "MaximumRetryCount": 0
+        },
+        "AutoRemove": false,
+        "VolumeDriver": "",
+        "VolumesFrom": null,
+        "ConsoleSize": [
+          0,
+          0
+        ],
+        "CapAdd": null,
+        "CapDrop": null,
+        "CgroupnsMode": "private",
+        "Dns": null,
+        "DnsOptions": null,
+        "DnsSearch": null,
+        "ExtraHosts": [],
+        "GroupAdd": null,
+        "IpcMode": "private",
+        "Cgroup": "",
+        "Links": null,
+        "OomScoreAdj": 0,
+        "PidMode": "",
+        "Privileged": false,
+        "PublishAllPorts": false,
+        "ReadonlyRootfs": true,
+        "SecurityOpt": null,
+        "UTSMode": "",
+        "UsernsMode": "",
+        "ShmSize": 67108864,
+        "Runtime": "runc",
+        "Isolation": "",
+        "CpuShares": 0,
+        "Memory": 805306368,
+        "NanoCpus": 1000000000,
+        "CgroupParent": "",
+        "BlkioWeight": 0,
+        "BlkioWeightDevice": null,
+        "BlkioDeviceReadBps": null,
+        "BlkioDeviceWriteBps": null,
+        "BlkioDeviceReadIOps": null,
+        "BlkioDeviceWriteIOps": null,
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpuRealtimePeriod": 0,
+        "CpuRealtimeRuntime": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "Devices": null,
+        "DeviceCgroupRules": null,
+        "DeviceRequests": null,
+        "MemoryReservation": 0,
+        "MemorySwap": 1610612736,
+        "MemorySwappiness": null,
+        "OomKillDisable": null,
+        "PidsLimit": null,
+        "Ulimits": null,
+        "CpuCount": 0,
+        "CpuPercent": 0,
+        "IOMaximumIOps": 0,
+        "IOMaximumBandwidth": 0,
+        "MaskedPaths": [
+          "/proc/acpi",
+          "/proc/asound",
+          "/proc/interrupts",
+          "/proc/kcore",
+          "/proc/keys",
+          "/proc/latency_stats",
+          "/proc/sched_debug",
+          "/proc/scsi",
+          "/proc/timer_list",
+          "/proc/timer_stats",
+          "/sys/devices/virtual/powercap",
+          "/sys/firmware"
+        ],
+        "ReadonlyPaths": [
+          "/proc/bus",
+          "/proc/fs",
+          "/proc/irq",
+          "/proc/sys",
+          "/proc/sysrq-trigger"
+        ]
+      },
+      "GraphDriver": {
+        "Data": {
+          "ID": "ef8642e0c11c05c44879410f39e115f974b5f910a233ec565ecbe596d08264d7",
+          "LowerDir": "/var/lib/docker/overlay2/7ef515fac809cec18e83118843a14bb0e53a09eff6fb89acd0ae0910fc875586-init/diff:/var/lib/docker/overlay2/uohw8r1js83i2lpe0mwdz3ce9/diff:/var/lib/docker/overlay2/orr7oc3nnr0ikacppg3iq8s37/diff:/var/lib/docker/overlay2/9p9swrvtjwzh64gxx0i6v9318/diff:/var/lib/docker/overlay2/zzxzt5bu8lashvjlfoj7iybxp/diff:/var/lib/docker/overlay2/97ocw0nkrirmlhxrez9fuh391/diff:/var/lib/docker/overlay2/kisu4c3he5dfjnff28gsbj76a/diff:/var/lib/docker/overlay2/37ab73021754c5d238085fac1dde692a92325be5f1af971c841343a095e8f761/diff:/var/lib/docker/overlay2/e668d5f9ad9199ea6ae1e053f700f282d9a305f302cc83cfc0adaa55d592d650/diff:/var/lib/docker/overlay2/07314f367f9141ede844725debf40a6d68c120f275aad5550f7890b1c0c00adf/diff:/var/lib/docker/overlay2/65173487d91a997c73a00b55b61094777693032d2ac708243b328d297bf104d7/diff",
+          "MergedDir": "/var/lib/docker/overlay2/7ef515fac809cec18e83118843a14bb0e53a09eff6fb89acd0ae0910fc875586/merged",
+          "UpperDir": "/var/lib/docker/overlay2/7ef515fac809cec18e83118843a14bb0e53a09eff6fb89acd0ae0910fc875586/diff",
+          "WorkDir": "/var/lib/docker/overlay2/7ef515fac809cec18e83118843a14bb0e53a09eff6fb89acd0ae0910fc875586/work"
+        },
+        "Name": "overlay2"
+      },
+      "Mounts": [],
+      "Config": {
+        "Hostname": "ef8642e0c11c",
+        "Domainname": "",
+        "User": "extractor",
+        "AttachStdin": false,
+        "AttachStdout": true,
+        "AttachStderr": true,
+        "ExposedPorts": {
+          "8000/tcp": {}
+        },
+        "Tty": false,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Env": [
+          "CACHE_ENABLED=false",
+          "CACHE_TIMEOUT_SECONDS=0.2",
+          "CACHE_TTL_SECONDS=3600",
+          "REDIS_URL=redis://redis:6379/0",
+          "PATH=/service/.venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "LANG=C.UTF-8",
+          "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+          "PYTHON_VERSION=3.12.15",
+          "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a",
+          "PYTHONDONTWRITEBYTECODE=1",
+          "PYTHONUNBUFFERED=1",
+          "UV_LINK_MODE=copy",
+          "UV_PYTHON_DOWNLOADS=never"
+        ],
+        "Cmd": [
+          "uvicorn",
+          "app.main:app",
+          "--host",
+          "0.0.0.0",
+          "--port",
+          "8000"
+        ],
+        "Healthcheck": {
+          "Test": [
+            "CMD",
+            "python",
+            "-c",
+            "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2).close()"
+          ],
+          "Interval": 10000000000,
+          "Timeout": 3000000000,
+          "StartPeriod": 30000000000,
+          "Retries": 3
+        },
+        "Image": "pdf-extractor-extractor",
+        "Volumes": null,
+        "WorkingDir": "/service",
+        "Entrypoint": null,
+        "Labels": {
+          "com.docker.compose.config-hash": "b2b86108f4d06e1cad98bfcfc0b30b3bf655b3236492f4a4bf8fec0b5e641020",
+          "com.docker.compose.container-number": "1",
+          "com.docker.compose.depends_on": "",
+          "com.docker.compose.image": "sha256:a20462a130c32c3cddfc0efb53897816e6e4ea41479a17fb2c9e9b60c7b38a70",
+          "com.docker.compose.oneoff": "False",
+          "com.docker.compose.project": "pdf-extractor",
+          "com.docker.compose.project.config_files": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.yaml,D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.traefik.yaml,D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.performance.yaml,D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.direct-diagnostic.yaml",
+          "com.docker.compose.project.working_dir": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service",
+          "com.docker.compose.replace": "extractor-1",
+          "com.docker.compose.service": "extractor",
+          "com.docker.compose.version": "5.5.1",
+          "traefik.docker.network": "pdf-network",
+          "traefik.enable": "true",
+          "traefik.http.routers.pdf-markdown-extractor.entrypoints": "web",
+          "traefik.http.routers.pdf-markdown-extractor.rule": "Host(`localhost`)",
+          "traefik.http.routers.pdf-markdown-extractor.service": "pdf-markdown-extractor",
+          "traefik.http.routers.pdf-markdown-extractor.tls": "false",
+          "traefik.http.services.pdf-markdown-extractor.loadbalancer.server.port": "8000"
+        }
+      },
+      "NetworkSettings": {
+        "SandboxID": "4f567c90e9a16e7444b14a880b67bc7ae6a39a28c26fc0f7f7da90909e5777b7",
+        "SandboxKey": "/var/run/docker/netns/4f567c90e9a1",
+        "Ports": {
+          "8000/tcp": [
+            {
+              "HostIp": "127.0.0.1",
+              "HostPort": "50581"
+            }
+          ]
+        },
+        "Networks": {
+          "pdf-network": {
+            "IPAMConfig": null,
+            "Links": null,
+            "Aliases": [
+              "pdf-extractor-extractor-1",
+              "extractor"
+            ],
+            "DriverOpts": null,
+            "GwPriority": 0,
+            "NetworkID": "4d633c1d24f114c789accf9fe97d07f16c1044ab7024ca689fd40c20848a87ad",
+            "EndpointID": "4b435f18e977d19f5747e86d18714db5317dbfbfdb1e9fbfe889b287929c26d3",
+            "Gateway": "172.19.0.1",
+            "IPAddress": "172.19.0.4",
+            "MacAddress": "e2:ea:96:6a:e4:9e",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "DNSNames": [
+              "pdf-extractor-extractor-1",
+              "extractor",
+              "ef8642e0c11c"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "Id": "f1d4361333ec99981b606624e463429d7dc09cf06c81f02a41754af49e437c27",
+      "Created": "2026-10-07T19:02:20.646584915Z",
+      "Path": "uvicorn",
+      "Args": [
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000"
+      ],
+      "State": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 609495,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-07T19:02:27.769750939Z",
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-07T19:06:09.044324875Z",
+              "End": "2026-10-07T19:06:09.577116887Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-07T19:06:19.584225553Z",
+              "End": "2026-10-07T19:06:20.388538152Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-07T19:06:30.396575065Z",
+              "End": "2026-10-07T19:06:31.977325661Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-07T19:06:44.43294693Z",
+              "End": "2026-10-07T19:06:45.706445051Z",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-10-07T19:06:55.709706719Z",
+              "End": "2026-10-07T19:06:56.070505905Z",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      },
+      "Image": "sha256:a20462a130c32c3cddfc0efb53897816e6e4ea41479a17fb2c9e9b60c7b38a70",
+      "ResolvConfPath": "/var/lib/docker/containers/f1d4361333ec99981b606624e463429d7dc09cf06c81f02a41754af49e437c27/resolv.conf",
+      "HostnamePath": "/var/lib/docker/containers/f1d4361333ec99981b606624e463429d7dc09cf06c81f02a41754af49e437c27/hostname",
+      "HostsPath": "/var/lib/docker/containers/f1d4361333ec99981b606624e463429d7dc09cf06c81f02a41754af49e437c27/hosts",
+      "LogPath": "/var/lib/docker/containers/f1d4361333ec99981b606624e463429d7dc09cf06c81f02a41754af49e437c27/f1d4361333ec99981b606624e463429d7dc09cf06c81f02a41754af49e437c27-json.log",
+      "Name": "/pdf-extractor-extractor-2",
+      "RestartCount": 0,
+      "Driver": "overlay2",
+      "Platform": "linux",
+      "MountLabel": "",
+      "ProcessLabel": "",
+      "AppArmorProfile": "",
+      "ExecIDs": null,
+      "HostConfig": {
+        "Binds": null,
+        "ContainerIDFile": "",
+        "LogConfig": {
+          "Type": "json-file",
+          "Config": {}
+        },
+        "NetworkMode": "pdf-network",
+        "PortBindings": {
+          "8000/tcp": [
+            {
+              "HostIp": "127.0.0.1",
+              "HostPort": ""
+            }
+          ]
+        },
+        "RestartPolicy": {
+          "Name": "no",
+          "MaximumRetryCount": 0
+        },
+        "AutoRemove": false,
+        "VolumeDriver": "",
+        "VolumesFrom": null,
+        "ConsoleSize": [
+          0,
+          0
+        ],
+        "CapAdd": null,
+        "CapDrop": null,
+        "CgroupnsMode": "private",
+        "Dns": null,
+        "DnsOptions": null,
+        "DnsSearch": null,
+        "ExtraHosts": [],
+        "GroupAdd": null,
+        "IpcMode": "private",
+        "Cgroup": "",
+        "Links": null,
+        "OomScoreAdj": 0,
+        "PidMode": "",
+        "Privileged": false,
+        "PublishAllPorts": false,
+        "ReadonlyRootfs": true,
+        "SecurityOpt": null,
+        "UTSMode": "",
+        "UsernsMode": "",
+        "ShmSize": 67108864,
+        "Runtime": "runc",
+        "Isolation": "",
+        "CpuShares": 0,
+        "Memory": 805306368,
+        "NanoCpus": 1000000000,
+        "CgroupParent": "",
+        "BlkioWeight": 0,
+        "BlkioWeightDevice": null,
+        "BlkioDeviceReadBps": null,
+        "BlkioDeviceWriteBps": null,
+        "BlkioDeviceReadIOps": null,
+        "BlkioDeviceWriteIOps": null,
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpuRealtimePeriod": 0,
+        "CpuRealtimeRuntime": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "Devices": null,
+        "DeviceCgroupRules": null,
+        "DeviceRequests": null,
+        "MemoryReservation": 0,
+        "MemorySwap": 1610612736,
+        "MemorySwappiness": null,
+        "OomKillDisable": null,
+        "PidsLimit": null,
+        "Ulimits": null,
+        "CpuCount": 0,
+        "CpuPercent": 0,
+        "IOMaximumIOps": 0,
+        "IOMaximumBandwidth": 0,
+        "MaskedPaths": [
+          "/proc/acpi",
+          "/proc/asound",
+          "/proc/interrupts",
+          "/proc/kcore",
+          "/proc/keys",
+          "/proc/latency_stats",
+          "/proc/sched_debug",
+          "/proc/scsi",
+          "/proc/timer_list",
+          "/proc/timer_stats",
+          "/sys/devices/virtual/powercap",
+          "/sys/firmware"
+        ],
+        "ReadonlyPaths": [
+          "/proc/bus",
+          "/proc/fs",
+          "/proc/irq",
+          "/proc/sys",
+          "/proc/sysrq-trigger"
+        ]
+      },
+      "GraphDriver": {
+        "Data": {
+          "ID": "f1d4361333ec99981b606624e463429d7dc09cf06c81f02a41754af49e437c27",
+          "LowerDir": "/var/lib/docker/overlay2/ab98e9f394c680ea6cd2563885d1450e7f918d8b6d1f5f39c20fd7b83a997eef-init/diff:/var/lib/docker/overlay2/uohw8r1js83i2lpe0mwdz3ce9/diff:/var/lib/docker/overlay2/orr7oc3nnr0ikacppg3iq8s37/diff:/var/lib/docker/overlay2/9p9swrvtjwzh64gxx0i6v9318/diff:/var/lib/docker/overlay2/zzxzt5bu8lashvjlfoj7iybxp/diff:/var/lib/docker/overlay2/97ocw0nkrirmlhxrez9fuh391/diff:/var/lib/docker/overlay2/kisu4c3he5dfjnff28gsbj76a/diff:/var/lib/docker/overlay2/37ab73021754c5d238085fac1dde692a92325be5f1af971c841343a095e8f761/diff:/var/lib/docker/overlay2/e668d5f9ad9199ea6ae1e053f700f282d9a305f302cc83cfc0adaa55d592d650/diff:/var/lib/docker/overlay2/07314f367f9141ede844725debf40a6d68c120f275aad5550f7890b1c0c00adf/diff:/var/lib/docker/overlay2/65173487d91a997c73a00b55b61094777693032d2ac708243b328d297bf104d7/diff",
+          "MergedDir": "/var/lib/docker/overlay2/ab98e9f394c680ea6cd2563885d1450e7f918d8b6d1f5f39c20fd7b83a997eef/merged",
+          "UpperDir": "/var/lib/docker/overlay2/ab98e9f394c680ea6cd2563885d1450e7f918d8b6d1f5f39c20fd7b83a997eef/diff",
+          "WorkDir": "/var/lib/docker/overlay2/ab98e9f394c680ea6cd2563885d1450e7f918d8b6d1f5f39c20fd7b83a997eef/work"
+        },
+        "Name": "overlay2"
+      },
+      "Mounts": [],
+      "Config": {
+        "Hostname": "f1d4361333ec",
+        "Domainname": "",
+        "User": "extractor",
+        "AttachStdin": false,
+        "AttachStdout": true,
+        "AttachStderr": true,
+        "ExposedPorts": {
+          "8000/tcp": {}
+        },
+        "Tty": false,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Env": [
+          "REDIS_URL=redis://redis:6379/0",
+          "CACHE_ENABLED=false",
+          "CACHE_TIMEOUT_SECONDS=0.2",
+          "CACHE_TTL_SECONDS=3600",
+          "PATH=/service/.venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "LANG=C.UTF-8",
+          "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+          "PYTHON_VERSION=3.12.15",
+          "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a",
+          "PYTHONDONTWRITEBYTECODE=1",
+          "PYTHONUNBUFFERED=1",
+          "UV_LINK_MODE=copy",
+          "UV_PYTHON_DOWNLOADS=never"
+        ],
+        "Cmd": [
+          "uvicorn",
+          "app.main:app",
+          "--host",
+          "0.0.0.0",
+          "--port",
+          "8000"
+        ],
+        "Healthcheck": {
+          "Test": [
+            "CMD",
+            "python",
+            "-c",
+            "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2).close()"
+          ],
+          "Interval": 10000000000,
+          "Timeout": 3000000000,
+          "StartPeriod": 30000000000,
+          "Retries": 3
+        },
+        "Image": "pdf-extractor-extractor",
+        "Volumes": null,
+        "WorkingDir": "/service",
+        "Entrypoint": null,
+        "Labels": {
+          "com.docker.compose.config-hash": "b2b86108f4d06e1cad98bfcfc0b30b3bf655b3236492f4a4bf8fec0b5e641020",
+          "com.docker.compose.container-number": "2",
+          "com.docker.compose.depends_on": "",
+          "com.docker.compose.image": "sha256:a20462a130c32c3cddfc0efb53897816e6e4ea41479a17fb2c9e9b60c7b38a70",
+          "com.docker.compose.oneoff": "False",
+          "com.docker.compose.project": "pdf-extractor",
+          "com.docker.compose.project.config_files": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.yaml,D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.traefik.yaml,D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.performance.yaml,D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.direct-diagnostic.yaml",
+          "com.docker.compose.project.working_dir": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service",
+          "com.docker.compose.replace": "extractor-2",
+          "com.docker.compose.service": "extractor",
+          "com.docker.compose.version": "5.5.1",
+          "traefik.docker.network": "pdf-network",
+          "traefik.enable": "true",
+          "traefik.http.routers.pdf-markdown-extractor.entrypoints": "web",
+          "traefik.http.routers.pdf-markdown-extractor.rule": "Host(`localhost`)",
+          "traefik.http.routers.pdf-markdown-extractor.service": "pdf-markdown-extractor",
+          "traefik.http.routers.pdf-markdown-extractor.tls": "false",
+          "traefik.http.services.pdf-markdown-extractor.loadbalancer.server.port": "8000"
+        }
+      },
+      "NetworkSettings": {
+        "SandboxID": "925716b68285e0bf48dbe4f75789680b90fb29cc8b8fbc05fe2bdabc6484ecee",
+        "SandboxKey": "/var/run/docker/netns/925716b68285",
+        "Ports": {
+          "8000/tcp": [
+            {
+              "HostIp": "127.0.0.1",
+              "HostPort": "50579"
+            }
+          ]
+        },
+        "Networks": {
+          "pdf-network": {
+            "IPAMConfig": null,
+            "Links": null,
+            "Aliases": [
+              "pdf-extractor-extractor-2",
+              "extractor"
+            ],
+            "DriverOpts": null,
+            "GwPriority": 0,
+            "NetworkID": "4d633c1d24f114c789accf9fe97d07f16c1044ab7024ca689fd40c20848a87ad",
+            "EndpointID": "d7d7bdddace50ce3ee7e6f1f7c8f6da1184261742ee86cbf34aecf3de40ed9a7",
+            "Gateway": "172.19.0.1",
+            "IPAddress": "172.19.0.3",
+            "MacAddress": "8e:47:a3:4f:9c:05",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "DNSNames": [
+              "pdf-extractor-extractor-2",
+              "extractor",
+              "f1d4361333ec"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "Id": "e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135",
+      "Created": "2026-10-07T02:22:07.356741021Z",
+      "Path": "docker-entrypoint.sh",
+      "Args": [
+        "redis-server",
+        "--save",
+        "",
+        "--appendonly",
+        "no",
+        "--maxmemory",
+        "192mb",
+        "--maxmemory-policy",
+        "allkeys-lru"
+      ],
+      "State": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 4566,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-07T02:24:42.521781842Z",
+        "FinishedAt": "2026-10-07T02:24:32.983071359Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-07T19:06:32.705103465Z",
+              "End": "2026-10-07T19:06:33.073200257Z",
+              "ExitCode": 0,
+              "Output": "PONG\n"
+            },
+            {
+              "Start": "2026-10-07T19:06:40.435272527Z",
+              "End": "2026-10-07T19:06:40.802790363Z",
+              "ExitCode": 0,
+              "Output": "PONG\n"
+            },
+            {
+              "Start": "2026-10-07T19:06:45.805058254Z",
+              "End": "2026-10-07T19:06:45.969391786Z",
+              "ExitCode": 0,
+              "Output": "PONG\n"
+            },
+            {
+              "Start": "2026-10-07T19:06:50.972436638Z",
+              "End": "2026-10-07T19:06:51.06672017Z",
+              "ExitCode": 0,
+              "Output": "PONG\n"
+            },
+            {
+              "Start": "2026-10-07T19:06:56.071113208Z",
+              "End": "2026-10-07T19:06:56.1872963Z",
+              "ExitCode": 0,
+              "Output": "PONG\n"
+            }
+          ]
+        }
+      },
+      "Image": "sha256:fdd7c467318565990fdbe9959d27f0977e295f799dffc36dd5814b03184adc1a",
+      "ResolvConfPath": "/var/lib/docker/containers/e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135/resolv.conf",
+      "HostnamePath": "/var/lib/docker/containers/e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135/hostname",
+      "HostsPath": "/var/lib/docker/containers/e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135/hosts",
+      "LogPath": "/var/lib/docker/containers/e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135/e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135-json.log",
+      "Name": "/pdf-extractor-redis-1",
+      "RestartCount": 0,
+      "Driver": "overlay2",
+      "Platform": "linux",
+      "MountLabel": "",
+      "ProcessLabel": "",
+      "AppArmorProfile": "",
+      "ExecIDs": null,
+      "HostConfig": {
+        "Binds": null,
+        "ContainerIDFile": "",
+        "LogConfig": {
+          "Type": "json-file",
+          "Config": {}
+        },
+        "NetworkMode": "pdf-network",
+        "PortBindings": {},
+        "RestartPolicy": {
+          "Name": "no",
+          "MaximumRetryCount": 0
+        },
+        "AutoRemove": false,
+        "VolumeDriver": "",
+        "VolumesFrom": null,
+        "ConsoleSize": [
+          0,
+          0
+        ],
+        "CapAdd": null,
+        "CapDrop": null,
+        "CgroupnsMode": "private",
+        "Dns": null,
+        "DnsOptions": null,
+        "DnsSearch": null,
+        "ExtraHosts": [],
+        "GroupAdd": null,
+        "IpcMode": "private",
+        "Cgroup": "",
+        "Links": null,
+        "OomScoreAdj": 0,
+        "PidMode": "",
+        "Privileged": false,
+        "PublishAllPorts": false,
+        "ReadonlyRootfs": false,
+        "SecurityOpt": null,
+        "UTSMode": "",
+        "UsernsMode": "",
+        "ShmSize": 67108864,
+        "Runtime": "runc",
+        "Isolation": "",
+        "CpuShares": 0,
+        "Memory": 268435456,
+        "NanoCpus": 500000000,
+        "CgroupParent": "",
+        "BlkioWeight": 0,
+        "BlkioWeightDevice": null,
+        "BlkioDeviceReadBps": null,
+        "BlkioDeviceWriteBps": null,
+        "BlkioDeviceReadIOps": null,
+        "BlkioDeviceWriteIOps": null,
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpuRealtimePeriod": 0,
+        "CpuRealtimeRuntime": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "Devices": null,
+        "DeviceCgroupRules": null,
+        "DeviceRequests": null,
+        "MemoryReservation": 0,
+        "MemorySwap": 536870912,
+        "MemorySwappiness": null,
+        "OomKillDisable": null,
+        "PidsLimit": null,
+        "Ulimits": null,
+        "CpuCount": 0,
+        "CpuPercent": 0,
+        "IOMaximumIOps": 0,
+        "IOMaximumBandwidth": 0,
+        "MaskedPaths": [
+          "/proc/acpi",
+          "/proc/asound",
+          "/proc/interrupts",
+          "/proc/kcore",
+          "/proc/keys",
+          "/proc/latency_stats",
+          "/proc/sched_debug",
+          "/proc/scsi",
+          "/proc/timer_list",
+          "/proc/timer_stats",
+          "/sys/devices/virtual/powercap",
+          "/sys/firmware"
+        ],
+        "ReadonlyPaths": [
+          "/proc/bus",
+          "/proc/fs",
+          "/proc/irq",
+          "/proc/sys",
+          "/proc/sysrq-trigger"
+        ]
+      },
+      "GraphDriver": {
+        "Data": {
+          "ID": "e4d9cdd1ae203f71df8cfcbac893cdcd6fce95120db9d1a73defcad4558cd135",
+          "LowerDir": "/var/lib/docker/overlay2/59d5e5915498d56093cd4b677249c4154f9a64d87a4aec7dc1523dca573216a2-init/diff:/var/lib/docker/overlay2/029b37ff23414a7f4b416b6f2066e14df282358b9f1244c526c2f79a07d7f03b/diff:/var/lib/docker/overlay2/707413cf240b5dd2ef6fa7e4d00344f8f3d210912e7075566468caf53a5db947/diff:/var/lib/docker/overlay2/12e07a96db6b61246a7b4cc17eb3a90117a92b349408c580aa2a7fc196a61401/diff:/var/lib/docker/overlay2/b50d79c62bca1029d27a1d4ef3565ad8d0476f15d35803c55a09ea375fa20f50/diff:/var/lib/docker/overlay2/06d23c9bb9b4545465683c7ae926c659489526aa90ba66d8de7b025d97ad5716/diff:/var/lib/docker/overlay2/df5ed4cb9560a75c5f232b3accc94560fabf3d9df40b55426bff68b2987fbc6a/diff:/var/lib/docker/overlay2/f9fff4888d05e4eacfd1bbfd55d400aa1e945bc68c5d3b86e3cbaed403f1946d/diff",
+          "MergedDir": "/var/lib/docker/overlay2/59d5e5915498d56093cd4b677249c4154f9a64d87a4aec7dc1523dca573216a2/merged",
+          "UpperDir": "/var/lib/docker/overlay2/59d5e5915498d56093cd4b677249c4154f9a64d87a4aec7dc1523dca573216a2/diff",
+          "WorkDir": "/var/lib/docker/overlay2/59d5e5915498d56093cd4b677249c4154f9a64d87a4aec7dc1523dca573216a2/work"
+        },
+        "Name": "overlay2"
+      },
+      "Mounts": [
+        {
+          "Type": "volume",
+          "Name": "173b9aefea36581a7447441a6e1eeb388234bcc857177dfcd93dc2e280270c62",
+          "Source": "/var/lib/docker/volumes/173b9aefea36581a7447441a6e1eeb388234bcc857177dfcd93dc2e280270c62/_data",
+          "Destination": "/data",
+          "Driver": "local",
+          "Mode": "",
+          "RW": true,
+          "Propagation": ""
+        }
+      ],
+      "Config": {
+        "Hostname": "e4d9cdd1ae20",
+        "Domainname": "",
+        "User": "",
+        "AttachStdin": false,
+        "AttachStdout": true,
+        "AttachStderr": true,
+        "ExposedPorts": {
+          "6379/tcp": {}
+        },
+        "Tty": false,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "REDIS_VERSION=8.2.10"
+        ],
+        "Cmd": [
+          "redis-server",
+          "--save",
+          "",
+          "--appendonly",
+          "no",
+          "--maxmemory",
+          "192mb",
+          "--maxmemory-policy",
+          "allkeys-lru"
+        ],
+        "Healthcheck": {
+          "Test": [
+            "CMD",
+            "redis-cli",
+            "ping"
+          ],
+          "Interval": 5000000000,
+          "Timeout": 3000000000,
+          "StartPeriod": 5000000000,
+          "Retries": 5
+        },
+        "Image": "redis:8.2.10-alpine",
+        "Volumes": {
+          "/data": {}
+        },
+        "WorkingDir": "/data",
+        "Entrypoint": [
+          "docker-entrypoint.sh"
+        ],
+        "Labels": {
+          "com.docker.compose.config-hash": "06d528c9086325ca94955da06479a8cfcb77f34bafb7184bcdd1f6bfe3333659",
+          "com.docker.compose.container-number": "1",
+          "com.docker.compose.depends_on": "",
+          "com.docker.compose.image": "sha256:fdd7c467318565990fdbe9959d27f0977e295f799dffc36dd5814b03184adc1a",
+          "com.docker.compose.oneoff": "False",
+          "com.docker.compose.project": "pdf-extractor",
+          "com.docker.compose.project.config_files": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extactext\\microservices\\extractor\\compose.yaml",
+          "com.docker.compose.project.working_dir": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extactext\\microservices\\extractor",
+          "com.docker.compose.service": "redis",
+          "com.docker.compose.version": "5.5.1"
+        }
+      },
+      "NetworkSettings": {
+        "SandboxID": "ba9d44ff63c69b32be0de259cba398fe95a0266dae14d6c690b48862e9ffaed5",
+        "SandboxKey": "/var/run/docker/netns/ba9d44ff63c6",
+        "Ports": {
+          "6379/tcp": null
+        },
+        "Networks": {
+          "pdf-network": {
+            "IPAMConfig": null,
+            "Links": null,
+            "Aliases": [
+              "pdf-extractor-redis-1",
+              "redis"
+            ],
+            "DriverOpts": null,
+            "GwPriority": 0,
+            "NetworkID": "4d633c1d24f114c789accf9fe97d07f16c1044ab7024ca689fd40c20848a87ad",
+            "EndpointID": "8fc5dc1a7736f4260a2efdc1e4c542d75543d9f05be2a65f6521b1625ac510c3",
+            "Gateway": "172.19.0.1",
+            "IPAddress": "172.19.0.2",
+            "MacAddress": "56:3f:81:2e:ed:34",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "DNSNames": [
+              "pdf-extractor-redis-1",
+              "redis",
+              "e4d9cdd1ae20"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "Id": "95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e",
+      "Created": "2026-10-07T15:14:59.410355133Z",
+      "Path": "/entrypoint.sh",
+      "Args": [
+        "--providers.docker=true",
+        "--providers.docker.exposedbydefault=false",
+        "--providers.docker.network=pdf-network",
+        "--providers.docker.constraints=Label(`com.docker.compose.project`,`pdf-extractor`)",
+        "--entrypoints.web.address=:80",
+        "--accesslog=true",
+        "--accesslog.format=json",
+        "--accesslog.fields.headers.names.X-Audit-Id=keep",
+        "--log.level=INFO",
+        "--ping=true"
+      ],
+      "State": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 436695,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-10-07T15:15:05.096327659Z",
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-10-07T19:05:57.954152804Z",
+              "End": "2026-10-07T19:05:58.249601699Z",
+              "ExitCode": 0,
+              "Output": "OK: http://:8080/ping\n"
+            },
+            {
+              "Start": "2026-10-07T19:06:10.979805498Z",
+              "End": "2026-10-07T19:06:11.702549947Z",
+              "ExitCode": 0,
+              "Output": "OK: http://:8080/ping\n"
+            },
+            {
+              "Start": "2026-10-07T19:06:21.705506495Z",
+              "End": "2026-10-07T19:06:25.118914939Z",
+              "ExitCode": -1,
+              "Output": "Health check exceeded timeout (3s)"
+            },
+            {
+              "Start": "2026-10-07T19:06:37.582014521Z",
+              "End": "2026-10-07T19:06:39.922392356Z",
+              "ExitCode": 0,
+              "Output": "OK: http://:8080/ping\n"
+            },
+            {
+              "Start": "2026-10-07T19:06:49.924395748Z",
+              "End": "2026-10-07T19:06:50.232185333Z",
+              "ExitCode": 0,
+              "Output": "OK: http://:8080/ping\n"
+            }
+          ]
+        }
+      },
+      "Image": "sha256:ee0b3aaa56c3f593da2c7d67ebbdbc600155bf6be2c3cece8f7870db29714a88",
+      "ResolvConfPath": "/var/lib/docker/containers/95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e/resolv.conf",
+      "HostnamePath": "/var/lib/docker/containers/95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e/hostname",
+      "HostsPath": "/var/lib/docker/containers/95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e/hosts",
+      "LogPath": "/var/lib/docker/containers/95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e/95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e-json.log",
+      "Name": "/pdf-extractor-traefik-1",
+      "RestartCount": 0,
+      "Driver": "overlay2",
+      "Platform": "linux",
+      "MountLabel": "",
+      "ProcessLabel": "",
+      "AppArmorProfile": "",
+      "ExecIDs": null,
+      "HostConfig": {
+        "Binds": [
+          "/var/run/docker.sock:/var/run/docker.sock:ro"
+        ],
+        "ContainerIDFile": "",
+        "LogConfig": {
+          "Type": "json-file",
+          "Config": {}
+        },
+        "NetworkMode": "pdf-network",
+        "PortBindings": {
+          "80/tcp": [
+            {
+              "HostIp": "127.0.0.1",
+              "HostPort": ""
+            }
+          ]
+        },
+        "RestartPolicy": {
+          "Name": "no",
+          "MaximumRetryCount": 0
+        },
+        "AutoRemove": false,
+        "VolumeDriver": "",
+        "VolumesFrom": null,
+        "ConsoleSize": [
+          0,
+          0
+        ],
+        "CapAdd": null,
+        "CapDrop": null,
+        "CgroupnsMode": "private",
+        "Dns": null,
+        "DnsOptions": null,
+        "DnsSearch": null,
+        "ExtraHosts": [],
+        "GroupAdd": null,
+        "IpcMode": "private",
+        "Cgroup": "",
+        "Links": null,
+        "OomScoreAdj": 0,
+        "PidMode": "",
+        "Privileged": false,
+        "PublishAllPorts": false,
+        "ReadonlyRootfs": false,
+        "SecurityOpt": [
+          "no-new-privileges:true"
+        ],
+        "UTSMode": "",
+        "UsernsMode": "",
+        "ShmSize": 67108864,
+        "Runtime": "runc",
+        "Isolation": "",
+        "CpuShares": 0,
+        "Memory": 536870912,
+        "NanoCpus": 500000000,
+        "CgroupParent": "",
+        "BlkioWeight": 0,
+        "BlkioWeightDevice": null,
+        "BlkioDeviceReadBps": null,
+        "BlkioDeviceWriteBps": null,
+        "BlkioDeviceReadIOps": null,
+        "BlkioDeviceWriteIOps": null,
+        "CpuPeriod": 0,
+        "CpuQuota": 0,
+        "CpuRealtimePeriod": 0,
+        "CpuRealtimeRuntime": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "Devices": null,
+        "DeviceCgroupRules": null,
+        "DeviceRequests": null,
+        "MemoryReservation": 0,
+        "MemorySwap": 1073741824,
+        "MemorySwappiness": null,
+        "OomKillDisable": null,
+        "PidsLimit": null,
+        "Ulimits": null,
+        "CpuCount": 0,
+        "CpuPercent": 0,
+        "IOMaximumIOps": 0,
+        "IOMaximumBandwidth": 0,
+        "MaskedPaths": [
+          "/proc/acpi",
+          "/proc/asound",
+          "/proc/interrupts",
+          "/proc/kcore",
+          "/proc/keys",
+          "/proc/latency_stats",
+          "/proc/sched_debug",
+          "/proc/scsi",
+          "/proc/timer_list",
+          "/proc/timer_stats",
+          "/sys/devices/virtual/powercap",
+          "/sys/firmware"
+        ],
+        "ReadonlyPaths": [
+          "/proc/bus",
+          "/proc/fs",
+          "/proc/irq",
+          "/proc/sys",
+          "/proc/sysrq-trigger"
+        ]
+      },
+      "GraphDriver": {
+        "Data": {
+          "ID": "95b5df0935cca75b067a146e56a0d028e69ee9bfc10aeb1c1d101549924a4b6e",
+          "LowerDir": "/var/lib/docker/overlay2/5e345504e86c0cf8c360f950320fb1c649265c3d21028040dc759b238c2743f5-init/diff:/var/lib/docker/overlay2/b877c67af7779a39cc51c3e75b45cf5c8c144917f16f958f1ab3f274410a45c2/diff:/var/lib/docker/overlay2/fae701a16f0f15987bec6e102a99ec37ab6123453f99951e35639825acb4421a/diff:/var/lib/docker/overlay2/516fe02e31b92043d17822d39e588f2a7f75dea415a3eb3fa160132030558e0f/diff:/var/lib/docker/overlay2/16d09e02ddf4ac12f60e1abd6ff25179c8af4f863af5e257ea7915dc33fe91b4/diff",
+          "MergedDir": "/var/lib/docker/overlay2/5e345504e86c0cf8c360f950320fb1c649265c3d21028040dc759b238c2743f5/merged",
+          "UpperDir": "/var/lib/docker/overlay2/5e345504e86c0cf8c360f950320fb1c649265c3d21028040dc759b238c2743f5/diff",
+          "WorkDir": "/var/lib/docker/overlay2/5e345504e86c0cf8c360f950320fb1c649265c3d21028040dc759b238c2743f5/work"
+        },
+        "Name": "overlay2"
+      },
+      "Mounts": [
+        {
+          "Type": "bind",
+          "Source": "/var/run/docker.sock",
+          "Destination": "/var/run/docker.sock",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ],
+      "Config": {
+        "Hostname": "95b5df0935cc",
+        "Domainname": "",
+        "User": "",
+        "AttachStdin": false,
+        "AttachStdout": true,
+        "AttachStderr": true,
+        "ExposedPorts": {
+          "80/tcp": {}
+        },
+        "Tty": false,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        ],
+        "Cmd": [
+          "--providers.docker=true",
+          "--providers.docker.exposedbydefault=false",
+          "--providers.docker.network=pdf-network",
+          "--providers.docker.constraints=Label(`com.docker.compose.project`,`pdf-extractor`)",
+          "--entrypoints.web.address=:80",
+          "--accesslog=true",
+          "--accesslog.format=json",
+          "--accesslog.fields.headers.names.X-Audit-Id=keep",
+          "--log.level=INFO",
+          "--ping=true"
+        ],
+        "Healthcheck": {
+          "Test": [
+            "CMD",
+            "traefik",
+            "healthcheck",
+            "--ping"
+          ],
+          "Interval": 10000000000,
+          "Timeout": 3000000000,
+          "Retries": 3
+        },
+        "Image": "traefik:v3.6",
+        "Volumes": null,
+        "WorkingDir": "/",
+        "Entrypoint": [
+          "/entrypoint.sh"
+        ],
+        "Labels": {
+          "com.docker.compose.config-hash": "111c4922c7d79cf755f4135355c8ee07485745333c3a1b05d9a62a349ab91d86",
+          "com.docker.compose.container-number": "1",
+          "com.docker.compose.depends_on": "",
+          "com.docker.compose.image": "sha256:ee0b3aaa56c3f593da2c7d67ebbdbc600155bf6be2c3cece8f7870db29714a88",
+          "com.docker.compose.oneoff": "False",
+          "com.docker.compose.project": "pdf-extractor",
+          "com.docker.compose.project.config_files": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.yaml,D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service\\compose.traefik.yaml",
+          "com.docker.compose.project.working_dir": "D:\\INGENIERIA\\3er\\desarrollo de software\\Proyecto\\pdf-extractor-service",
+          "com.docker.compose.replace": "traefik-1",
+          "com.docker.compose.service": "traefik",
+          "com.docker.compose.version": "5.5.1",
+          "org.opencontainers.image.description": "A modern reverse-proxy",
+          "org.opencontainers.image.documentation": "https://docs.traefik.io",
+          "org.opencontainers.image.source": "https://github.com/traefik/traefik",
+          "org.opencontainers.image.title": "Traefik",
+          "org.opencontainers.image.url": "https://traefik.io",
+          "org.opencontainers.image.vendor": "Traefik Labs",
+          "org.opencontainers.image.version": "v3.6.25"
+        }
+      },
+      "NetworkSettings": {
+        "SandboxID": "57fa54254cf395000b1755a097bd6c996acd15131e2d1456115e89e6970b2d21",
+        "SandboxKey": "/var/run/docker/netns/57fa54254cf3",
+        "Ports": {
+          "80/tcp": [
+            {
+              "HostIp": "127.0.0.1",
+              "HostPort": "53701"
+            }
+          ]
+        },
+        "Networks": {
+          "pdf-network": {
+            "IPAMConfig": null,
+            "Links": null,
+            "Aliases": [
+              "pdf-extractor-traefik-1",
+              "traefik"
+            ],
+            "DriverOpts": null,
+            "GwPriority": 0,
+            "NetworkID": "4d633c1d24f114c789accf9fe97d07f16c1044ab7024ca689fd40c20848a87ad",
+            "EndpointID": "281f8d7c84f5d10aaf8477dc6e780ec7789fbcb12ad9a880f97459bb7753d806",
+            "Gateway": "172.19.0.1",
+            "IPAddress": "172.19.0.5",
+            "MacAddress": "fa:40:50:7c:fc:e8",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "DNSNames": [
+              "pdf-extractor-traefik-1",
+              "traefik",
+              "95b5df0935cc"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

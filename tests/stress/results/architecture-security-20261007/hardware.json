@@ -1,0 +1,11 @@
+{
+    "cpu":  [
+                {
+                    "Name":  "AMD Ryzen 5 4600H with Radeon Graphics         ",
+                    "NumberOfCores":  6,
+                    "NumberOfLogicalProcessors":  12
+                }
+            ],
+    "memory_bytes":  7907151872,
+    "os":  "Microsoft Windows 11 Home Single Language"
+}

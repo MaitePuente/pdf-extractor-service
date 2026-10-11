@@ -1,0 +1,7 @@
+existing: PASS
+missing: PASS
+failed: PASS
+unavailable: PASS
+Linux shell syntax + bootstrap control flow PASS (Docker calls simulated).
+
+EXIT=0
