@@ -47,6 +47,14 @@ def test_invalid_capacity_configuration_fails_startup(options):
         Settings(**options)
 
 
+def test_worker_startup_timeout_is_configurable(monkeypatch):
+    monkeypatch.setenv("WORKER_STARTUP_TIMEOUT_SECONDS", "90")
+    assert Settings.from_env().worker_startup_timeout_seconds == 90
+    monkeypatch.setenv("WORKER_STARTUP_TIMEOUT_SECONDS", "0")
+    with pytest.raises(ValueError):
+        Settings.from_env()
+
+
 def test_unavailable_worker_returns_503_not_overload_429():
     async def exercise():
         worker = ExtractionWorker()

@@ -21,6 +21,7 @@ class Settings(BaseModel):
     otel_exporter_otlp_endpoint: str = ""
     otel_sample_ratio: float = Field(default=0.05, ge=0, le=1, allow_inf_nan=False)
     graceful_shutdown_timeout_seconds: float = Field(default=30, gt=0, allow_inf_nan=False)
+    worker_startup_timeout_seconds: float = Field(default=60, gt=0, allow_inf_nan=False)
 
     @model_validator(mode="after")
     def check_capacity(self):

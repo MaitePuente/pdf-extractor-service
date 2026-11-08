@@ -237,6 +237,7 @@ dos valores. Los demás defaults están en [app/config.py](app/config.py).
 | `METRICS_ENABLED` / `OTEL_ENABLED` | `false` / `false` | Instrumentación opcional. |
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | vacío | Obligatorio al activar OTLP. |
 | `GRACEFUL_SHUTDOWN_TIMEOUT_SECONDS` | `30` | Drenaje; menor que los 35 s de Compose. |
+| `WORKER_STARTUP_TIMEOUT_SECONDS` | `60` | Tiempo máximo para iniciar el proceso extractor antes de declarar fallido el arranque. En un stack compartido, el healthcheck debe dar margen suficiente para el inicio completo. |
 
 Para medir extracción real sin caché, usar el overlay de benchmark documentado
 en [Rendimiento](docs/performance.md); no vaciar Redis ni confundir HIT con

@@ -25,6 +25,7 @@ services:
       OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-}
       OTEL_SAMPLE_RATIO: ${OTEL_SAMPLE_RATIO:-0.05}
       GRACEFUL_SHUTDOWN_TIMEOUT_SECONDS: ${GRACEFUL_SHUTDOWN_TIMEOUT_SECONDS:-30}
+      WORKER_STARTUP_TIMEOUT_SECONDS: ${WORKER_STARTUP_TIMEOUT_SECONDS:-60}
     cpus: 1.0
     mem_limit: 768m
     read_only: true
@@ -43,7 +44,7 @@ services:
       interval: 10s
       timeout: 3s
       retries: 3
-      start_period: 30s
+      start_period: 120s
 
   redis:
     image: redis:8.2.10-alpine

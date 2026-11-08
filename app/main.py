@@ -58,7 +58,7 @@ async def lifespan(app: FastAPI):
         # Spawn the extraction child once before the replica becomes ready.
         await asyncio.wait_for(
             asyncio.get_running_loop().run_in_executor(app.state.worker.pool, os.getpid),
-            timeout=15,
+            timeout=settings.worker_startup_timeout_seconds,
         )
         await cache.warmup()
         yield
