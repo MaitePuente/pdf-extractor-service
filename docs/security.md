@@ -40,7 +40,10 @@ El lock de singleflight protege sólo el diccionario, nunca la conversión.
 `asyncio.shield` separa la cancelación de un cliente de la tarea compartida.
 Cerrar la aplicación espera los trabajos pendientes hasta el plazo configurado
 antes de cerrar procesos y Redis; si vence, termina los hijos del pool. Una
-falla de worker devuelve 503; no hay reinicio automático del pool.
+falla de worker devolvía 503 en esa fase. En la implementación actual, un
+`BrokenProcessPool` irreversible marca readiness 503 y cierra el servidor con
+código 70; Compose local usa `restart: on-failure:3`. El pool no se reconstruye
+dentro del mismo proceso.
 Los límites pertenecen a cada réplica, no al conjunto de réplicas.
 
 ## Por qué estos defaults

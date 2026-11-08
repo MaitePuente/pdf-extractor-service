@@ -1,5 +1,26 @@
 # Rendimiento del microservicio extractor
 
+## Verificación actual de integración (2026-11-07)
+
+El código de `main`, incluida la recuperación del worker, pasó 91 tests
+(1 omitido), Ruff, build Docker y
+extracción real a través de Traefik en un entorno aislado. El PDF externo de
+17.749.468 bytes devolvió 279 páginas, 427.008 caracteres y SHA-256 UTF-8
+`c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc`
+tanto con `X-Cache: MISS` como con `X-Cache: HIT`. La recuperación real de una
+réplica tras matar un hijo devolvió exit code 70 y terminó con ambas réplicas
+healthy. Estas fueron verificaciones funcionales, **sin benchmark nuevo**.
+
+Se comprobó el flujo publicado cliente → Traefik → API Service → extractor →
+Document Service → MongoDB 7 en un proyecto Compose temporal: el PDF nuevo
+devolvió `source=extracted`, su repetición `source=existing`, y MongoDB guardó
+una sola entrada para el checksum. El perfil central de caché no llegó a un
+estado healthy: Dragonfly reinició porque su límite de 256 MiB no le alcanzó
+para iniciar. Esta limitación pertenece al Compose de infraestructura, no al
+algoritmo del extractor. El despliegue habitual se restauró con dos extractores,
+Redis y Traefik healthy. Las cifras de rendimiento de las secciones siguientes
+son históricas y no demuestran p95 HTTP actual menor de 400 ms.
+
 ## Estado local de observabilidad y cierre (2026-10-10)
 
 Se añadieron health separado, errores RFC 9457, correlación, métricas opcionales,

@@ -19,8 +19,8 @@ medición están en [Rendimiento](docs/performance.md).
 - **k6 y Vegeta:** perfiles de carga reproducibles, ejecutados por separado.
 - **Prometheus y OpenTelemetry:** observabilidad opcional, desactivada por defecto.
 
-PyMuPDF4LLM está fijado para reproducir experimentos anteriores; la ruta de
-producción no lo utiliza.
+PyMuPDF4LLM pertenece al grupo de desarrollo para reproducir experimentos
+anteriores; la ruta de producción no lo utiliza.
 
 ## Características principales
 
@@ -47,8 +47,9 @@ Document Service → persistencia propia
 El extractor valida el cuerpo, consulta Redis y, si no hay un resultado válido,
 convierte el PDF en un proceso `spawn`. Redis conserva sólo resultados exitosos
 con TTL; no es fuente de verdad. El contrato permite que el API Service envíe
-bytes `application/pdf` y consuma `content` y `page_count`; esa integración
-entre repositorios aún debe verificarse. El Document Service es
+bytes `application/pdf` y consuma `content` y `page_count`. El flujo integrado
+con API Service, Document Service y MongoDB 7 se comprobó en un entorno temporal;
+el perfil central de caché requiere corregir su arranque. El Document Service es
 responsable de persistir documentos y de su MongoDB; este repositorio no lo
 configura.
 
@@ -183,11 +184,16 @@ compartirla entre microservicios: Compose no la crea ni la elimina. El proxy de
 desarrollo publica un puerto libre en `127.0.0.1`; las réplicas no publican
 puertos directos en este modo.
 
-Para detener únicamente este proyecto, conservando la red:
+Para comprobar salud y una extracción con un PDF propio, o detener este stack
+sin eliminar sus contenedores:
 
 ```powershell
-docker compose -f compose.yaml -f compose.traefik.yaml down
+.\scripts\verify.ps1 -PdfPath 'C:\ruta\documento.pdf'
+.\scripts\stop.ps1
 ```
+
+En Linux se puede detener con `sh ./scripts/stop.sh`. La verificación acepta
+`-BaseUrl` para apuntar a un proxy de prueba; no envía el PDF a otros servicios.
 
 `compose.yaml` por sí solo ofrece una instancia directa y Redis, sin Traefik.
 Es una alternativa de desarrollo; `docker compose up --build` también requiere
@@ -204,11 +210,11 @@ El límite de 20 MiB del archivo no acota el tamaño del Markdown ni las copias
 en memoria; revisar `docker stats` antes de escalar. Los límites son por
 réplica, además de Redis y Traefik.
 
-Para integrarse con un Traefik común, éste debe unirse a `pdf-network`,
-descubrir las labels del proyecto y acordar con el equipo un host único,
-entrypoint y TLS. Las variables del overlay son `EXTRACTOR_HOST`,
-`EXTRACTOR_ENTRYPOINT` y `EXTRACTOR_TLS`. El proxy local está restringido al
-proyecto `pdf-extractor`; no descubre automáticamente los otros servicios.
+El despliegue común publicado por el equipo usa Consul Catalog y un registrador
+para descubrir las réplicas en `pdf-network`; ese Traefik central administra sus
+rutas y middlewares. Este overlay con labels y proxy local sirve para desarrollo
+independiente: no debe levantarse junto al Compose común. Sus variables son
+`EXTRACTOR_HOST`, `EXTRACTOR_ENTRYPOINT` y `EXTRACTOR_TLS`.
 
 ### Configuración
 
@@ -278,4 +284,5 @@ p95 HTTP actual menor que 400 ms.**
 - [Seguridad y admisión](docs/security.md): validaciones, memoria, cola y restricciones.
 - [Observabilidad](docs/observability.md): métricas, trazas, dashboard y Postman.
 - [Twelve-Factor](docs/twelve-factor.md): revisión de operación y despliegue.
+- [Guía de defensa](docs/defensa.md): arquitectura real, pruebas y responsabilidades.
 - [Colección Postman](tests/postman/pdf-extractor.postman_collection.json): pruebas manuales del contrato.
