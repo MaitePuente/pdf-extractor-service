@@ -6,11 +6,11 @@ Optional --stop-one stops and restores one extractor owned by this Compose proje
 
 import argparse
 from collections import Counter
-import hashlib
 import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import time
 import urllib.request
 import uuid
@@ -19,6 +19,10 @@ import pymupdf
 
 
 ROOT = Path(__file__).resolve().parents[2]
+if __package__ in (None, ""):
+    sys.path.insert(0, str(ROOT))
+
+from app.cache import ExtractionCache  # noqa: E402
 
 
 def command(*args):
@@ -30,6 +34,19 @@ def command(*args):
 
 def compose(*args):
     return command("docker", "compose", "-f", "compose.yaml", "-f", "compose.traefik.yaml", *args)
+
+
+def require_fresh_cache_key(body):
+    key = ExtractionCache.key(body)
+    if compose("exec", "-T", "redis", "redis-cli", "EXISTS", key) != "0":
+        raise RuntimeError("Refusing to delete a cache key that already exists")
+    return key
+
+
+def delete_test_cache_key(body, key):
+    if key != ExtractionCache.key(body):
+        raise RuntimeError("Cache key does not match this test PDF")
+    compose("exec", "-T", "redis", "redis-cli", "DEL", key)
 
 
 def inspect_replicas():
@@ -59,8 +76,7 @@ def main():
     with pymupdf.open() as doc:
         doc.new_page().insert_text((72, 100), "Shared cache " + token)
         body = doc.tobytes()
-    key = "extract:v1:" + hashlib.sha256(body).hexdigest()
-    compose("exec", "-T", "redis", "redis-cli", "DEL", key)
+    key = require_fresh_cache_key(body)
     observed = {}
     stopped = None
 
@@ -116,17 +132,19 @@ def main():
             "result": first,
         }, indent=2))
     finally:
-        if stopped:
-            command("docker", "start", stopped["Id"])
-            deadline = time.monotonic() + 120
-            while True:
-                health = json.loads(command("docker", "inspect", stopped["Id"]))[0]["State"]["Health"]["Status"]
-                if health == "healthy":
-                    break
-                if time.monotonic() > deadline:
-                    raise RuntimeError("Restored replica did not become healthy")
-                time.sleep(1)
-        compose("exec", "-T", "redis", "redis-cli", "DEL", key)
+        try:
+            if stopped:
+                command("docker", "start", stopped["Id"])
+                deadline = time.monotonic() + 120
+                while True:
+                    health = json.loads(command("docker", "inspect", stopped["Id"]))[0]["State"]["Health"]["Status"]
+                    if health == "healthy":
+                        break
+                    if time.monotonic() > deadline:
+                        raise RuntimeError("Restored replica did not become healthy")
+                    time.sleep(1)
+        finally:
+            delete_test_cache_key(body, key)
 
 
 if __name__ == "__main__":
