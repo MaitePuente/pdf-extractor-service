@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: pdf-extractor-service:0.1.0
     restart: on-failure:3
     environment:
       REDIS_URL: redis://redis:6379/0
