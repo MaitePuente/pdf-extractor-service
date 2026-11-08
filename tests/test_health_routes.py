@@ -23,6 +23,7 @@ def test_ready_reports_redis_outage_with_configured_policy(monkeypatch, required
     monkeypatch.setenv("READINESS_REDIS_REQUIRED", str(required))
     with TestClient(app) as client:
         response = client.get("/health/ready")
+        assert app.state.worker_broken is False
     assert response.status_code == expected
     assert response.json() == {"status": "degraded", "dependencies": {"redis": "unavailable"}}
 

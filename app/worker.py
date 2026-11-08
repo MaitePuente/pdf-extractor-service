@@ -3,6 +3,7 @@ import asyncio
 from concurrent.futures import ProcessPoolExecutor
 from concurrent.futures.process import BrokenProcessPool
 import multiprocessing
+import logging
 
 from fastapi import HTTPException
 
@@ -19,7 +20,7 @@ def convert_in_process(body: bytes) -> tuple[dict | None, int | None, str | None
 
 
 class ExtractionWorker:
-    def __init__(self, concurrency=1):
+    def __init__(self, concurrency=1, on_broken=None):
         # PyMuPDF explicitly does not support concurrent use from threads.
         self.pool = ProcessPoolExecutor(
             max_workers=concurrency, mp_context=multiprocessing.get_context("spawn")
@@ -27,8 +28,12 @@ class ExtractionWorker:
         self.concurrency = concurrency
         self.active = 0
         self._closing_processes = []
+        self.broken = False
+        self.on_broken = on_broken
 
     async def extract(self, body: bytes, *, profile=None) -> ExtractionResponse:
+        if self.broken:
+            raise HTTPException(503, "Extraction worker unavailable")
         if self.active >= self.concurrency:
             raise HTTPException(429, "CPU capacity exhausted", headers={"Retry-After": "1"})
         self.active += 1
@@ -36,15 +41,23 @@ class ExtractionWorker:
             future = asyncio.get_running_loop().run_in_executor(
                 self.pool, convert_in_process, body
             )
-        except (BrokenProcessPool, RuntimeError) as exc:
+        except BrokenProcessPool as exc:
+            self.active -= 1
+            self.mark_broken()
+            raise HTTPException(503, "Extraction worker unavailable") from exc
+        except RuntimeError as exc:
             self.active -= 1
             raise HTTPException(503, "Extraction worker unavailable") from exc
         except BaseException:
             self.active -= 1
             raise
 
-        def finished(_):
+        def finished(done):
             self.active -= 1
+            if not done.cancelled() and isinstance(done.exception(), BrokenProcessPool):
+                # A disconnected caller no longer awaits the future; the pool
+                # still needs to retire when that child fails.
+                self.mark_broken()
 
         # A disconnected client must not admit a second job while its first
         # conversion still runs. Cancellation does not cancel CPU work.
@@ -52,12 +65,23 @@ class ExtractionWorker:
         try:
             value, status, detail, timings = await asyncio.shield(future)
         except BrokenProcessPool as exc:
+            self.mark_broken()
             raise HTTPException(503, "Extraction worker unavailable") from exc
         if profile is not None:
             profile.update(timings)
         if status is not None:
             raise HTTPException(status_code=status, detail=detail)
         return ExtractionResponse.model_validate(value)
+
+    def mark_broken(self):
+        if self.broken:
+            return
+        self.broken = True
+        logging.getLogger("extractor.worker").critical(
+            "Irrecoverable BrokenProcessPool; retiring replica"
+        )
+        if self.on_broken is not None:
+            self.on_broken()
 
     async def close(self):
         self._closing_processes = list((self.pool._processes or {}).values())

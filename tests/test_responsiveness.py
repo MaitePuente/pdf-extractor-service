@@ -67,6 +67,8 @@ def test_distinct_conversion_is_rejected_when_cpu_queue_disabled(monkeypatch):
                     assert another.status_code == 429
                     assert another.headers["Retry-After"]
                     assert (await client.get("/health")).status_code == 200
+                    assert (await client.get("/health/ready")).status_code == 200
+                    assert app.state.worker_broken is False
                 finally:
                     result = await extracting
                 assert result.status_code == 200

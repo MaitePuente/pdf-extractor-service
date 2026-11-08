@@ -1,4 +1,5 @@
 import asyncio
+import os
 from contextlib import asynccontextmanager
 from time import perf_counter, monotonic
 from uuid import uuid4
@@ -28,12 +29,37 @@ async def lifespan(app: FastAPI):
     app.state.shutting_down = False
     app.state.shutdown_started = None
     app.state.cache = cache
-    app.state.worker = ExtractionWorker(settings.extraction_concurrency)
+    app.state.worker_broken = False
+
+    def on_broken():
+        if app.state.worker_broken:
+            return
+        app.state.worker_broken = True
+        app.state.shutting_down = True
+        app.state.shutdown_started = monotonic()
+
+        async def stop_after_drain():
+            deadline = monotonic() + 3
+            while app.state.service.requests.active and monotonic() < deadline:
+                await asyncio.sleep(0.02)
+            # Allow a bounded window for the readiness probe to observe 503.
+            await asyncio.sleep(1.5)
+            app.state.server.should_exit = True
+
+        if app.state.server is not None:
+            app.state.failure_exit_task = asyncio.create_task(stop_after_drain())
+
+    app.state.worker = ExtractionWorker(settings.extraction_concurrency, on_broken=on_broken)
     app.state.service = ExtractionService(settings, cache, app.state.worker, app.state.metrics, app.state.tracer)
     if app.state.metrics is not None:
         app.state.metrics.extraction_inflight.set_function(lambda: app.state.worker.active)
         app.state.metrics.queue_size.set_function(lambda: len(app.state.service.bodies.waiters) + len(app.state.service.cpu.waiters))
     try:
+        # Spawn the extraction child once before the replica becomes ready.
+        await asyncio.wait_for(
+            asyncio.get_running_loop().run_in_executor(app.state.worker.pool, os.getpid),
+            timeout=15,
+        )
         await cache.warmup()
         yield
     finally:
@@ -68,6 +94,11 @@ def live() -> dict[str, str]:
 
 
 async def ready(request: Request) -> JSONResponse:
+    if request.app.state.worker_broken:
+        return JSONResponse(
+            {"status": "unavailable", "dependencies": {"worker": "broken", "redis": "unknown"}},
+            status_code=503,
+        )
     if request.app.state.shutting_down:
         return JSONResponse({"status": "shutting_down", "dependencies": {"redis": "unknown"}}, status_code=503)
     cache = request.app.state.cache
@@ -87,6 +118,8 @@ async def ready(request: Request) -> JSONResponse:
 
 
 async def extract(request: Request, response: Response) -> ExtractionResponse:
+    if request.app.state.worker_broken:
+        raise HTTPException(503, "Extraction worker unavailable")
     if request.app.state.shutting_down:
         raise HTTPException(503, "Service is shutting down")
     metrics = request.app.state.metrics
@@ -204,6 +237,7 @@ def create_app():
     )
     application.router.route_class = ProfiledRoute
     application.add_middleware(RequestCorrelation)
+    application.state.server = None
     application.state.metrics = None
     if settings.metrics_enabled:
         from app.metrics import Metrics, MetricsMiddleware
@@ -225,7 +259,7 @@ def create_app():
     application.add_exception_handler(Exception, internal_problem)
     application.add_api_route("/health", health, methods=["GET"], tags=["Health"], summary="API liveness (not a Redis dependency check)")
     application.add_api_route("/health/live", live, methods=["GET"], tags=["Health"], summary="Process liveness without Redis")
-    application.add_api_route("/health/ready", ready, methods=["GET"], tags=["Health"], summary="Readiness with short Redis probe", responses={503: {"description": "Shutting down or required Redis unavailable"}})
+    application.add_api_route("/health/ready", ready, methods=["GET"], tags=["Health"], summary="Readiness with short Redis probe", responses={503: {"description": "Worker broken, shutting down or required Redis unavailable"}})
     problem_schema = {"type": "object", "required": ["type", "title", "status", "detail", "instance", "request_id"],
                       "properties": {"type": {"type": "string"}, "title": {"type": "string"}, "status": {"type": "integer"},
                                      "detail": {"type": "string"}, "instance": {"type": "string"}, "request_id": {"type": "string"}}}
