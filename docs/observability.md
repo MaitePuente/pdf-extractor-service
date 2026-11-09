@@ -1,5 +1,53 @@
 # Observabilidad y contratos operativos
 
+Las métricas y trazas descriptas aquí son opciones **del extractor**. No hay
+en este repositorio una plataforma de observabilidad central del equipo. El
+Compose común publicado identifica `api`, `documents` y `extractor`; un cuarto
+microservicio queda a confirmar. El factor XI de Twelve-Factor pide **logs
+emitidos como flujo de eventos** a stdout/stderr, que el entorno puede capturar.
+No equivale a disponer de Prometheus, Grafana ni trazas distribuidas.
+
+## Señales de cada servicio
+
+Esta comparación usa los `main` publicados de [API Service](https://github.com/Lourdesrizza/pdf-api-service/tree/e191097bba601efffe729b811ccbf872b483318b),
+[Document Service](https://github.com/angelina-magallanes/pdf-document-service/tree/b4fd3dfc5c2c98e0c8a6a227e04aea18892982db) y
+[la infraestructura](https://github.com/JeremiasRoda/pdf-infrastructure/tree/79370968d5e826b22c05198e53f2fccb9ccf893a),
+además del código local actual del extractor. Describe capacidades de código;
+el Compose común no estaba levantado en esta revisión.
+
+| Servicio | Logs y salud | IDs y señales adicionales |
+| --- | --- | --- |
+| API Service | Configura logs a stdout y Uvicorn; `/health` responde por el proceso, `/ready` consulta Extractor y Documents. | Genera o acepta `X-Request-ID`, lo devuelve y lo envía a ambos servicios. No se encontró endpoint de métricas ni instrumentación de trazas en su código publicado. |
+| Document Service | Logs de cada petición a stdout con duración; `/health/live` no consulta MongoDB y `/health` y `/health/ready` hacen `ping` a MongoDB. | Devuelve y registra `X-Request-ID`; acepta también `X-Audit-Id`. No se encontró endpoint de métricas ni instrumentación de trazas en su código publicado. |
+| Extractor | Uvicorn, eventos de caché, errores y perfilado a stdout; `/health`, `/health/live` y `/health/ready` distinguen vida, worker y estado degradado de Redis. | Devuelve `X-Request-ID` y `X-Audit-Id`. `/metrics` sólo existe con `METRICS_ENABLED=true`; los spans OTLP requieren `OTEL_ENABLED=true` y un colector externo. |
+
+Fuentes: [API: logs](https://github.com/Lourdesrizza/pdf-api-service/blob/e191097bba601efffe729b811ccbf872b483318b/app/main.py),
+[salud](https://github.com/Lourdesrizza/pdf-api-service/blob/e191097bba601efffe729b811ccbf872b483318b/app/routes.py),
+[correlación](https://github.com/Lourdesrizza/pdf-api-service/blob/e191097bba601efffe729b811ccbf872b483318b/app/clients/base.py);
+[Documents: logs e IDs](https://github.com/angelina-magallanes/pdf-document-service/blob/b4fd3dfc5c2c98e0c8a6a227e04aea18892982db/app/middleware.py),
+[salud](https://github.com/angelina-magallanes/pdf-document-service/blob/b4fd3dfc5c2c98e0c8a6a227e04aea18892982db/app/routes.py);
+extractor: `app/profiling.py`, `app/middleware.py`, `app/routes.py`,
+`app/metrics.py`, `app/tracing.py` y `compose.yaml`.
+
+Desde el Compose común se consultarían `docker compose -f
+docker-compose.integration.yml logs api documents extractor traefik registrator`,
+el dashboard de Traefik en `127.0.0.1:8080` y los checks de Consul en
+`127.0.0.1:8500`. Traefik escribe access logs, pero el Compose común no define
+un agregador de logs, un Prometheus para los tres servicios ni un colector de
+trazas. En el despliegue local del extractor, consultar `docker compose -f
+compose.yaml -f compose.traefik.yaml logs extractor redis traefik` y los health
+checks por el puerto publicado del proxy. El overlay opcional de esta guía
+consulta **sólo al extractor**. La correlación por ID entre API y servicios
+está implementada en los clientes, pero no equivale a tracing distribuido
+comprobado de punta a punta.
+
+El [Compose de integración común](https://github.com/JeremiasRoda/pdf-infrastructure/blob/79370968d5e826b22c05198e53f2fccb9ccf893a/docker-compose.integration.yml)
+fija `METRICS_ENABLED=true` **sólo para el extractor**, pero no define allí
+Prometheus, Grafana ni un colector OTLP. Exponer `/metrics` no demuestra que
+alguien lo esté consultando. En el Compose local del extractor, métricas y
+trazas están desactivadas por defecto; la observabilidad adicional se habilita
+de forma optativa y no cubre automáticamente al API ni a Documents.
+
 ## Prometheus y Grafana
 
 `METRICS_ENABLED=false` es el valor inicial: no se registra middleware de
@@ -33,8 +81,10 @@ requests/s, cuantiles HTTP, errores, 429/503, tiempos de extracción y body,
 cache hit ratio, inflight, cola y singleflight. CPU/RAM no se incluyen porque
 no hay exportador de contenedor; consultar `docker stats` separadamente.
 
-Este overlay y el endpoint no se ejecutaron en Docker en esta fase: el daemon
-no estaba activo. `docker compose config --quiet` sí validó la combinación.
+En la fase de octubre el daemon Docker no estaba activo, por lo que el overlay
+no se ejecutó entonces. Después se construyó y probó la imagen del extractor;
+el overlay Prometheus/Grafana sigue sin una verificación de arranque propia.
+`docker compose config --quiet` validó la combinación.
 Durante pruebas de competición dejar el overlay apagado y
 `METRICS_ENABLED=false` para evitar costo y alterar la comparación.
 

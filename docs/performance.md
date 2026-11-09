@@ -1,6 +1,43 @@
 # Rendimiento del microservicio extractor
 
-## Verificación actual de integración (2026-11-07)
+## Estado verificado tras ordenar los módulos (2026-11-09)
+
+La suite actual pasó **92 tests, 1 omitido**; Ruff, la validación de Compose y
+el build Docker aprobaron. La imagen resultante respondió `/health`,
+`/health/live` y `/health/ready` con HTTP 200. En un Compose aislado con dos
+extractores, Redis y Traefik sanos, el PDF externo de **17.749.468 bytes**
+devolvió HTTP 200, **279 páginas**, **427.008 caracteres** y SHA-256 UTF-8
+`c636e1997422a5a99c45dc6ff9f2d2228f062d1e432b2948b373aa4328c1cdbc`
+en MISS y HIT. Una prueba directa de la imagen, con caché desactivada, produjo
+el mismo resultado con `X-Cache: BYPASS`. Son verificaciones funcionales: **no
+se ejecutó un benchmark nuevo ni se demostró p95 HTTP menor de 400 ms**.
+En esa prueba directa, la primera espera automatizada de readiness agotó 30
+intentos; una consulta posterior respondió 200. El Compose aislado sí alcanzó
+el estado healthy. La investigación posterior se resume a continuación.
+
+### Diagnóstico de readiness en Windows (2026-11-09)
+
+Con la imagen actual, 1 CPU, 768 MiB y caché desactivada, Uvicorn completó el
+arranque **6,45 s** después de iniciar el contenedor. Sin embargo, 60 consultas
+con `Invoke-WebRequest` a `localhost`, plazo de 2 s y pausa de 1 s agotaron el
+plazo incluso después de estar listo el servicio. En condiciones equivalentes,
+consultar `127.0.0.1` obtuvo el primer HTTP 200 a los **6,69 s**. Windows
+resolvió `localhost` primero como `::1`, mientras Docker publicó el puerto
+directo sólo en `127.0.0.1`; la espera del cliente antes de probar IPv4 consumió
+aproximadamente 2 s. La causa reproducida de los intentos fallidos fue el
+cliente de prueba, no un bloqueo prolongado de readiness. El script original
+de 30 consultas no quedó guardado en el repositorio; esta conclusión se basa
+en una reproducción con los mismos parámetros conocidos.
+
+En Compose aislado, dos réplicas con 1 CPU y 768 MiB completaron el arranque
+a los **8,32 y 8,49 s** desde el inicio del contenedor; el primer healthcheck
+falló antes de que la app estuviera lista y el segundo pasó a los **11,75 y
+11,74 s**. El warm-up de Redis tardó **23,5 y 25,8 ms**. El Compose completo
+llegó a `healthy` en **13,57 s**. El contraste directo sin límites respondió
+por primera vez a los **5,58 s**, frente a **6,69 s** con límites; esa diferencia
+no explica 30 fallos consecutivos. No se modificó el código de producción.
+
+## Verificación de integración (2026-11-07)
 
 El código de `main`, incluida la recuperación del worker, pasó 91 tests
 (1 omitido), Ruff, build Docker y
@@ -21,16 +58,17 @@ algoritmo del extractor. El despliegue habitual se restauró con dos extractores
 Redis y Traefik healthy. Las cifras de rendimiento de las secciones siguientes
 son históricas y no demuestran p95 HTTP actual menor de 400 ms.
 
-## Estado local de observabilidad y cierre (2026-10-10)
+## Registro histórico de observabilidad y cierre (2026-10-10)
 
 Se añadieron health separado, errores RFC 9457, correlación, métricas opcionales,
 trazas OTLP opcionales, contrato Postman, shutdown con plazo y CI. No se cambió
 el algoritmo PyMuPDF blocks ni la lógica Redis, Traefik o los límites CPU/RAM.
-La suite actual pasó **79 tests, 1 skipped**; `ruff check .` aprobó. La
-integración Redis real y el build/arranque del contenedor siguen pendientes
-en esta versión porque Docker Desktop no expuso su daemon.
+En esa fecha, la suite pasó **79 tests, 1 skipped** y `ruff check .` aprobó. La
+integración Redis real y el build/arranque del contenedor no se ejecutaron en
+esa fase porque Docker Desktop no expuso su daemon. La verificación posterior
+del 7 de noviembre figura arriba.
 
-**EL HOST NO ESTÁ ESTABLE PARA BENCHMARK.** El guard actualizado registró
+**EN ESA MEDICIÓN EL HOST NO ESTABA ESTABLE PARA BENCHMARK.** El guard registró
 866/858/863 MiB de RAM disponible, inferior a los 1024 MiB exigidos, aunque
 el paging de esas tres muestras fue bajo (3/3/0 lecturas/s). Evidencia cruda:
 `tests/stress/results/observability-20261010/host-preflight.json`. Al comienzo
@@ -43,7 +81,7 @@ en un host sin presión de memoria y con Docker operativo; registrar baseline
 antes de adoptar una optimización. Los resultados que siguen son **históricos**
 y pertenecen a otras revisiones/condiciones.
 
-La configuración recomendada provisional conserva dos réplicas, una CPU y
+La configuración recomendada provisional en esa fase conservaba dos réplicas, una CPU y
 768 MiB cada una, `EXTRACTION_CONCURRENCY=1`, `MAX_IN_FLIGHT=4`,
 `QUEUE_SIZE=16`, Redis compartido y Traefik. Para medir p95 competitivo,
 dejar `METRICS_ENABLED=false` y `OTEL_ENABLED=false`. El ensayo de
@@ -64,8 +102,8 @@ y sus resultados históricos se conservan íntegros más abajo. No se mezclan
 extracción fría, CACHE HIT, extracción offline y cargas oficiales.
 
 La sección siguiente registra una fase de arquitectura posterior a ese cierre.
-Sus pendientes de validación corresponden al código local actual; los resultados
-de la entrega anterior no se trasladan automáticamente a esta versión.
+Sus pendientes de validación correspondían al código de esa fase; los resultados
+de la entrega anterior no se trasladaban automáticamente a esa versión.
 
 ## Arquitectura y seguridad (2026-10-07)
 
@@ -1086,7 +1124,8 @@ No se aplicaron estas tareas adicionales ni se subieron los cambios.
 
 Medición del 7 de octubre de 2026, aproximadamente 01:56–01:58 ART. Estado local
 de `main`, sin commits ni push. Evidencia nueva y separada en
-[`extractor-text-profile`](../tests/stress/results/extractor-text-profile/).
+`tests/stress/results/extractor-text-profile/` (carpeta local de esa fase,
+no incluida en este checkout).
 No se sobrescribieron las mediciones de `extractor-baseline` ni
 `extractor-profiling`. No se modificaron el monolito, sus scripts, el PDF, el
 Traefik funcional, sus límites ni las dependencias. No se ejecutaron Spike,
@@ -1431,7 +1470,8 @@ como máximo una extracción activa por réplica. Las pruebas funcionales de
 ocupado, salud y cancelación siguieron aprobadas.
 
 Evidencia local nueva, sin sobrescribir las fases anteriores:
-[`extractor-blocks-hot-cache`](../tests/stress/results/extractor-blocks-hot-cache/).
+`tests/stress/results/extractor-blocks-hot-cache/` (carpeta local de esa fase,
+no incluida en este checkout).
 Está ignorada por Git, igual que el resto de resultados de estrés.
 `algorithm.json`, dos salidas Markdown, summaries k6, logs de cada petición,
 recursos, perfiles API y access logs Traefik permiten revisar los resultados.
@@ -1685,7 +1725,8 @@ usa el mismo documento externo **17,749,468 bytes / 279 páginas**:
 SHA del archivo sin cambios:
 `728c8a522ce24bf0ba3851cd109cdc0e55b200e3cd9b55b8343b39c005713162`.
 Evidencia separada en
-[`extractor-docker-hot-cache`](../tests/stress/results/extractor-docker-hot-cache/).
+`tests/stress/results/extractor-docker-hot-cache/` (carpeta local de esa fase,
+no incluida en este checkout).
 Se conservan las fases anteriores; sus cifras no son ejecuciones nuevas.
 
 ### Recorrido, entorno y precarga sin borrar el caché existente
@@ -1921,7 +1962,8 @@ Dos obtuvo el menor p95 y demuestra balanceo real, con menos consumo agregado
 de memoria que tres/cinco. Cinco mejoró la mediana, pero empeoró el p95 en esa
 serie. El orden fijo y una corrida por cantidad no prueban una causa exclusiva
 de esa diferencia. Evidencia de la comparación:
-[`extractor-replica-variability`](../tests/stress/results/extractor-replica-variability/).
+`tests/stress/results/extractor-replica-variability/` (carpeta local de esa
+fase, no incluida en este checkout).
 
 ### Documento, cliente y preparación de las corridas finales
 
@@ -2068,7 +2110,8 @@ recrearlas ni ejecutar up; ps y la inspección efectiva verifican la cantidad,
 salud, límites y configuración. El comando up anterior es para iniciar/repetir.
 
 Evidencia nueva en
-[`extractor-final-validation`](../tests/stress/results/extractor-final-validation/):
+`tests/stress/results/extractor-final-validation/` (carpeta local de esa fase,
+no incluida en este checkout):
 `validation.json`, logs/summary por corrida, perfiles API, access logs Traefik,
 recursos, comandos/variables y script efímero por stdin en `*.execution.json`,
 logs completos de pytest e integración. Los resultados previos permanecen

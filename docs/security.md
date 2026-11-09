@@ -1,6 +1,6 @@
 # Arquitectura, límites y seguridad
 
-## Cambios locales de contrato (2026-10-10)
+## Registro histórico de cambios de contrato (2026-10-10)
 
 Las fallas públicas de extracción se serializan como RFC 9457
 `application/problem+json`; se conserva `detail` para clientes existentes y
@@ -11,9 +11,11 @@ en ambos headers. Las métricas sólo etiquetan método, ruta fija, status, esta
 de caché y razón de rechazo; no usan nombre, SHA ni request ID como labels.
 Las trazas son opcionales y no reciben bytes de PDF ni Markdown. El shutdown
 marca no-ready, rechaza nuevas conversiones y espera como máximo el plazo
-configurado antes de terminar los procesos propios del pool. Las pruebas
-unitarias de estos contratos pasaron; el stop real del contenedor y un escaneo
-de la imagen nueva están pendientes porque Docker Desktop no está disponible.
+configurado antes de terminar los procesos propios del pool. En esa fase
+pasaron las pruebas unitarias, pero Docker Desktop no estaba disponible.
+Posteriormente se construyó y probó la imagen en Docker, incluida la salida 70
+y el reinicio tras `BrokenProcessPool`. El drenaje de una extracción real ante
+`docker stop` y el escaneo de vulnerabilidades de la imagen siguen pendientes.
 
 ## Recorrido de una petición
 
@@ -74,9 +76,11 @@ en todos los comportamientos de transporte del proxy/cliente. No se cambió Trae
 ## Imagen y ejecución
 
 `Dockerfile` tiene tres etapas: uv 0.11.6, builder Python 3.12 y runtime Python
-3.12 slim. Sólo el builder ejecuta `uv sync --locked --no-dev --no-install-project`.
-El runtime copia `.venv`; no instala dependencias. En la construcción se elimina
-el pip global y `ensurepip`; uv no se copia. En la fase de arquitectura original
+3.12 slim. El builder instala dependencias con
+`uv sync --locked --no-dev --no-install-project`. El runtime copia `.venv`;
+no instala dependencias. Durante el build se invoca `pip` únicamente para
+desinstalarlo de la imagen final y luego se elimina `ensurepip`; uv no se copia.
+En la fase de arquitectura original
 `pyproject.toml` y `uv.lock` no cambiaron. En la fase local posterior se añadieron
 dependencias fijadas de Prometheus, OpenTelemetry y Ruff; el algoritmo y los
 límites del contenedor no cambiaron.

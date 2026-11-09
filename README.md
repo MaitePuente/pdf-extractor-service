@@ -38,10 +38,11 @@ anteriores; la ruta de producción no lo utiliza.
 ## Arquitectura
 
 ```text
-Cliente / API Service → Traefik → extractor (réplicas) → Redis
-                                  ↓
-                         proceso PyMuPDF
-Document Service → persistencia propia
+Cliente → Traefik local → extractor (réplicas) → Redis
+                            ↓
+                   proceso PyMuPDF
+API Service → extractor por la red compartida
+Document Service → persistencia propia, fuera del extractor
 ```
 
 El extractor valida el cuerpo, consulta Redis y, si no hay un resultado válido,
@@ -52,6 +53,12 @@ con API Service, Document Service y MongoDB 7 se comprobó en un entorno tempora
 el perfil central de caché requiere corregir su arranque. El Document Service es
 responsable de persistir documentos y de su MongoDB; este repositorio no lo
 configura.
+
+**Implementado:** extracción, caché y recuperación del worker en este servicio.
+**Probado:** tests, Redis real y extracción por Traefik con el PDF de 279 páginas
+en un entorno aislado. **Pendiente:** arranque de Dragonfly en la infraestructura
+común y demostrar p95 HTTP frío menor de 400 ms. Consul, los circuit breakers y
+los reintentos del Traefik común no se implementan en este repositorio.
 
 Cada réplica aplica sus propios límites de concurrencia. El trabajo compartido
 por SHA (`singleflight`) es local a una réplica: dos réplicas pueden convertir el
@@ -132,7 +139,7 @@ Al iniciar, se comprueba una vez que el proceso hijo puede arrancar. Un
 `BrokenProcessPool` irreversible retira la réplica, termina el servidor con
 código 70 tras un cierre acotado y Compose aplica `restart: on-failure:3`.
 Tras agotar los reintentos se requiere diagnóstico; pueden aparecer 502/503
-durante la transición: Traefik no tiene reintentos configurados. Compose
+durante la transición: el Traefik local no tiene reintentos configurados. Compose
 consulta `/health/ready` cada 10 segundos. Un 429, PDF inválido o fallo
 temporal de Redis no disparan este reinicio.
 
@@ -199,6 +206,8 @@ En Linux se puede detener con `sh ./scripts/stop.sh`. La verificación acepta
 Es una alternativa de desarrollo; `docker compose up --build` también requiere
 que exista `pdf-network`. La construcción independiente usa
 `docker build --tag pdf-extractor-service:0.1.0 .`.
+El Dockerfile instala dependencias con `uv` durante el build; usa `pip` sólo
+para quitarlo de la imagen final, sin instalar paquetes con él.
 
 | Servicio | CPU | Memoria | Nota |
 | --- | ---: | ---: | --- |

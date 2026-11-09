@@ -1,28 +1,39 @@
-# Auditoría Twelve-Factor del extractor
+# Twelve-Factor aplicado al extractor
 
-Estado del repositorio local; las verificaciones Docker de la fase de observabilidad y apagado siguen pendientes mientras Docker Desktop no responde. Redis es caché descartable, no fuente de verdad.
+Estado actual del repositorio. La aplicación extrae en memoria; Redis es una
+caché descartable y MongoDB pertenece a Document Service. La imagen del
+extractor, Redis real y Traefik local se probaron en Docker. La integración
+central y las mediciones de rendimiento tienen sus propios límites en
+[performance.md](performance.md).
 
-| Factor | Cómo se cumple | Evidencia | Pendiente o límite |
+| Factor | Implementado | Probado | Pendiente o límite |
 | --- | --- | --- | --- |
-| I. Codebase | Servicio en repositorio independiente, una imagen por revisión. | `pyproject.toml`, `Dockerfile` | No hay despliegue CI de una revisión publicada en esta fase. |
-| II. Dependencies | Dependencias declaradas y fijadas por `uv.lock`; imagen copia `.venv` del builder. | `pyproject.toml`, `uv.lock`, `Dockerfile` | Reconstruir imagen con Docker operativo. |
-| III. Config | Redis, límites, caché, health, métricas, trazas y drain se configuran por entorno. | `app/config.py`, `compose.yaml` | Los secretos de Redis deben entregarse por variables del entorno externo; no versionarlos. |
-| IV. Backing services | Redis se conecta por URL y falla en modo abierto. | `app/cache.py`, `app/main.py` | Verificar integración Redis real de esta versión. |
-| V. Build, release, run | Docker multi-stage separa builder/runtime. | `Dockerfile` | No hay release automatizada ni imagen publicada; el equipo debe fijar etiqueta y proceso de publicación. |
-| VI. Processes | API sin estado de archivo; PyMuPDF trabaja en procesos `spawn`; caché compartida en Redis. | `app/worker.py`, `app/service.py` | Singleflight es local por réplica, no distribuido. |
-| VII. Port binding | Uvicorn escucha 8000; Traefik publica puerto dinámico en localhost. | `app/server.py`, `compose.traefik.yaml` | Red externa `pdf-network` debe existir antes del Compose manual. |
-| VIII. Concurrency | Réplicas Compose y gates de admisión/cuerpo/CPU. | `compose.yaml`, `app/admission.py` | Comparación de 2/3/5 réplicas y CPU 1/2 pospuesta por host inestable. |
-| IX. Disposability | Señal de salida marca no-ready, rechaza nuevas extracciones y espera hasta deadline; cierra worker y Redis. | `app/server.py`, `app/main.py`, `app/worker.py`, `compose.yaml`, `tests/test_shutdown.py` | Parada real con `docker stop`, drain de petición real y ausencia de hijos zombie no verificados sin Docker. |
-| X. Dev/prod parity | Mismo Dockerfile y overlays Compose; Redis y Traefik locales reales. | `compose.yaml`, `compose.traefik.yaml` | No hay plataforma de producción ni prueba de paridad de recursos. |
-| XI. Logs | Eventos y profiling a stdout; IDs de correlación. | `app/profiling.py`, `app/problems.py` | No existe agregador central; deben protegerse logs y credenciales de infraestructura. |
-| XII. Admin processes | `uv run --locked pytest`, scripts de arranque y comandos Compose. | `scripts/start.ps1`, `scripts/start.sh`, `README.md` | No hay migraciones ni tareas administrativas de base de datos, porque no se persiste. |
+| I. Codebase | Servicio en repositorio independiente. | `main` y sus revisiones están en Git. | Acordar con el equipo el commit de cada despliegue. |
+| II. Dependencies | `pyproject.toml` y `uv.lock`; el builder instala con `uv` y el runtime copia `.venv`. | Build Docker con lock. | No hay escaneo de vulnerabilidades verificado. |
+| III. Config | Redis, caché, límites, health, métricas, trazas y cierre leen variables de entorno. | Tests de configuración y Compose. | Secretos del entorno común fuera del repositorio. |
+| IV. Backing services | Redis por URL con política fail-open. | Integración real MISS/HIT y TTL en Compose local. | El perfil Dragonfly del Compose común no arrancó con 256 MiB en la prueba anterior. |
+| V. Build, release, run | Docker multi-stage e imagen local etiquetada `pdf-extractor-service:0.1.0`. | Build y ejecución aislada. | No hay publicación de imagen en un registry ni release automatizada comprobada. |
+| VI. Processes | API sin archivos persistidos; PyMuPDF en procesos `spawn`. | Extracción y recuperación real ante `BrokenProcessPool`. | `singleflight` es local a cada réplica. |
+| VII. Port binding | Uvicorn escucha en 8000; Traefik local publica un puerto dinámico. | Health y extracción por Traefik local. | `pdf-network` debe crearse antes del Compose manual. |
+| VIII. Concurrency | Dos réplicas y límites de admisión, cuerpo y CPU. | Reparto entre réplicas con el verificador de balance. | El p95 HTTP frío menor de 400 ms no está demostrado. |
+| IX. Disposability | Readiness 503 durante cierre o pool roto; drenaje acotado y salida 70 ante fallo irreversible. | Tests de cierre y reinicio real de una réplica aislada. | Falta medir el drenaje de un PDF real durante `docker stop`. |
+| X. Dev/prod parity | Mismo Dockerfile para Compose local e integración. | Build y flujo integrado temporal. | No se demostró paridad con producción; el Compose común usa otros límites y política de reinicio. |
+| XI. Logs | Eventos y profiling a stdout con IDs de correlación. | Logs observados en Docker. | No hay agregación central propia; métricas y trazas opcionales son capacidades distintas de este factor. |
+| XII. Admin processes | Tests y scripts de arranque, parada y verificación. | Pytest y scripts locales. | No hay migraciones de base de datos en este servicio porque no persiste. |
 
-## Parada manual pendiente con Docker real
+El Dockerfile usa `pip` **sólo para desinstalarlo** de la imagen final durante
+el build; las dependencias se instalaron antes con `uv`. Este repositorio no
+implementa Consul, Saga, circuit breaker ni reintentos de Traefik. Esas
+configuraciones, si existen en el despliegue común, se verifican en
+infraestructura y no se atribuyen al extractor.
+
+## Prueba específica de drenaje aún pendiente
 
 1. Levantar dos réplicas con el comando de `README.md`.
 2. Iniciar una extracción real con un PDF permitido y registrar el `X-Request-ID`.
 3. Mientras esté en curso, ejecutar `docker compose -f compose.yaml -f compose.traefik.yaml stop -t 35 extractor`.
-4. Comprobar en otra terminal `/health/ready` durante el drain si el puerto de la réplica sigue accesible; por Traefik podría dejar de enrutarla antes.
-5. Inspeccionar logs y `docker inspect` para confirmar cierre dentro de 35 segundos y ausencia de procesos hijos. Registrar si la solicitud original terminó o fue cancelada por el proxy/servidor.
+4. Comprobar `/health/ready` durante el drenaje si la réplica sigue accesible; Traefik puede dejar de enrutarla antes.
+5. Revisar logs y `docker inspect` para confirmar el cierre dentro de 35 segundos y ausencia de hijos huérfanos. Registrar si la solicitud terminó o fue cancelada.
 
-Este procedimiento no se declara aprobado hasta ejecutarlo. `GRACEFUL_SHUTDOWN_TIMEOUT_SECONDS` debe ser menor que `stop_grace_period`; el valor entregado es 30 s frente a 35 s.
+No se declara aprobada esta prueba hasta ejecutarla. El plazo predeterminado
+`GRACEFUL_SHUTDOWN_TIMEOUT_SECONDS=30` es menor que `stop_grace_period=35s`.
