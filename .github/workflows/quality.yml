@@ -26,6 +26,5 @@ jobs:
         run: |
           docker compose config --quiet
           docker compose -f compose.yaml -f compose.traefik.yaml config --quiet
-          docker compose -f compose.yaml -f compose.traefik.yaml -f compose.observability.yaml config --quiet
       - name: Construcción de imagen
         run: docker build --tag pdf-extractor-service:ci .

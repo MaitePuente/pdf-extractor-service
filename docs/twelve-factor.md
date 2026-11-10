@@ -24,8 +24,10 @@ central y las mediciones de rendimiento tienen sus propios límites en
 El Dockerfile usa `pip` **sólo para desinstalarlo** de la imagen final durante
 el build; las dependencias se instalaron antes con `uv`. Este repositorio no
 implementa Consul, Saga, circuit breaker ni reintentos de Traefik. Esas
-configuraciones, si existen en el despliegue común, se verifican en
-infraestructura y no se atribuyen al extractor.
+capacidades, si existen en el despliegue común, se verifican en
+`pdf-infrastructure` y no se atribuyen al extractor. Allí se publicó
+Prometheus/Grafana con scrape de `/metrics`
+del extractor; su ejecución conjunta sigue sin verificarse en esta revisión.
 
 ## Prueba específica de drenaje aún pendiente
 

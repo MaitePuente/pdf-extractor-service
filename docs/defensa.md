@@ -50,10 +50,13 @@ puerto dinámico. El Compose común del equipo define Consul Catalog y Traefik;
 su configuración pertenece a infraestructura. La red compartida
 es `pdf-network`.
 
-La observabilidad propia es opcional: métricas Prometheus y trazas OTLP se
-habilitan por separado. El factor XI de Twelve-Factor trata de **logs**, no de
-métricas ni trazas. Este repositorio no implementa Consul, Saga, circuit breaker,
-reintentos de Traefik ni observabilidad central del equipo.
+El extractor expone `/metrics` si `METRICS_ENABLED=true` y permite trazas OTLP
+por separado. [Infraestructura en `d854b12`](https://github.com/JeremiasRoda/pdf-infrastructure/tree/d854b12ec29206ae969dfc36dd9a36a433f3c1a4)
+configura Prometheus, el scrape del extractor y Grafana bajo el perfil
+`monitoring`; su ejecución conjunta no se comprobó aquí. El factor XI de
+Twelve-Factor trata de **logs**, no de métricas ni trazas. Este repositorio no
+implementa Consul, Saga, circuit breaker, reintentos de Traefik ni el
+recolector central.
 
 ## Patrones para explicar en el oral
 
@@ -109,8 +112,9 @@ conjunta antes de decir que todos esos patrones funcionaron en vivo».
 
 **Respuesta corta — observabilidad:** «Los tres microservicios confirmados
 emiten logs y tienen health checks. Los IDs permiten relacionar peticiones. El
-extractor además ofrece métricas Prometheus y trazas OTLP opcionales, apagadas
-en su Compose local. No comprobamos una plataforma central que recoja métricas,
+extractor expone `/metrics` y ofrece trazas OTLP sólo si se habilitan.
+Infraestructura publicó Prometheus y Grafana con un scrape del extractor, pero
+no comprobamos ese perfil en ejecución ni una recolección completa de métricas,
 logs y trazas de todos. El factor XI pide logs como flujo de eventos; no exige
 Grafana». Ver [observability.md](observability.md) para consultar cada señal.
 

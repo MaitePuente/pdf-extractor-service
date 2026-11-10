@@ -17,7 +17,8 @@ medición están en [Rendimiento](docs/performance.md).
 - **Docker Compose y Traefik:** despliegue, healthchecks y balanceo.
 - **uv, pytest y Ruff:** dependencias bloqueadas, pruebas y análisis estático.
 - **k6 y Vegeta:** perfiles de carga reproducibles, ejecutados por separado.
-- **Prometheus y OpenTelemetry:** observabilidad opcional, desactivada por defecto.
+- **prometheus-client y OpenTelemetry:** métricas y trazas opcionales del extractor.
+  Prometheus y Grafana se configuran en `pdf-infrastructure`.
 
 PyMuPDF4LLM pertenece al grupo de desarrollo para reproducir experimentos
 anteriores; la ruta de producción no lo utiliza.
@@ -33,7 +34,7 @@ anteriores; la ruta de producción no lo utiliza.
 - Una extracción por proceso hijo y réplica por defecto; peticiones idénticas
   comparten trabajo dentro de la misma réplica.
 - Readiness del worker y reinicio acotado ante `BrokenProcessPool`.
-- IDs de correlación, métricas Prometheus y trazas OTLP opcionales.
+- IDs de correlación, endpoint `/metrics` y trazas OTLP opcionales.
 
 ## Arquitectura
 
@@ -225,6 +226,12 @@ rutas y middlewares. Este overlay con labels y proxy local sirve para desarrollo
 independiente: no debe levantarse junto al Compose común. Sus variables son
 `EXTRACTOR_HOST`, `EXTRACTOR_ENTRYPOINT` y `EXTRACTOR_TLS`.
 
+El extractor expone `/metrics` sólo con `METRICS_ENABLED=true`. El perfil
+`monitoring` de `pdf-infrastructure` configura Prometheus, el scrape de las
+réplicas y Grafana; está publicado, pero su funcionamiento conjunto no se
+verificó en este repositorio. No hace falta levantar un stack de monitoreo local
+desde el extractor.
+
 ### Configuración
 
 Las variables se leen al iniciar. Compose fija `CACHE_ENABLED=true` y
@@ -292,7 +299,8 @@ p95 HTTP actual menor que 400 ms.**
 
 - [Rendimiento](docs/performance.md): metodología, k6, Vegeta, evidencia y límites de las mediciones.
 - [Seguridad y admisión](docs/security.md): validaciones, memoria, cola y restricciones.
-- [Observabilidad](docs/observability.md): métricas, trazas, dashboard y Postman.
+- [Observabilidad](docs/observability.md): `/metrics`, trazas y configuración
+  publicada en la infraestructura común.
 - [Twelve-Factor](docs/twelve-factor.md): revisión de operación y despliegue.
 - [Guía de defensa](docs/defensa.md): arquitectura real, pruebas y responsabilidades.
 - [Colección Postman](tests/postman/pdf-extractor.postman_collection.json): pruebas manuales del contrato.
